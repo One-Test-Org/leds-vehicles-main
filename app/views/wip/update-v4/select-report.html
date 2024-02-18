@@ -1,0 +1,105 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters">
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Select report to add</h1>
+
+  <form class="form" action="/select-report" method="post">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-1" name="report-type" type="radio" value="action">
+              <label class="govuk-label govuk-radios__label" for="report-type-1">
+                Action
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-2" name="report-type" type="radio" value="correction">
+              <label class="govuk-label govuk-radios__label" for="report-type-2">
+                Correction
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-3" name="report-type" type="radio" value="destroyed">
+              <label class="govuk-label govuk-radios__label" for="report-type-3">
+                Destroyed
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-4" name="report-type" type="radio" value="found">
+              <label class="govuk-label govuk-radios__label" for="report-type-4">
+                Found
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-5" name="report-type" type="radio" value="information">
+              <label class="govuk-label govuk-radios__label" for="report-type-5">
+                Information
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-6" name="report-type" type="radio" value="lost">
+              <label class="govuk-label govuk-radios__label" for="report-type-6">
+                Lost/Stolen
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-7" name="report-type" type="radio" value="reaction">
+              <label class="govuk-label govuk-radios__label" for="report-type-7">
+                Reaction
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-8" name="report-type" type="radio" value="removed">
+              <label class="govuk-label govuk-radios__label" for="report-type-8">
+                Removed
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-9" name="report-type" type="radio" value="restricted">
+              <label class="govuk-label govuk-radios__label" for="report-type-9">
+                Restricted
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-10" name="report-type" type="radio" value="seen">
+              <label class="govuk-label govuk-radios__label" for="report-type-10">
+                Seen
+              </label>
+            </div>
+          </div>
+        </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+  </form>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    {% block side %}
+    {% include "includes/record-overview-side.html" %}
+    {% endblock %}
+  </div>
+</div>
+
+
+
+{% endblock %}

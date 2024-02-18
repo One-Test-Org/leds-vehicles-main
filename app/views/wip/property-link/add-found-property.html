@@ -1,0 +1,70 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+<form class="form" action="./check-answers-found" method="post">
+<div class="govuk-caption-l">Add new report</div>
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Do you need to also mark the engine Property record as found?
+    </h1>
+  </legend>
+  <div id="changed-name-hint" class="govuk-inset-text">
+    A Property record was automatically created for the engine of this vehicle: ZX600R-99. <br>It's currently still marked as Lost on Property
+  </div>
+
+  <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="engine" name="engine" type="radio" value="Yes">
+            <label class="govuk-label govuk-radios__label" for="engine">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="engine-2" name="engine" type="radio" value="No" data-aria-controls="conditional-engine-no">
+            <label class="govuk-label govuk-radios__label" for="engine-2">
+              No, the engine was missing
+            </label>
+          </div>
+          {#<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-engine-no">
+            The Property record will remain as Lost. You'll be able to edit it at the end of this journey.
+          </div>#}
+        </div>
+      </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+    <div>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+    </div>
+  </form>
+    </div>
+
+
+    <div class="govuk-grid-column-one-quarter">
+      {% block side %}
+      {% include "includes/record-overview-dvla-side.html" %}
+      {% endblock %}
+    </div>
+
+</div>
+
+
+{% endblock %}

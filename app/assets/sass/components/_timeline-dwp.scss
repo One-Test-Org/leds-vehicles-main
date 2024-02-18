@@ -1,0 +1,42 @@
+ol.dwp-timeline {
+  border-left: 3px solid #1d70b8;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dwp-timeline__entry {
+  margin: 2em 0;
+  padding-left: 1em;
+  position: relative;
+
+  &::before {
+    background-color: #1d70b8;
+    content: ' ';
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: .5em;
+    width: 10px;
+  }
+
+  .dwp-timeline__title {
+    display: block;
+    font-weight: 700;
+  }
+
+  .dwp-timeline__author,
+  .dwp-timeline__date {
+    color: #505a5f;
+    display: block;
+  }
+
+  .dwp-timeline__info {
+    margin-top: 0;
+  }
+
+  .dwp-timeline__body {
+    display: block;
+  }
+}

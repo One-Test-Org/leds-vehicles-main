@@ -1,0 +1,416 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Action report details</h1>
+
+<form class="form" action="./overview-updated-act" method="post">
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="act-code" name="actCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator (Optional)
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Creator cannot be the same as owner
+      </div>
+      <select class="govuk-select" id="country" name="country">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="act-ref" name="actRef" type="text">
+      </div>
+
+    {% block incidentdates %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="end date">
+        Action report classification
+      </label>
+    <div class="govuk-form-group" style="float:left">
+      <label class="govuk-label" for="sort">
+        Priority
+      </label>
+      <select class="govuk-select" id="priority" name="priority">
+        <option value="" selected></option>
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+    </div>
+    <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+      <label class="govuk-label" for="sort">
+        Action
+      </label>
+      <select class="govuk-select" id="action" name="action">
+        <option value="" selected></option>
+        <option value="STOP">Stop</option>
+        <option value="MONITOR">Monitor</option>
+        <option value="ASSESS">Assess</option>
+      </select>
+    </div>
+    <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+      <label class="govuk-label" for="sort">
+        Reason
+      </label>
+      <select class="govuk-select" id="reason" name="reason">
+        <option value="" selected></option>
+        <option value="CRIME">Crime</option>
+        <option value="DETAILS">Details</option>
+        <option value="DISQUALIFIED">Disqualified</option>
+        <option value="DRUGS">Drugs</option>
+        <option value="MISPER">Misper</option>
+        <option value="VISOR">Visor</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s" id="signals">
+          Do you need to add Warning Signals or person description? &nbsp;<a href="./add-action-signals-2#signals" class="govuk-link govuk-link--no-underline">&nbsp;&nbsp&nbsp;&nbsp</a>
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          These should be consistent with the Person's PNC record
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signals" name="signals" type="radio" value="yes" data-aria-controls="conditional-signals">
+            <label class="govuk-label govuk-radios__label" for="signals">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-signals">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-form-group">
+                {% block signals %}
+                {% include "includes/signals.html" %}
+                {% endblock %}
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="signals-2" name="signals" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="signals-2">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s" id="email">
+          Do you need to receive notifications about this report?
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, if it's amended or joined
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="email" name="email" type="radio" value="yes" data-aria-controls="conditional-email">
+            <label class="govuk-label govuk-radios__label" for="email">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-email">
+            <label class="govuk-label govuk-label--s">
+              First part of email address
+            </label>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, pnc.bureau
+            </div>
+            <input class="govuk-input govuk-input--width-10" id="emailDomain" name="emailDomain" type="text">
+            <span style="govuk-body">@avonandsomerset.police.uk</span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="email-2" name="email" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="email-2">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-character-count" id="charCount" data-module="govuk-character-count" data-maxlength="198">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="label-as-page-heading" id="signals">
+          Report text
+        </label>
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-!-width-two-thirds" id="auto-text" name="autoText" type="text" disabled>
+          <input class="govuk-input govuk-!-width-two-thirds" id="auto-text-hidden" name="autoTextHidden" style="display:none">
+        </div>
+        <div class="govuk-form-group">
+        <textarea class="govuk-textarea govuk-js-character-count" id="act-notes" name="actNotes" rows="5" style="text-transform: uppercase" aria-describedby="notes-info"></textarea>
+        </div>
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-!-width-two-thirds" id="auto-email" name="autoEmail" type="text" disabled>
+          <input class="govuk-input govuk-!-width-two-thirds" id="auto-email-hidden" name="autoEmailHidden" style="display:none">
+        </div>
+      </div>
+      <div id="notes-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 198 characters
+      </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+            Are there any associated hazards?
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-yes" name="hazards" type="radio" value="yes" data-aria-controls="conditional-hazards">
+            <label class="govuk-label govuk-radios__label" for="hazards-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-hazards">
+              <div class="govuk-form-group">
+                  <legend class="govuk-fieldset__legend">
+                    Select all hazards that apply
+                  </legend>
+                  <div class="govuk-checkboxes " data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Chemical
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Explosives
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Occupants potentially dangerous
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Radiation
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Weapons
+                      </label>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-no" name="hazards" type="radio" value="no" data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-radios__label" for="hazards-no">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to change the expiry date for this report?
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          Also known as weed date
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm" name="confirm" type="radio" value="yes" data-aria-controls="conditional-expiry">
+            <label class="govuk-label govuk-radios__label" for="confirm">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-expiry">
+            <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-label--s">
+                Set expiry date
+              </legend>
+              <div id="passport-issued-hint" class="govuk-hint">
+                Date can be between 07/06/2023 days and 25/09/2023
+              </div>
+              <div class="govuk-date-input" id="passport-issued">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+              </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm-2" name="confirm" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="confirm-2">
+              No, keep expiry date to 17/07/2023
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+    <input class="govuk-input " id="act-time" name="actTime" style="display:none">
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Add report</button>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="govuk-grid-column-one-quarter">
+  <section class="app-summary-card">
+    <header class="app-summary-card__header">
+      <h2 class="app-summary-card__title">Record overview</h2>
+    </header>
+    <div class="app-summary-card__body">
+        <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+        <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">SG 19705</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Hazards</p>
+        <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Weapons
+        </strong>
+        </p>
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Reports</p>
+        <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Lost/Stolen
+        </strong>
+        </p>
+    </div>
+  </section>
+
+</div>
+
+
+<script type="text/javascript">
+  const checkboxes = Array.from(document.querySelectorAll('input[name="warning-signals"]'));
+  const ethnicity = document.querySelector('#ethnicity');
+  const sex = document.querySelector('#sex');
+  const age = document.querySelector('#age');
+  const priority = document.querySelector('#priority');
+  const action = document.querySelector('#action');
+  const reason = document.querySelector('#reason');
+  const pncid = document.querySelector('#pncid');
+  const emailDomain = document.querySelector('#emailDomain');
+
+  // add event listeners
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', updateValues);
+  });
+  ethnicity.addEventListener('change', updateValues);
+  sex.addEventListener('change', updateValues);
+  age.addEventListener('blur', updateValues);
+  priority.addEventListener('change', updateValues);
+  action.addEventListener('change', updateValues);
+  reason.addEventListener('change', updateValues);
+  pncid.addEventListener('blur', updateValues);
+  emailDomain.addEventListener('blur', updateValues);
+
+
+  function getCheckboxesValues() {
+    const checkboxes = Array.from(document.querySelectorAll('input[name="warning-signals"]'));
+    let value = '';
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        value += checkbox.value + ' ';
+      }
+    });
+
+    return value;
+  }
+
+  function getSelectValues() {
+    return ethnicity.value + ' ' + sex.value + ' ';
+  }
+
+  function getClassValues() {
+    return priority.value + ' ' + action.value + ' ' + reason.value + ' ';
+  }
+
+  function updateValues() {
+    let newValue = '';
+    let emailValue = '';
+    let remainingCount = '';
+    // go through all checkboxes and add output to newValue
+    newValue += getClassValues();
+    newValue += getCheckboxesValues();
+    newValue += getSelectValues();
+    newValue += age.value.trim() + ' ';
+    newValue += pncid.value.trim();
+    emailValue += '<' + emailDomain.value.trim() + '@>';
+
+    // do same for select
+
+   document.querySelector('#auto-text').value = newValue;
+   document.querySelector('#auto-text-hidden').value = newValue;
+   document.querySelector('#auto-email').value = emailValue;
+   document.querySelector('#auto-email-hidden').value = emailValue;
+   // calculate remaining characters for textarea
+   remainingCount = 198-newValue.length;
+   // display remaining characters in textarea for debugging purposes
+   //document.querySelector('#notes').value = remainingCount;
+   //update data-maxlength attribute of element "charCount"
+   document.querySelector("#charCount").dataset.maxlength = remainingCount;
+   document.querySelector("#notes-info").innerHTML = "You have " + remainingCount + " characters remaining"
+
+   //newChars.dataset.maxlength = 300);
+   //newChars.setAttribute("class", "govuk-character-count govuk-!-margin-top-9");
+   //let maxlength = document.getElementById('maxlength');
+   //maxlength.setAttribute('data-maxlength', 'charsCount');
+   //document.getElementById("maxlength").data-maxlength = charsCount;
+  }
+  const dt = new Date();
+  document.getElementById("act-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+
+
+</script>
+
+
+{% endblock %}

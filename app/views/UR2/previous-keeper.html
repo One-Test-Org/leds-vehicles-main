@@ -1,0 +1,119 @@
+{% extends "layout-menu-2.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./overview-stolen-2">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Previous keeper
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="./export-copy" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red.html" %}
+{% endblock %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="./overview-stolen" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./no-insurance" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./insurance-past-check" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./MOT" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./markers" class="menu_list_item_link">
+                DVLA markers
+              </a>
+            </li>
+            <li class="menu_list_item menu_list_item-active">
+              <a href="./previous-keeper" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+        <div class="govuk-grid-column-three-quarters">
+          <h2 class="govuk-heading-l">Previous registered keeper</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Sarah Philips
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Start date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                19 Jun 2016
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                End date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                09 Mar 2018
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                72 Guild Street<br>London<br>SE23 6FH
+              </dd>
+            </div>
+          </dl>
+        </div>
+    </div>
+
+{% endblock %}

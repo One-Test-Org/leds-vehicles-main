@@ -1,0 +1,272 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 ABC - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search-radio">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./results-2">Search results</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./BIILLY">Vehicle record</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" alt="Copy icon"></a>&nbsp;&nbsp;<a href="#" class="govuk-link govuk-link--no-visited-state">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="#" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <a href="./results-2" class="govuk-back-link">Back to search results</a>
+  </div>
+<div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+  <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" alt="Copy icon"></a>&nbsp;&nbsp;<a href="#" class="govuk-link govuk-link--no-visited-state">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="./export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="#" class="govuk-link govuk-link--no-visited-state">Export record</a>
+</div>
+</div> -->
+{% endblock %}
+
+{% block content %}
+
+<div class="hods-alert">
+  <h2 class="hods-alert__heading govuk-!-margin-top-2">2 vehicle records found for BIILLY.</h2>
+  <div class="govuk-warning-text govuk-!-margin-bottom-3">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      For cloned vehicles, the insurance and MOT information displayed below could apply to any of the vehicles.
+    </strong>
+  </div>
+  <a href="./results" class="govuk-link">Back to search results</a>
+</div>
+
+
+
+<div class="govuk-grid-row govuk-!-padding-5" style="background-color: white; border-bottom: 4px solid #1d70b8">
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-row govuk-!-padding-bottom-3">
+
+        <div class="govuk-grid-column-one-third ">
+          <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">BIILLY</p>
+          <p class="govuk-body govuk-!-margin-bottom-0">VIN</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5YJSA1DG9DFP14705</p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2 ">JAGUAR, XF</p>
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-5">Body type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">4 DOOR SALOON</p>
+        </div>
+        <div class="govuk-grid-column-one-quarter" style="border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">
+          <p class="govuk-body govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">WHITE</p>
+          <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-0">Fuel type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">PETROL</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="govuk-grid-column-one-third-from-desktop">
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Registered keeper</p>
+          <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold govuk-!-margin-bottom-2">BILLY MORRISON</a>
+      </div>
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Keeper since</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">02/03/2019</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0">Registered keeper address</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">17 BLAKE STREET, YORK, YO1 8QJ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="govuk-grid-row govuk-!-padding-right-3">
+  <div class="govuk-grid-column-full">
+
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<!-- govuk-details__text govuk-!-padding-right-5 -->
+  {{ govukDetails({
+    summaryText: "View more vehicle information",
+    html: '<dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          52WVC10338
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine capacity
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2000cc
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/12/2018
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first DVLA registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+        20/12/2018
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tax class
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PETROL
+        </dd>
+      </div>
+</dl>'
+}) }}
+</div>
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m">
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="#" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Past Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./BIILLY-CT" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter info-box">
+    <div class="govuk-grid-row grey-margin-top">
+      <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Hazards</h2>
+    </div>
+    <div class="govuk-grid-row grey-margin-bottom">
+      <p class="govuk-!-margin-left-2 govuk-!-margin-right-6"><strong class="govuk-tag govuk-tag--grey">
+        None
+      </strong></p>
+      <p class="govuk-body govuk-!-margin-bottom-8">&nbsp</p>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter info-box">
+    <div class="govuk-grid-row grey-margin-top">
+      <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Police information</h2>
+    </div>
+    <div class="govuk-grid-row grey-margin-bottom">
+      <p class="govuk-!-margin-left-2 govuk-!-margin-right-6"><strong class="govuk-tag govuk-tag--grey">
+        None
+      </strong></p>
+      <p class="govuk-body govuk-!-margin-bottom-8">&nbsp</p>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter info-box">
+    <div class="govuk-grid-row yellow-margin-top">
+      <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">DVLA markers</h2>
+    </div>
+    <div class="govuk-grid-row yellow-margin-bottom">
+      <p>
+        <strong class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-1 govuk-!-margin-left-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          CHERISHED TRANSFER
+        </strong>
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-8">&nbsp</p>
+    </div>
+  </div>
+    </div>
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <p>&nbsp</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <a href="./no-insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insurance held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 02/03/2024</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <a href="./MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp MOT held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 06/04/2024</p>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Tax held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 11/12/2023</p>
+      </div>
+    </div>
+
+
+{% endblock %}

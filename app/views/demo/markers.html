@@ -1,0 +1,116 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Markers – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Markers
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right; font-size:1rem">
+    <a href="./edit-record-2" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-blue.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="./overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./insurance.html" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./past-insurance/insurance-past-check" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item menu_list_item-active">
+              <a href="./markers.html" class="menu_list_item_link">
+                DVLA markers
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<!--      <h2 class="govuk-heading-m">Hazards</h2> -->
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+  {{ govukTable({
+    caption: "DVLA markers",
+    captionClasses: "govuk-table__caption--l",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Marker type"
+      },
+      {
+        text: "Notes"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Colour changed"
+        },
+        {
+          html: 'Previous primary colour: White<br>
+                Previous secondary colour: Black
+          '
+        }
+      ]
+    ]
+  }) }}
+
+        </div>
+      </div>
+
+{% endblock %}

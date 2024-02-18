@@ -1,0 +1,441 @@
+{% extends "layout-menu-4.html" %}
+
+{% block pageTitle %}
+  CF60 POP - MOT history – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./overview-critical">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          MOT history
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="./export-copy" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-critical.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="./overview-critical" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item ">
+              <a href="./insurance" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./past-insurance" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item menu_list_item-active">
+              <a href="./MOT" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">MOT history</h2>
+
+      {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+      {{ govukAccordion({
+        id: "accordion-with-summary-sections",
+        items: [
+                      {
+                        heading: {
+                          text: "16/03/2022"
+                        },
+                        summary: {
+                            html: '<strong class="govuk-tag govuk-tag--red">Failed</strong>'
+                        },
+                        content: {
+                          html: '
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Mileage
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                57,150 miles
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                MOT test number
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                671287349812
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Dangerous defects
+                              </dt>
+                              <dd class="govuk-summary-list__value govuk-!-margin-top-5">
+                                Brake lining or pad worn below 1.5mm
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Major defects
+                              </dt>
+                              <dd class="govuk-summary-list__value govuk-!-margin-top-5">
+                                <p class="govuk-body govuk-!-margin-top-2">Rear brake application uneven</p>
+                                <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                                <p class="govuk-body govuk-!-margin-top-2 ">Offside Front Obligatory mirror insecure (8.1.1)</p>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Minor defects
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Shock Absorber Has A Small Fluid Leak
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Advisory notice items
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body"><strong class="govuk-tag govuk-tag--red">Dangerous</strong> -
+                                  Tyre worn close to the legal limit Nearside Front [5.2.3(e)]</p>
+                                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                                <p class="govuk-body govuk-!-margin-top-2">Rear Child Seat fitted not allowing full inspection of adult belt Nearside rear, Centre rear and offside rear seatbelt not assessible.</p>
+                              </dd>
+                            </div>
+                          </dl>
+                          '
+                          }
+                        },
+                          {
+                        heading: {
+                          text: "30/03/2021"
+                        },
+                        summary: {
+                          html: '<strong class="govuk-tag govuk-tag--green">Passed</strong>'
+                        },
+                        content: {
+                          html: '
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Expiry date
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                06/04/2022
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Mileage
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                60,220 miles
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                MOT test number
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                897612672166
+                              </dd>
+                            </div>
+                          </dl>
+                          '
+                          }
+                        },
+
+                          {
+                        heading: {
+                          text: "02/04/2022"
+                        },
+                        summary: {
+                          html: '<strong class="govuk-tag govuk-tag--green">Passed</strong>'
+                        },
+                        content: {
+                          html: '
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Expiry date
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                02/05/2021
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Mileage
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                57,220 miles
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                MOT test number
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                901289128723
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Advisory notice items
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Windscreen has damage to an area less than a 40mm circle outside zone A (8.3.1d)
+                              </dd>
+                            </div>
+                          </dl>
+                          '
+                          }
+                        },
+
+                          {
+                        heading: {
+                          text: "20/03/2020"
+                        },
+                        summary: {
+                          html: '<strong class="govuk-tag govuk-tag--red">Failed</strong>'
+                        },
+                        content: {
+                          html: '
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Mileage
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                57,150 miles
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                MOT test number
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                671287349812
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Dangerous defects
+                              </dt>
+                              <dd class="govuk-summary-list__value govuk-!-margin-top-5">
+                                Brake lining or pad worn below 1.5mm
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Major defects
+                              </dt>
+                              <dd class="govuk-summary-list__value govuk-!-margin-top-5">
+                                <p class="govuk-body govuk-!-margin-top-2">Rear brake application uneven</p>
+                                <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                                <p class="govuk-body govuk-!-margin-top-2 ">Offside Front Obligatory mirror insecure (8.1.1)</p>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Minor defects
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Shock Absorber Has A Small Fluid Leak
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Advisory notice items
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <p class="govuk-body"><strong class="govuk-tag govuk-tag--red">Dangerous</strong> -
+                                  Tyre worn close to the legal limit Nearside Front [5.2.3(e)]</p>
+                                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                                <p class="govuk-body govuk-!-margin-top-2">Rear Child Seat fitted not allowing full inspection of adult belt Nearside rear, Centre rear and offside rear seatbelt not assessible.</p>
+                              </dd>
+                            </div>
+                          </dl>
+                          '
+                          }
+                        },
+
+                        {
+                      heading: {
+                        text: "05/04/2019"
+                      },
+                      summary: {
+                        html: '<strong class="govuk-tag govuk-tag--green">Passed</strong>'
+                      },
+                      content: {
+                        html: '
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Expiry date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              06/04/2020
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Mileage
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              52,666 miles
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              MOT test number
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              897612654387
+                            </dd>
+                          </div>
+                        </dl>
+                        '
+                      }
+                    },
+
+                    {
+                  heading: {
+                    text: "06/04/2018"
+                  },
+                  summary: {
+                    html: '<strong class="govuk-tag govuk-tag--green">Passed</strong>'
+                  },
+                  content: {
+                    html: '
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Expiry date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          06/04/2019
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Mileage
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          49,995 miles
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          MOT test number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          893467239813
+                        </dd>
+                      </div>
+                    </dl>
+                    '
+                  }
+                },
+
+                {
+              heading: {
+                text: "07/04/2017"
+              },
+              summary: {
+                html: '<strong class="govuk-tag govuk-tag--red">Failed</strong>'
+              },
+              content: {
+                html: '
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Mileage
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      45,754 miles
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      MOT test number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      357612873498
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Major defects
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    <p class="govuk-body"><strong class="govuk-tag govuk-tag--red">Dangerous</strong> -
+                    Brake lining or pad worn below 1.5mm</p>
+                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                    <p class="govuk-body govuk-!-margin-top-2">Rear brake application uneven</p>
+                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                    <p class="govuk-body govuk-!-margin-top-2 ">Offside Front Obligatory mirror insecure (8.1.1)</p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Advisory notice items
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p class="govuk-body"><strong class="govuk-tag govuk-tag--red">Dangerous</strong> -
+                        Tyre worn close to the legal limit Nearside Front [5.2.3(e)]</p>
+                      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                      <p class="govuk-body govuk-!-margin-top-2">Rear Child Seat fitted not allowing full inspection of adult belt Nearside rear, Centre rear and offside rear seatbelt not assessible.</p>
+                    </dd>
+                  </div>
+                </dl>
+                '
+                }
+              }
+              ]
+            }) }}
+
+
+        </div>
+      </div>
+
+{% endblock %}

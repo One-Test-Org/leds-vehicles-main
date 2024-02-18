@@ -1,0 +1,236 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Update vehicle record</div>
+<h1 class="govuk-heading-l">Vehicle and keeper details</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <h2 class="govuk-heading-m govuk-!-margin-top-3">Main vehicle details</h2>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="VRM">
+          VRM (Vehicle Registration Mark)
+        </label>
+        <div id="onbehalf-hint" class="govuk-hint">
+          Also known as Index or VRN
+        </div>
+        <input class="govuk-input govuk-!-width-one-third" id="event-name" name="event-name" type="text" value="AA 465LK" disabled>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="VIN">
+          VIN (Vehicle Identification Number)
+        </label>
+        <div id="onbehalf-hint" class="govuk-hint">
+          Also known as chassis number
+        </div>
+        <input class="govuk-input govuk-!-width-one-third" id="VIN" name="VIN" type="text">
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+          <label class="govuk-label govuk-label--s" for="make">
+            Make
+          </label>
+          <select class="govuk-select" id="make" name="make">
+            <option value=""></option>
+            <option value="audi">Audi</option>
+            <option value="bmw" selected>BMW</option>
+            <option value="ford">Ford</option>
+            <option value="mercedez-benz">Mercedez-Benz</option>
+            <option value="toyota">Toyota</option>
+          </select>
+        </div>
+
+        <div class="govuk-form-group" style="float:left; margin-left:30px">
+          <label class="govuk-label govuk-label--s" for="make">
+            Model
+          </label>
+          <select class="govuk-select" id="make" name="make">
+            <option value=""></option>
+            <option value="audi">A3</option>
+            <option value="audi">A4</option>
+            <option value="audi">A5</option>
+            <option value="audi">A6</option>
+            <option value="mercedez-benz">A-Class</option>
+            <option value="mercedez-benz">C-Class</option>
+            <option value="ford">Focus</option>
+            <option value="ford">Transit 150 Passenger Van</option>
+            <option value="toyota">Prius</option>
+            <option value="x5" selected>X5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-form-group govuk-!-margin-left-3" style="float:left; width:180px">
+          <label class="govuk-label govuk-label--s" for="make">
+            Primary colour
+          </label>
+          <select class="govuk-select" id="make" name="make" style="text-transform:uppercase">
+            <option value=""></option>
+            <option value="Any">Any</option>
+            <option value="Black">Black</option>
+            <option value="Blue" selected>Blue</option>
+            <option value="Bronze">Bronze</option>
+            <option value="Brown">Brown</option>
+            <option value="Cream">Cream</option>
+            <option value="Gold">Gold</option>
+            <option value="Green">Green</option>
+            <option value="Grey">Grey</option>
+            <option value="Maroon">Maroon</option>
+            <option value="Multi coloured">Multi coloured</option>
+            <option value="Orange">Orange</option>
+            <option value="Pink">Pink</option>
+            <option value="Purple">Purple</option>
+            <option value="Red">Red</option>
+            <option value="Silver">Silver</option>
+            <option value="Turquoise">Turquoise</option>
+            <option value="White">White</option>
+            <option value="Yellow">Yellow</option>
+          </select>
+        </div>
+        <div class="govuk-form-group" style="float:left; margin-left:30px; width:180px;">
+          <label class="govuk-label govuk-label--s" for="make">
+            Secondary colour
+          </label>
+          <select class="govuk-select" id="make" name="make" style="text-transform:uppercase">
+            <option value="" selected></option>
+            <option value="Any">Any</option>
+            <option value="Black">Black</option>
+            <option value="Blue">Blue</option>
+            <option value="Bronze">Bronze</option>
+            <option value="Brown">Brown</option>
+            <option value="Cream">Cream</option>
+            <option value="Gold">Gold</option>
+            <option value="Green">Green</option>
+            <option value="Grey">Grey</option>
+            <option value="Maroon">Maroon</option>
+            <option value="Multi coloured">Multi coloured</option>
+            <option value="Orange">Orange</option>
+            <option value="Pink">Pink</option>
+            <option value="Purple">Purple</option>
+            <option value="Red">Red</option>
+            <option value="Silver">Silver</option>
+            <option value="Turquoise">Turquoise</option>
+            <option value="White">White</option>
+            <option value="Yellow">Yellow</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="make">
+          Body type
+        </label>
+        <select class="govuk-select" id="make" name="make" style="width:180px; text-transform:uppercase"">
+          <option value=""></option>
+          <option value="ford" >Saloon</option>
+          <option value="toyota" selected>SUV</option>
+        </select>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Further vehicle details</h2>
+      <div class="govuk-form-group">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="engine-no">
+            Engine number
+          </label>
+          <input class="govuk-input govuk-!-width-one-quarter" id="engine-no" name="engine-no" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="engine-cc">
+            Engine capacity
+          </label>
+          <input class="govuk-input govuk-!-width-one-quarter" id="engine-cc" name="engine-cc" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="make">
+            Fuel type
+          </label>
+          <select class="govuk-select" id="make" name="make" style="width:180px; text-transform:uppercase"">
+            <option value="" selected></option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="petrol">Petrol</option>
+          </select>
+        </div>
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Registration date
+          </legend>
+          <div class="govuk-date-input" id="passport-issued">
+            <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+          </div>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="engine-no">
+            Transponder tag number
+          </label>
+          <input class="govuk-input govuk-!-width-one-quarter" id="engine-no" name="engine-no" type="text">
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Registered Keeper details</h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="RK-name">
+          Name
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="RK-name" name="RK-name" >
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="RK-postcode">
+          Postcode
+        </label>
+        <input class="govuk-input govuk-!-width-one-third" id="RK-postcode" name="RK-postcode"></input>
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="RK-address">
+          Address
+        </label>
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="RK-address" name="RK-address" rows="7"></textarea>
+      </div>
+      <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Keeper since
+        </legend>
+        <div class="govuk-date-input" id="passport-issued">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+        </div>
+      </div>
+
+      </div>
+
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <a href="./overview-updated" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Update record</a>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+<!--
+  <div class="govuk-grid-column-one-third">
+    {% block carheader %}
+    {% include "includes/carheader-medium-side.html" %}
+    {% endblock %}
+  </div>
+-->
+</div>
+
+
+{% endblock %}

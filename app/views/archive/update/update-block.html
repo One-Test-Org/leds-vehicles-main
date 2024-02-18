@@ -1,0 +1,76 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Edit record</div>
+<h1 class="govuk-heading-l">Update blocked status</h1>
+
+<form class="form" action="./overview-unblocked" method="post">
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to block this vehicle?
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="foreign" name="foreign" type="radio" value="yes" data-aria-controls="conditional-blocked-Yes" checked>
+            <label class="govuk-label govuk-radios__label" for="foreign">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-blocked-Yes">
+            <div class="govuk-form-group govuk-!-width-two-thirds">
+              <label class="govuk-label govuk-label--s" for="code">
+                Force/Station code
+              </label>
+              <select class="govuk-select" id="code" name="code">
+                {% block codesBlock %}
+                {% include "includes/codes.selected.html" %}
+                {% endblock %}
+              </select>
+            </div>
+            <div class="govuk-form-group govuk-!-width-two-thirds">
+              <label class="govuk-label govuk-label--s" for="reference">
+                Blocked reference
+              </label>
+              <input class="govuk-input " id="reference" name="reference" value="{{ data['reference'] }}">
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="foreign-2" name="foreign" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="foreign-2">
+              No, unblock vehicle
+            </label>
+          </div>
+        </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Update blocked status</button>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    {% block carheader %}
+    {% include "includes/carheader-medium-side-5.html" %}
+    {% endblock %}
+  </div>
+
+</div>
+</form>
+
+{% endblock %}

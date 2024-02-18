@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">
+  Insurance box options
+</h1>
+
+<p class="govuk-body-l">Experimental designs for different ways to present insurance overview</p>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter" style="background-color: #00703c; border-style: solid; border-left-width: 4px; border-right-width: 4px; border-color: white">
+    <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insured</p>
+    <p class="class=govuk-body" style="text-align: center; color: #ffffff">Covered for:<br>Private<br>Commercial</p>
+</div>
+<div class="govuk-grid-column-one-quarter" style="background-color: #00703c; border-style: solid; border-left-width: 4px; border-right-width: 4px; border-color: white">
+    <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Valid insurance</p>
+    <p class="class=govuk-body" style="text-align: center; color: #ffffff">Expiry date: 10 Dec 2022</p>
+</div>
+<div class="govuk-grid-column-one-quarter" style="background-color: #00703c; border-style: solid; border-left-width: 4px; border-right-width: 4px; border-color: white">
+    <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insured</p>
+    <p class="class=govuk-body" style="text-align: center; color: #ffffff">Expiry date: 10 Dec 2022</p>
+    <details class="govuk-details" data-module="govuk-details" style="color:white">
+      <summary class="govuk-details__summary" style="color:white">
+        <span class="govuk-details__summary-text" style="color:white">
+          Types of insurance held
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list">
+        <li style="color:white">
+          Private
+        </li>
+        <li style="color:white">
+          Commercial
+        </li>
+        </ul>
+      </div>
+    </details>
+</div>
+<div class="govuk-grid-column-one-quarter" style="background-color: #00703c; border-style: solid; border-left-width: 4px; border-right-width: 4px; border-color: white">
+    <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insured</p>
+    <p class="class=govuk-body" style="text-align: center; color: #ffffff">Expiry date: 10 Dec 2022</p>
+</div>
+<div class="govuk-grid-column-one-quarter">
+  <details class="govuk-details govuk-!-padding-top-1" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Types of insurance held
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+        Private<br>
+        Commercial
+    </div>
+  </details>
+</div>
+<div class="govuk-grid-column-one-quarter">
+
+</div>
+</div>
+
+<!--Commercial, Business, Motor trade, Private-->
+
+{% endblock %}

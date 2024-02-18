@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF04 DPK - Action report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search-2">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-v2">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Action report (E94F9390DE3893)
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+
+      <h2 class="govuk-heading-l">Action report</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Reference number"
+            },
+            value: {
+              text: "E94F9390DE3893"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (from)"
+            },
+            value: {
+              text: "14 March 2019"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (to)"
+            },
+            value: {
+              text: "15 March 2019"
+            }
+          },
+          {
+            key: {
+              text: "Linked hazards"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--red">Occupants potentially dangerous</strong>'
+            }
+          },
+          {
+            key: {
+              text: "Details"
+            },
+            value: {
+              text: "HIGH STOP CRIME. Two caucasion males, wearing hoodies seen dealing drugs by local residents from white mercedes. If you see vihicle, stop and check for PWITS"
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              text: "Confirmed"
+            }
+          },
+          {
+            key: {
+              text: "Linked reports"
+            },
+            value: {
+              html: '<a href="#" class="govuk-link">Reaction (X73P1238GE6179)</a>'
+            }
+        }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Report source</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Owner"
+            },
+            value: {
+              text: "Dorset Police (FS10)"
+            }
+          },
+          {
+            key: {
+              text: "Created by"
+            },
+            value: {
+              html: 'PC Smith, PO123345<br>Essex Police'
+            }
+          },
+          {
+            key: {
+              text: "Created on"
+            },
+            value: {
+              text: "15 March 2019, 14:47"
+            }
+          },
+          {
+            key: {
+              text: "Last updated by"
+            },
+            value: {
+              text: "PC Singh (FC14)"
+            }
+          },
+          {
+            key: {
+              text: "Last updated on"
+            },
+            value: {
+              text: "15 March 2018"
+            }
+          },
+            {
+              key: {
+                text: "Weed date"
+              },
+              value: {
+                text: "12 January 2023"
+              }
+          }
+
+        ]
+      }) }}
+<!--
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+      caption: "Linked person reports",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "Report"
+      },
+      {
+        text: "Justification"
+      },
+      {
+        text: "Details"
+      },
+      {
+        text: "Updated by"
+      },
+      {
+        text: "Updated on"
+      }
+      ],
+      rows: [
+      [
+        {
+          text: "Wanted - 12857034"
+        },
+        {
+          text: "Operation TABLE"
+        },
+        {
+          text: "-"
+        },
+        {
+          text: "FS10"
+        },
+        {
+          text: "14 Mar 2019"
+        }
+      ]
+      ]
+      }) }}
+-->
+
+
+{% endblock %}

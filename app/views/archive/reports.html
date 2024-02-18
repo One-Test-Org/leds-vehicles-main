@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF04 DPK - Police reports – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Police reports
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <ul class="govuk-list govuk-list--spaced">
+      <li>
+        <a class="govuk-link" href="/overview">Overview</a>
+      </li>
+      <li>
+        Police reports (4)
+      </li>
+      <li>
+        <a class="govuk-link" href="/markers">Markers (2)</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/insurance">Insurance</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/MOT">MOT and Tax</a>
+      </li>
+    </ul>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<!--      <h2 class="govuk-heading-m">Police reports</h2> -->
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+  {{ govukTable({
+    caption: "Police reports",
+    captionClasses: "govuk-table__caption--l",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Report type"
+      },
+      {
+        text: "Details"
+      },
+      {
+        text: "Created on"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<a href="#" class="govuk-link">Lost/Stolen<br>(E34Y9340TY3293)</a>'
+        },
+        {
+          text: "Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing"
+        },
+        {
+          text: "15 Mar 2019"
+        }
+      ],
+        [
+          {
+            html: '<a href="/reports-action" class="govuk-link">Action<br>(E94F9390DE3893)</a>
+          },
+          {
+            text: "HIGH STOP CRIME. Two caucasion males, wearing hoodies seen dealing drugs by local residents from white mercedes. If you see vihicle, stop and check for PWITS"
+          },
+          {
+            text: "15 Mar 2019"
+          }
+        ],
+          [
+            {
+              html: '<a href="#" class="govuk-link">Information<br>(B42G9179RW3911)</a><br>
+              <strong class="govuk-tag govuk-tag--red">
+                  Occupants potentially dangerous
+              </strong>'
+            },
+            {
+              text: "Boot of stolen vehicle contained farming pesticides and emergency flare in glove compartment."
+            },
+            {
+              text: "11 Mar 2019"
+            }
+          ],
+            [
+              {
+                html: '<a href="#" class="govuk-link">Information<br>(O31Q9415HI1321)</a><br>
+                <strong class="govuk-tag govuk-tag--red">
+                    chemical
+                </strong>'
+              },
+              {
+                text: "Checked at 0825HRS in wooded area at rear of Banner Lane, Tunstall. Vehicle doors locked but boot insecure (no sign of forced entry). PC 73 Grant on 01273 480480 dealing. "
+              },
+              {
+                text: "22 Feb 2019"
+              }
+            ]
+    ]
+  }) }}
+
+        </div>
+      </div>
+
+{% endblock %}

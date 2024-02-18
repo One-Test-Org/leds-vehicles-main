@@ -1,0 +1,29 @@
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Incident start date (Optional)
+      </legend>
+      <div class="govuk-date-input" id="passport-issued">
+        <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+      </div>
+    </div>
+
+    <div class="govuk-form-group">
+    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="incident-date" name="incident-date" type="checkbox" value="end-date" data-aria-controls="conditional-date" style="accent-color:white">
+        <label class="govuk-label govuk-checkboxes__label" for="incident-date">
+          Add incident end date
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-date">
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Incident end date
+          </legend>
+          <div class="govuk-date-input" id="passport-issued">
+            <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

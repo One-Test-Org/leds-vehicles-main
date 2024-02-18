@@ -1,0 +1,77 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+      <a href="/index#future" class="govuk-back-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-blue.html" %}
+{% endblock %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="./overview-void" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="MOT.html" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="markers.html" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="previous-keeper.html" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="overview-void-previous-vehicle.html" class="menu_list_item_link">
+              Previous vehicle
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+        <div class="govuk-grid-column-three-quarters">
+          <h2 class="govuk-heading-l">Previous vehicle</h2>
+
+          <div class="govuk-body-l">No previous vehicle information held by DVLA for CF60 POP</div>
+
+        </div>
+    </div>
+
+{% endblock %}

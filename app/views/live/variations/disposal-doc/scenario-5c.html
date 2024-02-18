@@ -1,0 +1,90 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Previous keeper
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="/live/export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="/live/export-form" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-dd2.html" %}
+{% endblock %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item ">
+            <a href="#" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="#" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="#" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+        <div class="govuk-grid-column-three-quarters">
+          <h2 class="govuk-heading-l">Previous registered keeper</h2>
+
+          <div class="govuk-body-l">No previous registered keeper information held by DVLA for CF60 POP.</div>
+
+          <div class="govuk-inset-text">
+              DVLA Disposal Document number: 20221509680000.
+          </div>
+        </div>
+    </div>
+
+{% endblock %}

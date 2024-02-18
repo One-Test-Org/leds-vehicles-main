@@ -1,0 +1,172 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Reaction report details</h1>
+
+<form class="form" action="./deletion-warning" method="post">
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="rea-code" name="reaCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="creator" name="creator" type="checkbox" value="yes" data-aria-controls="conditional-creator" style="accent-color:white">
+        <label class="govuk-label govuk-checkboxes__label" for="creator">
+          Creator is different to owner
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-creator">
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Report creator
+          </legend>
+          <div id="changed-name-hint" class="govuk-hint">
+            Enter Force/Station code or unit name
+          </div>
+          <select class="govuk-select" id="country" name="country">
+            {% block codesCreator %}
+            {% include "includes/codes.html" %}
+            {% endblock %}
+          </select>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+      </div>
+
+    {% block insurancecontent %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="198">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+          Notes
+        </label>
+        <textarea class="govuk-textarea govuk-js-character-count" id="label-as-page-heading" name="label-as-page-heading" rows="5" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+
+      <div id="label-as-page-heading-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 198 characters
+      </div>
+    </div>
+
+
+    <div class="hods-alert govuk-!-margin-top-9 govuk-!-margin-bottom-6 govuk-!-width-three-quarters">
+      <p class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        This report will be joined with <strong><a href="./action-report-2" target="_blank" class="govuk-link govuk-link--no-visited-state">Action</a></strong> (A15P3782OP0925), by 02L1
+      </p>
+    </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="hazards-hint">
+            <legend class="govuk-fieldset__legend govuk-label--s">
+                Do you need to pair this report to the Action (A15P3782OP0925) report?
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Paired reports will be automatically and immediately deleted
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pair-yes" name="pair" type="radio" value="yes" data-aria-controls="conditional-pair">
+                <label class="govuk-label govuk-radios__label" for="pair-yes">
+                  Yes, pair reports
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pair-no" name="pair" type="radio" value="no" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-radios__label" for="pair-no">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-pair">
+                <div class="govuk-warning-text govuk-!-margin-top-3">
+                  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                  <strong class="govuk-warning-text__text govuk-!-width-two-thirds">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Both reports will be automatically and immediately deleted
+                  </strong>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Add report</button>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #1d70b8; border-left: 2px solid #1d70b8; border-right: 2px solid #1d70b8; border-bottom: 2px solid #1d70b8">
+        <div class="govuk-grid-column-full govuk-!-padding-left-6">
+          <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">SG 19705</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">-</p>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+function handleChange() {
+  document.getElementById('warning').style.display = "block";
+}
+
+//  var trigger = document.getElementById('pair-yes');
+
+
+//  trigger.onchange = function () {
+//    showWarning.style.display = "block";
+//  };
+
+  </script>
+{% endblock %}

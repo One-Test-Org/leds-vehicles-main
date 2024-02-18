@@ -1,0 +1,53 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="./edit-record" class="govuk-back-link">Back to add report</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+        <h1 class="govuk-heading-l">Delete this Police record?</h1>
+        <p class="govuk-body-l">
+          Deleting these reports will automatically delete the Police record too, as there'll be no more reports left on the record.
+        </p>
+        <div class="govuk-warning-text govuk-!-margin-top-3" id="warning" >
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text govuk-!-width-two-thirds">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            This action cannot be undone
+          </strong>
+        </div>
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            <a class="govuk-button" data-module="govuk-button" href="./search-deleted">Delete reports and record</a>
+          <a class="govuk-link" href="./overview-blocked">Cancel</a>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #1d70b8; border-left: 2px solid #1d70b8; border-right: 2px solid #1d70b8; border-bottom: 2px solid #1d70b8">
+            <div class="govuk-grid-column-full govuk-!-padding-left-6">
+              <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+              <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">SG 19705</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+              <p class="govuk-body govuk-!-font-weight-bold">-</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

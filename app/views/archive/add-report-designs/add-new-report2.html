@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>  <span>&nbsp; &nbsp; </span> <span><a href="/wip/add-new-report" style="color: #dadada" id="swap">SWAP</a></span>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="hods-alert hods-alert--error" id="no-stolen-banner" style="display:none">
+      <h2 class="hods-alert__heading">
+        No Lost/Stolen report exists
+      </h2>
+      <p>You cannot create a Found report unless a Lost/Stolen report already exists for this vehicle.</p>
+  </div>
+
+  <div class="hods-alert hods-alert--error" id="no-action-banner" style="display:none">
+      <h2 class="hods-alert__heading">
+        No Action report exists
+      </h2>
+      <p>You cannot create a Reaction report unless at least one Action report already exists for this vehicle.</p>
+  </div>
+
+  <div class="hods-alert hods-alert--error" id="same-ref-banner" style="display:none">
+      <h2 class="hods-alert__heading">
+        Reference number ABD98765 already exists
+      </h2>
+      <p>You cannot create a new report with a reference number that already exists for another report for this vehicle.</p>
+      <p>Enter a different reference number or view existing report: <a href="#" class="govuk-link">Information (ABD98765)</a></p>
+  </div>
+
+    <div class="govuk-caption-l">Create new report</div>
+    <h1 class="govuk-heading-l">Report type</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/after-new-report" method="post">
+
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" >
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            What report do you want to create?
+          </legend>
+        <div class="govuk-radios" data-module="govuk-radios" id="report-type">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-1" name="report-type" type="radio" value="action">
+            <label class="govuk-label govuk-radios__label" for="report-type-1">
+              Action
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-2" name="report-type" type="radio" value="correction">
+            <label class="govuk-label govuk-radios__label" for="report-type-2">
+              Correction
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-3" name="report-type" type="radio" value="destroyed">
+            <label class="govuk-label govuk-radios__label" for="report-type-3">
+              Destroyed
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-4" name="report-type" type="radio" value="found">
+            <label class="govuk-label govuk-radios__label" for="report-type-4">
+              Found
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-5" name="report-type" type="radio" value="information">
+            <label class="govuk-label govuk-radios__label" for="report-type-5">
+              Information
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-6" name="report-type" type="radio" value="lost">
+            <label class="govuk-label govuk-radios__label" for="report-type-6">
+              Lost/Stolen
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-7" name="report-type" type="radio" value="reaction">
+            <label class="govuk-label govuk-radios__label" for="report-type-7">
+              Reaction
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-8" name="report-type" type="radio" value="removed">
+            <label class="govuk-label govuk-radios__label" for="report-type-8">
+              Removed
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-9" name="report-type" type="radio" value="restricted">
+            <label class="govuk-label govuk-radios__label" for="report-type-9">
+              Restricted
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="report-type-10" name="report-type" type="radio" value="seen">
+            <label class="govuk-label govuk-radios__label" for="report-type-10">
+              Seen
+            </label>
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+
+      <br>
+
+
+    <label class="govuk-label govuk-label--s" for="one-half">
+      Add a reference number
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="one-half" type="text">
+
+    <br>
+    <br>
+      <br>
+
+      <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+      <div>
+        <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+          Cancel
+        </button>
+        </div>
+
+        <span><a href="#" style="color: #dadada" id="try-found">TRY FOUND</a></span>
+        <span>&nbsp; &nbsp; </span>
+        <span><a href="#" style="color: #dadada" id="try-same-ref">TRY SAME REF</a></span>
+        <span>&nbsp; &nbsp; </span>
+        <span><a href="#" style="color: #dadada" id="try-reaction">TRY REACT</a></span>
+
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--invisible">
+
+    <!--
+      <a href="/wip/add-new-report-type" for="one-half" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Lost/Stolen</a>
+      <a href="/wip/add-info" for="one-half" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Information</a>
+      <a href="/wip/add-found-reaction" for="one-half" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Found/Reaction</a>
+      <a href="/wip/action1" for="one-half" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Action</a>
+    -->
+
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    {% block carheader %}
+    {% include "includes/carheader-medium-side.html" %}
+    {% endblock %}
+  </div>
+</div>
+
+{% block pageScripts %}
+<script>
+
+  var noStolenBanner = document.getElementById('no-stolen-banner');
+  var tryFound = document.getElementById('try-found');
+  var sameRefBanner = document.getElementById('same-ref-banner');
+  var trySameRef = document.getElementById('try-same-ref');
+  var noActionBanner = document.getElementById('no-action-banner');
+  var tryReaction = document.getElementById('try-reaction');
+
+  var stringToHTML = function (str) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(str, 'text/html');
+    return doc.body.firstChild;
+  };
+
+  tryFound.onclick = function () {
+    noStolenBanner.style.display = "block";
+  };
+
+  tryReaction.onclick = function () {
+    noActionBanner.style.display = "block";
+  };
+
+  trySameRef.onclick = function () {
+    sameRefBanner.style.display = "block";
+  };
+
+
+  </script>
+{% endblock %}
+
+{% endblock %}

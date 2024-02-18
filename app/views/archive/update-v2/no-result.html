@@ -1,0 +1,46 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search-results">Search results</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-margin-top-7 govuk-!-margin-bottom-6">No results found</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-body">
+      No results found for <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">SG 19705</strong>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="text-align:right">
+    <a href="./search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+    <a class="govuk-button" data-module="govuk-button" href="./create-record">Create new police record</a>
+
+
+
+{% endblock %}

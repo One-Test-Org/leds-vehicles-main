@@ -1,0 +1,330 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-width-container">
+  <div class="govuk-caption-l">Create new police record</div>
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Check your answers before creating record</h1>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m">Vehicle details</h2>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link" href="#" style="float:right">
+              Change<span class="govuk-visually-hidden"> vehicle details</span>
+            </a>
+          </div>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              VRM
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SG19705
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Make
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BMW(CARS)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Model
+            </dt>
+            <dd class="govuk-summary-list__value">
+              X5 SPORT
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Colour
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BLUE
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Body type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Fuel type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Further vehicle details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Foreign vehicle
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Vehicle's originating country
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Switzerland
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Register keeper details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m">Registered keeper details</h2>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link" href="#" style="float:right">
+              Change<span class="govuk-visually-hidden"> keeper details</span>
+            </a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Bob Salmon
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Post code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Keeper since
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01/01/2023
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m">Report type</h2>
+          </div>
+          <div class="govuk-grid-column-one-third">
+          </div>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Report type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Lost/Stolen
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> report type</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m">Report details</h2>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link" href="#" style="float:right">
+              Change<span class="govuk-visually-hidden"> report details</span>
+            </a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Report owner
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['losCode'].slice(0,4) }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Report creator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['losCreator'].slice(0,4) }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['losRef'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Incident date (from)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              05/06/2023
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Incident date (to)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Report text
+            </dt>
+            <dd class="govuk-summary-list__value" style="text-transform:uppercase">
+              {{ data['losNotes'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Associated hazards
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+              Weapons
+              </strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Confirm report
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+        <form action="./overview-created-error" method="post" novalidate>
+          <input class="govuk-input" id="los-time" name="losTime" style="display:none">
+          <input type="hidden" name="answers-checked" value="true">
+          <button class="govuk-button" data-module="govuk-button" style="float:left">
+            Create police record
+          </button>
+          <div>
+            <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const dt = new Date();
+document.getElementById("los-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+
+{% endblock %}

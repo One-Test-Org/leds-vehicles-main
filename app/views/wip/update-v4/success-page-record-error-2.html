@@ -1,0 +1,58 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Request partially completed
+    </h1>
+
+    <table class="govuk-table govuk-!-width-two-thirds">
+      <caption class="govuk-table__caption govuk-table__caption--m"><span class="govuk-visually-hidden">Requests</span></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Request</th>
+          <th scope="col" class="govuk-table__header govuk-!-text-align-right">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Create record</th>
+          <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Done</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Add Action report</th>
+          <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Done</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Edit report expiry date</th>
+          <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--red">Failed</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-4">
+      The Action report has been added to the record with the default expiry date.
+    </p>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      If you search for CF60POP, you can edit the report to try to change the expiry date.
+    </p>
+    
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search for CF60POP"
+      }) }}
+
+      <a class="govuk-link" href="./search">Start new search</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

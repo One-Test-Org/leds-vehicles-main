@@ -1,0 +1,236 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="./search-radio">Vehicle search</a>
+    </li><span style="color:grey; float:right; text-align:right"><a href="./search">SWAP</a></span>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search for a vehicle</h1>
+<br>
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="./multiple-VRM-results" method="post">
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Who is this search for?
+      </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO" name="OBO" type="radio" value="email">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          For myself
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO-2" name="OBO" type="radio" value="phone" data-aria-controls="conditional-OBO-2">
+        <label class="govuk-label govuk-radios__label" for="OBO-2">
+          For someone else
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+            Name of force or person
+          </label>
+          <div id="onbehalf-hint" class="govuk-hint">
+            For example, PC Smith (12345)
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+          <div class="govuk-warning-text govuk-!-margin-top-3">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text govuk-!-width-two-thirds">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Remember, you're still personally responsible for the information you provide even if you're performing this search on behalf of someone else
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    </fieldset>
+  </div>
+
+
+<br>
+
+
+    {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+    {{ govukCharacterCount({
+      name: "justification",
+      id: "justification",
+      maxlength: 250,
+      threshold: 0,
+      rows: 2,
+      classes: "govuk-!-width-two-thirds",
+      hint: {
+      text: "For example, incident reference, location, power used"
+      },
+      label: {
+        classes: "govuk-label--s",
+        text: "Justification"
+      }
+    }) }}
+
+
+    {{ govukSelect({
+      id: "reason-code",
+      name: "reason-code",
+      label: {
+        classes: "govuk-label--s",
+        text: "Reason code"
+      },
+      items: [
+      {
+        value: "Select",
+        text: "Select a reason code",
+        selected: true
+      },
+      {
+        value: "0",
+        text: "0 - Transaction log and audit checks"
+      },
+      {
+          value: "1",
+          text: "1 - Vehicle and/or person stopped"
+      },
+        {
+          value: "2",
+          text: "2 - Moving vehicle"
+        },
+        {
+          value: "3",
+          text: "3 - Abandoned or parked and unattended vehicle"
+        },
+        {
+          value: "4",
+          text: "4 - Vehicles involved in a road traffic collision"
+        },
+        {
+          value: "5",
+          text: "5 - Subject of process or investigation"
+        },
+        {
+          value: "6",
+          text: "6 - Administration"
+        },
+        {
+          value: "7",
+          text: "7 - Enquiries relating to family protection issues"
+        },
+        {
+          value: "8",
+          text: "8 - On behalf of other authorised agency"
+        },
+        {
+          value: "9",
+          text: "9 - Update, Confirm, Broadcast"
+        }
+      ]
+    }) }}
+
+<br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+        Search by
+      </h2>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="VRM" data-aria-controls="conditional-contact" checked="checked">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Single VRM
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-email">
+            Enter VRM
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" >
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="VIN" data-aria-controls="conditional-contact-2">
+        <label class="govuk-label govuk-radios__label" for="contact-2">
+          Multiple VRMs
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+            Enter up to 15 VRMs
+          </label>
+          <div id="onbehalf-hint" class="govuk-hint">
+            Enter each VRM on a new line
+          </div>
+          <textarea class="govuk-textarea govuk-!-width-one-third" id="more-detail" name="more-detail" rows="15"></textarea>
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="VIN" data-aria-controls="conditional-contact-3" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          VIN
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-email">
+            Enter VIN
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" >
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="VIN" data-aria-controls="conditional-contact-4" >
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Postcode
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-email">
+            Enter postcode
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" >
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+<br>
+
+<div class="govuk-button-group">
+    <a class="govuk-button" data-module="govuk-button" href="./results-2">Search</a>
+  <a class="govuk-link" href="#">Clear search</a>
+</div>
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

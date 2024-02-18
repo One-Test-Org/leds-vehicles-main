@@ -1,0 +1,174 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+CF60 POP - Export – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<div id="banner-top">
+  <a href="javascript:history.back()" class="govuk-back-link">Back to record</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-three-quarters">
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Information to export for CF60 POP
+          </h1>
+        </legend>
+        <br>
+
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Select information you need to export
+        </legend>
+        <a href="#" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-regular">Select all</a><br>
+        <br>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-form-group">
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses" checked disabled>
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Vehicle and keeper details
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Vehicle status and markers
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    More vehicle details (e.g. engine number)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Insurance details for 22/03/2023
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Past insurance policy details (for 20/09/2022)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    DVLA markers (with details)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Previous keeper information
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Full MOT history
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <legend class="govuk-fieldset__legend govuk-label--s">Do you need to include police report details?
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="police" name="police" type="radio" value="yes" data-aria-controls="conditional-police-yes">
+                  <label class="govuk-label govuk-radios__label" for="police">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-police-yes">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-form-group">
+                      <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-margin-top-2">Select all</a><br><br>
+
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Lost/Stolen (E34Y9340TY3293)
+                          </label>
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Action (E94F9390DE3893)
+                          </label>
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Information (B42G9179RW3911)
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="police-2" name="police" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="police-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+      <br>
+      <a href="./export-form-new-2" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">Continue</a>
+
+    </div>
+  </div>
+<div class="govuk-grid-column-one-quarter">
+  {% block carheader %}
+  {% include "includes/record-overview-side.html" %}
+  {% endblock %}
+</div>
+</div>
+
+    {% endblock %}

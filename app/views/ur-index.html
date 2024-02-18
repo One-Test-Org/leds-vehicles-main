@@ -1,0 +1,88 @@
+{% extends "layout-menu-2.html" %}
+
+{% block pageTitle %}
+  LEDS – Vehicles prototype
+{% endblock %}
+
+{% block content %}
+
+      <h1 class="govuk-heading-xl">
+        LEDS Vehicles Scenarios
+      </h1>
+<!--
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+-->
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+<div class="govuk-notification-banner__header">
+<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+  Important
+</h2>
+</div>
+<div class="govuk-notification-banner__content">
+<p class="govuk-notification-banner__heading">These are prototypes, not the actual live application. <br>They do not contain real data.</p>
+<p class="govuk-body">The final Vehicles application may look and feel slightly different to this prototype.</p>
+</div>
+</div>
+
+<h2 class="govuk-heading">
+  User research scenarios
+</h2>
+
+
+<a href="https://leds.prototype.homeoffice.gov.uk/index-vehicles-testing-202301-1" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+  Scenario 1
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+  </svg></a>
+
+  <a href="/UR3/clipboard-1" role="link" class="govuk-link govuk-!-padding-left-9" target="_blank">
+    Text 1
+  </a>
+
+  <a href="/UR3/clipboard-2" role="link" class="govuk-link govuk-!-padding-left-6" target="_blank">
+    Text 2
+  </a>
+
+<br>
+
+  <a href="UR2/search" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+    Scenario 2
+    <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+    </svg></a>
+
+    <a href="/UR2/clipboard-1" role="link" class="govuk-link govuk-!-padding-left-8" target="_blank">
+      Text 1
+    </a>
+
+    <a href="/UR2/clipboard-2" role="link" class="govuk-link govuk-!-padding-left-6" target="_blank">
+      Text 2
+    </a>
+
+    <a href="/UR2/copy-page" role="link" class="govuk-link govuk-!-padding-left-6" target="_blank">
+      Text 3
+    </a>
+
+<br>
+
+    <a href="/UR4/ct-results" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Scenario 3a
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+      </svg></a>
+
+<br>
+
+    <a href="/UR4/ct-results-4" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Scenario 3b
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+      </svg></a>
+
+      <a href="/UR4/ct-results-4" role="link" class="govuk-link govuk-!-padding-left-6" target="_blank">
+        Alterntative
+      </a>
+
+
+{% endblock %}

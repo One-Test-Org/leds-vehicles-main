@@ -1,0 +1,344 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column">
+    <div class="govuk-!-margin-bottom-5">
+
+      <fieldset class="govuk-fieldset" id="exportRecord">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Export a PDF of this record
+          </h1>
+        </legend>
+
+        <div class="govuk-inset-text govuk-!-margin-top-3">
+          A PDF file will download to your device.
+        </div>
+
+        {{ govukInput({
+          label: {
+            classes: "govuk-label--s",
+            text: "Justification"
+          },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+            text: "For example, crime reference, reason for download"
+          },
+          id: "justification",
+          name: "justification"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            classes: "govuk-label--s",
+            text: "On behalf of (Optional)"
+          },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+            text: "For example, PC Jones (12345)"
+          },
+          id: "on-behalf-of",
+          name: "on-behalf-of"
+        }) }}
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+        <hr>
+
+        <h2 class="govuk-heading">
+          Select all sections you want to download
+        </h2>
+        <br>
+
+        <div class="govuk-grid-column-one-half-from-desktop govuk-!-margin-bottom-2">
+          <!-- <a href="#" style="float:right" class="govuk-link govuk-!-margin-top-2">Select all</a> -->
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="onbehalf" data-aria-controls="conditional-onbehalf" style="accent-color:white">
+                  <label class="govuk-label govuk-checkboxes__label govuk-label--s" style="font-size: 1.3rem" for="organisation">
+                  Vehicle and person information
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes">
+                  <div class="govuk-form-group">
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Main vehicle details
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          More vehicle details
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        Registered keeper information
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        Tax information
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        DVLA markers
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="onbehalf" data-aria-controls="conditional-onbehalf" style="accent-color:white">
+                  <label class="govuk-label govuk-checkboxes__label govuk-label--s" style="font-size: 1.3rem" for="organisation">
+                    Police information
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes">
+                  <div class="govuk-form-group">
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          List of Police reports and markers
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Lost/Stolen (E34Y9340TY3293)
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Action (E94F9390DE3893)
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Information (B42G9179RW3911)
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Information (O31Q9415HI1321)
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Reaction (X73P1238GE6179)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="onbehalf" data-aria-controls="conditional-onbehalf" style="accent-color:white">
+                  <label class="govuk-label govuk-checkboxes__label govuk-label--s" style="font-size: 1.3rem" for="organisation">
+                    Insurance
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes">
+                  <div class="govuk-form-group">
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Current insurance
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Past insurance (for 20/09/2022)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="onbehalf" data-aria-controls="conditional-onbehalf" style="accent-color:white">
+                  <label class="govuk-label govuk-checkboxes__label govuk-label--s" style="font-size: 1.3rem" for="organisation">
+                    MOT history
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes">
+                  <div class="govuk-form-group">
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          2022
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            2021
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            2020
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            2019
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            2018
+                        </label>
+                      </div>
+                    </div>
+                    <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            2017
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+</div>
+
+
+
+  <div class="govuk-grid-column-one-half-from-desktop">
+        <div class="govuk-grid-column-one-third-from-desktop">
+          &nbsp
+          </div>
+
+
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+            {% block carheader %}
+            {% include "includes/carheader-medium-side.html" %}
+            {% endblock %}
+          </div>
+        </div>
+</div>
+
+
+<hr>
+<br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You are responsible for the protection of this personal data. By downloading this file you are agreeing to do so in accordance with the LEDS Security Operating Procedures.
+            <br>
+            <br>
+            You must keep the data secure and protect it against loss, unauthorised access or use. You must not sent or transmit this document through systems that are not secure. You are responsible for securely destroying this document when it is no longer needed for the specfified purpose(s)
+          </strong>
+        </div>
+
+
+
+          <a href="./pdf-selected" class="govuk-button govuk-!-margin-top-5" data module="govuk-button">
+          Download PDF
+          </a>
+
+
+      </fieldset>
+
+      {% endblock %}

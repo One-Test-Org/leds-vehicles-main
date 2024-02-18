@@ -1,0 +1,31 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Police record deleted
+      </h1>
+      <div class="govuk-panel__body">
+        Report and police record for <strong>SG19705</strong> deleted
+      </div>
+    </div>
+
+    <div class="govuk-body-l govuk-!-margin-top-5">This record and associated reports have been permanently deleted from LEDS and PNC.
+      <br><br>
+    </div>
+
+    <a href="./search"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="background-color: #CBCBCB">Start new search</button></a>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

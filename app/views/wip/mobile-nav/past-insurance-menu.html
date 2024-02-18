@@ -1,0 +1,77 @@
+{% extends "layout-mobile.html" %}
+
+<!-- {% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %} -->
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back to search page</a>
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-mobile.html" %}
+{% endblock %}
+
+<br>
+
+<div class="govuk-grid-row" id="menu">
+<div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: black; color: white">
+<a href="./past-insurance-menu-open#menu" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+<strong>
+  ⋁ &nbsp; Vehicle menu
+</strong>
+</a>
+</div>
+</div>
+<br>
+
+      <h2 class="govuk-heading-l">Past insurance details</h2>
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend--m">
+      Enter a date within the past 7 years
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 24 11 2019
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+{{ govukButton({
+  text: "Search past insurance",
+  href: "#"
+}) }}
+
+
+
+
+{% endblock %}

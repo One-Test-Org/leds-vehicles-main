@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs top_controls">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/wip/add-new-report">Add new report</a>
+    </li>
+  </ol>
+  <a class="govuk-breadcrumbs__link justify-content-right govuk-color-Blue" onclick="clearForm()">Edit report</a>
+</div>
+
+
+<h1>Review new report</h1>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incident date - From
+    </dt>
+    <dd class="govuk-summary-list__value">
+      25 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Incident date - To
+    </dt>
+    <dd class="govuk-summary-list__value">
+      27 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X.
+    </dd>
+  </div>
+</dl>
+
+
+<h3>Action report</h3>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incident date - From
+    </dt>
+    <dd class="govuk-summary-list__value">
+      25 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Incident date - To
+    </dt>
+    <dd class="govuk-summary-list__value">
+      27 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X.
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Hazards
+    </dt>
+    <dd class="govuk-summary-list__value">
+    <p class="govuk-body">Occupants potentially dangerous</p>
+    <p class="govuk-body">chemical</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Priority
+    </dt>
+    <dd class="govuk-summary-list__value">
+    High
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Action
+    </dt>
+    <dd class="govuk-summary-list__value">
+  Stop
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Crime
+    </dd>
+  </div>
+</dl>
+
+<h3>Info report</h3>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incident date - From
+    </dt>
+    <dd class="govuk-summary-list__value">
+      25 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Incident date - To
+    </dt>
+    <dd class="govuk-summary-list__value">
+      27 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X.
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Hazards
+    </dt>
+    <dd class="govuk-summary-list__value">
+    <p class="govuk-body">Occupants potentially dangerous</p>
+    <p class="govuk-body">chemical</p>
+    </dd>
+  </div>
+</dl>
+
+<h3>Found/Reaction report</h3>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incident date - From
+    </dt>
+    <dd class="govuk-summary-list__value">
+      25 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Incident date - To
+    </dt>
+    <dd class="govuk-summary-list__value">
+      27 Oct 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X.
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Linked reports
+    </dt>
+    <dd class="govuk-summary-list__value">
+    <p class="govuk-link">Linked Report 1 (ABC1234)</p>
+
+    </dd>
+  </div>
+</dl>
+
+<a href="/overview-desktop" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Submit</a>
+
+{% endblock %}

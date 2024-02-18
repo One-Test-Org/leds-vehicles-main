@@ -1,0 +1,351 @@
+overview{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+CF60 POP - Insurance – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="/live/export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="/live/export-form" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-padding-left-5 govuk-!-padding-right-5 govuk-!-padding-bottom-5 govuk-!-padding-top-3" style="background-color: white; border-bottom: 4px solid #d4351c">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-row govuk-!-padding-bottom-3">
+
+        <div class="govuk-grid-column-one-third ">
+          <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">CF60 POP</p>
+          <p class="govuk-body govuk-!-margin-bottom-0">VIN</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5YJSA1DG9DFP14705</p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">BMW, M3</p>
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-5">Body type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">4 door saloon</p>
+        </div>
+        <div class="govuk-grid-column-one-quarter" style="border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">
+          <p class="govuk-body govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">Red</p>
+          <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-0">Fuel type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">Petrol</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="govuk-grid-column-one-third-from-desktop">
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Registered keeper</p>
+        <a href="https://leds-drivers.prototype.homeoffice.gov.uk/v2d/search" target="_blank" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold govuk-!-margin-bottom-2"  style="text-transform: uppercase">Scott Jay Featherstone</a>
+      </div>
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Keeper since</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">01/09/2022</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0">Registered keeper address</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">72 Guild Street, London, SE23 6FH</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="govuk-grid-row govuk-!-padding-right-3">
+  <div class="govuk-grid-column-full">
+
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<!-- govuk-details__text govuk-!-padding-right-5 -->
+    {{ govukDetails({
+      summaryText: "View more vehicle information",
+      html: '
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Engine number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            52WVC10338
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Engine capacity
+          </dt>
+          <dd class="govuk-summary-list__value">
+            2000cc
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of first registration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20/12/2010
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of first DVLA registration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20/12/2010
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Tax class
+          </dt>
+          <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+            Petrol
+          </dd>
+        </div>
+      </dl>'
+    }) }}
+  </div>
+</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="./overview-l2d" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="./insurance-l2d" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="./pi-check-l2d" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+    <h2 class="govuk-heading-l">Past insurance details</h2>
+
+
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading">
+        Insurance held for CF60 POP on 04/09/2023
+      </h2>
+    </div>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Check insurance for a different date
+        </span>
+      </summary>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Enter a date within the past 7 years
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 24 11 2019
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Search past insurance",
+        href: "./insurance-past-7-years"
+      }) }}
+    </details>
+
+<br>
+
+<h3 class="govuk-heading-m">Insurance policy: 1213-56345-3242</h3>
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds govuk-!-padding-right-9">
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Policy holder
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+        <a href="https://leds-drivers.prototype.homeoffice.gov.uk/v2d/search" target="_blank" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold govuk-!-margin-bottom-2"  style="text-transform: uppercase">Scott Jay Featherstone</a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insured from
+    </dt>
+    <dd class="govuk-summary-list__value">
+        02/10/2022 00:00
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insured to
+    </dt>
+    <dd class="govuk-summary-list__value">
+        01/10/2023 23:59
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Policy address
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+      72 Guild Street<br>London<br>SE23 6FH
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Allowed to drive other vehicles
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+      Yes
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Class of use
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+      Social domestic & pleasure
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company details
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+      Angler Motor Insurance Ltd - 02063331234
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      VRM
+    </dt>
+    <dd class="govuk-summary-list__value">
+      CF60 POP
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Vehicle make & model
+    </dt>
+    <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+      BMW, M3
+    </dd>
+  </div>
+</dl>
+</div>
+
+<div class="govuk-grid-column-one-third" style="background-color: white; border: 1px solid #b1b4b6;">
+<h3 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-1">Permitted drivers</h3>
+<p class="govuk-body">
+  ANY DRIVERS - EXCLUDING DRIVERS UNDER 21
+<p>
+<h3 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-1">Included named drivers</h3>
+<ul class="govuk-list govuk-list--bullet">
+  <li><a href="#" target="_blank" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold govuk-!-margin-bottom-2"  style="text-transform: uppercase"><strong>Marry Jane FEATHERSTONE</strong></a><br>
+  Date of birth: 09/11/1977</li>
+  </ul>
+<h3 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-1">Excluded named drivers</h3>
+<ul class="govuk-list govuk-list--bullet">
+  <li>None</li>
+  </ul>
+  <h3 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-1">Extra named drivers </h3>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>None (Included or Excluded)</li>
+  </ul>
+
+
+</div>
+</div>
+
+                </div>
+              </div>
+
+
+              {% endblock %}

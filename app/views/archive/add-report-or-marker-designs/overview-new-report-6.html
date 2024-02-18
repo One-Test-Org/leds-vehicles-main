@@ -1,0 +1,313 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="overview.html" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="insurance.html" class="menu_list_item_link">
+              Insurance (2)
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="MOT.html" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="markers.html" class="menu_list_item_link">
+              DVLA markers (2)
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="tax.html" class="menu_list_item_link">
+              Tax
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="previous-keeper.html" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+<div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+  <div class="govuk-!-padding-top-2 govuk-!-padding-bottom-6" style="">
+    <h2 class="govuk-heading-s">Hazards</h2>
+    <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+      Occupants potentially dangerous
+    </strong></p>
+    <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+      chemical
+    </strong></p>
+    <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+      Weapons
+    </strong></p>
+    <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+      Explosives
+    </strong></p>
+
+  </div>
+</div>
+<div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+  <div class="govuk-!-padding-top-2">
+<h2 class="govuk-heading-s">Police reports and markers</h2>
+    <p>
+      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Lost/Stolen
+      </strong>
+    </p>
+    <p>
+      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Action
+      </strong>
+    </p>
+    <p>
+      <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+        Information (2)
+      </strong>
+    </p>
+      <p class="govuk-!-margin-bottom-1">&nbsp</p>
+      <a href="/wip/add-new-report-or-marker3" role="button" draggable="false" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2 govuk-!-margin-top-3" style="width:100%;" data-module="govuk-button">Add report or marker</a>
+  </div>
+</div>
+<div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+  <div class="govuk-!-padding-top-2">
+    <h2 class="govuk-heading-s">DVLA markers</h2>
+    <p>
+      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Unreliable record
+      </strong>
+    </p>
+    <p>
+      <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+        Colour changed
+      </strong>
+    </p>
+    <p class="govuk-body govuk-!-margin-bottom-7">&nbsp</p>
+    <p class="govuk-body govuk-!-margin-bottom-8">&nbsp</p>
+    </div>
+    </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-three-quarters-from-desktop govuk-!-padding-top-7">
+    <h2 class="govuk-heading-l">Police reports
+  </h2>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+    firstCellIsHeader: true,
+    head: [
+    {
+    text: "Report type"
+    },
+    {
+    text: "Notes"
+    },
+    {
+    text: "Owner"
+    },
+    {
+    text: "Created"
+    }
+    ],
+    rows: [
+    [
+    {
+    html: '<a href="#" class="govuk-link">Reaction<br>(X73P1238GE6179)</a>'
+    },
+    {
+    html: 'Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X.
+    <!-- REINTRODUCE WHEN WE GET THE DATA
+    <p class="govuk-inset-text govuk-!-margin-bottom-2 govuk-!-margin-top-2">Linked report: <a href="/reports-action" class="govuk-link">Action (E94F9390DE3893)</a></p>
+    -->
+    '
+    },
+    {
+    text: "FS10"
+    },
+    {
+    text: "20 Jul 2022"
+    }
+    ],
+    [
+    {
+    html: '<a href="#" class="govuk-link">Lost/Stolen<br>(E34Y9340TY3293)</a>'
+    },
+    {
+    text: "Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing"
+    },
+    {
+    text: "07A1"
+    },
+    {
+    text: "15 Mar 2022"
+    }
+    ],
+    [
+    {
+    html: '<a href="/reports-action" class="govuk-link">Action<br>(E94F9390DE3893)</a><br>
+    '
+    },
+    {
+    html: '
+    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+    Occupants potentially dangerous
+    </strong>
+    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+    Weapons
+    </strong><br>
+    HIGH STOP CRIME. Two caucasion males, wearing hoodies seen dealing drugs by local residents from white mercedes. If you see vihicle, stop and check for PWITS
+    <!-- REINTRODUCE WHEN WE GET THE DATA
+    <p class="govuk-inset-text govuk-!-margin-bottom-2 govuk-!-margin-top-2">Linked report: <a href="#" class="govuk-link"><strong>Reaction (X73P1238GE6179)</strong></a></p>
+    -->'
+    },
+    {
+    html: 'FS10'
+    },
+    {
+    html: '15 Mar 2022'
+    }
+    ],
+    [
+    {
+    html: '<a href="#" class="govuk-link">Information<br>(B42G9179RW3911)</a><br>
+    '
+    },
+    {
+    html: '
+    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+    chemical
+    </strong>
+    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+    Explosives
+    </strong><br>
+    Boot of stolen vehicle contained farming pesticides and emergency flare in glove compartment.'
+    },
+    {
+    text: "FS10"
+    },
+    {
+    text: "11 Mar 2022"
+    }
+    ],
+    [
+    {
+    html: '<a href="#" class="govuk-link">Information<br>(O31Q9415HI1321)</a>'
+    },
+    {
+    text: "Checked at 0825HRS in wooded area at rear of Banner Lane, Tunstall. Vehicle doors locked but boot insecure (no sign of forced entry). PC 73 Grant on 01273 480480 dealing. "
+    },
+    {
+    text: "25UC"
+    },
+    {
+    text: "22 Feb 2022"
+    }
+    ]
+    ]
+    }) }}
+
+<br>
+
+    {{ govukTable({
+      caption: "Police markers",
+      captionClasses: "govuk-table__caption--l",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Marker type"
+        },
+        {
+          text: "Details"
+        },
+        {
+          text: "Updated by"
+        },
+        {
+          text: "Updated on"
+        }
+      ],
+      rows: [
+      [
+        {
+          text: "POL EXAM"
+        },
+        {
+          text: "-"
+        },
+        {
+          text: "Dorset Police"
+        },
+        {
+          text: "14 Mar 2022"
+        }
+      ],
+      [
+          {
+            text: "In confidence - Police eyes only"
+          },
+          {
+            text: "Information about the vehicle must not be passed over insecure channels"
+          },
+          {
+            text: "Dorset Police"
+          },
+          {
+            text: "14 Mar 2022"
+          }
+        ]
+      ]
+    }) }}
+
+</div>
+</div>
+
+
+
+{% endblock %}

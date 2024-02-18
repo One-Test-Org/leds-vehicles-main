@@ -1,0 +1,120 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Found report details</h1>
+<form class="form" action="./overview-updated-found" method="post">
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="fou-code" name="fouCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator (Optional)
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Leave Force/Station code empty if creator and owner are the same
+      </div>
+      <select class="govuk-select" id="country" name="country">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+      </div>
+
+    {% block insurancecontent %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <legend class="govuk-fieldset__legend govuk-label--s" for="label-as-page-heading">
+      Report text
+    </legend>
+        <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="66">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="label-as-page-heading">
+              Line 1
+            </label>
+            <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+          </div>
+          <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 66 characters
+          </div>
+        </div>
+        <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="66">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="label-as-page-heading">
+              Line 2
+            </label>
+            <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+          </div>
+          <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 66 characters
+          </div>
+        </div>
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="66">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="label-as-page-heading">
+              Line 3
+            </label>
+            <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+          </div>
+          <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 66 characters
+          </div>
+        </div>
+
+
+    <div class="hods-alert govuk-!-margin-bottom-6 govuk-!-full-width">
+      <p class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        This Found report will be joined with <strong><a href="./stolen-report-confirmed" target="_blank" class="govuk-link govuk-link--no-visited-state">Lost/Stolen</a></strong> ({{ data['losRef'] }}), created by {{ data['losCode'].slice(0,4) }}
+      </p>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+  <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Submit</button>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+  </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter">
+    {% block side %}
+    {% include "includes/record-overview-side.html" %}
+    {% endblock %}
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,126 @@
+---
+kind: pipeline
+name: site
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+
+- name: build_ecr
+  pull: if-not-exists
+  image: plugins/ecr
+  environment:
+    AWS_REGION: eu-west-2
+  settings:
+    dockerfile: Dockerfile
+    repo: design/leds-vehicles 
+    registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
+    tags:
+    - latest
+    - ${DRONE_COMMIT_SHA}
+    access_key:
+      from_secret: AWS_ACCESS_KEY_ID
+    secret_key:
+      from_secret: AWS_SECRET_ACCESS_KEY
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: deploy_dev
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/kd:v1.18.0
+  commands:
+  - bin/deploy.sh
+  environment:
+    DRONE_DEPLOY_TO: acp-notprod
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/design/leds-vehicles
+    KUBE_NAMESPACE: leds-person
+    KUBE_TOKEN_ACP_NOTPROD:
+      from_secret: KUBE_TOKEN_ACP_NOTPROD
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+---
+kind: pipeline
+name: gate
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+
+- name: build_gate_ecr
+  pull: if-not-exists
+  image: plugins/ecr
+  environment:
+    AWS_REGION: eu-west-2
+  settings:
+    repo: design/leds-vehicles-gate
+    registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
+    context: ./oauth2-proxy
+    dockerfile: ./oauth2-proxy/Dockerfile
+    tags:
+      - latest
+      - ${DRONE_COMMIT_SHA}
+    access_key:
+      from_secret: GATE_AWS_ACCESS_KEY_ID
+    secret_key:
+      from_secret: GATE_AWS_SECRET_ACCESS_KEY
+  when:
+    branch:
+      - main
+    event:
+      - push
+
+- name: deploy_dev_gate
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/kd:v1.18.0
+  commands:
+  - cd oauth2-proxy
+  - source kube/env.sh
+  - kube/deploy.sh
+  environment:
+    DRONE_DEPLOY_TO: acp-notprod
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/design/leds-vehicles-gate
+    KUBE_NAMESPACE: leds-person
+    KUBE_TOKEN_ACP_NOTPROD:
+      from_secret: KUBE_TOKEN_ACP_NOTPROD
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: deploy_redis_dev
+  pull: if-not-exist
+  image: quay.io/ukhomeofficedigital/kd:v1.18.0
+  commands:
+    - cd redis
+    - source kube/env.sh
+    - kube/deploy.sh
+  environment:
+    DRONE_DEPLOY_TO: acp-notprod
+    KUBE_NAMESPACE: leds-person
+    KUBE_TOKEN_ACP_NOTPROD:
+      from_secret: kube_token_acp_notprod
+    NAME: vehicles-redis
+  when:
+    branch:
+    - main
+    event:
+    - push 
+
+services:
+  - name: docker
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+...

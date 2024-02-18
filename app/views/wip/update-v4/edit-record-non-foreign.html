@@ -1,0 +1,104 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-caption-l">Edit vehicle record</div>
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What do you need to do?</h1>
+    </legend>
+
+
+    <form class="form" action="/edit-record" method="post">
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit" name="edit" type="radio" value="update-vehicle">
+        <label class="govuk-label govuk-radios__label" for="edit">
+          Update vehicle details
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit" name="edit" type="radio" value="update-keeper">
+        <label class="govuk-label govuk-radios__label" for="edit">
+          Update registered keeper details
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit-2" name="edit" type="radio" value="foreign">
+        <label class="govuk-label govuk-radios__label" for="edit-2">
+          Add Foreign marker
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit-4" name="edit" type="radio" value="report">
+        <label class="govuk-label govuk-radios__label" for="edit-3">
+          Add new report
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit-5" name="edit" type="radio" value="block">
+        <label class="govuk-label govuk-radios__label" for="edit-4">
+          Block record
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit-6" name="edit" type="radio" value="new">
+        <label class="govuk-label govuk-radios__label" for="edit-4">
+          Create new police record
+        </label>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+  </form>
+  </div>
+
+  <!-- <div class="govuk-grid-column-one-quarter">
+    &nbsp;
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-grid-row" style="background-color: white; border-bottom: 4px solid #d4351c">
+        <div class="govuk-grid-column-full govuk-!-padding-left-6">
+          <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold"><a href="/UR3/overview-safe" class="govuk-link govuk-link--no-visited-state">SG 19705</a></p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">-</p>
+        </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="govuk-grid-column-one-quarter">
+  {% block side %}
+  {% include "includes/record-overview-side.html" %}
+  {% endblock %}
+</div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    downscaler/uptime: Mon-Fri 06:00-20:00 Europe/London
+  name: {{ .NAME }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: {{ .NAME }}
+  template:
+    metadata:
+      labels:
+        name: {{ .NAME }}
+        service: leds-vehicles
+    spec:
+      imagePullSecrets:
+        - name: docker-registry-key
+      containers:
+        - name: leds-vehicles-proto
+          image: {{ .IMAGE_URL }}:{{ .IMAGE_VERSION }}
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: true
+          ports:
+            - containerPort: {{ .PORT }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .PORT }}
+            periodSeconds: 30
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+

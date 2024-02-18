@@ -1,0 +1,159 @@
+{% extends "layout-menu-2.html" %}
+
+{% block pageTitle %}
+  VIN search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">LEDS Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">VIN search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search for a vehicle by VIN</h1>
+<br>
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/after-search" method="post">
+
+    <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+    <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="onbehalf" data-aria-controls="conditional-onbehalf" style="accent-color:white">
+        <label class="govuk-label govuk-checkboxes__label govuk-label--s" style="font-size: 1.3rem" for="organisation">
+          Searching on behalf of someone else?
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-onbehalf">
+        <div class="govuk-form-group">
+          <label class="govuk-label " for="end date">
+            Name of force or person
+          </label>
+          <div id="onbehalf-hint" class="govuk-hint">
+            For example, PC Jones (12345)
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="event-name" type="text">
+        </div>
+      </div>
+    </div>
+    </fieldset>
+
+<br>
+
+
+    {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+    {{ govukCharacterCount({
+      name: "justification",
+      id: "justification",
+      maxlength: 250,
+      threshold: 0,
+      rows: 2,
+      classes: "govuk-!-width-two-thirds",
+      hint: {
+      text: "For example, incident reference, location, power used"
+      },
+      label: {
+        classes: "govuk-label--s",
+        text: "Justification"
+      }
+    }) }}
+
+
+    {{ govukSelect({
+      id: "reason-code",
+      name: "reason-code",
+      label: {
+        classes: "govuk-label--s",
+        text: "Reason code"
+      },
+      items: [
+      {
+        value: "Select",
+        text: "Select a reason code",
+        selected: true
+      },
+      {
+        value: "0",
+        text: "0 - Transaction log and audit checks"
+      },
+      {
+          value: "1",
+          text: "1 - Vehicle and/or person stopped"
+      },
+        {
+          value: "2",
+          text: "2 - Moving vehicle"
+        },
+        {
+          value: "3",
+          text: "3 - Abandoned or parked and unattended vehicle"
+        },
+        {
+          value: "4",
+          text: "4 - Vehicles involved in a road traffic collision"
+        },
+        {
+          value: "5",
+          text: "5 - Subject of process or investigation"
+        },
+        {
+          value: "6",
+          text: "6 - Administration"
+        },
+        {
+          value: "7",
+          text: "7 - Enquiries relating to family protection issues"
+        },
+        {
+          value: "8",
+          text: "8 - On behalf of other authorised agency"
+        },
+        {
+          value: "9",
+          text: "9 - Update, Confirm, Broadcast"
+        }
+      ]
+    }) }}
+
+<br>
+
+{{ govukInput({
+  label: {
+    classes: "govuk-label--s",
+    text: "Vehicle Identification Number (VIN)"
+  },
+  classes: "govuk-input--width-10",
+  id: "VRM",
+  name: "VRM"
+}) }}
+
+<br>
+
+  <button class="govuk-button" data-module="govuk-button" style="float:left">Search</button>
+
+  <div id="add-another-button-wrapper">
+    <button id="add-another-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+      Clear search
+    </button>
+  </div>
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

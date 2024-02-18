@@ -1,0 +1,133 @@
+<div class="govuk-grid-row govuk-!-padding-5" style="background-color: white; border-bottom: 4px solid #1d70b8">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-row govuk-!-padding-bottom-3">
+
+        <div class="govuk-grid-column-one-third ">
+          <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">CF60 POP</p>
+          <p class="govuk-body govuk-!-margin-bottom-0">VIN</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5YJSA1DG9DFP14705</p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">Mercedes Benz, C-Class</p>
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-5">Body type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">5 door saloon</p>
+        </div>
+        <div class="govuk-grid-column-one-quarter" style="border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">
+          <p class="govuk-body govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">Orange & Black</p>
+          <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-0">Fuel type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2" style="text-transform: uppercase">Electric</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="govuk-grid-column-one-third-from-desktop">
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">[Blocked]</p>
+      </div>
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Keeper since</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">[Blocked]</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0">Registered keeper address</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">[Blocked]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="govuk-grid-row govuk-!-padding-right-3">
+  <div class="govuk-grid-column-full">
+
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<!-- govuk-details__text govuk-!-padding-right-5 -->
+  {{ govukDetails({
+    summaryText: "View more vehicle information",
+    html: '<dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          52WVC10338
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine capacity
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2000cc
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/12/2010
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first DVLA registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/12/2010
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tax class
+        </dt>
+        <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+          Electric
+        </dd>
+      </div>
+
+
+      <!-- <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+      Transponder tag number
+    </dt>
+    <dd class="govuk-summary-list__value">
+    -
+  </dd>
+</div>
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Record owner
+</dt>
+<dd class="govuk-summary-list__value">
+-
+</dd>
+</div>
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Record creator
+</dt>
+<dd class="govuk-summary-list__value">
+-
+</dd>
+</div> -->
+</dl>'
+}) }}
+</div>
+</div>
+</div>
+
+
+<hr class="govuk-section-break govuk-section-break--m">

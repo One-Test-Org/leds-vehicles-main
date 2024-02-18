@@ -1,0 +1,438 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column">
+    <div class="govuk-!-margin-bottom-5">
+
+      <h1 class="govuk-heading">
+        Vehicle record summary
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            VRM
+          </dt>
+          <dd class="govuk-summary-list__value">
+            CF60 POP
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Document created
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10/01/2023 10:21 by username@email.com
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Justification
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Vehicle enquiry
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Document created on behalf of
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PC Jones
+          </dd>
+        </div>
+      </dl>
+
+      <br>
+
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            OFFICIAL - SENSITIVE
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body-s">
+            This document is produced for Law Enforcement purposes only and must not be disclosed outside of the Police Service except for specified purpose(s) described in the Law Enforcement Data Service (LEDS) Security Operating Procedures document.<br><br>
+            You are responsible for the protection of this personal data. You must keep the data secure and protect it against loss, unauthorised access or use. You must not sent or transmit this document through systems that are not secure. You are responsible for securely destroying this document when it is no longer needed for the specfified purpose(s).<br><br>
+            This is a document copy of the Vehicle record. This document is produced via the LEDS Vehicles product.
+          </p>
+        </div>
+      </div>
+
+<hr>
+
+
+      <h2 class="govuk-heading">
+        Vehicle and person information
+      </h2>
+
+
+      <h3 class="govuk-heading">
+        Main vehicle details
+      </h3>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            VRM
+          </dt>
+          <dd class="govuk-summary-list__value">
+            CF60 POP
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            VIN
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5YJSA1DG9DFP14705
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Make/model
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Mercedes Benz, C-Class
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Body type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 door saloon
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Colour
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Turquoise and orange
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Electric
+          </dd>
+        </div>
+      </dl>
+
+      <br>
+
+<hr>
+<br>
+
+      <h2 class="govuk-heading">
+        Police information
+      </h2>
+
+
+      <h3 class="govuk-heading">
+        List of police reports and markers
+      </h3>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Police reports
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Lost/stolen<br><hr>
+            Action<br><hr>
+            Information(2)<br><hr>
+            Reaction<br>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hazards
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Occupants potentially dangerous<br><hr>
+            Chemical<br><hr>
+            Weapons<br><hr>
+            Explosives<br>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            DVLA markers
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Unreliable record<br><hr>
+            Colour changed<br>
+          </dd>
+        </div>
+      </dl>
+
+
+<br>
+<hr>
+
+
+<h2 class="govuk-heading">
+  Insurance
+</h2>
+
+
+<h3 class="govuk-heading">
+  Current insurance
+</h3>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insuance policy
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1213-56345-3242
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Policy holder
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Bob Salmon
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insured from
+    </dt>
+    <dd class="govuk-summary-list__value">
+    10 Mar 2022, 00:00
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insured to
+    </dt>
+    <dd class="govuk-summary-list__value">
+    10 Mar 2023, 23:59
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Policy address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      72 Guild Street<br>
+      London<br>
+      SE23 6FH
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Allowed to drive other vehicles
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Yes
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Included drivers
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Fred Salmon<br>
+      Date of birth: 10 June 1968<br><hr>
+      Kate Salmon<br>
+      Date of birth: 21 March 1999<br>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Excluded drivers
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Karl Salmon<br>
+      Date of birth: 12 July 1988<br><hr>
+      Jake Jones<br>
+      Date of birth: 30 May 1991<br>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Extra drivers (Included or excluded)
+    </dt>
+    <dd class="govuk-summary-list__value">
+    -
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Class of use
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Social domestic & pleasure
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company details
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Angler Motor Insurance Ltd - 02063331234
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Vehicle Registration Mark (VRM)
+    </dt>
+    <dd class="govuk-summary-list__value">
+    CF60 POP
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Vehicle make & model
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Mercedes Benz, C-Class
+    </dd>
+  </div>
+</dl>
+
+<br>
+<hr>
+<br>
+
+<h2 class="govuk-heading">
+ MOT history
+</h2>
+
+
+<h3 class="govuk-heading">
+  2022
+</h3>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      16/03/2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Status
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Passed
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Expiry date
+    </dt>
+    <dd class="govuk-summary-list__value">
+    06/04/2023
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Mileage
+    </dt>
+    <dd class="govuk-summary-list__value">
+    64,066 miles
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      MOT test number
+    </dt>
+    <dd class="govuk-summary-list__value">
+  998374627891
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Minor defects
+    </dt>
+    <dd class="govuk-summary-list__value">
+    	Registration plate lamp throwing direct white light to the rear Nearside [4.7.1(a)]
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+  Advisory notice items
+    </dt>
+    <dd class="govuk-summary-list__value">
+Rear Child Seat fitted not allowing full inspection of adult belt Nearside rear, Centre rear and offside rear seatbelt not assessible.<br><hr>
+      Tyre worn close to the legal limit Nearside Front [5.2.3(e)]<br><hr>
+      Offside Inner Front constant velocity joint gaiter deteriorated, but preventing the ingress of dirt (2.5.C1a)<br>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+  Pass with Rectification at Station (PRS) notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+    Stop lamp(s) not working Offside [4.3.1(a)(ii)]
+    </dd>
+  </div>
+</dl>
+
+<br>
+
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      You are responsible for the protection of this personal data. By downloading this file you are agreeing to do so in accordance with the LEDS Security Operating Procedures.
+      <br>
+      <br>
+      You must keep the data secure and protect it against loss, unauthorised access or use. You must not sent or transmit this document through systems that are not secure. You are responsible for securely destroying this document when it is no longer needed for the specfified purpose(s)
+    </strong>
+  </div>
+
+
+
+            <a href="#" class="govuk-button govuk-!-margin-top-5" data module="govuk-button">
+            Download PDF
+            </a>
+
+
+</fieldset>
+
+{% endblock %}
+
+
+
+
+PDF (Overview download section)
+select list of reports, show them whatever is in the white boxes (hazards/police reports - hazards are assoc with reports: actions + weapons + chemical//lost+stolen//information)
+if they select the reports, they get everything about the report (as if they clicked on it)

@@ -1,0 +1,95 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['colour'] == 'blue' %}
+      <div class="govuk-panel govuk-panel--confirmation" style="background-color: #1d70b8">
+        <h1 class="govuk-panel__title">
+          Police record created
+        </h1>
+        <div class="govuk-panel__body">
+          However, the Lost/Stolen report was not confirmed due to a connection issue
+        </div>
+      </div>
+    {% elif data['colour'] == 'amber' %}
+      <div class="govuk-panel govuk-panel--confirmation" style="background-color: #cb4b0b"> {# Base being GOVUK Orange f47738 #}
+        <h1 class="govuk-panel__title">
+          Police record created
+        </h1>
+        <div class="govuk-panel__body">
+          However, the Lost/Stolen report was not confirmed due to a connection issue
+        </div>
+      </div>
+    {% else %}
+
+      <h1 class="govuk-heading-xl">
+        Request partially completed
+      </h1>
+
+      <table class="govuk-table govuk-!-width-two-thirds">
+        <caption class="govuk-table__caption govuk-table__caption--m"><span class="govuk-visually-hidden">Requests</span></caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Request</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Create record</th>
+            <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Done</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Add Lost/Stolen report</th>
+            <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Done</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Confirm report</th>
+            <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--red">Failed</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+    {% endif %}
+
+    {% if data['colour'] == 'blue' or data['colour'] == 'amber' %}
+      <p class="govuk-body-l govuk-!-margin-top-5 govuk-!-margin-bottom-6">
+    {% else %}
+      <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-6">
+    {% endif %}
+      If you search for CF60POP, you can edit the report to try to confirm it.
+    </p>
+    
+    {#<div class="govuk-button-group">
+      <a href="#">
+        <button class="govuk-button" data-module="govuk-button">
+          Search for CF60POP
+        </button>
+      </a>
+      <a class="govuk-link" href="./search">Start new search</a>
+      {#<a href="./search">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="background-color: #cbcbcb">
+          Start new search
+        </button>
+      </a>
+    </div>#}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search for CF60POP"
+      }) }}
+
+      <a class="govuk-link" href="./search">Start new search</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

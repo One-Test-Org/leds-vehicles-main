@@ -1,0 +1,393 @@
+{% extends "layout-menu-leds-footer-updates.html" %}
+
+{% set containerClasses = "govuk-width-container-1200px" %}
+{% set serviceName = 'LEDS Law Enforcement Data Service' %}
+
+{% block pageTitle %}
+	Latest service news, release notes, planned functionality, and known issues - {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+	<a href="service-vehicles-start-page" class="govuk-back-link govuk-link--no-visited-state">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	{% if data['fullwidth'] == 'yes' %}
+		<div class="govuk-grid-column-full">
+	{% else %}
+		<div class="govuk-grid-column-two-thirds">
+	{% endif %}
+
+		<h1 class="govuk-heading-l govuk-!-margin-bottom-9">
+			Latest news, release notes, and known issues
+		</h1>
+
+		<div class="govuk-tabs" data-module="govuk-tabs">
+			<h2 class="govuk-tabs__title">
+				Latest service news, release notes, planned functionality, and known issues
+			</h2>
+			<ul class="govuk-tabs__list">
+				<li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+					<a class="govuk-tabs__tab" href="#latest-news-and-release-notes">
+						Latest news{#Latest news and release notes#}
+					</a>
+				</li>
+				<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#planned-functionality">
+						Planned functionality
+					</a>
+				</li>
+				<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#known-issues">
+						Known issues
+					</a>
+				</li>
+				{#<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#archive">
+						Archive
+					</a>
+				</li>#}
+			</ul>
+
+			{# Latest news and release notes #}
+			<div class="govuk-tabs__panel" id="latest-news-and-release-notes">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Latest news{#Latest news and release notes#}</h2></span>
+
+				{# Release 1.7.0 #}
+				<h3 class="govuk-heading-l">
+					05/10/2023 (Release 1.7.0)
+				</h3>
+				<dl class="govuk-summary-list">
+				{#<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Date
+					</dt>
+					<dd class="govuk-summary-list__value">
+						05/10/2023
+					</dd>
+				</div>#}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#About the release#}
+						Key changes
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							The following changes appear in this release:
+						</p>
+						<ul class="govuk-list govuk-list--number">
+							<li><strong>Link to Drivers search</strong></li>
+							<ul class="govuk-list govuk-list--bullet">
+								<li>Vehicle search returns a vehicle record</li>
+								<li>Registered keeper search doesn't produce a match</li>
+								<li>User can check insurance page to see if there are any named drivers and policyholder listed</li>
+							</ul>
+							<li><strong>Additional code updates resolution</strong></li>
+						</ul>
+					</dd>
+				</div>
+				{#<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Impact
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							The change should take less than 20 minutes to apply to production, and there will be no downtime for the service
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Action
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							No changes to the training pack or the entitlements catalogue required
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Operational policing impact
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							There will be no operational impact for policing users
+						</p>
+					</dd>
+				</div>#}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#Additional issues released#}
+						Other changes
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							<ul class="govuk-list govuk-list--bullet">
+								<li>Update to Global Navigation code (back-end) 
+								<li>Update error messages to include reference ID</li>
+								<li>Back-end fix to justification field error in PDF</li>
+								<li>Backend code update for PDF generation</li>
+							</ul>
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Known bugs/issues
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							None
+						</p>
+					</dd>
+				</div>
+				</dl>
+
+				{# Release 1.6.2 #}
+				<h3 class="govuk-heading-l govuk-!-padding-top-6">
+					27/09/2023 (Release 1.6.2)
+				</h3>
+				<dl class="govuk-summary-list">
+				{#<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Date
+					</dt>
+					<dd class="govuk-summary-list__value">
+						27/09/2023
+					</dd>
+				</div>#}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#About the release#}
+						Key changes
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							The following changes appear in this release:
+						</p>
+						<ul class="govuk-list govuk-list--number">
+							<li><strong>Onboarding forces to LEDS Vehicles</strong></li>
+							<ul class="govuk-list govuk-list--bullet">
+								<li>Onboarding BCH to LEDS Vehicles</li>
+							</ul>
+						</ul>
+					</dd>
+				</div>
+				{#<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Impact
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							The change should take less than 20 minutes to apply to production, and there will be no downtime for the service
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Action
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							No changes to the training pack or the entitlements catalogue required
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Operational policing impact
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							There will be no operational impact for policing users
+						</p>
+					</dd>
+				</div>#}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#Additional issues released#}
+						Other changes
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							None
+						</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Known bugs/issues
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							None
+						</p>
+					</dd>
+				</div>
+				</dl>
+
+				{# Previous releases accordion #}
+				<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+						13/09/2023 (Release 1.6.0)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+					<p class="govuk-body">This is the content for Release 1.6.0.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+							30/08/2023 (Release 1.5.6)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+					<p class="govuk-body">This is the content for Release 1.5.6.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+						14/08/2023 (Release 1.5.1)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+					<p class="govuk-body">This is the content for Release 1.5.1.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+							06/08/2023 (Release 1.4.0)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+					<p class="govuk-body">This is the content for Release 1.4.0.</p>
+					</div>
+				</div>
+				</div>
+
+			</div>
+
+			{# Planned functionality #}
+			<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="planned-functionality">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Planned functionality</h2></span>
+				<p class="govuk-body">
+					No planned functionality scheduled for release as of 16/11/2023.
+				</p>
+			</div>
+
+			{# Known issues #}
+			<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="known-issues">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Known issues</h2></span>
+				<h3 class="govuk-heading-m">
+					When searching for police vehicles in LEDS, the registered keeper details are blank
+				</h3>
+				<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Severity
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<strong class="govuk-tag govuk-tag--red">
+				    	    High
+        				</strong>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#Date#}
+						Date captured
+					</dt>
+					<dd class="govuk-summary-list__value">
+						05/11/2023
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Summary
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							DVLA are suppressing the fleet details from LEDS because of how they treat they have to treat restricted data in the new API. 
+							We have stressed the importance of accessing this data in LEDS.
+						</p>
+						<p class="govuk-body">
+							DVLA may be able to provide us with a code which will indicate that the record is a police fleet vehicle. We are waiting to hear 
+							if this is possible. We hope that this could be done fairly soon.
+						</p>
+						<p class="govuk-body">
+							In order to provide all the vehicle record data for fleet vehicles, they need to do more work. They are currently working on a 
+							number of different priorities, including getting ready to deliver the capability for VODS, Partial VRM, Postcode and VIN searches 
+							in LEDS. The aim is to get all of that work completed by June 2024, but we are yet to receive a plan. We expect that sometime in 
+							late November.
+						</p>
+					</dd>
+				</div>
+				</dl>
+
+				<h3 class="govuk-heading-m govuk-!-padding-top-4">
+					The past insurance search does not allow searching on the current date
+				</h3>
+				<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Severity
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<strong class="govuk-tag govuk-tag--blue">
+				    	    Low
+        				</strong>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						{#Date#}
+						Date captured
+					</dt>
+					<dd class="govuk-summary-list__value">
+						21/10/2023
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Summary
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<p class="govuk-body">
+							We have this in our backlog and hope to release this before Christmas 2023.
+						</p>
+					</dd>
+				</div>
+				</dl>
+
+			</div>
+
+			{# Archive #}
+			{#<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archive">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Archive</h2></span>
+				<p class="govuk-body">
+					<strong>Idea:</strong> Push older release information into an archive as general admin.
+				</p>
+			</div>#}
+
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

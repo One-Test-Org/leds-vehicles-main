@@ -1,0 +1,307 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+      <a href="javascript:history.back()" class="govuk-back-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+  <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 govuk-!-padding-top-7">7 search results</h1>
+  </div>
+  </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          View search criteria
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">VIN:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">RE*78$gh33</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Address:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Mornington road, SW12 6FE</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Make & Model:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Ford Focus</strong>
+              <strong class="govuk-tag govuk-tag--blue">Ford fiesta</strong>
+              <strong class="govuk-tag govuk-tag--blue">Opel corsa</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Colours:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">red & any</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Reports:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Lost/stolen</strong>
+              <strong class="govuk-tag govuk-tag--blue">Action</strong>
+              <strong class="govuk-tag govuk-tag--blue">Information</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Report owner:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Lambeth Police</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Report incident date:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">12 Mar 2020 - 12 Mar 2022</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Report created date:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">12 Mar 2020 - 12 Mar 2022</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">DVLA markers:
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Address outside UK mainland</strong>
+              <strong class="govuk-tag govuk-tag--blue">As notified by police/local authority</strong>
+              <strong class="govuk-tag govuk-tag--blue">Diplomatic priviledge</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Year of registration:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">Jan 2010 - Dec 2021</strong></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="float: left; width: 180px">Engine capacity:</dt>
+            <dd class="govuk-summary-list__value" style="float: left">
+              <strong class="govuk-tag govuk-tag--blue">1900-2999 cc</strong></dd>
+          </div>
+      </details>
+
+  <hr class="govuk-section-break govuk-section-break--m">
+
+<!--
+  <h2 class="govuk-heading-l">Exact matches</h2>
+-->
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">VRM</th>
+      <th scope="col" class="govuk-table__header">Colour</th>
+      <th scope="col" class="govuk-table__header">Make/Model</th>
+      <th scope="col" class="govuk-table__header">Body type</th>
+      <th scope="col" class="govuk-table__header" style="width:230px;">Flags</th>
+      <th scope="col" class="govuk-table__header">VIN</th>
+      <th scope="col" class="govuk-table__header">Address</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./FX12LPA" style="white-space:pre">FX12LPA</a>
+      </th>
+      <td class="govuk-table__cell">RED</td>
+      <td class="govuk-table__cell">FORD, ECOSPORT</td>
+      <td class="govuk-table__cell">5 DOOR SUV</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">1GMDX03E8VD266902</td>
+      <td class="govuk-table__cell">1a Mornington road, SW12 4DE</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./BIILLY-PR" style="white-space:pre">BIILLY</a>
+      </th>
+      <td class="govuk-table__cell">SILVER</td>
+      <td class="govuk-table__cell">JAGUAR, XF</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="width:230px; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      </td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./BIILLY" style="white-space:pre">BIILLY</a><br>
+        <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">BIILLY from:</span><br> 12/12/2021</div>
+      </th>
+      <td class="govuk-table__cell">WHITE</td>
+      <td class="govuk-table__cell">JAGUAR, XF</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong></td>
+      <td class="govuk-table__cell">5YJSA1DG9DFP14705</td>
+    <td class="govuk-table__cell">12 Henrietta Mews, BA1 3DP</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./L22REN" style="white-space:pre">L22REN</a>
+          <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">L22REN from:</span><br> 20/07/2022</div>
+      </th>
+      <td class="govuk-table__cell">BLUE</td>
+      <td class="govuk-table__cell">SKODA, OCTAVIA</td>
+      <td class="govuk-table__cell">HATCHBACK</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">POLICE EYES ONLY</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>
+      </td>
+      <td class="govuk-table__cell">JTMBD33V995221974</td>
+      <td class="govuk-table__cell">99 Marble arch, N1 1AA</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./AB19XRV" style="white-space:pre">AB19XRV</a><br>
+      </th>
+      <td class="govuk-table__cell">RED</td>
+      <td class="govuk-table__cell">MAZDA, TRIBUTE</td>
+      <td class="govuk-table__cell">5 DOOR SUV</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">4F2YU09152KM31556</td>
+      <td class="govuk-table__cell">99 Marble arch, N1 1AA</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./SL67SWA" style="white-space:pre">SL67SWA</a>
+      </th>
+      <td class="govuk-table__cell">BLACK</td>
+      <td class="govuk-table__cell">AUDI, A3</td>
+      <td class="govuk-table__cell">SPORTBACK</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">Blocked record</strong><br>
+      </td>
+      <td class="govuk-table__cell">WAUFFCFL2BA095442</td>
+      <td class="govuk-table__cell">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="TL20AAZ" style="white-space:pre">TL20AAZ</a>
+      </th>
+      <td class="govuk-table__cell">BLACK</td>
+      <td class="govuk-table__cell">LAND ROVER, DISCOVERY SPORT</td>
+      <td class="govuk-table__cell">SUV</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Weapons</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">LOST/STOLEN</strong>
+      </td>
+      <td class="govuk-table__cell">SALPV144XVA360843</td>
+      <td class="govuk-table__cell">97 Marble arch, N1 1AA</td>
+    </tr>
+      </tbody>
+</table>
+
+  <hr class="govuk-section-break govuk-section-break--l">
+
+  <details id="extendDetails" class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Can't find the vehicle you're looking for?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can try extending your search, which will return results that partially match your search criteria by applying the following rules:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Include results that have value 'unknown' against any of your search criteria.</li>
+      <li>Include results that have values similar to your search criteria. For example, return maroon coloured cars instead of red.</li>
+    </ul>
+    <button id="extend" type="button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button">Extend search</button>
+  </div>
+  </details>
+
+  <hr id="endResults" class="govuk-section-break govuk-section-break--l">
+
+
+ <h2 id="partialTitle" class="govuk-heading-l" style="display:none">Partial matches</h2>
+
+  <table id="partialTable" class="govuk-table" style="display:none">
+    <div id="partialHint" class="govuk-hint" style="display:none">
+      These results include 'unknown' and similar values for your search criteria
+    </div>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">VRM</th>
+      <th scope="col" class="govuk-table__header">Colour</th>
+      <th scope="col" class="govuk-table__header">Make & Model</th>
+      <th scope="col" class="govuk-table__header">Body type</th>
+      <th scope="col" class="govuk-table__header">Flags</th>
+      <th scope="col" class="govuk-table__header">VIN</th>
+      <th scope="col" class="govuk-table__header">Address</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header"><a class="govuk-link" href="#"><strong>LI92ZIN</strong></a></th>
+      <td class="govuk-table__cell">RED & BLACK</td>
+      <td class="govuk-table__cell">Citroen, Picasso</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      </td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">71 High road, NW21 2BE</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header"><a class="govuk-link" href="#"><strong>LL01PIP</strong></a></th>
+      <td class="govuk-table__cell">Maroon</td>
+      <td class="govuk-table__cell">Honda, Civic</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      </td>
+      <td class="govuk-table__cell">5KOLD9G92OP264581</td>
+      <td class="govuk-table__cell">21 Brick lane, E1 1AA</td>
+    </tr>
+    </table>
+
+
+<!--
+    <div class="govuk-body" style="float:left">1</div>
+    <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">2</a></div>
+    <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">3</a></div>
+    <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">Next</a></div>
+-->
+
+{% block pageScripts %}
+<script>
+
+  var extendSearch = document.getElementById('extend');
+  var endResults = document.getElementById("endResults");
+  var extendDetails = document.getElementById("extendDetails");
+  var partialTitle = document.getElementById("partialTitle");
+  var partialTable = document.getElementById("partialTable");
+  var partialHint = document.getElementById("partialHint");
+
+
+  var stringToHTML = function (str) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(str, 'text/html');
+    return doc.body.firstChild;
+  };
+
+  extendSearch.onclick = function () {
+    extendDetails.style.display = "none";
+    partialTitle.style.display = "block";
+    partialTable.style.display = "block";
+    partialHint.style.display = "block";
+  };
+
+  </script>
+{% endblock %}
+
+{% endblock %}

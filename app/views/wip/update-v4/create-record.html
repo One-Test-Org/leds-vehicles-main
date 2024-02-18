@@ -1,0 +1,210 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+  <div class="govuk-caption-l">Create new police record</div>
+  <h1 class="govuk-heading-l">Enter vehicle details</h1>
+
+  <div class="hods-alert govuk-!-margin-top-6 govuk-!-width-one-half">
+    <p class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+      All fields on this page are <strong>optional</strong>
+    </p>
+  </div>
+
+    <div class="govuk-form-group">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="VRM">
+          VRM (Vehicle Registration Mark)
+        </label>
+        <div id="onbehalf-hint" class="govuk-hint">
+          Also known as Index or VRN
+        </div>
+        <input class="govuk-input" style="width:270px" id="event-name" name="event-name" type="text" value="SG 19705" disabled>
+      </div>
+
+      <div class="govuk-form-group govuk-!-width-one-half">
+        <label class="govuk-label govuk-label--s" for="make">
+          Make
+        </label>
+        <select class="govuk-select" id="code" name="code">
+          {% block make %}
+          {% include "includes/make.html" %}
+          {% endblock %}
+        </select>
+      </div>
+
+      <div class="govuk-form-group govuk-!-width-one-half">
+        <label class="govuk-label govuk-label--s" for="model">
+          Model
+        </label>
+        <select class="govuk-select" id="model" name="model">
+          {% block model %}
+          {% include "includes/models.html" %}
+          {% endblock %}
+        </select>
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-0">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Colour
+        </legend>
+        <div class="govuk-grid-row">
+          <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+            <label class="govuk-label" for="make">
+              Primary colour
+            </label>
+            <select class="govuk-select" id="colour-1" name="colour-1" style="text-transform:uppercase">
+              <option value="" selected></option>
+              <option value="Any">Any</option>
+              <option value="Black">Black</option>
+              <option value="Blue">Blue</option>
+              <option value="Bronze">Bronze</option>
+              <option value="Brown">Brown</option>
+              <option value="Cream">Cream</option>
+              <option value="Gold">Gold</option>
+              <option value="Green">Green</option>
+              <option value="Grey">Grey</option>
+              <option value="Maroon">Maroon</option>
+              <option value="Multi coloured">Multi coloured</option>
+              <option value="Orange">Orange</option>
+              <option value="Pink">Pink</option>
+              <option value="Purple">Purple</option>
+              <option value="Red">Red</option>
+              <option value="Silver">Silver</option>
+              <option value="Turquoise">Turquoise</option>
+              <option value="White">White</option>
+              <option value="Yellow">Yellow</option>
+            </select>
+          </div>
+          <div class="govuk-form-group" style="float:left; margin-left:45px">
+            <label class="govuk-label" for="make">
+              Secondary colour
+            </label>
+            <select class="govuk-select" id="colour-2" name="colour-2" style="text-transform:uppercase">
+              <option value="" selected></option>
+              <option value="Any">Any</option>
+              <option value="Black">Black</option>
+              <option value="Blue">Blue</option>
+              <option value="Bronze">Bronze</option>
+              <option value="Brown">Brown</option>
+              <option value="Cream">Cream</option>
+              <option value="Gold">Gold</option>
+              <option value="Green">Green</option>
+              <option value="Grey">Grey</option>
+              <option value="Maroon">Maroon</option>
+              <option value="Multi coloured">Multi coloured</option>
+              <option value="Orange">Orange</option>
+              <option value="Pink">Pink</option>
+              <option value="Purple">Purple</option>
+              <option value="Red">Red</option>
+              <option value="Silver">Silver</option>
+              <option value="Turquoise">Turquoise</option>
+              <option value="White">White</option>
+              <option value="Yellow">Yellow</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group govuk-!-width-one-half">
+        <label class="govuk-label govuk-label--s" for="make">
+          Body type
+        </label>
+        <select class="govuk-select" id="body" name="body" style="width:270px; text-transform:uppercase">
+          {% block bodytype %}
+          {% include "includes/body-type.html" %}
+          {% endblock %}
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="VIN">
+          VIN (Vehicle Identification Number)
+        </label>
+        <div id="onbehalf-hint" class="govuk-hint">
+          Also known as chassis number
+        </div>
+        <input class="govuk-input" style="width:270px" id="VIN" name="VIN" type="text">
+      </div>
+      <div class="govuk-form-group govuk-!-margin-bottom-0">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Engine details
+        </legend>
+        <div class="govuk-grid-row">
+          <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+            <label class="govuk-label" for="engine-no">
+              Engine number
+            </label>
+            <input class="govuk-input" id="engine-no" name="engine-no" type="text">
+          </div>
+          <div class="govuk-form-group" style="float:left; margin-left:35px">
+            <label class="govuk-label" for="make">
+              Engine capacity
+            </label>
+            <input class="govuk-input" id="engine-cc" name="engine-cc" type="text">
+          </div>
+        </div>
+      </div>
+      <!--
+        <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="fuel">
+          Fuel type
+        </label>
+        <select class="govuk-select" id="make" name="fuel" style="width:180px; text-transform:uppercase"">
+          <option value="" selected></option>
+          <option value="diesel">Diesel</option>
+          <option value="electric">Electric</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="petrol">Petrol</option>
+        </select>
+      </div>
+      -->
+
+      <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Registration date
+        </legend>
+        <div class="govuk-date-input" id="passport-issued">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+        </div>
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="engine-no">
+          Transponder tag number
+        </label>
+        <input class="govuk-input govuk-!-width-one-quarter" id="engine-no" name="engine-no" type="text">
+      </div>
+      </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group">
+      <a href="./create-record-2" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Continue</a>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <section class="app-summary-card govuk-!-margin-top-5">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Your search justification</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+{% endblock %}

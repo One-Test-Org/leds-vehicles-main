@@ -1,0 +1,168 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Restricted report details</h1>
+
+<form class="form" action="./overview-updated-blocked-restricted" method="post">
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="res-code" name="resCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator (Optional)
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Creator cannot be the same as owner
+      </div>
+      <select class="govuk-select" id="country" name="country">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <div id="passport-issued-hint" class="govuk-hint">
+          A reference number is required for Confirming the report
+        </div>
+        <input class="govuk-input govuk-!-width-one-half" id="res-ref" name="resRef" type="text">
+      </div>
+
+    {% block insurancecontent %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="198">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+          Report text
+        </label>
+        <textarea class="govuk-textarea govuk-js-character-count" id="res-notes" name="resNotes" rows="5" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+
+      <div id="res-notes-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 198 characters
+      </div>
+    </div>
+
+    <br>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to Confirm this report?
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          You can only change the expiry date (also known as weed date) if you confirm the report
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm" name="confirm" type="radio" value="yes" data-aria-controls="conditional-expiry">
+            <label class="govuk-label govuk-radios__label" for="confirm">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-expiry">
+            <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-label--s">
+                Set expiry date
+              </legend>
+              <div id="passport-issued-hint" class="govuk-hint">
+                Date can be between <span id="first-date"></span> and <span id="last-date"></span>
+              </div>
+              <div class="govuk-date-input" id="passport-issued">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="current-weed" name="current-weed" type="date">
+              </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm-2" name="confirm" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="confirm-2">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Add report</button>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+  <input class="govuk-input " id="res-time" name="resTime" style="display:none">
+</form>
+
+<div class="govuk-grid-column-one-quarter">
+  <section class="app-summary-card">
+    <header class="app-summary-card__header">
+      <h2 class="app-summary-card__title">Record overview</h2>
+    </header>
+    <div class="app-summary-card__body">
+        <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+        <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">CF60 POP</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">MERCEDES BENZ, C-CLASS</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">ORANGE & BLACK</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">[BLOCKED]</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const xara = new Date();
+  xara.setDate(xara.getDate() + 42);
+  document.getElementById("current-weed").value = xara.toLocaleDateString('en-CA');
+
+
+  const first = new Date();
+  first.setDate(first.getDate() + 28);
+  document.getElementById("first-date").innerHTML = first.toLocaleDateString();
+
+  const last = new Date();
+  last.setDate(last.getDate() + 365);
+  document.getElementById("last-date").innerHTML = last.toLocaleDateString();
+
+  const dt = new Date();
+  document.getElementById("res-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+
+{% endblock %}

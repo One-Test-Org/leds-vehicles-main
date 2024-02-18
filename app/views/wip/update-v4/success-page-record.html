@@ -1,0 +1,31 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Police record created
+      </h1>
+      <div class="govuk-panel__body">
+        Police record for <strong>CF60POP</strong> created, and available on LEDS and PNC
+      </div>
+    </div>
+
+    <div class="govuk-body-l govuk-!-margin-top-5 govuk-!-margin-bottom-6">
+      The Lost/Stolen report has also been added to the record successfully.
+    </div>
+
+    <a href="./search"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="background-color: #CBCBCB">Start new search</button></a>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,272 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+CF60 POP - Export – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./overview-safe">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Export
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-three-quarters">
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Export information for CF60 POP
+          </h1>
+        </legend>
+        <br>
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-label--s">
+                Who is this export for?
+              </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="OBO" name="OBO" type="radio" value="email" checked>
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  For myself
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="OBO-2" name="OBO" type="radio" value="phone" data-aria-controls="conditional-OBO-2">
+                <label class="govuk-label govuk-radios__label" for="OBO-2">
+                  For someone else
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--s" for="contact-by-phone">
+                    On behalf of
+                  </label>
+                  <div id="onbehalf-hint" class="govuk-hint">
+                    For example, PC Smith (12345)
+                  </div>
+                  <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+                  <div class="govuk-warning-text govuk-!-margin-top-3">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text govuk-!-width-three-quarters">
+                      <span class="govuk-warning-text__assistive">Warning</span>
+                      Remember, you're still personally responsible for the information you provide even if you're performing this deletion on behalf of someone else
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </fieldset>
+          </div>
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="Justification">
+              Justification
+            </label>
+            <div id="Justification-hint" class="govuk-hint">For example, incident reference, location, power used</div>
+            <textarea class="govuk-textarea govuk-!-width-three-quarters" id="Justification" name="Justification" rows="2" aria-describedby="Justification-hint" maxlength="250">XO13590K RTC</textarea>
+          </div>
+          <!-- <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 250 characters
+          </div> -->
+          </div>
+
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
+        <h2 class="govuk-heading">
+          Select information you need to export
+        </h2>
+        <a href="#" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-regular">Select all</a><br>
+        <br>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-form-group">
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses" checked disabled>
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Vehicle and keeper details
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Vehicle status and markers
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    More vehicle details (e.g. engine number)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Insurance details for 22/03/2023
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Past insurance policy details (for 20/09/2022)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    DVLA markers (with details)
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Previous keeper information
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Full MOT history
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend">
+                <h2 class="govuk-heading-m">Do you need to include police report details?</h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="police" name="police" type="radio" value="yes" data-aria-controls="conditional-police-yes">
+                  <label class="govuk-label govuk-radios__label" for="police">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-police-yes">
+                  <div class="govuk-checkboxes">
+                    <div class="govuk-form-group">
+                      <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-margin-top-2">Select all</a><br><br>
+
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Lost/Stolen (E34Y9340TY3293)
+                          </label>
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Action (E94F9390DE3893)
+                          </label>
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"  value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Information (B42G9179RW3911)
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="police-2" name="police" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="police-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+    <hr>
+    <br>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        By exporting this information you are responsible for the protection of this personal data. By downloading this file you are agreeing to do so in accordance with the LEDS Security Operating Procedures.
+        <br>
+        <br>
+        You must keep the data secure and protect it against loss, unauthorised access or use. You must not send or transmit this document through systems that are not secure. You are responsible for securely destroying this document when it is no longer needed for the specified purpose(s).
+      </strong>
+    </div>
+
+    <br>
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">Download as PDF</a>
+    <a href="./export-confirm" role="button" draggable="false" class="govuk-button govuk-button--secondary" style="background-color: #cbcbcb" data-module="govuk-button">Export to clipboard</a>
+
+    </div>
+  </div>
+<div class="govuk-grid-column-one-quarter">
+  <section class="app-summary-card">
+    <header class="app-summary-card__header">
+      <h2 class="app-summary-card__title">Record overview</h2>
+    </header>
+    <div class="app-summary-card__body">
+        <a href="./overview-2" target="_blank" class="govuk-heading-l govuk-link govuk-link--no-visited-state">CF60POP</a>
+
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+    {% endblock %}

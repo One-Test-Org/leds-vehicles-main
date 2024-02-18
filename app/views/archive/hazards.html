@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF04 DPK - Hazards – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Hazards
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <ul class="govuk-list govuk-list--spaced">
+      <li>
+        <a class="govuk-link" href="/overview">Overview</a>
+      </li>
+      <li>
+        Hazards (1)
+      </li>
+      <li>
+        <a class="govuk-link" href="/reports">Police reports (4)</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/markers">Markers (2)</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/insurance">Insurance</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/MOT">MOT and Tax</a>
+      </li>
+    </ul>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<!--      <h2 class="govuk-heading-m">Hazards</h2> -->
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+  {{ govukTable({
+    caption: "Hazards",
+    captionClasses: "govuk-table__caption--l",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Hazard type"
+      },
+      {
+        text: "Linked report"
+      },
+      {
+        text: "Updated by"
+      },
+      {
+        text: "Updated on"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Occupants potentially dangerous"
+        },
+        {
+          html: '<a href="/reports-action" class="govuk-link">Action<br> (E34Y9340TY3293)</a>'
+        },
+        {
+          text: "FS10"
+        },
+        {
+          text: "14 Mar 2019"
+        }
+      ]
+    ]
+  }) }}
+
+        </div>
+      </div>
+
+{% endblock %}

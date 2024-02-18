@@ -1,0 +1,148 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Action report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+      <a href="./search-2" class="govuk-back-link">Back to search</a>
+  </div>
+
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right">
+  <!-- <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a> -->
+    <a href="./edit-record" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red-update-2.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item ">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="insurance.html" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers.html" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+    <a href="javascript:history.back()" class="govuk-back-link govuk-!-margin-top-0 ">Back</a>
+
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-grid-row govuk-!-margin-bottom-4" style="border-bottom: 3px solid black">
+        <div class="govuk-grid-column-one-half-from-desktop ">
+          <h2 class="govuk-heading-l">Action report</h2>
+        </div>
+        <div class="govuk-grid-column-one-half-from-desktop">
+            <button class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button" style="background-color: #CBCBCB; float:right">Delete report</button>
+            <button class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button" style="background-color: #CBCBCB; float:right">Edit report</button>
+
+        </div>
+      </div>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              A15P3782OP0925
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Owner
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01LX
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Created on
+            </dt>
+            <dd class="govuk-summary-list__value">
+              	06/06/2023, 09:17
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Incident date (from)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              06/06/2023
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Incident date (to)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Linked hazards
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--white">
+                    None
+              </strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Report text
+            </dt>
+            <dd class="govuk-summary-list__value" style="text-transform:uppercase">
+              LOW ASSESS DRUGS TWO WHITE MALES, WEARING HOODIES SEEN DEALING DRUGS BY LOCAL RESIDENTS. IF YOU SEE VEHICLE, STOP AND CHECK FOR PWITS
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Expiry date
+            </dt>
+            <dd class="govuk-summary-list__value">
+            	17/08/2023
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,379 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"           import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"           import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"         import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"              import govukButton %}
+{% from "govuk/components/character-count/macro.njk"     import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"          import govukCheckboxes %}
+{% from "govuk/components/cookie-banner/macro.njk"       import govukCookieBanner %}
+{% from "govuk/components/date-input/macro.njk"          import govukDateInput %}
+{% from "govuk/components/details/macro.njk"             import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"       import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"       import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"            import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"         import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"               import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"          import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk"               import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"        import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"              import govukRadios %}
+{% from "govuk/components/select/macro.njk"              import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"           import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"        import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"               import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                 import govukTag %}
+{% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% set bodyClasses = "ho-body" %}
+
+{% set bodyClasses = bodyClasses | default("hods-page") %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% set bodyClasses = "ho-body" %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+  <footer class="govuk-footer" style="background-color:#fff;" role="contentinfo">
+      <div class="govuk-width-container-original">
+          <div class="govuk-footer__meta">
+              <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-body-s">
+                          <span class="govuk-footer__licence-description">
+                              The Home Office Law Enforcement Data Service
+                          </span>
+                      </p>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                    <!--
+                      <h2 class="govuk-visually-hidden">Support links</h2>
+                      <ul class="govuk-footer__inline-list">
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#1">
+                                  Cookies
+                              </a>
+                          </li>
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#2">
+                                  Terms and conditions
+                              </a>
+                          </li>
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#3">
+                                  Accessibility
+                              </a>
+                          </li>
+                      </ul>
+                      -->
+                  </div>
+              </div>
+          </div>
+          <hr class="govuk-footer__section-break">
+          <div class="govuk-footer__meta">
+              <div class="govuk-footer__meta-item govuk-!-text-align-centre">
+                  <p class="govuk-body-s">Data retrieved at
+                      <script>document.write(new Date().toLocaleDateString());</script>
+                      <script>document.write(new Date().toLocaleTimeString());</script>
+                  </p>
+                  <p class="govuk-body-s">Reference ID: 22242871-73a7-46a6-a060-d1821ac51d6d</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!--
+
+  <footer>
+    <div class="wrapper-footer">
+      <div class="footer-message govuk-!-text-align-left">
+        <p>A Home Office Digital, Data and Technology service</p>
+      </div>
+      <div class="govuk-!-text-align-right">
+        <span class="govuk-body-xs">Loaded on </span><span id="datetime"></span>
+      </div>
+      <div class="footer-menu">
+        <ul>
+          <li><a href="#0">Feedback</a></li>
+          <li><a href="#0">Help</a></li>
+          <li><a href="#0">GOV.UK home</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </footer>
+  -->
+
+<script>
+  function mobileNav() {
+var x = document.getElementById("mobileNav");
+var z = document.getElementsByClassName("chevron")[0];
+if (x.style.display === "none") {
+x.style.display = "block";
+z.element.classList.add("up");
+z.style.display = "none";
+} else {
+x.style.display = "none";
+}
+}
+function closeNav() {
+var y = document.getElementById("mobileNav");
+y.style.display = "none";
+}
+</script>
+<!--    {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          }
+        ],
+        visuallyHiddenTitle: "Footer links"
+      }
+    }) }}-->
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}
+
+{% block header %}
+<header>
+  <div class="wrapper-header">
+    <div class="header-logo">
+      {% include "includes/home-office-logo.html" %}
+    </div>
+    <div class="header-title"><a href="/ur-index" target="_blank" class="header-name">LEDS Vehicles</a></div>
+    <div class="mrp-header-user">PC Jones</div>
+    <div class="mobile-menu">
+      <a href="#" onclick="mobileNav()" id="mobileNavLink"><span class="chevron"></span>Menu</a>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN MENU -->
+<div class="gem-c-layout-super-navigation-header september">
+    <div class="gem-c-layout-super-navigation-header__container
+        govuk-width-container-1200px govuk-clearfix">
+        <nav id="gem-c-nav-bar" class="gem-c-layout-super-navigation-header__content js-module-initialised" style="margin-bottom: 0px;" data-super-navigation-mega-menu-module-started="true">
+            <h2 id="super-navigation-menu-heading" class="govuk-visually-hidden">
+                Navigation menu
+            </h2>
+            <button aria-controls="super-navigation-menu" aria-expanded="true" aria-label="Hide navigation menu" class="gem-c-layout-super-navigation-header__navigation-top-toggle-button" data-text-for-hide="Hide navigation menu" data-text-for-show="Show navigation menu" data-toggle-desktop-group="hidden" data-toggle-mobile-group="top" data-tracking-key="menu" id="super-navigation-menu-toggle" type="button" hidden="hidden">
+                <span class="gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner">
+                    Menu
+                </span>
+            </button>
+            <ul id="super-navigation-menu" class="gem-c-layout-super-navigation-header__navigation-items">
+                <!-- SEARCH BY VRM -->
+                <li class="gem-c-layout-super-navigation-header__navigation-item gem-c-layout-super-navigation-header__navigation-item--with-children">
+                    <div class="gem-c-layout-super-navigation-header__navigation-toggle-wrapper govuk-clearfix">
+                        <a hidden class="gem-c-layout-super-navigation-header__navigation-item-link" href="/UR4/search"><span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner">Search by VRM</span></a>
+                        <button class="gem-c-layout-super-navigation-header__navigation-second-toggle-button" onclick="location.href='../UR4/search';" type="button">
+                            <span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner-link">VRM Search</span>
+                        </button>
+                    </div>
+                </li>
+                <!-- /SEARCH BY VRM -->
+                <!-- SEARCH BY VIN -->
+                <li class="gem-c-layout-super-navigation-header__navigation-item gem-c-layout-super-navigation-header__navigation-item--with-children">
+                    <div class="gem-c-layout-super-navigation-header__navigation-toggle-wrapper govuk-clearfix">
+                        <a hidden class="gem-c-layout-super-navigation-header__navigation-item-link" href="#"><span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner">Search by VIN</span></a>
+                        <button class="gem-c-layout-super-navigation-header__navigation-second-toggle-button" onclick="location.href='#';" type="button">
+                            <span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner-link">VIN Search</span>
+                        </button>
+                    </div>
+                </li>
+                <!-- /SEARCH BY VIN -->
+                <!-- SEARCH BY POST CODE-->
+                <li class="gem-c-layout-super-navigation-header__navigation-item gem-c-layout-super-navigation-header__navigation-item--with-children">
+                    <div class="gem-c-layout-super-navigation-header__navigation-toggle-wrapper govuk-clearfix">
+                        <a hidden class="gem-c-layout-super-navigation-header__navigation-item-link" href="#"><span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner">Search by post code</span></a>
+                        <button class="gem-c-layout-super-navigation-header__navigation-second-toggle-button" onclick="location.href='#';" type="button">
+                            <span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner-link">Postcode search</span>
+                        </button>
+                    </div>
+                </li>
+                <!-- /SEARCH BY POST CODE -->
+
+                <li class="gem-c-layout-super-navigation-header__navigation-item gem-c-layout-super-navigation-header__navigation-item--with-children">
+                    <div class="gem-c-layout-super-navigation-header__navigation-toggle-wrapper govuk-clearfix">
+                    <a class="gem-c-layout-super-navigation-header__navigation-item-link" data-module="gem-track-click" data-track-action="governmentactivityLink" data-track-category="headerClicked" data-track-label="/search/news-and-communications" data-track-dimension="Go" data-track-dimension-index="29" href="" data-gem-track-click-module-started="true" hidden="hidden">Start</a>
+                        <button aria-controls="super-navigation-menu__section-go" aria-expanded="false" aria-label="Show Go menu" class="gem-c-layout-super-navigation-header__navigation-second-toggle-button" data-text-for-hide="Hide Go menu" data-text-for-show="Show Go menu" data-toggle-desktop-group="top" data-toggle-mobile-group="second" data-tracking-key="go" id="super-navigation-menu__section-go-toggle" type="button">
+                            <span class="gem-c-layout-super-navigation-header__navigation-second-toggle-button-inner">Services</span>
+                        </button>
+                    </div>
+                    <div class="gem-c-layout-super-navigation-header__navigation-dropdown-menu" id="super-navigation-menu__section-go" hidden="hidden">
+                        <div class="govuk-width-container gem-c-layout-super-navigation-header__width-container">
+                          <div class="govuk-grid-row">
+                            <hr class="govuk-section-break govuk-section-break--m">
+                            <div class="govuk-grid-column-one-quarter">
+                              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Drivers</h3>
+                              <ul class="govuk-list">
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Driver details search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Driver number search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Licence status search</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-quarter">
+                              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Person</h3>
+                              <ul class="govuk-list">
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">NASCH search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">PNC ID search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Advanced search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">ASN search</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-quarter">
+                              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Property</h3>
+                              <ul class="govuk-list">
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">ID number search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Add property</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Update property</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-quarter">
+                              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Vehicles</h3>
+                              <ul class="govuk-list">
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">VRM search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">VIN search</a>
+                                </li>
+                                <li>
+                                  <a class="govuk-link govuk-body-s govuk-link--no-visited-state" href="#">Postcode search</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <hr class="gem-c-layout-super-navigation-header__navigation-second-footer-break govuk-section-break govuk-section-break--visible">
+                                    <ul class="gem-c-layout-super-navigation-header__navigation-second-footer-list">
+                                        <li class="gem-c-layout-super-navigation-header__navigation-second-footer-item">
+                                            <a class="govuk-link govuk-link--no-visited-state gem-c-layout-super-navigation-header__navigation-second-footer-link" data-module="gem-track-click" data-track-action="governmentactivityLink" data-track-category="headerClicked" data-track-label="/" data-track-dimension="" data-track-dimension-index="29" href="/">LEDS Home</a>
+                                        </li>
+                                        <!-- <li class="gem-c-layout-super-navigation-header__navigation-second-footer-item">
+                                            <a class="govuk-link gem-c-layout-super-navigation-header__navigation-second-footer-link" data-module="gem-track-click" data-track-action="governmentactivityLink" data-track-category="headerClicked" data-track-label="/leds/design-system" data-track-dimension="Get involved" data-track-dimension-index="29" href="/leds/design-system.html">LEDS Design System</a>
+                                        </li> -->
+                                    </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script src="/public/javascripts/application.js"></script>
+<script src="/public/javascripts/jquery.slim.min.js"></script>
+<script src="/public/javascripts/table-clickable.js"></script>
+<script>
+    const element_go = document.getElementById('super-navigation-menu__section-go');
+    const servicesToggle = document.getElementById("super-navigation-menu__section-go-toggle");
+    const bar = document.getElementById("gem-c-nav-bar");
+
+    servicesToggle.addEventListener("click", function () {
+        if (element_go.hidden) {
+            bar.style = "margin-bottom: 300px;"
+            servicesToggle.classList = "gem-c-layout-super-navigation-header__navigation-second-toggle-button gem-c-layout-super-navigation-header__open-button"
+        }
+        else {
+            servicesToggle.classList = "gem-c-layout-super-navigation-header__navigation-second-toggle-button"
+            bar.style = "margin-bottom: 0px;"
+        }
+        element_go.hidden = !element_go.hidden;
+    }, false);
+</script>
+<!-- /MAIN MENU -->
+
+<nav role="navigation" aria-labelledby="subsection-title" class="mobile-nav" id="mobileNav" style="display:none;">
+  <ul class="menu_list">
+    <li class="menu_list_item">
+      <a href="overview.html" class="menu_list_item_link" onclick="closeNav()">
+        Overview
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="insurance.html" class="menu_list_item_link" onclick="closeNav()">
+        Insurance
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="./past-insurance.html" class="menu_list_item_link" onclick="closeNav()">
+        Past insurance
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="MOT.html" class="menu_list_item_link" onclick="closeNav()">
+        MOT History
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="markers.html" class="menu_list_item_link" onclick="closeNav()">
+        DVLA Markers
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="tax.html" class="menu_list_item_link" onclick="closeNav()">
+        Tax
+      </a>
+    </li>
+    <li class="menu_list_item">
+      <a href="previous-keeper.html" class="menu_list_item_link" onclick="closeNav()">
+        Previous Keeper
+      </a>
+    </li>
+  </ul>
+
+
+
+  </nav>
+{% endblock %}

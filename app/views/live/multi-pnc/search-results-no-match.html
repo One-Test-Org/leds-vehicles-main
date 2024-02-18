@@ -1,0 +1,296 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="hods-alert hods-alert--error">
+  <h2 class="hods-alert__heading govuk-!-margin-top-2">Data issues detected</h2>
+  <p class="govuk-!-margin-bottom-2">
+    If the DVLA record has any police information, it will not be attached to it below.<br>
+  </p>
+</div>
+
+<!--
+<div class="hods-status-message govuk-!-margin-bottom-6">
+  <p>Data issues detected
+  <span class="hods-status-message__extra"><br>
+    PNC and DVLA records have not been matched, and there is no police information attached on the DVLA record.<br>
+    Check if records refer to the same or different vehicles.
+  </span></p>
+</div>
+-->
+
+<h1 class="govuk-heading-xl">2 search results</h1>
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-body">
+      <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">BII LLY</strong>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="text-align:right">
+    <a href="./search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          html: '<div style="white-space: pre">Created by</div>'
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '
+          <a class="govuk-link govuk-link--no-visited-state" href="./overview-critical" style="white-space:pre">BII LLY</a>'
+        },
+        {
+          html: 'White',
+          format: "text"
+        },
+        {
+          html: 'Jaguar, XF',
+          format: "text"
+        },
+        {
+          html: '4 door saloon',
+          format: "text"
+        },
+        {
+          html:
+          '
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+          '
+        },
+        {
+          html: '1ABCD1EF2GHI34567',
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag">Police</strong>'
+        }
+      ],
+        [
+          {
+            html:
+            '
+            <a href="./overview-missing">BII LLY</a><br>
+            <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY from:</span><br> 12/12/2021</div>
+            '
+          },
+          {
+            text: "White",
+            format: "text"
+          },
+          {
+            text: "Jaguar, XF",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            html: '
+            <strong class="govuk-tag govuk-tag--white" style="white-space:pre; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 7px; border-bottom-width: 0px; border-color: black">Hazards/Reports not displayed</strong><br>
+            <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>
+            '
+          },
+          {
+            text: "5YJSA1DG9DFP14705"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">DVLA</strong>
+
+            '
+          }
+        ]
+      ]
+    }) }}
+
+<!--
+    <div class="govuk-body-l govuk-!-margin-top-9">
+      BII LLY has previously been on other vehicles (due to cherished transfers)
+    </div>
+
+    <button id="past-button" type="button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button">View past vehicles</button>
+-->
+    <h2 id="past-heading" class="govuk-heading-l govuk-!-margin-top-7">2 past vehicles with BII LLY</h2>
+
+    <div id="past-inset" class="govuk-inset-text">
+      DVLA markers are not displayed below
+    </div>
+
+    <div id="past-table">
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "VRM"
+      },
+      {
+        text: "Colour",
+        format: "link"
+      },
+      {
+        text: "Make/Model",
+        format: "text"
+      },
+      {
+        text: "Body type",
+        format: "date"
+      },
+      {
+        text: "Hazards & Police Reports"
+      },
+      {
+        text: "VIN"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: 'CF60 POP<br>
+          <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY dates:</span><br> 10/10/2020 - 12/12/2021</div>
+          '
+        },
+        {
+          text: "Black",
+          format: "text"
+        },
+        {
+          text: "Mercedes, CLK",
+          format: "text"
+        },
+        {
+          text: "Coupe",
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag govuk-tag--white">None</strong>'
+        },
+        {
+          text: "1KLMY1DO9PPP89463"
+        }
+      ],
+      [
+      {
+        html: 'CF90 ABC<br>
+        <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+        '
+      },
+      {
+        text: "Yellow",
+        format: "text"
+      },
+      {
+        text: "Porche, 911"
+      },
+      {
+        text: "Coupe",
+        format: "text"
+      },
+
+      {
+        html: '<strong class="govuk-tag govuk-tag--white">None</strong>'
+      },
+      {
+        text: "3UJEQ6YR3UAN73184"
+      }
+      ]
+    ]
+  }) }}
+  </div>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <hr>
+    <div class="govuk-caption-m">
+      Design notes
+    </div>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Duplicate PNC recrods (plus cloned and double shuffle) scenario
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>User searched by VRM BII LLY</li>
+          <li>This VRM is on a vehicle (white Jaguar) <strong>and</strong> has been cloned for another vehicle (silver Jaguar)</li>
+          <li>There are 2 PNC records matching the VIN of the DVLA record (none of the PNC records has been merged with the DVLA record)</li>
+          <li>The VRM also used to be on two other vehicles previously</li>
+        </ul>
+        See also scenarios for <a href="signed-off/ct/ct-results-void" class="govuk-link govuk-link--no-visited-state">void</a>, <a href="signed-off/ct/ct-results-retained" class="govuk-link govuk-link--no-visited-state">retained</a>, <a href="signed-off/ct/ct-results-double" class="govuk-link govuk-link--no-visited-state">double shuffle</a> and <a href="signed-off/ct/ct-results-complex" class="govuk-link govuk-link--no-visited-state">cloned and double shuffle</a>
+      </div>
+    </details>
+    <hr>
+
+    <script>
+
+      var showPast = document.getElementById('past-button');
+      var pastHeading = document.getElementById('past-heading');
+      var pastInset = document.getElementById('past-inset');
+      var pastTable = document.getElementById('past-table');
+
+      var stringToHTML = function (str) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(str, 'text/html');
+        return doc.body.firstChild;
+      };
+
+      showPast.onclick = function () {
+        showPast.style.display = "none";
+        pastHeading.style.display = "block";
+        pastInset.style.display = "block";
+        pastTable.style.display = "inline";
+      };
+
+      </script>
+{% endblock %}

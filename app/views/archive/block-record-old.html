@@ -1,0 +1,157 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Edit record</div>
+<h1 class="govuk-heading-l">Block record</h1>
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="code">
+        Force/Station code
+      </label>
+      <input class="govuk-input govuk-!-width-one-third" id="code" name="code">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="reference">
+        Blocked reference
+      </label>
+      <input class="govuk-input govuk-!-width-one-third" id="reference" name="reference">
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to add a Restricted report?
+        </legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="RES" name="RES" type="radio" value="Yes" data-aria-controls="conditional-RES-Yes">
+          <label class="govuk-label govuk-radios__label" for="RES">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-RES-Yes">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Owner
+            </label>
+            <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+          </div>
+
+          {% block creator %}
+          {% include "includes/creator.html" %}
+          {% endblock %}
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="event-name">
+                Reference number
+              </label>
+              <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+            </div>
+
+          {% block insurancecontent %}
+          {% include "includes/incident-date-2.html" %}
+          {% endblock %}
+
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="171">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+                Notes
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="label-as-page-heading" name="label-as-page-heading" rows="5" aria-describedby="label-as-page-heading-info"></textarea>
+            </div>
+
+            <div id="label-as-page-heading-info" class="govuk-hint govuk-character-count__message">
+              You can enter up to 171 characters
+            </div>
+          </div>
+
+          <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-label--s">
+                Do you need to change the weed date of this report?
+              </legend>
+              <div id="passport-issued-hint" class="govuk-hint">
+                Also known as Confirming the report
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="confirm" name="confirm" type="radio" value="yes" data-aria-controls="conditional-weed">
+                  <label class="govuk-label govuk-radios__label" for="confirm">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-weed">
+                  <div class="govuk-form-group">
+                    <legend class="govuk-fieldset__legend govuk-label--s">
+                      New weed date
+                    </legend>
+                    <div id="passport-issued-hint" class="govuk-hint">
+                      Date can be between 26/05/2023 days and 14/04/2024
+                    </div>
+                    <div class="govuk-date-input" id="passport-issued">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="confirm-2" name="confirm" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="confirm-2">
+                    No, keep weed date to 26/05/2029 (6 weeks)
+                  </label>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="RES-2" name="RES" type="radio" value="No">
+          <label class="govuk-label govuk-radios__label" for="RES-2">
+            No
+          </label>
+        </div>
+      </div>
+      </fieldset>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <a href="./overview-updated-2" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Block record</a>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #1d70b8; border-left: 2px solid #1d70b8; border-right: 2px solid #1d70b8; border-bottom: 2px solid #1d70b8">
+        <div class="govuk-grid-column-full govuk-!-padding-left-6">
+          <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">AA 465LK</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW, X5</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">Blue</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">-</p>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

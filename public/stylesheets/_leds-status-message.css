@@ -1,0 +1,108 @@
+.govuk-notification-banner--system-error {
+  border-color: #d4351c;
+  background-color: #d4351c;
+}
+
+.govuk-notification-banner--system-error .govuk-notification-banner__link:link, .govuk-notification-banner--system-error .govuk-notification-banner__link:visited {
+  color: #d4351c;
+}
+
+.govuk-notification-banner--system-error .govuk-notification-banner__link:hover {
+  color: #942514;
+}
+
+.govuk-notification-banner--system-error .govuk-notification-banner__link:active {
+  color: #d4351c;
+}
+
+.govuk-notification-banner--system-error .govuk-notification-banner__link:focus {
+  color: #0b0c0c;
+}
+
+.hods-status-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+  background-color: #1d70b8;
+  padding: 15px;
+  border: 0px;
+}
+
+.hods-status-message--success {
+  background-color: #00703c;
+}
+
+.hods-status-message--system-error {
+  background-color: #d4351c;
+}
+
+.hods-status-message__actions {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.hods-status-message p {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: bold;
+  color: #fff;
+}
+
+.hods-status-message__extra {
+  font-weight: 400;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+  color: #fff;
+}
+
+.hods-status-message__actions {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.hods-status-message__actions li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/* .govuk-button:link, .hods-status-message__actions__link:link, .govuk-button:visited, .hods-status-message__actions__link:visited, .govuk-button:active, .hods-status-message__actions__link:active, .govuk-button:hover, .hods-status-message__actions__link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hods-status-message__actions__link, .hods-status-message__actions__link:active, .hods-status-message__actions__link:hover, .hods-status-message__actions__link:link, .hods-status-message__actions__link:visited {
+    color: #0b0c0c;
+    background-color: #fff;
+    border: #0b0c0c 1px solid;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.govuk-button, .hods-status-message__actions__link {
+    width: auto;
+} */
+.govuk-button--light {
+  background-color: #fff;
+  box-shadow: 0 2px 0 #0b0c0c;
+}
+
+.govuk-button--light, .govuk-button--light:link, .govuk-button--light:visited, .govuk-button--light:active, .govuk-button--light:hover {
+  color: #0b0c0c;
+}
+
+.govuk-button--light:hover {
+  background-color: #f5f5f5;
+}
+
+.govuk-button--light:hover[disabled] {
+  background-color: #f3f2f1;
+}

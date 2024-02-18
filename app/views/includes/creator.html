@@ -1,0 +1,39 @@
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="event-name">
+    Report owner
+  </label>
+  <div id="changed-name-hint" class="govuk-hint">
+    Type or select Force/Station code or unit name
+  </div>
+  <select class="govuk-select" id="code" name="code">
+    {% block codesOwner %}
+    {% include "includes/codes.html" %}
+    {% endblock %}
+  </select>
+</div>
+
+<div class="govuk-form-group">
+<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="creator" name="creator" type="checkbox" value="yes" data-aria-controls="conditional-creator" style="accent-color:white">
+    <label class="govuk-label govuk-checkboxes__label" for="creator">
+      Creator is different to owner
+    </label>
+  </div>
+  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-creator">
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Type or select Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="country" name="country">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+    </div>
+</div>
+</div>

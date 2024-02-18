@@ -1,0 +1,262 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Action report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Lost/Stolen report (E34Y9340TY3293)
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="./export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="./export-form" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item ">
+              <a href="./overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./insurance.html" class="menu_list_item_link">
+                Insurance (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./past-insurance/insurance-past-check" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./markers.html" class="menu_list_item_link">
+                DVLA markers (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h2 class="govuk-heading-l">Lost/Stolen report</h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            E34Y9340TY3293
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (from)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15/03/2022
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (to)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15/03/2022
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked hazards
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                  Weapons
+            </strong>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Notes
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15/03/22 0500HRS VEHICLE STOLEN AT GUNPOINT FROM HALFORDS, BRIXTON, SW9. SUSP M, WHITE, F508, SLIM, WEARING A BLACK NIKE HOODIE. CONSIDER FIREARMS SUPPORT. CONTACT PS JOHN DOE, 02081237634 FORCE 01LX
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Confirmed
+          </dd>
+        </div>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked reports
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="#" class="govuk-link">Reaction (X73P1238GE6179)</a>
+          </dd>
+        </div>
+-->
+      </dl>
+
+      <h3 class="govuk-heading-m">Report source</h3>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Owner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            07A1
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Created on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15/03/2022 14:47
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Created by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            -
+          </dd>
+        </div>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PC Singh (FC14)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2018
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Weed date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 January 2023
+          </dd>
+        </div>
+-->
+      </dl>
+
+
+<!--HOPING FOR THIS FEATURE (LINKING TO PERSON REPORTS) IN THE FUTURE
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+      caption: "Linked person reports",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "Report"
+      },
+      {
+        text: "Justification"
+      },
+      {
+        text: "Details"
+      },
+      {
+        text: "Updated by"
+      },
+      {
+        text: "Updated on"
+      }
+      ],
+      rows: [
+      [
+        {
+          text: "Wanted - 12857034"
+        },
+        {
+          text: "Operation TABLE"
+        },
+        {
+          text: "-"
+        },
+        {
+          text: "FS10"
+        },
+        {
+          text: "14 Mar 2022"
+        }
+      ]
+      ]
+      }) }}
+-->
+<!--
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <p class="govuk-heading-s">
+                &#8592 &nbsp <a href="/overview-multi-1" class="govuk-link govuk-link--no-visited-state">Previous report</a></p>
+            </div>
+            <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+              <p class="govuk-heading-s">
+              <a href="/overview-multi-3" class="govuk-link govuk-link--no-visited-state">Next report</a> &nbsp &#8594</p>
+            </div>
+          </div>
+  -->
+        </div>
+      </div>
+
+{% endblock %}

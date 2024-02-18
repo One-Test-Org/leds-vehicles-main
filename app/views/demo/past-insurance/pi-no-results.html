@@ -1,0 +1,146 @@
+overview{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Insurance – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Past insurance</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right; font-size:1rem">
+    <a href="./edit-record-2" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-form" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-blue.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="/demo/overview" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="/demo/insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="/demo/past-insurance/insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/demo/MOT" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/demo/markers" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/demo/previous-keeper" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Past insurance details</h2>
+
+      <div class="hods-alert">
+        <h2 class="hods-alert__heading">
+          No insurance held by MIB for CF60 POP on 11/10/2022
+        </h2>
+      </div>
+      <hr>
+
+        <h1 class="govuk-heading-m govuk-!-padding-top-1">
+              Check past insurance
+        </h1>
+          <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-label--s">
+              Enter a date within the past 7 years
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 24 11 2019
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Search past insurance",
+          href: "./pi-results"
+        }) }}
+
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout-mobile.html" %}
+
+<!-- {% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %} -->
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back to search page</a>
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-mobile.html" %}
+{% endblock %}
+
+<br>
+
+<div class="govuk-grid-row" id="menu">
+<div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: black; color: white">
+<a href="./insurance-menu-open#menu" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+<strong>
+  ⋁ &nbsp; Vehicle menu
+</strong>
+</a>
+</div>
+</div>
+
+
+<br>
+
+<h2 class="govuk-heading-l">Insurance details</h2>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    There are 2 active insurance policies for this vehicle, but only the latest is displayed below.
+  </strong>
+</div>
+
+
+<h3 class="govuk-heading-m">Insurance policy: 1213-56345-3242</h3>
+
+{% block insurancecontent %}
+{% include "includes/insurance1.html" %}
+{% endblock %}
+
+
+{% endblock %}

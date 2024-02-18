@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Tax – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-s">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Tax
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="#" class="menu_list_item_link">
+                Insurance (1)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="#" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers1.html" class="menu_list_item_link">
+                DVLA markers (1)
+              </a>
+            </li>
+            <li class="menu_list_item menu_list_item-active">
+              <a href="tax1.html" class="menu_list_item_link">
+                Tax
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="#" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Tax</h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Taxed
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expiry date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            19 May 2022
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Tax class
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Electric
+          </dd>
+        </div>
+      </dl>
+
+        </div>
+      </div>
+
+{% endblock %}

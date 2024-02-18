@@ -1,0 +1,57 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .NAME }}
+  annotations:
+    downscaler/uptime: {{ .UPTIME }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .NAME }}
+  template:
+    metadata:
+      labels:
+        name: {{ .NAME }}
+        service: vehicles-redis
+        app: {{ .NAME }}
+        project: leds-person
+    spec:
+      containers:
+        - name: {{ .NAME }}
+          # redis:v5.0.6-1
+          image: quay.io/ukhomeofficedigital/redis@sha256:4499ea7306de776dab2ba8befd723a419fd311519d6f91f7821ed1a7c589da3b
+          readinessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 3
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+            periodSeconds: 5
+            failureThreshold: 5
+            successThreshold: 1
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - mountPath: /var/lib/redis
+              name: data
+          securityContext:
+            runAsNonRoot: true
+          resources:
+            requests:
+              cpu: "20m"
+              memory: "100Mi"
+            limits:
+              cpu: "100m"
+              memory: "200Mi"
+      volumes:
+        - name: data
+          emptyDir: {}

@@ -1,0 +1,34 @@
+<div class="govuk-form-group govuk-form-group--error">
+  <legend class="govuk-fieldset__legend govuk-label--s">
+    Incident date
+  </legend>
+
+  <p id="do-you-need-to-add-a-pol-exam-marker-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Entered To date cannot be before provided From date
+  </p>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-left-0">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend">
+          From (Optional)
+        </legend>
+        <div class="govuk-date-input" id="from-date">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="enter-from-date" name="passport-issued-day" type="date">
+        </div>
+      </fieldset>
+    </div>
+  </div>  
+  <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group">
+        <legend class="govuk-fieldset__legend">
+          To (Optional)
+        </legend>
+        <div class="govuk-date-input" id="to-date">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-10 govuk-input--error" id="enter-to-date" name="passport-issued-day" type="date">
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

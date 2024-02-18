@@ -1,0 +1,255 @@
+{% extends "layout-menu-3.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-grid-row">
+<div class="govuk-grid-column-full govuk-!-margin-top-2" style="text-align:right">
+  <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a>
+    <a href="#" role="button" draggable="false" class="govuk-button  govuk-button--warning" data-module="govuk-button">Delete record</a>
+  </div>
+  </div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-stolen">Vehicle record</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red-PR.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        What do you need to do?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Update vehicle or keeper details
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="vrm">
+            VRM
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="vrm" name="vrm"  value="CF60 ABC">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="vin">
+            VIN
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="vin" name="vin"  value="">
+        </div>
+        <div class="govuk-grid-row">
+          <fieldset id="makemodel-div" style="border: 0;">
+            <div class="govuk-grid-row">
+              <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+                <label class="govuk-label govuk-label--s" for="make">
+                  Make
+                </label>
+                <select class="govuk-select" id="make" name="make">
+                  <option value="" selected></option>
+                  <option value="audi">Audi</option>
+                  <option value="ford">Ford</option>
+                  <option value="mercedez-benz">Mercedez-Benz</option>
+                  <option value="toyota">Toyota</option>
+                </select>
+              </div>
+              <div class="govuk-form-group" style="float:left; margin-left:20px">
+                <label class="govuk-label govuk-label--s" for="make">
+                  Model
+                </label>
+                <select class="govuk-select" id="make" name="make">
+                  <option value="" selected></option>
+                  <option value="audi">A3</option>
+                  <option value="audi">A4</option>
+                  <option value="audi">A5</option>
+                  <option value="audi">A6</option>
+                  <option value="mercedez-benz">A-Class</option>
+                  <option value="mercedez-benz">C-Class</option>
+                  <option value="ford">Focus</option>
+                  <option value="ford">Transit 150 Passenger Van</option>
+                  <option value="toyota">Prius</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="sort">
+              Body type
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Estate</option>
+              <option value="updated" selected>SUV</option>
+              <option value="views">4 door saloon</option>
+              <option value="comments">5 door saloon</option>
+            </select>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="sort">
+              Colour
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Red</option>
+              <option value="updated" selected>Blue</option>
+              <option value="views">Black</option>
+              <option value="comments">Green</option>
+            </select>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="sort">
+              Fuel type
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Diesel</option>
+              <option value="updated" selected>Petrol</option>
+              <option value="views">Electric</option>
+            </select>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="vrm">
+              Registered keeper
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="vrm" name="vrm"  value="">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="vrm">
+              Registered keeper since
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="vrm" name="vrm"  value="">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="vrm">
+              Registered keeper address
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="vrm" name="vrm"  value="">
+          </div>
+          <br>
+          <br>
+          <button class="govuk-button" data-module="govuk-button">
+            Update record
+          </button>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+          <label class="govuk-label govuk-radios__label" for="contact-2">
+            Block record
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="contact-by-phone">
+              By blocking this record...you are blocking this record...
+        </label>
+        <br>
+              <button class="govuk-button" data-module="govuk-button">
+                Block record
+              </button>
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+          <label class="govuk-label govuk-radios__label" for="contact-3">
+            Delete record
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="contact-by-text">
+              {{ govukInput({
+                label: {
+                  classes: "govuk-label--s",
+                  text: "Justification"
+                },
+                classes: "govuk-!-width-two-thirds",
+                hint: {
+                  text: "For example, crime reference, reason for download"
+                },
+                id: "justification",
+                name: "justification"
+              }) }}
+
+              {{ govukInput({
+                label: {
+                  classes: "govuk-label--s",
+                  text: "On behalf of (Optional)"
+                },
+                classes: "govuk-!-width-two-thirds",
+                hint: {
+                  text: "For example, PC Jones (12345)"
+                },
+                id: "on-behalf-of",
+                name: "on-behalf-of"
+              }) }}
+            </label>
+            <br>
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                By deleting this record...you are responsible for deleting this record...
+              </strong>
+            </div>
+            <br>
+            <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+              Delete record
+            </button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

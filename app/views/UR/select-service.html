@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search name on LEDS  – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Vehicle search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search for Bob Salmon on LEDS</h1>
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/select-service" method="post">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+            Which service do you need?
+          </h2>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="drivers" name="service" type="radio" value="drivers">
+                <label class="govuk-label govuk-radios__label" for="drivers">
+                  Drivers
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="person" name="service" type="radio" value="person">
+                <label class="govuk-label govuk-radios__label" for="person">
+                  Person
+                </label>
+              </div>
+            </div>
+      </fieldset>
+    </div>
+
+<br>
+<a href="search-drivers" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Go to service</a>
+
+</form>
+
+<hr class="govuk-section-break govuk-section-break--l">
+
+<br>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Help with cross-LEDS links
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    LEDS Vehicles will redirect you to the LEDS service you choose here, so you can perform a search for the above name.
+    Vehicles will pre-fill any relevant details on the search form but you will get the chance to review them.
+    You will also need to add a new justification and reason for the new search
+  </div>
+  </details>
+
+
+
+<!--
+    <button id="add-another-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+      Clear search
+    </button>
+-->
+
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

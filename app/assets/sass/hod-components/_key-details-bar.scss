@@ -1,0 +1,125 @@
+/* FROM DWP KEY DETAILS BAR*/
+
+.key-details-bar {
+  background-color: #002664;
+  font-family: 'Inter UI', sans-serif;
+
+  .key-details-bar__key-details {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px 30px;
+    position: relative;
+
+    @media(max-width: 670px) {
+      padding: 20px 15px;
+    }
+
+    * {
+      color: #fff;
+    }
+
+    .key-details-bar__top-block,
+    .key-details-bar__bottom-block {
+      &::after {
+        clear: both;
+        content: ' ';
+        display: block;
+      }
+    }
+
+    .key-details-bar__bottom-block {
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      content: ' ';
+      padding-top: 10px;
+      margin-top: 6px;
+
+      @media(max-width: 670px) {
+        border: 0;
+      }
+    }
+
+    dd,
+    dt {
+      float: left;
+      font-size: 19px;
+      margin-right: 5px;
+
+      @media(max-width: 670px) {
+        float: none;
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+
+    dd {
+      margin-right: 50px;
+      margin-left: 0;
+
+      @media(max-width: 670px) {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .key-details-bar__name {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.11111;
+      margin-right: 72px;
+
+      @media(max-width: 670px) {
+        font-size: 18px;
+        line-height: 1.04167;
+        float: left;
+        margin: 0 50px 0 0;
+      }
+    }
+
+    .key-details-bar__nino {
+      font-size: 21px;
+      line-height: 1;
+      margin-top: 12px;
+
+      @media(max-width: 670px) {
+        font-size: 21px;
+        float: left;
+        margin: 5px 0 0 0;
+      }
+    }
+
+    .key-details-bar__status {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 5px 8px 0;
+      color: #002664;
+      background-color: #fff;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-right: 50px;
+
+
+      float: right;
+      margin: 5px 0 0;
+
+      @media(max-width: 670px) {
+        font-size: 14px;
+        float: left;
+        clear: both;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.key-details-bar__backlink {
+  margin: 0 auto;
+  max-width: 1200px;
+  // padding: 20px 30px;
+  position: relative;
+  color: white;
+}

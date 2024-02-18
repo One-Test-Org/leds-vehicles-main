@@ -1,0 +1,125 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link" id="banner-top">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="" id="whole-form">
+    <div class="govuk-grid-row">
+      <form class="form" id="form-submit" action="./record-deleted-success" method="post">
+      <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+        <h1 class="govuk-heading-l">Pair reports and delete police record</h1>
+        <p class="govuk-body">
+          These two joined reports will be paired and  deleted:
+        </p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5">
+          <li><strong><a href="./action-report" target="_blank" class="govuk-link govuk-link--no-visited-state">
+            Action</a></strong> ({{ data['actRef'] }})
+            <div id="nationality-item-hint" class="govuk-hint" style="text-transform: uppercase">
+                {{ data['autoTextHidden'] }} {{ data['actNotes1'] }} {{ data['actNotes2'] }} {{ data['actNotes3'].slice(0,28) }}...
+            </div>
+          </li>
+          <li>
+              <strong><a href="./reaction-report" target="_blank" class="govuk-link govuk-link--no-visited-state">Reaction</a></strong> (X73P1238GE6179)
+              <div id="nationality-item-hint" class="govuk-hint" style="text-transform: uppercase">
+                  Vehicle stopped and searched. Three males arrested in 01MP. One charged with PWITS, one charged with Assualt on Police. CRIS REF 22/9874561X
+              </div>
+          </li>
+        </ul>
+        <div class="govuk-warning-text govuk-!-margin-top-6" id="warning" >
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text govuk-!-width-three-quarters">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            The Police record for SG19705 will also be deleted, as you're deleting the only remaining reports on it.
+          </strong>
+        </div>
+        <div class="govuk-button-group govuk-!-margin-top-7">
+        <button class="govuk-button govuk-button--warning" data-module="govuk-button" style="float:left">Delete police record</button>
+        <div>
+          <a class="govuk-link" href="#">Cancel</a>
+        </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <section class="app-summary-card">
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Record overview</h2>
+          </header>
+
+          <div class="app-summary-card__body">
+            <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+              <a href="#" class="govuk-heading-l govuk-link govuk-link--no-underline">SG 19705</a>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+              <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+      <!--
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Hazards</p>
+              <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                Weapons
+              </strong>
+              </p>
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Reports</p>
+              <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                Lost/Stolen
+              </strong>
+              </p>
+      -->
+          </div>
+        </section>
+
+      </div>
+      </form>
+    </div>
+</div>
+    <div id="pending-submit" class="hidden" style="margin: 50px auto; text-align: center;">
+        <h2 class="govuk-heading-l">Deleting police record</h2>
+
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <br /><br /><br /><br />
+        <p style="">Please wait a few moments while we submit your request to PNC</p>
+
+        <br /><br /><br /><br />
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const wholeForm = document.getElementById('whole-form');
+            const bannerTop = document.getElementById('banner-top');
+            const form = document.getElementById('form-submit');
+            const pending = document.getElementById('pending-submit');
+
+            form.addEventListener('submit', onClick);
+
+            function onClick(e) {
+                window.scrollTo(0,0);
+                e.preventDefault();
+
+                pending.classList.remove('hidden');
+                wholeForm.classList.add('hidden');
+                bannerTop.classList.add('hidden');
+
+                setTimeout(() => {
+                    form.removeEventListener('submit', onClick);
+                    form.submit();
+                }, 5000);
+            }
+        }, 1000);
+
+        const dt = new Date();
+        document.getElementById("act-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+    </script>
+
+{% endblock %}

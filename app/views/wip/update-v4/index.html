@@ -1,0 +1,467 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  LEDS – Vehicles prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+      <a href="/index#signed-off" class="govuk-back-link">Back to prototype home</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-6 govuk-!-margin-bottom-3">
+        Update screens and journeys
+      </h1>
+<!--
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+-->
+      <p class="govuk-body-l">
+        These designs describe the Update functionality and should be consulted alongside relevant JIRA tickets and <strong><a href="https://ukhomeoffice.sharepoint.com/:p:/r/sites/prog1423/Products/Vehicles/Vehicles%20Beta%202022/UCD/06.%20Update%20functionality/Update%20journeys%20designs%20and%20requirements.pptx?d=w6869c479361c43dfacdde558a3fc9937&csf=1&web=1&e=c3SvIK" class="govuk-link">this document</a></strong>
+      </p>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">1. Create a police record</h2>
+      <strong class="govuk-tag govuk-tag--green govuk-!-margin-top-0 govuk-!-margin-bottom-6">1st release</strong>
+        <dl class="govuk-summary-list ">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./search" class="govuk-link">Search page</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Search for a vehicle (with full VRM)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./no-result" class="govuk-link">No search results</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              When no search results are returned, users can start the journey to create a new record
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./create-record" class="govuk-link">Vehicle details</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Users enter vehicle details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./create-record-2" class="govuk-link">Foreign marker</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Users specify if the vehicle is foreign (and the country)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./create-record-3" class="govuk-link">Register keeper details</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Users enter register keeper details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./create-record-4" class="govuk-link">Select report</a><br>
+              <span class="govuk-body-s">(Stolen expected in prototype)</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Users select the report they need to add
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./create-record-5" class="govuk-link">Report details</a><br>
+              <span class="govuk-body-s">(Prototype will pass on values)</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Users enter report details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Check answers<br>
+              <span class="govuk-body-s">(spinner appears after Submit)</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p><a href="./check-answers" class="govuk-link">Check answers page</a></p>
+              <p><a href="./check-answers-error" class="govuk-link">Submit failed</a> - Error alert on the page when 2WR transaction fails</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Record created<br>
+              <span class="govuk-body-s">(appears after spinner)</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p><a href="./overview-created" class="govuk-link">Successful record creation</a></p>
+              <p><a href="./overview-created-error" class="govuk-link">Partially successful creation</a></p>
+            </dd>
+          </div>
+          {# Record created (exceptions) #}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Record created (exceptions)<br>
+              <span class="govuk-body-s">(appears after spinner)</span><br>
+              <strong class="govuk-tag govuk-tag--orange">Drafts</strong>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p><a href="./success-page-record" class="govuk-link">Record created but unable to return it</a></p>
+              <p><a href="./success-page-record-error" class="govuk-link">Record created without confirmation, and unable to return it</a></p>
+              <p><a href="./success-page-record-error-2" class="govuk-link">Record created without expiry date, and unable to return it</a></p>
+              <p><a href="./cloned-created" class="govuk-link">Record created but multiple exist</a></p>
+              <p><a href="./cloned-created-error">Record created without confirmation, and multiple exist</a></p>
+              <p><a href="./cloned-created-error-2">Record created without expiry date, and multiple exist</a></p>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <p><strong>Pre-populated vehicle search page with record created exceptions</strong></p>
+              <p><a href="./error-search-confirm-report-not-confirmed" class="govuk-link">Record created without confirmation, and unable to return it</a></p>
+              <p><a href="./error-search-action-report-date-not-confirmed" class="govuk-link">Record created without expiry date, and unable to return it</a></p>
+              <p><a href="./error-search-hazards-not-updated" class="govuk-link">Action report updated, and hazards not updated</a></p>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">2. Edit records</h2>
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Edit record options<br>
+                <span class="govuk-body-s">(for users with all entitlements)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./edit-record" class="govuk-link">Edit record (police record - foreign)</a></p>
+                <p><a href="./edit-record-non-foreign" class="govuk-link">Edit record (police record - not foreign)</a></p>
+                <p><a href="./edit-record-dvla" class="govuk-link">Edit record (DVLA record - without PolExam)</a></p>
+                <p><a href="./edit-record-dvla-with-polexam" class="govuk-link">Edit record (DVLA record - with PolExam)</a></p>
+                <p><a href="./edit-record-blocked" class="govuk-link">Edit record (blocked DVLA record)</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Update vehicle details<br>
+                <span class="govuk-body-s">(for Police records only)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./update-vehicle-details" class="govuk-link">Update vehicle details</a> - Vehicle details page with pre-filled valued from 'create record journey'</p>
+                <p><a href="./check-answers-update-vehicle" class="govuk-link">Check your answers</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Update registered keeper details<br>
+                <span class="govuk-body-s">(for Police records only)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./update-keeper-details" class="govuk-link">Update registered keeper details</a></p>
+                <p><a href="./check-answers-update-keeper" class="govuk-link">Check your answers</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Foreign marker<br>
+                <span class="govuk-body-s">(for Police records only)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="./add-foreign" class="govuk-link">Add foreign marker</a> - As per create record journey but with 'no' pre-selected <br>
+                <a href="./update-foreign" class="govuk-link">Update or remove foreign marker</a> - Update country or remove foreign marker (no check your answers page)
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Pol Exam marker<br>
+                <span class="govuk-body-s">(for DVLA records only)</span>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="./add-polexam" class="govuk-link">Add pol exam marker</a> - Add marker with Force/Station code <br>
+                <a href="./update-polexam" class="govuk-link">Update or remove pol exam marker</a> - Update Force/Station code or remove foreign marker (no check your answers page)
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Blocking records
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./block-record" class="govuk-link">Block record</a></p>
+                <p><a href="./overview-updated-blocked" class="govuk-link">Overview with alert</a> - including prompt for creating Restricted report</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Unblocking records
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./update-block" class="govuk-link">Unblock record</a> - or update blocked data</p>
+                <p><a href="./overview-unblocked" class="govuk-link">Overview with alert</a> - including prompt for deleting Restricted report</p>
+              </dd>
+            </div>
+          </dl>
+
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-2">3. Add reports</h2>
+          <strong class="govuk-tag govuk-tag--green govuk-!-margin-top-0 govuk-!-margin-bottom-6">1st release</strong>
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Add a report
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./select-report" class="govuk-link">Select a report to add</a></p>
+                <p><a href="./add-action" class="govuk-link">Action</a></p>
+                <p><a href="./add-cor" class="govuk-link">Correction</a></p>
+                <p><a href="./add-des" class="govuk-link">Destroyed</a></p>
+                <p><a href="./add-found" class="govuk-link">Found</a></p>
+                <p><a href="./add-inf" class="govuk-link">Information</a></p>
+                <p><a href="./add-stolen" class="govuk-link">Lost/Stolen</a></p>
+                <p><a href="./add-reaction" class="govuk-link">Reaction</a></p>
+                <p><a href="./add-rem" class="govuk-link">Removed</a></p>
+                <p><a href="./add-res" class="govuk-link">Restriction</a></p>
+                <p><a href="./add-see" class="govuk-link">Seen</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Check answers
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./check-answers-action" class="govuk-link">Check answers page</a></p>
+                <p><a href="./check-answers-reaction-error" class="govuk-link">Submit failed</a></p>
+              </dd>
+            </div>
+          </dl>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">4. Edit reports</h2>
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Report page examples<br>
+                <span class="govuk-body-s">(Includes not Update-related design iterations)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--yellow">2nd release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./action-report-0" class="govuk-link">Action report</a></p>
+                <p><a href="./action-report-pair" class="govuk-link">Action report - able to pair</a></p>
+                <p><a href="./action-report-0-cannot-pair" class="govuk-link">Action report - unable to pair</a></p>
+                <p><a href="./reaction-report" class="govuk-link">Rection report - able to pair</a></p>
+                <p><a href="./reaction-report-cannot-pair" class="govuk-link">Rection report - unable to pair</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Update a report
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./update-stolen" class="govuk-link">Update report example</a></p>
+                <p><a href="./check-answers-update-stolen" class="govuk-link">Check answers</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Update report confirmation and error messages
+                <br>
+                <strong class="govuk-tag govuk-tag--green">1st release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./overview-confirmed-error.html" class="govuk-link">Confirmation only failed</a></p>
+                <p><a href="./overview-updated-error" class="govuk-link">Amend only failed</a></p>
+                <p><a href="./check-answers-update-stolen-error" class="govuk-link">Both amend and confirmation failed</a></p>
+                <p><a href="./overview-report-updated" class="govuk-link">Both amend and confirmation successful</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Delete report<br>
+                <span class=govuk-body-s>(For DVLA records or police records that have more reports)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--yellow">2nd release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./delete-action" class="govuk-link">Delete a report</a></p>
+                <p><a href="./overview-deleted-action" class="govuk-link">Overview with alert</a></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Delete final report<br>
+                <span class=govuk-body-s>(For DVLA records with no other reports)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--yellow">2nd release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./delete-final-report" class="govuk-link">Delete final report</a></p>
+                <p><a href="./record-deleted-after-delete" class="govuk-link">Confirmation page</a> (record deletion after report deletion)</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Pair final 2 reports<br>
+                <span class=govuk-body-s>(For DVLA records with no other reports)</span>
+                <br>
+                <strong class="govuk-tag govuk-tag--yellow">2nd release</strong>
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p><a href="./pair-warning" class="govuk-link">Pair final 2 reports</a></p>
+                <p><a href="./record-deleted-after-pair" class="govuk-link">Confirmation page</a> (record deletion after pairing reports)</p>
+              </dd>
+            </div>
+          </dl>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">5. Other changes</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./overview-updated-reaction" class="govuk-link">Viewing joined reports</a>
+              <br>
+              <strong class="govuk-tag govuk-tag--yellow">2nd release</strong>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Overview page with:
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Action + Reaction grouped in police information box</li>
+                <li>Joined reports tab in police reports section</li>
+                <li>"Joined to" information and colour-coding in joined reports table</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Edit search
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Replace breadcrumbs from all record pages "Edit search" or "Search results" back link (depending whether the user navigated to the record directly or via search results). Search form should be prefilled with previously entered values
+            </dd>
+          </div>
+        </dl>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-2">6. Error states</h2>
+      <strong class="govuk-tag govuk-tag--green govuk-!-margin-top-0 govuk-!-margin-bottom-6">1st release</strong>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Edit record options
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">User clicks 'Continue' on edit vehicle record page without selecting a radio button option:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                <li><a href="./edit-record-error" class="govuk-link">Edit record (police record)</a></li>
+                <li><a href="./edit-record-dvla-error" class="govuk-link">Edit record (DVLA record)</a></li>
+                <li><a href="./edit-record-blocked-error" class="govuk-link">Edit record (blocked DVLA record)</a></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="./update-foreign-error" class="govuk-link">Update foreign marker</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">User deletes vehicle's originating country but does not select a new one</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Add pol exam marker
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">User clicks 'Add Pol Exam marker':</p>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                <li><a href="./add-polexam-error?error=add-pol-exam" class="govuk-link">Without selecting 'Yes' or 'No' radio button</a></li>
+                <li><a href="./add-polexam-error?error=no-force-station" class="govuk-link">After deleting current force/station responsible for Pol Exam but does not select a new one</a></li>
+                <li><a href="./add-polexam-error?error=no-force-station" class="govuk-link">Without entering a force station code</a></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Blocking records
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">User clicks 'Block record':</p>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                <li><a href="./block-record-error?block-vehicle-record-error=yes&force-station-code-error=no&blocked-reference-error=no" class="govuk-link">Without selecting 'Yes' or 'No' radio button</a></li>
+                <li><a href="./block-record-error?block-vehicle-record-error=no&force-station-code-error=yes&blocked-reference-error=no" class="govuk-link">Without entering a force station code</a></li>
+                <li><a href="./block-record-error?block-vehicle-record-error=no&force-station-code-error=no&blocked-reference-error=yes" class="govuk-link">Without entering a blocked reference</a></li>
+                <li><a href="./block-record-error?block-vehicle-record-error=no&force-station-code-error=yes&blocked-reference-error=yes" class="govuk-link">Without entering both a force station code and a blocked reference</a></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              From and To dates<br>(Add new report "Found report details")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">It has been assumed that all instances of 'From' and 'To' will follow the same pattern:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                <li><a href="./add-found-from-date-error" class="govuk-link">User clicks 'Submit' after they've entered a 'To' date but not a 'From' date</a></li>
+                <li><a href="./add-found-to-date-error" class="govuk-link">User clicks 'Submit' after they've entered a 'To' date that is before the entered 'From' date</a></li>
+              </ul>
+            </dd>
+          </div>
+          </dl>
+
+          <h2 class="govuk-heading-m  govuk-!-margin-top-9 govuk-!-margin-bottom-2">7. Record locking</h2>
+          <strong class="govuk-tag govuk-tag--green govuk-!-margin-top-0 govuk-!-margin-bottom-6">1st release</strong>
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <a href="/wip/update-v4/overview-locked" class="govuk-link">Can't edit record</a>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Inform user they can't edit the record as someone else is manipulating it</li>
+                    <li>Exact operation (e.g. "adding report" will be communicated on live service)</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <a href="/wip/update-v4/no-result-locked" class="govuk-link">Can't create record</a>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Inform user they can't create a record as someone else is already creating one with the same VRM</li>
+                  </ul>
+                </dd>
+              </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    <a href="/wip/update-v4/update-vehicle-details-lock-expiring" class="govuk-link">Session about to expire</a>
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>Inform user their session is about to expire (modal will trigger 5 seconds after page load)</li>
+                    </ul>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    <a href="/wip/update-v4/update-vehicle-details-lock-expired" class="govuk-link">Session has expired</a>
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>Inform user their session has expired (modal will trigger 1 second after page load but in reality it would be triggered in the event the 'about to expire' notification hasn't been acknowledged</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+
+        {% endblock %}

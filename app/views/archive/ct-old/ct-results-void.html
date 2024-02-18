@@ -1,0 +1,197 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">2 search results</h1>
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-body">
+        <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">LL02 KYO</strong>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter" style="text-align:right">
+      <a href="./search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+    </div>
+  </div>
+
+  <h2 class="govuk-heading-l">1 current vehicle with LL02 KYO </h2>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      classes: "app-table__rows--uppercase",
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          html: '<div style="white-space: pre">Created by</div>'
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '
+          <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space: pre">LL02 KYO</a>'
+        },
+        {
+          html: '-',
+          format: "text"
+        },
+        {
+          html: '-',
+          format: "text"
+        },
+        {
+          html: '-',
+          format: "text"
+        },
+        {
+          html:
+          '
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished Transfer - Void</strong>
+          '
+        },
+        {
+          html: '-',
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag govuk-tag--green">DVLA</strong>'
+        }
+      ]
+      ]
+    }) }}
+
+
+    <hr class="govuk-section-break govuk-section-break--l">
+    <h2 class="govuk-heading-l">1 past vehicle with LL02 KYO</h2>
+
+    <div class="govuk-inset-text">
+      DVLA markers are not displayed below
+    </div>
+
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      classes: "app-table__rows--uppercase",
+      head: [
+      {
+        text: "VRM"
+      },
+      {
+        text: "Colour",
+        format: "link"
+      },
+      {
+        text: "Make/Model",
+        format: "text"
+      },
+      {
+        text: "Body type",
+        format: "date"
+      },
+      {
+        text: "Hazards & Police Reports"
+      },
+      {
+        text: "VIN"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: 'IAN1<br>
+          <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">LL02 KYO dates:</span><br> 10/10/2020 - 12/12/2021</div>
+          '
+        },
+        {
+          text: "Black",
+          format: "text"
+        },
+        {
+          text: "Mercedes, CLK",
+          format: "text"
+        },
+        {
+          text: "Coupe",
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag govuk-tag--white">None</strong>'
+        },
+        {
+          text: "1KLMY1DO9PPP89463"
+        }
+      ]
+    ]
+  }) }}
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <hr>
+
+    <div class="govuk-caption-m">
+      Design notes
+    </div>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Void scenario
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>User searched for VRM LL02 KYO</li>
+          <li>This VRM is not on a vehicle any more</li>
+          <li>It used to be on the vehicle that now has the personalised plate IAN1</li>
+        </ul>
+        See also scenarios for <a href="./ct-results-retained" class="govuk-link govuk-link--no-visited-state">VRM retained</a>, <a href="./ct-results-double" class="govuk-link govuk-link--no-visited-state">double shuffle</a> and <a href="./ct-results-complex" class="govuk-link govuk-link--no-visited-state">cloned and double shuffle</a>
+      </div>
+    </details>
+    <hr>
+
+
+{% endblock %}

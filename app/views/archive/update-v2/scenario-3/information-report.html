@@ -1,0 +1,181 @@
+]{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Action report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-stolen">Vehicle record</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right">
+  <!-- <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a> -->
+    <a href="./edit-record" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-blue-update.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item ">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="insurance.html" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers.html" class="menu_list_item_link">
+                DVLA markers (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="tax.html" class="menu_list_item_link">
+                Tax
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+    <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-three-quarters-from-desktop">
+            <h2 class="govuk-heading-l">Information report</h2>
+          </div>
+          <div class="govuk-grid-column-one-quarter-from-desktop">
+            <a href="./update-inf" role="button" style="background-color: #CBCBCB; float: right; draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">Edit report</a>
+          </div>
+        </div>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Z99A9846OQ1267
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (from)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15/05/2023
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (to)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            -
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked hazards
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <strong class="govuk-tag govuk-tag--white govuk-!-margin-bottom-2">
+                  None
+            </strong>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Notes
+          </dt>
+          <dd class="govuk-summary-list__value">
+            AS A NEW LEDS USER I NEED TO ADD THIS INFORMATION REPORT TO LEARN BY DOING.
+          </dd>
+        </div>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Paired reports
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="#" class="govuk-link">Reaction (X73P1238GE6179)</a>
+          </dd>
+        </div>
+-->
+      </dl>
+
+      <h3 class="govuk-heading-m">Report source</h3>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Owner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            01LX
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Created on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            17/05/2023, 09:17
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expiry date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            26/06/2023
+          </dd>
+        </div>
+      </dl>
+
+        </div>
+      </div>
+
+{% endblock %}

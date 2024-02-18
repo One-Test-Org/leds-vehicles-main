@@ -1,0 +1,253 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 DPK - Insurance – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-s">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Insurance
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red-copy.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="/next/overview" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="/next/no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="/next/insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-MOT" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-markers" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-tax" class="menu_list_item_link">
+              Tax
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-previous-keeper" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Current insurance details <span style="float:right; margin-right:10px"><a href="#"><img src="/public/images/copy-icon.png" alt="Copy icon"></a></span></h2>
+
+<!-- REINTRODUCE WHEN Past insurance FUNCTIONALITY IS AVAILABLE
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Check details for a different date
+          </span>
+        </summary>
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend">
+            Enter a date in the past 7 years to see the insurance details held on that day.
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 24 11 2019
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Apply",
+        href: "/insurance-past"
+      }) }}
+      </details>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+-->
+
+
+<h3 class="govuk-heading-m">Insurance policy: 1213-56345-3242</h3>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+ <strong class="govuk-tag govuk-tag">Private</strong>
+-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-padding-right-9">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Policy holder
+        </dt>
+        <dd class="govuk-summary-list__value">
+            Bob Salmon
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Insured from
+        </dt>
+        <dd class="govuk-summary-list__value">
+            11 Mar 2022, 00:00
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Insured to
+        </dt>
+        <dd class="govuk-summary-list__value">
+            10 Mar 2023, 23:59
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Policy address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          72 Guild Street<br>London<br>SE23 6FH
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Allowed to drive other vehicles
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Class of use
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Social domestic & pleasure
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Angler Motor Insurance Ltd - 02063331234
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          VRM
+        </dt>
+        <dd class="govuk-summary-list__value">
+          CF60 DPK
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vehicle make & model
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Mercedes Benz, C-Class
+        </dd>
+      </div>
+    </dl>
+  </div>
+<!-- background-color: white; border: 2px solid #1d70b8; -->
+  <div class="govuk-grid-column-one-third" style="background-color: white; border: 1px solid #b1b4b6;">
+    <h3 class="govuk-heading-m govuk-!-margin-top-4">Included drivers</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Fred Salmon</strong><br>
+      Date of birth: 10 Jun 1968</li>
+      <li><strong>Kate Salmon</strong><br>
+      Date of birth: 21 Mar 1999</li>
+      </ul>
+    <h3 class="govuk-heading-m">Excluded drivers</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Karl Salmon</strong><br>
+        Date of birth: 12 Jul 1988<br></li>
+      <li><strong>
+        Jake Jones</strong><br>
+        Date of birth: 30 May 1991</li>
+      </ul>
+      <h3 class="govuk-heading-m">Extra drivers </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>None (Included or Excluded)</li>
+      </ul>
+
+
+  </div>
+</div>
+
+        </div>
+      </div>
+
+{% endblock %}

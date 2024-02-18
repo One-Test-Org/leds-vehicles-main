@@ -1,0 +1,632 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Download search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div id="banner-top">
+  <a href="export-journey-search-results" class="govuk-back-link">Back to search results</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div id="download-abbreviated-list-success-banner" class="hods-alert hods-alert--success govuk-!-margin-top-1" style="display: none">
+  <h2 class="hods-alert__heading">
+    List only downloaded
+  </h2>
+</div>
+
+<div id="download-record-details-success-banner" class="hods-alert hods-alert--success govuk-!-margin-top-1" style="display: none">
+  <h2 class="hods-alert__heading">
+    Records details downloaded
+  </h2>
+</div>
+
+<div class="govuk-width-container">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+      
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-xl">
+          {% if data['pastvehicles'] == 'no' %}
+            Download 12 search results
+          {% else %}
+            Download 7 past vehicle search results
+          {% endif %}
+        </h1>
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Who is this download for?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="OBO" name="OBO" type="radio" value="myself" {{ checked("OBO", "myself") }}>
+              <label class="govuk-label govuk-radios__label" for="OBO">
+                For myself
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="OBO-2" name="OBO" type="radio" value="someone-else" data-aria-controls="conditional-OBO-2" {{ checked("OBO", "someone-else") }}>
+              <label class="govuk-label govuk-radios__label" for="OBO-2">
+                For someone else
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--s" for="contact-by-phone">
+                  On behalf of
+                </label>
+                <div id="onbehalf-hint" class="govuk-hint">
+                  For example, PC Smith (12345)
+                </div>
+                {#<input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">#}
+                <input class="govuk-input govuk-!-width-one-third" id="name-of-force-or-person" name="name-of-force-or-person" type="text" value="{{ data['name-of-force-or-person'] }}">
+                <div class="govuk-warning-text govuk-!-margin-top-3">
+                  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                  <strong class="govuk-warning-text__text govuk-!-width-three-quarters">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Remember, you're still personally responsible for the information you provide even if you're performing this deletion on behalf of someone else
+                  </strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukTextarea({
+        name: "justification",
+        id: "justification",
+        value: data["justification"],
+        rows: 2,
+        classes: "govuk-!-width-two-thirds",
+        hint: {
+        text: "For example, your reason for downloading"
+        },
+        label: {
+          classes: "govuk-label--s",
+          text: "Justification"
+        }
+      }) }}
+
+    </div>
+
+    {#<div class="govuk-grid-column-one-quarter">
+      {% block carheader %}
+        <section class="app-summary-card govuk-!-margin-top-5">
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Your search justification</h2>
+          </header>
+          <div class="app-summary-card__body">
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+          </div>
+        </section>
+      {% endblock %}
+    </div>#}
+
+    {# Table selector #}
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-4">
+        Select which search results to download
+      </h2>
+      {#<div class="govuk-inset-text">
+        Only the information shown will be included in the export.
+      </div>#}
+      <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+        <input type="checkbox" onclick="toggle(this)" class="govuk-checkboxes__input" name="select-all" id="select-all">
+        <label class="govuk-label govuk-checkboxes__label" for="select-all">
+          {% if data['pastvehicles'] == 'no' %}
+            <span class="">Select all 12 results</span>
+          {% else %}
+            <span class="">Select all 7 results</span>
+          {% endif %}
+        </label>
+      </div>
+
+      {% if data['pastvehicles'] == 'no' %}
+        {# 12 VEHICLES (Does not include past vehicles) #}
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Select</class></th>
+              <th scope="col" class="govuk-table__header">VRM</th>
+              <th scope="col" class="govuk-table__header">Colour</th>
+              <th scope="col" class="govuk-table__header">Make/Model</th>
+              <th scope="col" class="govuk-table__header" style="white-space:pre">Hazards, Reports and Markers</th>
+              <th scope="col" class="govuk-table__header">VIN</th>
+              <th scope="col" class="govuk-table__header" style="white-space: nowrap;">Created by</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-1">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-1">
+                    <span class="govuk-visually-hidden">Select row 1</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">FX12LPA</th>
+              <td class="govuk-table__cell">RED</td>
+              <td class="govuk-table__cell">FORD, ECOSPORT</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+              <td class="govuk-table__cell">1GMDX03E8VD266902</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-2">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-2">
+                    <span class="govuk-visually-hidden">Select row 2</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">BIILLY</th>
+              <td class="govuk-table__cell">SILVER</td>
+              <td class="govuk-table__cell">JAGUAR, XF</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+              </td>
+              <td class="govuk-table__cell">-</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Police</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-3">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-3">
+                    <span class="govuk-visually-hidden">Select row 3</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                BIILLY<br>
+                <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">BIILLY from:</span><br> 12/12/2021</div>
+              </th>
+              <td class="govuk-table__cell">WHITE</td>
+              <td class="govuk-table__cell">JAGUAR, XF</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong></td>
+              <td class="govuk-table__cell">5YJSA1DG9DFP14705</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-4">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-4">
+                    <span class="govuk-visually-hidden">Select row 4</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                L22REN
+                <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">L22REN from:</span><br> 20/07/2022</div>
+              </th>
+              <td class="govuk-table__cell">BLUE</td>
+              <td class="govuk-table__cell">SKODA, OCTAVIA</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">POLICE EYES ONLY</strong>
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>
+              </td>
+              <td class="govuk-table__cell">JTMBD33V995221974</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-5">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-5">
+                    <span class="govuk-visually-hidden">Select row 5</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">AB19XRV</th>
+              <td class="govuk-table__cell">RED</td>
+              <td class="govuk-table__cell">MAZDA, TRIBUTE</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+              <td class="govuk-table__cell">4F2YU09152KM31556</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox"  onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-6">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-6">
+                    <span class="govuk-visually-hidden">Select row 6</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">SL67SWA</th>
+              <td class="govuk-table__cell">BLACK</td>
+              <td class="govuk-table__cell">AUDI, A3</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">Blocked record</strong><br>
+              </td>
+              <td class="govuk-table__cell">WAUFFCFL2BA095442</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-7">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-7">
+                    <span class="govuk-visually-hidden">Select row 7</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">TL20AAZ</th>
+              <td class="govuk-table__cell">BLACK</td>
+              <td class="govuk-table__cell">LAND ROVER, DISCOVERY SPORT</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Weapons</strong>
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">LOST/STOLEN</strong>
+              </td>
+              <td class="govuk-table__cell">SALPV144XVA360843</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-8">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-8">
+                    <span class="govuk-visually-hidden">Select row 8</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                ROB3RT
+                <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">ROB3RT from:</span><br> 9/9/2022</div>
+              </th>
+              <td class="govuk-table__cell">RED</td>
+              <td class="govuk-table__cell">VOLKSWAGEN, TIGUAN</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong></td>
+              <td class="govuk-table__cell">3VWDA81H8VM135911</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-9">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-9">
+                    <span class="govuk-visually-hidden">Select row 9</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">MD19LPR</th>
+              <td class="govuk-table__cell">SILVER</td>
+              <td class="govuk-table__cell">SKODA, OCTAVIA</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+              <td class="govuk-table__cell">YS3FB7CF0A1607744</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox"  onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-10">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-10">
+                    <span class="govuk-visually-hidden">Select row 10</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">GB22SBW</th>
+              <td class="govuk-table__cell">GREY</td>
+              <td class="govuk-table__cell">VOLVO, XC40</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow govuk-!-margin-bottom-1" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+                LOST/STOLEN + FOUND
+                </strong>
+              </td>
+              <td class="govuk-table__cell">YV1952AS5B1856535</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-11">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-11">
+                    <span class="govuk-visually-hidden">Select row 11</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">LL02KYR</th>
+              <td class="govuk-table__cell">ORANGE</td>
+              <td class="govuk-table__cell">HONDA, CIVIC</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong></td>
+              <td class="govuk-table__cell">6O4WB90G5OP736158</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-13">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-13">
+                    <span class="govuk-visually-hidden">Select row 13</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">AP14PKN</th>
+              <td class="govuk-table__cell">GREEN</td>
+              <td class="govuk-table__cell">NISSAN, MICRA</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+              <td class="govuk-table__cell">1N4EB31F4RC762348</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+      {% else %}
+        {# 7 PAST VEHICLES #}
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Select</class></th>
+              <th scope="col" class="govuk-table__header">VRM</th>
+              <th scope="col" class="govuk-table__header">Colour</th>
+              <th scope="col" class="govuk-table__header">Make/Model</th>
+              <th scope="col" class="govuk-table__header">Hazards, Reports and Markers</th>
+              <th scope="col" class="govuk-table__header">VIN</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-1">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-1">
+                    <span class="govuk-visually-hidden">Select row 1</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>CF60 POP</strong></div>
+                <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY dates:</span><br> 10/10/2020 - 12/12/2021</div>
+              </th>
+              <td class="govuk-table__cell">BLACK</td>
+              <td class="govuk-table__cell">MERCEDES, CLK</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+              <td class="govuk-table__cell">1KLMY1DO9PPP89463</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-2">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-2">
+                    <span class="govuk-visually-hidden">Select row 2</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>CF90 ABC</strong></div>
+                <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+              </th>
+              <td class="govuk-table__cell">YELLOW</td>
+              <td class="govuk-table__cell">PORSCHE, 911</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong></td>
+              <td class="govuk-table__cell">3UJEQ6YR3UAN73184</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-3">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-3">
+                    <span class="govuk-visually-hidden">Select row 3</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>VR15 LSF</strong></div>
+                <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+              </th>
+              <td class="govuk-table__cell">BLACK</td>
+              <td class="govuk-table__cell">FIAT, 500</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+              <td class="govuk-table__cell">ZFFJA54T990164851</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-4">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-4">
+                    <span class="govuk-visually-hidden">Select row 4</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>SH66 UMT</strong></div>
+                <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+              </th>
+              <td class="govuk-table__cell">BLUE</td>
+              <td class="govuk-table__cell">VAUXHALL, CORSA</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+              <td class="govuk-table__cell">1GCEK14W02Z100862</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-5">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-5">
+                    <span class="govuk-visually-hidden">Select row 5</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>LI92 ZIN</strong></div>
+                <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">L22 REN dates:</span><br><span style="white-space:pre">02/08/2018 - 20/07/2022</span></div>
+              </th>
+              <td class="govuk-table__cell">MAROON</td>
+              <td class="govuk-table__cell">CITROEN, PICASSO</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong></td>
+              <td class="govuk-table__cell">5KOLD9G92OP264581</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-6">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-6">
+                    <span class="govuk-visually-hidden">Select row 6</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>RT12 FDX</strong></div>
+                <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">ROB 3RT dates:</span><br><span style="white-space:pre">02/08/2018 - 09/09/2022</span></div>
+              </th>
+              <td class="govuk-table__cell">BLUE</td>
+              <td class="govuk-table__cell">VOLVO, XC40</td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Lost/Stolen</strong>
+                <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong><br>
+                <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Weapons</strong>
+                <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Chemicals</strong>
+            </td>
+              <td class="govuk-table__cell">JS1RF16C442100152</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small export_checkbox">
+                  <input type="checkbox" onclick="unCheckSelectAllCheckbox(this)" name="multiCheck" class="govuk-checkboxes__input" id="select-row-7">
+                    <label class="govuk-label govuk-checkboxes__label" for="select-row-7">
+                    <span class="govuk-visually-hidden">Select row 7</span>
+                  </label>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-body govuk-!-margin-bottom-1"><strong>VR15 LSF</strong></div>
+                <div class="govuk-tag govuk-tag--modified">ROB 3RT in the past</div>
+              </th>
+              <td class="govuk-table__cell">BLACK</td>
+              <td class="govuk-table__cell">FIAT, 500</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+              <td class="govuk-table__cell">KLATA52671B611178</td>
+            </tr>
+
+          </tbody>
+        </table>
+      {% endif %}
+
+      </div>
+    </div>
+
+    {# #}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+        <div class="govuk-form-group govuk-!-padding-top-4">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-label--m">
+              {#What information do you need to download?#}
+              {#How much information do you need?#}
+              What information do you need to download?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="list-export" name="export" type="radio" value="list-export">
+                <label class="govuk-label govuk-radios__label" for="list-export">
+                  {#Abbreviated list of selected results (in CSV)#}
+                  {#Abbreviated list only#}
+                  List only
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="overview-export" name="export" type="radio" value="overview-export">
+                <label class="govuk-label govuk-radios__label" for="overview-export">
+                  {#Details for selected results (in PDF)#}
+                  Records details
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-warning-text govuk-!-padding-top-2">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            By downloading this information you are responsible for the protection of this personal data. By downloading this file you are agreeing to do so in accordance with the LEDS Security Operating Procedures.
+            <br>
+            <br>
+            You must keep the data secure and protect it against loss, unauthorised access or use. You must not send or transmit this document through systems that are not secure. You are responsible for securely destroying this document when it is no longer needed for the specified purpose(s).
+          </strong>
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+        <a href="#/" id="export" value="export" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">Download results</a>
+        {#<a href="../public/download/overview-download.pdf" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" download>Download rather than open</a>#}
+      </div>
+    </div>
+
+    <script>
+
+      var radio_list_export = document.getElementById('list-export');
+      var radio_overview_export = document.getElementById('overview-export');
+
+      var download_abbreviated_list_banner = document.getElementById('download-abbreviated-list-success-banner');
+      var download_record_details_banner = document.getElementById('download-record-details-success-banner');
+
+      var button = document.getElementById('export');
+
+      button.onclick = exportFile;
+
+      function exportFile() {
+        if(radio_list_export.checked) {
+          window.open("../public/download/list-download.xlsx");
+          download_abbreviated_list_banner.style.display = "block";
+          download_record_details_banner.style.display = "none";
+          download_abbreviated_list_banner.scrollIntoView({ behavior: "smooth" });
+        } else if (radio_overview_export.checked) {
+          download_abbreviated_list_banner.style.display = "none";
+          download_record_details_banner.style.display = "block";
+          download_record_details_banner.scrollIntoView({ behavior: "smooth" });
+          window.open("../public/download/overview-download.pdf");
+        } else {
+          // Do nothing... alert("Select which information you need to download first.");
+        }
+      }
+
+      // Triggered by 'Select/deselect all' will check/uncheck all elements with the name 'multiCheck'
+      function toggle(source) {
+        checkboxes = document.getElementsByName('multiCheck');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+          checkboxes[i].checked = source.checked;
+        }
+      }
+
+      // Triggered when selecting/unselecting a checkbox and will uncheck the 'Select all' checkbox
+      function unCheckSelectAllCheckbox(source) {
+        document.getElementById('select-all').checked = false;
+      }   
+
+    </script>
+
+    {% endblock %}

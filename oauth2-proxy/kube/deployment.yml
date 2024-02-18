@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .NAME }}
+  labels:
+    project: leds-vehicles
+  annotations:
+    downscaler/uptime: {{ .UPTIME }}
+spec:
+  replicas: {{ .REPLICAS }}
+  selector:
+    matchLabels:
+      app: {{ .NAME }}
+  template:
+    metadata:
+      labels:
+        project: leds-vehicles
+        name: {{ .NAME }}
+        app: {{ .NAME }}
+    spec:
+      containers:
+        - name: {{ .NAME }}
+          image: {{ .IMAGE_URL }}:{{ .IMAGE_VERSION }}
+          imagePullPolicy: Always
+          livenessProbe:
+            exec:
+              command:
+                - ls
+                - /tmp
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 1
+              memory: 512Mi
+          env:
+            - name: OAUTH2_PROXY_PROVIDER
+              value: oidc
+            - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
+              value: Keycloak
+            - name: OAUTH2_PROXY_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: leds-vehicles-gate-oidc
+                  key: oidc_gate_client_id
+            - name: OAUTH2_PROXY_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: leds-vehicles-gate-oidc
+                  key: oidc_gate_client_secret
+            - name: OAUTH2_PROXY_COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: leds-vehicles-gate-oidc
+                  key: oidc_gate_cookie_secret
+            - name: OAUTH2_PROXY_REDIRECT_URL
+              value: {{ .REDIRECT_URL }}
+            - name: OAUTH2_PROXY_UPSTREAMS
+              value: {{ .PROXY_UPSTREAMS }}
+            - name: OAUTH2_PROXY_OIDC_ISSUER_URL
+              value: {{ .KC_OIDC_ISSUER_URL }}
+            - name: OAUTH2_PROXY_VALIDATE_URL
+              value: {{ .KC_OIDC_VALIDATE_URL }}
+            - name: OAUTH2_PROXY_COOKIE_SECURE
+              value: '{{ .COOKIE_SECURE }}'
+            - name: OAUTH2_PROXY_INSECURE_OIDC_SKIP_ISSUER_VERIFICATION
+              value: '{{ .SKIP_ISSUER_VERIFICATION }}'
+            - name: GATE_CONFIG_FILE
+              value: '{{ .GATE_CONFIG_FILE }}'
+            - name: OAUTH2_PROXY_WHITELIST_DOMAINS
+              value: {{ .PERMITTED_REDIRECT_DOMAINS }}
+            - name: OAUTH2_PROXY_REDIS_CONNECTION_URL
+              value: {{ .REDIS_URL }}
+          securityContext:
+            runAsNonRoot: true
+          ports:
+            - containerPort: 3000
+...

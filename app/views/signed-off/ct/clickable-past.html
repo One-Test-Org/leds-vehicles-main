@@ -1,0 +1,243 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl govuk-!-margin-top-7 govuk-!-margin-bottom-6">2 search results</h1>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-body">
+        <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">BII LLY</strong>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter" style="text-align:right">
+      <a href="./search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+    </div>
+  </div>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      classes: "app-table__rows--uppercase",
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          html: '<div style="white-space: pre">Created by</div>'
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '
+          <a class="govuk-link govuk-link--no-visited-state" href="./overview-critical" style="white-space:pre">BII LLY</a>'
+        },
+        {
+          html: 'Silver',
+          format: "text"
+        },
+        {
+          html: 'Jaguar, XF',
+          format: "text"
+        },
+        {
+          html: '4 door saloon',
+          format: "text"
+        },
+        {
+          html:
+          '
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+          '
+        },
+        {
+          html: '-',
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag">Police</strong>'
+        }
+      ],
+        [
+          {
+            html:
+            '
+            <a href="#">BII LLY</a><br>
+            <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY from:</span><br> 12/12/2021</div>
+            '
+          },
+          {
+            text: "White",
+            format: "text"
+          },
+          {
+            text: "Jaguar, XF",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            html: '
+            <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>
+            '
+          },
+          {
+            text: "5YJSA1DG9DFP14705"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">DVLA</strong>'
+          }
+        ]
+      ]
+    }) }}
+
+    <div class="govuk-body-l govuk-!-margin-top-9">
+      BII LLY has previously been on other vehicles (due to cherished transfers)
+    </div>
+
+    <button id="past-button" type="button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button">View past vehicles</button>
+
+  <div id="past-block" style="display:none">
+
+    <h2 id="past-heading" class="govuk-heading-l govuk-!-margin-top-7">4 vehicle records with BII LLY in the past</h2>
+
+    {#<div id="past-inset" class="govuk-inset-text">
+      Any vehicles that held more than 1 other VRM after BIILLY will not be displayed below
+    </div>#}
+
+    <div id="past-inset" class="govuk-inset-text">
+      Only vehicles that had BII LLY as their immediately previous VRM are displayed below
+    </div>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">VRM</th>
+          <th scope="col" class="govuk-table__header">Colour</th>
+          <th scope="col" class="govuk-table__header">Make/Model</th>
+          <th scope="col" class="govuk-table__header">Body type</th>
+          <th scope="col" class="govuk-table__header">Hazards, Reports and Markers</th>
+          <th scope="col" class="govuk-table__header">VIN</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">CF60 POP</a><br>
+            <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY dates:</span><br> 10/10/2020 - 12/12/2021</div>
+          </th>
+          <td class="govuk-table__cell">BLACK</td>
+          <td class="govuk-table__cell">MERCEDES, CLK</td>
+          <td class="govuk-table__cell">COUPE</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+          <td class="govuk-table__cell">1KLMY1DO9PPP89463</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">CF90 ABC</a><br>
+            <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+          </th>
+          <td class="govuk-table__cell">YELLOW</td>
+          <td class="govuk-table__cell">PORSCHE, 911</td>
+          <td class="govuk-table__cell">COUPE</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong></td>
+          <td class="govuk-table__cell">3UJEQ6YR3UAN73184</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">VR15 LSF</a><br>
+            <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+          </th>
+          <td class="govuk-table__cell">BLACK</td>
+          <td class="govuk-table__cell">FIAT, 500</td>
+          <td class="govuk-table__cell">HATCHBACK</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+          <td class="govuk-table__cell">ZFFJA54T990164851</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">SH66 UMT</a><br>
+            <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+          </th>
+          <td class="govuk-table__cell">BLUE</td>
+          <td class="govuk-table__cell">VAUXHALL, CORSA</td>
+          <td class="govuk-table__cell">HATCHBACK</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+          <td class="govuk-table__cell">1GCEK14W02Z100862</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+    <hr class="govuk-section-break govuk-section-break--l">
+
+
+    <hr>
+
+    <script>
+
+      var showPast = document.getElementById('past-button');
+      var pastBlock = document.getElementById('past-block');
+
+      var stringToHTML = function (str) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(str, 'text/html');
+        return doc.body.firstChild;
+      };
+
+      showPast.onclick = function () {
+        showPast.style.display = "none";
+        pastBlock.style.display = "block";
+
+      };
+
+      </script>
+{% endblock %}

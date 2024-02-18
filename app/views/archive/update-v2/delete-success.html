@@ -1,0 +1,37 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="./edit-record" class="govuk-back-link">Back to edit record</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Action (A15P3782OP0925) report deleted
+          </h1>
+          <div class="govuk-panel__body">
+            01MP - MET Police PNC Bureau <br>
+            On: 29/10/22 at 15:19<br>
+            REF: 25UC/ALAN
+          </div>
+        </div>
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">This report has been permanently deleted from LEDS and PNC. <br>
+          If this report was deleted in error, please contact your LEDS manager.</h2>
+
+        <div class="govuk-button-group">
+          <a href="./overview-updated" role="button" draggable="false"  style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="float:left">View other police reports</a>
+          <a class="govuk-link" href="./search">Search new vehicle</a>
+        </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

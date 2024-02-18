@@ -1,0 +1,206 @@
+
+{% extends "layout-menu-new.html" %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/step-by-step-nav.js"></script>
+<script type="text/javascript">
+  var $element = $('#step-by-step-navigation')
+  var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+  stepByStepNavigation.start($element)
+</script>
+{% endblock %}
+
+{% block pageTitle %}
+Add new report
+{% endblock %}
+
+{% block beforeContent %}
+<div id="banner-top">
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row govuk-width-container govuk-!-margin-bottom-3 govuk-!-margin-top-6" id="whole-form">
+        <!-- FORM -->
+        <form class="form" id="form-submit" action="./overview-updated" method="post">
+
+
+            <div class="govuk-caption-l">Edit report</div>
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Check before updating report</h1>
+            <main class="govuk-main-wrapper " id="main-content" role="main">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-three-quarters-from-desktop">
+                  <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                          <h2 class="govuk-summary-card__title">Report type</h2>
+                          <ul class="govuk-summary-card__actions">
+
+                          </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Report type
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              Lost/Stolen
+                            </dd>
+
+                          </div>
+                        </dl>
+                      </div>
+                  </div>
+
+                  <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                          <h2 class="govuk-summary-card__title">Report details</h2>
+                          <ul class="govuk-summary-card__actions">
+                              <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                                      Change<span class="govuk-visually-hidden"> Report details</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Report owner
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              01LX
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Report creator
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              -
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Reference number
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              SX123/12B
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Incident date (from)
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['actIncidentFrom'] | formatDate }}
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Incident date (to)
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              -
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Report text
+                            </dt>
+                            <dd class="govuk-summary-list__value" style="text-transform:uppercase">
+                              This is the text that the user entered when they created the report, including any updates the did on the previous page.
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Associated hazards
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514;">
+                                Occupants potentially dangerous
+                              </strong>
+                              <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                              Weapons
+                              </strong>
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Expiry date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              28/08/2023
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+                  </div>
+
+                  <div class="govuk-button-group">
+                    <button class="govuk-button" data-module="govuk-button" style="float:left">Update report</button>
+                    <div>
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+                    </div>
+                  </div>
+                  <input class="govuk-input " id="act-time" name="actTime" style="display:none">
+                </div>
+
+                <div class="govuk-grid-column-one-quarter">
+                  {% block side %}
+                  {% include "includes/record-overview-side.html" %}
+                  {% endblock %}
+                </div>
+
+              </div>
+            </main>
+          </form>
+
+
+</div>
+
+        <!-- /FORM -->
+
+<div id="pending-submit" class="hidden" style="margin: 50px auto; text-align: center;">
+    <h2 class="govuk-heading-l">Updating Lost/Stolen report</h2>
+
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <br /><br /><br /><br />
+    <p style="">Please wait a few moments while we submit your request to PNC</p>
+
+    <br /><br /><br /><br />
+</div>
+
+<script>
+    setTimeout(() => {
+        const wholeForm = document.getElementById('whole-form');
+        const bannerTop = document.getElementById('banner-top');
+        const form = document.getElementById('form-submit');
+        const pending = document.getElementById('pending-submit');
+
+        form.addEventListener('submit', onClick);
+
+        function onClick(e) {
+            window.scrollTo(0,0);
+            e.preventDefault();
+
+            pending.classList.remove('hidden');
+            wholeForm.classList.add('hidden');
+            bannerTop.classList.add('hidden');
+
+            setTimeout(() => {
+                form.removeEventListener('submit', onClick);
+                form.submit();
+            }, 5000);
+        }
+    }, 1000);
+
+    const dt = new Date();
+    document.getElementById("act-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+
+{% endblock %}

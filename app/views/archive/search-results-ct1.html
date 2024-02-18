@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <p class="<p class="govuk-body">
+      VRM: ABC 123X &nbsp <a href="/search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">1 result</p>
+  </div>
+  </div>
+
+
+
+
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html:
+            '
+            <a href="#" class="govuk-link govuk-link--no-visited-state">ABC123X</a>
+            '
+          },
+          {
+            text: "n/a"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished Transfer - Void</strong>'
+          },
+          {
+            text: "n/a",
+            format: "text"
+          },
+          {
+            text: "n/a",
+            format: "text"
+          },
+          {
+            text: "n/a",
+            format: "text"
+          }
+        ]
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Associated results</h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        DVLA markers will not be displayed unless a <a href="#" class="govuk-link govuk-link--no-visited-state">new search</a> is completed for each associated result.
+      </strong>
+    </div>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: 'IAN1<br>
+            <div class="govuk-tag govuk-tag--modified">From: 10 Oct 2020<br>To: 12 Dec 2021</div>
+            '
+          },
+          {
+            text: "GR00V31KD1"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--grey">None</strong>'
+          },
+          {
+            text: "Jaguar, XF",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            text: "Silver",
+            format: "text"
+          }
+        ]
+      ]
+    }) }}
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What are associated results?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+          These are vehicles that used to have the VRM: <strong>ABC 123X</strong>.
+      </div>
+      </details>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+
+      <hr>
+
+    <div class="govuk-caption-m">
+      Design notes
+    </div>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Scenario 1
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>User searched by VRM ABC 123X</li>
+          <li>This VRM is not on a vehicle any more</li>
+          <li>It used to be on the vehicle that now has the personalised plate IAN1</li>
+        </ul>
+        See also <a href="/search-results-ct2" class="govuk-link govuk-link--no-visited-state">scenario 2</a>, <a href="/search-results-ct3" class="govuk-link govuk-link--no-visited-state">scenario 3</a> and <a href="/search-results-ct4" class="govuk-link govuk-link--no-visited-state">scenario 4</a>
+      </div>
+    </details>
+
+{% endblock %}

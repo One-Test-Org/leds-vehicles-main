@@ -1,0 +1,252 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="search_header">
+    <p class="search_details">
+      VRM: CF60 ABC &nbsp <a href="/search" class="govuk-link">Edit search</a>
+    </p>
+      </div>
+    </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">3 results</p>
+  </div>
+</div>
+
+
+<!--
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Multiple vehicle records
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        3 vehicle records found for CF60 ABC.
+      </p>
+    </div>
+  </div>
+-->
+
+
+  <div class="cardlink govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--visible">
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VRM
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <a class="govuk-link" href="/overview-multi-1"><strong>CF60ABC</strong></a>
+        </dd>
+      </div>
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VIN
+        </dt>
+        <dd class="stacked-summary-list__value">
+          -
+        </dd>
+      </div>
+    </dl>
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-full">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+           Hazards, reports and markers
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <strong class="govuk-tag">Police record</strong>
+          <br>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+        </dd>
+      </div>
+      </dl>
+
+      <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Make/model
+          </dt>
+          <dd class="stacked-summary-list__value">
+            BMW, X5
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Body type
+          </dt>
+          <dd class="stacked-summary-list__value">
+            SUV
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-quarter">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          Colour
+        </dt>
+        <dd class="stacked-summary-list__value">
+          BLUE
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+
+  <div class="cardlink govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--visible">
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VRM
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <a class="govuk-link" href="#"><strong>CF60ABC</strong></a>
+        </dd>
+      </div>
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VIN
+        </dt>
+        <dd class="stacked-summary-list__value">
+          -
+        </dd>
+      </div>
+    </dl>
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-full">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+           Hazards, reports and markers
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <strong class="govuk-tag">Police record</strong>
+          <br>
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+        </dd>
+      </div>
+      </dl>
+
+      <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Make/model
+          </dt>
+          <dd class="stacked-summary-list__value">
+            BMW, X5
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Body type
+          </dt>
+          <dd class="stacked-summary-list__value">
+            SUV
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-quarter">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          Colour
+        </dt>
+        <dd class="stacked-summary-list__value">
+          BLUE
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+
+  <div class="cardlink govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--visible">
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VRM
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <a class="govuk-link" href="#"><strong>CF60ABC</strong></a>
+        </dd>
+      </div>
+      <div class="stacked-summary-list__row govuk-grid-column-one-half">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          VIN
+        </dt>
+        <dd class="stacked-summary-list__value">
+          9KOPQ3SE3LWE70893
+        </dd>
+      </div>
+    </dl>
+
+    <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+      <div class="stacked-summary-list__row govuk-grid-column-full">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+           Hazards, reports and markers
+        </dt>
+        <dd class="stacked-summary-list__value">
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Scrapped</strong>
+        </dd>
+      </div>
+      </dl>
+
+      <dl class="stacked-summary-list govuk-grid-column-one-third-from-desktop">
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Make/model
+          </dt>
+          <dd class="stacked-summary-list__value">
+            BMW, X5
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-third">
+          <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+             Body type
+          </dt>
+          <dd class="stacked-summary-list__value">
+            SUV
+          </dd>
+        </div>
+        <div class="stacked-summary-list__row govuk-grid-column-one-quarter">
+        <dt class="stacked-summary-list__key govuk-!-font-weight-bold">
+          Colour
+        </dt>
+        <dd class="stacked-summary-list__value">
+          BLUE & WHITE
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+
+<hr>
+
+
+{% endblock %}

@@ -1,0 +1,268 @@
+{% extends "layout-menu-2.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Action report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./overview-stolen-2">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Lost/stolen report
+        </li>
+      </ol>
+    </div>
+  </div>
+  <!-- NEW SEARCH: reintroduce when functionality is planned
+    <div class="govuk-grid-column-one-quarter govuk-!-padding-top-3 govuk-!-text-align-right">
+      <a class="govuk-link govuk-link--no-visited-state" href="/search">New search</a>
+    </div>
+  -->
+  <div class="govuk-grid-column-two-quarters govuk-!-margin-top-2" style="float:right">
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" alt="Copy icon"></a>&nbsp;&nbsp;<a href="#" class="govuk-link govuk-link--no-visited-state">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" alt="Export icon"></a>&nbsp;&nbsp;<a href="./export-copy" class="govuk-link govuk-link--no-visited-state">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-red.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="./overview-stolen" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="./no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./MOT" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./markers" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./previous-keeper" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h2 class="govuk-heading-l">Lost/stolen report</h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            E34Y9340TY3293
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (from)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            14 March 2022
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Incident date (to)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2022
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked hazards
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-!-margin-right-6 "><strong class="govuk-tag govuk-tag--red" style="color: #d4351c; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 7px; border-bottom-width: 0px; border-color: #d4351c">
+              Weapons
+            </strong></p>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Notes
+          </dt>
+          <dd class="govuk-summary-list__value">
+          15/03/22 0500Hrs Vehicle stolen at gunpoint from Halfords, Brixton, SW9. Susp M, White, F508, Slim, wearing a black Nike hoodie. Consider firearms support. Contact PS John Doe, 02081237634 Force 01LX.
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Confirmed
+          </dd>
+        </div>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked reports
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="#" class="govuk-link">Reaction (X73P1238GE6179)</a>
+          </dd>
+        </div>
+-->
+      </dl>
+
+      <h3 class="govuk-heading-m">Report source</h3>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Owner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            07A1
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Created on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2022, 14:47
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Created by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PC Smith, PO123345<br>Essex Police
+          </dd>
+        </div>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PC Singh (FC14)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2018
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Weed date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 January 2023
+          </dd>
+        </div>
+-->
+      </dl>
+
+
+<!--HOPING FOR THIS FEATURE (LINKING TO PERSON REPORTS) IN THE FUTURE
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+      caption: "Linked person reports",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "Report"
+      },
+      {
+        text: "Justification"
+      },
+      {
+        text: "Details"
+      },
+      {
+        text: "Updated by"
+      },
+      {
+        text: "Updated on"
+      }
+      ],
+      rows: [
+      [
+        {
+          text: "Wanted - 12857034"
+        },
+        {
+          text: "Operation TABLE"
+        },
+        {
+          text: "-"
+        },
+        {
+          text: "FS10"
+        },
+        {
+          text: "14 Mar 2022"
+        }
+      ]
+      ]
+      }) }}
+-->
+<!--
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <p class="govuk-heading-s">
+                &#8592 &nbsp <a href="/overview-multi-1" class="govuk-link govuk-link--no-visited-state">Previous report</a></p>
+            </div>
+            <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+              <p class="govuk-heading-s">
+              <a href="/overview-multi-3" class="govuk-link govuk-link--no-visited-state">Next report</a> &nbsp &#8594</p>
+            </div>
+          </div>
+  -->
+        </div>
+      </div>
+
+{% endblock %}

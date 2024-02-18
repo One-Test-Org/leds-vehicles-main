@@ -1,0 +1,61 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Edit record</div>
+<h1 class="govuk-heading-l">Block record</h1>
+
+<form class="form" action="./overview-updated-blocked" method="post">
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+    <div class="govuk-form-group govuk-!-width-two-thirds">
+      <label class="govuk-label govuk-label--s" for="code">
+        Force/Station code
+      </label>
+      <select class="govuk-select" id="block-code" name="blockCode">
+        {% block codesBlock %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+        </select>
+    </div>
+    <div class="govuk-form-group govuk-!-width-two-thirds">
+      <label class="govuk-label govuk-label--s" for="reference">
+        Blocked reference
+      </label>
+      <input class="govuk-input " id="block-ref" name="blockRef">
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+    <input class="govuk-input" id="block-time" name="blockTime" style="display:none">
+
+
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Block record</button>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    {% block carheader %}
+    {% include "includes/carheader-medium-side-5.html" %}
+    {% endblock %}
+  </div>
+
+</div>
+</form>
+
+<script>
+  const dt = new Date();
+  document.getElementById("block-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+</script>
+
+{% endblock %}

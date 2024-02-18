@@ -1,0 +1,158 @@
+Hazards, Reports and Markers{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <p class="<p class="govuk-body">
+      VRM: BIII LLY
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">3 results</p>
+  </div>
+  </div>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      classes: "app-table__rows--uppercase",
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html:
+            '
+            <a href="#">BIIILLY</a>
+            '
+          },
+          {
+            text: "5YJSA1DG9DFP14705"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>'
+          },
+          {
+            text: "Jaguar, XF",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            text: "White",
+            format: "text"
+          }
+        ],
+        [
+          {
+            text:"CF60POP"
+          },
+          {
+            text: "1KLMY1DO9PPP89463"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag">Police record</strong>'
+          },
+          {
+            text: "Mercedes, CLK",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            text: "Black",
+            format: "text"
+          }
+        ],
+        [
+        {
+          text: "CF60ABC"
+        },
+        {
+          text: "3UJEQ6YR3UAN73184"
+        },
+        {
+          html: '<strong class="govuk-tag govuk-tag">Police record</strong><br>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Occupants potentially dangerous
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            chemical
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Action
+          </strong>
+          <strong class="govuk-tag govuk-tag--yellow govuk-!-margin-bottom-3" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+            Information
+          </strong>
+          '
+        },
+        {
+          text: "Porche, 911"
+        },
+        {
+          text: "Coupe",
+          format: "text"
+        },
+        {
+          text: "Yellow",
+          format: "text"
+        }
+        ]
+      ]
+    }) }}
+
+{% endblock %}

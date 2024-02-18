@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1>Search for a vehicle</h1>
+
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/after-search-2" method="post">
+
+  {{ govukInput({
+    label: {
+      text: "Justification"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, crime reference, location or collar number"
+    },
+    id: "justification",
+    name: "justification"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "On behalf of (Optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, PC Jones (12345)"
+    },
+    id: "on-behalf-of",
+    name: "on-behalf-of"
+  }) }}
+
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "reason-code",
+  name: "reason-code",
+  label: {
+    text: "Reason code"
+  },
+  items: [
+  {
+    value: "Select",
+    text: "Select a reason code",
+    selected: true
+  },
+  {
+      value: "1",
+      text: "1 - Vehicle and/or person stopped (e.g. in a street check)"
+  },
+    {
+      value: "2",
+      text: "2 - Moving vehicle"
+    },
+    {
+      value: "3",
+      text: "3 - Abandoned or parked and unattended"
+    },
+    {
+      value: "4",
+      text: "4 - Vehicles involved in a road traffic collision"
+    },
+    {
+      value: "5",
+      text: "5 - Subject of process or investigation (e.g. in custody)"
+    },
+    {
+      value: "6",
+      text: "6 - Administration"
+    },
+    {
+      value: "7",
+      text: "7 - Enquiries relating to family protection issues"
+    },
+    {
+      value: "8",
+      text: "8 - On behalf of other authorised agency"
+    },
+    {
+      value: "9",
+      text: "9 - Update, Confirm, Broadcast"
+    },
+    {
+      value: "0",
+      text: "0 - Transcation log and audit checks"
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Search Vehicle Registration Mark (VRM)"
+  },
+  classes: "govuk-input--width-10",
+  id: "VRM",
+  name: "VRM"
+}) }}
+
+<!--{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "You're personally responsible for the information you provide, even if you're performing this quert on behalf of someone else.",
+  classes: "govuk-!-width-two-thirds",
+  iconFallbackText: "Warning"
+}) }}
+-->
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text" style="width:66%">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    You're personally responsible for the information you provide, even if you're performing this query on behalf of someone else.
+  </strong>
+</div>
+
+  <button class="govuk-button" data-module="govuk-button">Search</button>
+
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

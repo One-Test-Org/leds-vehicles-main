@@ -1,0 +1,103 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  LEDS – Vehicles prototype
+{% endblock %}
+
+{% block content %}
+
+      <h1 class="govuk-heading-xl">
+        LEDS Vehicles Update Scenarios
+      </h1>
+<!--
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+-->
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+<div class="govuk-notification-banner__header">
+<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+  This Prototype is not the live service
+</h2>
+</div>
+<div class="govuk-notification-banner__content">
+<p class="govuk-notification-banner__heading">These screens do not contain real data.</p>
+<p class="govuk-body">The final Vehicles application may look and feel different to this prototype.</p>
+</div>
+</div>
+
+<h2 class="govuk-heading">
+  User research scenarios
+</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-right-8">
+    <p class="govuk-body">
+      Bob Salmon, owner of a blue BMW X5 Sport with Swiss index SG 19705 has reported it stolen
+    <p>
+    <div class="govuk-button-group">
+      <a href="./search" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Scenario 1
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+        </a>
+    </div>
+  </div>
+
+  <form action="./overview-2" id="banner-form" method="post" novalidate>
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-right-8">
+    <p class="govuk-body">
+      Two days later, the vehicle is reported found and all pending actions completed
+    <p>
+    <div class="govuk-button-group">
+      <button href="./overview-2" name="scenario" id="scenario" value="2a" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Scenario 2a
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+        </button>
+        <button href="./overview-2" name="scenario" id="scenario" value="2b" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+          Scenario 2b
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+          </svg>
+          </button>
+    </div>
+
+  </div>
+  </form>
+
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body">
+      A report was added my mistake and needs to be deleted
+    <p>
+      <div class="govuk-button-group">
+      <a href="./scenario-3/overview" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Scenario 3
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+        </a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body">
+      A vehicle needs to be blocked, and then unblocked
+    <p>
+    <div class="govuk-button-group">
+      <a href="./overview-dvla" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Scenario 4
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+        </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,409 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF04 DPK - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="/search-2">Search</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            Vehicle record <span><a href="/overview-v2_0" style="color: white">&nbsp SWAP</a></span>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+      <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader-rk.html" %}
+{% endblock %}
+
+{% set insurance1%}
+  <a href="/insurance-past-v2-check" class="govuk-link">Check insurance in the past</a><br><br>
+  {% include "includes/insurance1.html"%}
+{% endset %}
+
+{% set insurance2%}
+  <a href="/insurance-past-v2-check" class="govuk-link">Check insurance in the past</a><br><br>
+  {% include "includes/insurance2.html"%}
+{% endset %}
+
+          {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+          {{ govukAccordion({
+            id: "accordion-with-summary-sections",
+            items: [
+                  {
+                heading: {
+                  text: "Police reports"
+                },
+                summary: {
+                  html: '
+                    <strong class="govuk-tag govuk-tag--red">Lost/Stolen</strong>
+                    <strong class="govuk-tag govuk-tag--red">Action</strong>
+                    <strong class="govuk-tag govuk-tag--yellow">Information (2)</strong>
+                    '
+                },
+                content: {
+                  html:
+                  '<table class="govuk-table">
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Report type</th>
+                        <th scope="col" class="govuk-table__header">Details</th>
+                        <th scope="col" class="govuk-table__header">Incident date</th>
+                        <th scope="col" class="govuk-table__header">Updated on</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="#-v2" class="govuk-link">Lost/Stolen<br>(E34Y9340TY3293)</a></th>
+                        <td class="govuk-table__cell">Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing</td>
+                        <td class="govuk-table__cell">14 Mar 2019</td>
+                        <td class="govuk-table__cell">19 Mar 2019</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="/reports-action-v2" class="govuk-link">Action<br>(E94F9390DE3893)</a><br>
+                        <strong class="govuk-tag govuk-tag--red">
+                            Occupants potentially dangerous
+                        </strong></th>
+                        <td class="govuk-table__cell">HIGH STOP CRIME. Two caucasion males, wearing hoodies seen dealing drugs by local residents from white mercedes. If you see vihicle, stop and check for PWITS </td>
+                        <td class="govuk-table__cell">15 Mar 2019</td>
+                        <td class="govuk-table__cell">15 Mar 2019</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Information<br>(B42G9179RW3911)<br>
+                        <strong class="govuk-tag govuk-tag--red">
+                            chemical
+                        </strong></th>
+                        <td class="govuk-table__cell">Boot of stolen vehicle contained farming pesticides and emergency flare in glove compartment. </td>
+                        <td class="govuk-table__cell">11 Mar 2019</td>
+                        <td class="govuk-table__cell">11 Mar 2019</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Information<br>(O31Q9415HI1321)</a></th>
+                        <td class="govuk-table__cell">Checked at 0825HRS in wooded area at rear of Banner Lane, Tunstall. Vehicle doors locked but boot insecure (no sign of forced entry). PC 73 Grant on 01273 480480 dealing. </td>
+                        <td class="govuk-table__cell">21 Feb 2019</td>
+                        <td class="govuk-table__cell">22 Feb 2019</td>
+                      </tr>
+                    </tbody>
+                  </table>'
+                }
+              },
+                      {
+                heading: {
+                  text: "Markers"
+                },
+                summary: {
+                  html: '
+                  <strong class="govuk-tag govuk-tag--red">Stolen</strong>
+                  <strong class="govuk-tag govuk-tag--yellow">Keeper has changed</strong>
+                  '
+                },
+                content: {
+                  html:
+                  '
+                  <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Marker type</th>
+                        <th scope="col" class="govuk-table__header">Category</th>
+                        <th scope="col" class="govuk-table__header">Details</th>
+                        <th scope="col" class="govuk-table__header">Updated by</th>
+                        <th scope="col" class="govuk-table__header">Updated on</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Stolen</th>
+                        <td class="govuk-table__cell">Police</td>
+                        <td class="govuk-table__cell">-</td>
+                        <td class="govuk-table__cell">FS10</td>
+                        <td class="govuk-table__cell">19 Mar 2019</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Keeper has changed</th>
+                        <td class="govuk-table__cell">DVLA</td>
+                        <td class="govuk-table__cell">Owner informed DVLA that he has sold the vehicle. </td>
+                        <td class="govuk-table__cell">FS10</td>
+                        <td class="govuk-table__cell">10 Mar 2019</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  '
+                }
+              },
+                      {
+                heading: {
+                  text: "Insurance: 1213-56345-3242"
+                },
+                summary: {
+                  html: '<strong class="govuk-tag govuk-tag--green">Held</strong>'
+                },
+                content: {
+                  html: insurance1
+                }
+              },
+              {
+        heading: {
+          text: "Insurance: 9876-56345-1234"
+        },
+        summary: {
+          html: '<strong class="govuk-tag govuk-tag--green">Held</strong>'
+        },
+        content: {
+          html: insurance2
+        }
+      },
+              {
+        heading: {
+          text: "Tax"
+        },
+        summary: {
+          html: '<strong class="govuk-tag govuk-tag--red">Not held</strong>'
+        },
+        content: {
+          html: '
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Expiry date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                10 December 2021
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Serial number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  87283618823987
+              </dd>
+            </div>
+          </dl>
+          '
+              }
+            },
+            {
+      heading: {
+        text: "MOT"
+      },
+      summary: {
+        html: '<strong class="govuk-tag govuk-tag--green">Held</strong>'
+      },
+      content: {
+        html: '
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--green">
+                Held
+              </strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Expiry date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10 November 2022
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last test result
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--red">
+                Fail
+              </strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reason for failure
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No wing mirror - driver side
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Odometer at last test
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123,543 miles
+            </dd>
+          </div>
+        </dl>
+        '
+            }
+          },
+          {
+            heading: {
+              text: "Previous registered keeper"
+            },
+            content: {
+              html: '<dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sarah Philips
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Became registered keeper on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            19 Jun 2016
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street<br>London<br>SE23 6FH
+          </dd>
+        </div>
+      </dl>'
+            }
+          },
+            {
+            heading: {
+              text: "Vehicle details"
+            },
+            content: {
+              html: '<dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle Registration Mark (VRM)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            CF04 DPK
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle Identification Number (VIN)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5YJSA1DG9DFP14705
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Make/Model
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Mercedes Benz, C-Class
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Body type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 door saloon
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Colour
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Black
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Fuel type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Electric
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Autonomous vehicle
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+        </div><div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Transponder tag number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            -
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Engine number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            52WVC10338
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Engine capacity
+          </dt>
+          <dd class="govuk-summary-list__value">
+            2000cc
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle registration date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20/12/2010
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Record owner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            -
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Record creator
+          </dt>
+          <dd class="govuk-summary-list__value">
+            -
+          </dd>
+        </div>
+      </dl>'
+            }
+          }
+
+            ]
+          }) }}
+
+
+{% endblock %}

@@ -1,0 +1,264 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <p class="<p class="govuk-body">
+      VRM: BII LLY &nbsp <a href="/search" class="govuk-link">Edit search</a>
+    </p>
+  </div>
+  <!--
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">2 results</p>
+  </div>
+  -->
+  </div>
+  <br>
+
+  <h2 class="govuk-heading-m">Vehicles with BII LLY today<span style="float:right; margin-right:10px" class="govuk-body">2 results</span></h2>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "VIN"
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<a class="govuk-link" href="#">BII LLY</a>'
+        },
+        {
+          text: "Silver",
+          format: "text"
+        },
+        {
+          text: "Jaguar, XF",
+          format: "text"
+        },
+        {
+          text: "4 door saloon",
+          format: "text"
+        },
+        {
+          html:
+          '
+          <strong class="govuk-tag">Police&nbsp;record</strong><br>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+          '
+        },
+        {
+          text: "Unknown",
+          format: "text"
+        }
+      ],
+        [
+          {
+            html:
+            '
+            <a href="#">BII LLY</a><br>
+            <div class="govuk-tag govuk-tag--modified">From: 12/12/2021</div>
+            '
+          },
+          {
+            text: "White",
+            format: "text"
+          },
+          {
+            text: "Jaguar, XF",
+            format: "text"
+          },
+          {
+            text: "4 door saloon",
+            format: "text"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>'
+          },
+          {
+            text: "5YJSA1DG9DFP14705"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+<!--
+    <div class="govuk-caption-m">
+      The following records used to have the VRM: <strong>BIILLY</strong>.
+
+      DVLA markers cannot be displayed unless a <a href="#" class="govuk-link">new search</a> is completed for each associated result.
+    </div>
+-->
+    <hr class="govuk-section-break govuk-section-break--l">
+    <h2 class="govuk-heading-m">Vehicles with BII LLY in the past<span style="float:right; margin-right:10px" class="govuk-body">2 results</span></h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        DVLA markers will not be displayed unless a <a href="#" class="govuk-link">new search</a> is completed for each vehicle.
+      </strong>
+    </div>
+    <br>
+
+<!--
+
+    <div class="govuk-inset-text">
+      DVLA markers cannot be displayed unless a <a href="#" class="govuk-link">new search</a> is completed for each associated result.
+    </div>
+-->
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "VRM"
+      },
+      {
+        text: "Colour",
+        format: "link"
+      },
+      {
+        text: "Make/Model",
+        format: "text"
+      },
+      {
+        text: "Body type",
+        format: "date"
+      },
+      {
+        text: "Hazards & Police Reports"
+      },
+      {
+        text: "VIN"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: 'CF60 POP<br>
+          <div class="govuk-tag govuk-tag--modified">BIILLY from: 10/10/2020<br>To: 12/12/2021</div>
+          '
+        },
+        {
+          text: "Black",
+          format: "text"
+        },
+        {
+          text: "Mercedes, CLK",
+          format: "text"
+        },
+        {
+          text: "Coupe",
+          format: "text"
+        },
+        {
+          html: '<strong class="govuk-tag govuk-tag--white">None</strong>'
+        },
+        {
+          text: "1KLMY1DO9PPP89463"
+        }
+      ],
+      [
+      {
+        text: "CF90 ABC"
+      },
+      {
+        text: "Yellow",
+        format: "text"
+      },
+      {
+        text: "Porche, 911"
+      },
+      {
+        text: "Coupe",
+        format: "text"
+      },
+
+      {
+        html: '<strong class="govuk-tag govuk-tag--white">None</strong>'
+      },
+      {
+        text: "3UJEQ6YR3UAN73184"
+      }
+      ]
+    ]
+  }) }}
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+<!--
+    <hr>
+
+    <div class="govuk-caption-m">
+      Design notes
+    </div>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Scenario 4
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>User searched by VRM BIILLY</li>
+          <li>This VRM is on a vehicle (white Jaguar) <strong>and</strong> has been cloned for another vehicle (silver Jaguar)</li>
+          <li>It was also used to be on two other vehicles previously</li>
+        </ul>
+        See also <a href="/search-results-ct1" class="govuk-link">scenario 1</a>, <a href="/search-results-ct2" class="govuk-link">scenario 2</a> and <a href="/search-results-ct3" class="govuk-link">scenario 3</a>
+      </div>
+    </details>
+-->
+
+{% endblock %}

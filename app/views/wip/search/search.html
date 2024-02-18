@@ -1,0 +1,147 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Vehicle search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">Search for a vehicle</h1>
+
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/after-search" method="post">
+
+    {{ govukInput({
+      label: {
+        classes: "govuk-label--s",
+        text: "On behalf of (Optional)"
+      },
+      classes: "govuk-!-width-two-thirds",
+      hint: {
+      text: "For example, name of force or person on whose behalf you search"
+      },
+      id: "on-behalf-of",
+      name: "on-behalf-of"
+    }) }}
+
+
+    {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+    {{ govukTextarea({
+      name: "justification",
+      id: "justification",
+      rows: 2,
+      classes: "govuk-!-width-two-thirds",
+      hint: {
+      text: "For example, incident reference, location, power used"
+      },
+      label: {
+        classes: "govuk-label--s",
+        text: "Justification"
+      }
+    }) }}
+
+    {{ govukSelect({
+      id: "reason-code",
+      name: "reason-code",
+      label: {
+        classes: "govuk-label--s",
+        text: "Reason code"
+      },
+      items: [
+      {
+        value: "Select",
+        text: "Select a reason code",
+        selected: true
+      },
+      {
+        value: "0",
+        text: "0 - Transaction log and audit checks"
+      },
+      {
+          value: "1",
+          text: "1 - Vehicle and/or person stopped"
+      },
+        {
+          value: "2",
+          text: "2 - Moving vehicle"
+        },
+        {
+          value: "3",
+          text: "3 - Abandoned or parked and unattended vehicle"
+        },
+        {
+          value: "4",
+          text: "4 - Vehicles involved in a road traffic collision"
+        },
+        {
+          value: "5",
+          text: "5 - Subject of process or investigation"
+        },
+        {
+          value: "6",
+          text: "6 - Administration"
+        },
+        {
+          value: "7",
+          text: "7 - Enquiries relating to family protection issues"
+        },
+        {
+          value: "8",
+          text: "8 - On behalf of other authorised agency"
+        },
+        {
+          value: "9",
+          text: "9 - Update, Confirm, Broadcast"
+        }
+      ]
+    }) }}
+
+<br>
+      {{ govukInput({
+        label: {
+          classes: "govuk-label--s",
+          text: "Vehicle Registration Mark (VRM)"
+        },
+        classes: "govuk-input--width-10",
+        id: "VRM",
+        name: "VRM"
+      }) }}
+
+<br>
+
+  <button class="govuk-button" data-module="govuk-button" style="float:left">Search</button>
+  <a href="/" class="govuk-link govuk-link--no-visited-state" style="float:left; margin-top:12px; margin-left:40px">Clear search</a>
+
+<!--
+    <button id="add-another-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+      Clear search
+    </button>
+-->
+<hr class="govuk-section-break govuk-section-break--l">
+
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

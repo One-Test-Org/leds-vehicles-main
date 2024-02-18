@@ -1,0 +1,47 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="./edit-record" class="govuk-back-link">Back to edit record</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="./add-res" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Record CF60 POP blocked
+          </h1>
+          <div class="govuk-panel__body">
+            by {{ data['blockCode'].slice(0,4) }} on <span id="datetime"></span> <br>
+            REF: {{ data['blockRef'] }}
+          </div>
+        </div>
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">Do you need to create a Restricted report?</h2>
+        <p class="govuk-body">
+          When blocking a record, it's good practice to also create a Restricted report with the contact details of the responsible unit.
+        </p>
+
+        <div class="govuk-button-group govuk-!-margin-top-8">
+          <button class="govuk-button" data-module="govuk-button" style="float:left">Add Restricted report</button>
+          <a class="govuk-link" href="#">Go to record</a>
+        </div>
+      </div>
+      <input class="govuk-input " id="block-time" name="blockTime" style="display:none">
+    </div>
+</form>
+    <script>
+    const dt = new Date();
+//    dt.setDate(dt.getDate() + 10);
+    document.getElementById("datetime").innerHTML = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+    document.getElementById("block-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+    </script>
+
+
+
+{% endblock %}

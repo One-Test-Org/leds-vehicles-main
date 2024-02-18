@@ -1,0 +1,510 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  All alerts – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+    <h1 class="govuk-heading-xl">All alert types and options</h1>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#extra">
+            Extra info
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#errors">
+            Service errors
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#validation">
+            Validation errors
+          </a>
+        </li>
+      </ul>
+
+<div class="govuk-tabs__panel" id="extra">
+    <h2 class="govuk-heading-l govuk-!-margin-top-0">A. Extra information about the content on the page</h2>
+
+
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.1. MOD/GEO vehicle</h3>
+
+    <h4 class="govuk-heading-s">A.1.1: Current design</h4>
+    <div class="govuk-notification-banner govuk-!-margin-bottom-6" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          MOD record
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          This is an MOD vehicle
+        </p>
+        Please contact MOD directly on xx xxxx xxxx.
+      </div>
+    </div>
+
+    <h4 class="govuk-heading-s">A.1.2: Signed-off design</h4>
+    <div class="hods-alert">
+        <h2 class="hods-alert__heading govuk-!-margin-top-2">CF60 POP is assigned to an MOD vehicle</h2>
+        <p class="govuk-!-margin-bottom-2">Please contact MOD directly on xx xxxx xxxx</p>
+    </div>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.2. Multiple vehicles with the same VRM</h3>
+
+    <h4 class="govuk-heading-s">A.2.1: Current design</h4>
+      <div class="govuk-notification-banner govuk-!-margin-bottom-6" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Multiple vehicle records
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            3 vehicle records found for CF60 ABC.
+          </p>
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              For cloned vehicles, the insurance and MOT information displayed below could apply to any of the vehicles.
+            </strong>
+          </div>
+          <a href="/search-results" class="govuk-link govuk-link--no-visited-state">Back to search results</a>
+        </div>
+      </div>
+
+    <h4 class="govuk-heading-s">A.2.2: Signed-off design</h4>
+      <div class="hods-alert">
+          <h2 class="hods-alert__heading govuk-!-margin-top-2">2 current and 3 past vehicle records found for CF60 ABC</h2>
+          <div class="govuk-warning-text govuk-!-margin-bottom-3">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Current insurance could apply to any of the current vehicle records
+            </strong>
+          </div>
+          <div class="govuk-warning-text govuk-!-margin-bottom-3">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Past insurance and MOT information could apply to any of the current or past vehicle records
+            </strong>
+          </div>
+          <strong><a href="/search-results" class="govuk-link govuk-link--no-visited-state">Back to search results</a></strong>
+      </div>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.3. Blocked vehicle</h3>
+
+    <h4 class="govuk-heading-s">A.3.1: Current design</h4>
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading govuk-!-margin-top-2 govuk-!-margin-bottom-2">BLOCKED </h2>
+    </div>
+
+    <h4 class="govuk-heading-s">A.3.2: Signed-off design</h4>
+    <div class="hods-status-message govuk-!-margin-bottom-6">
+      <p>BLOCKED RECORD
+      <span class="hods-status-message__extra"><br>BLOCKED by 25UC on 04/02/21 at 10:34. REF: 25UC/ALAN</span></p>
+    </div>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.4. Police eyes</h3>
+
+    <h4 class="govuk-heading-s">A.4.1: Current design</h4>
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading govuk-!-margin-top-2">IN CONFIDENCE - POLICE EYES ONLY</h2>
+      <p class="govuk-!-margin-bottom-2">Information about the vehicle must not be passed over insecure channels</p>
+    </div>
+
+    <h4 class="govuk-heading-s">A.4.2: Signed-off design</h4>
+    <div class="hods-status-message govuk-!-margin-bottom-6">
+      <p>IN CONFIDENCE - POLICE EYES ONLY
+      <span class="hods-status-message__extra"><br>Information about the vehicle must not be passed over insecure channels</span></p>
+    </div>
+
+    <a href="/signed-off/overview-multi-banners">See combination of A2-A4</a>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.5. No past insurance</h3>
+
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading govuk-!-margin-top-2">No insurance held by MIB for CF60 POP on 11 Oct 2022</h2>
+    </div>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.6. Two past insurance policies</h3>
+
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading govuk-!-margin-top-2">
+        Insurance held for CF60 POP on 20 Sep 2022
+      </h2>
+      <div class="govuk-warning-text govuk-!-margin-bottom-3">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          There were 2 active insurance policies for this vehicle on that date, but only the latest is displayed below
+        </strong>
+      </div>
+    </div>
+<!--
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.7. Duplicate PNC results</h3>
+
+    <div class="hods-status-message govuk-!-margin-bottom-6">
+      <p>Duplicate PNC results
+      <span class="hods-status-message__extra"><br>It's likely that some of the Police records below are duplicates.</span></p>
+    </div>
+
+<hr>
+
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.8. Missing police information</h3>
+
+    <div class="hods-status-message govuk-!-margin-bottom-6">
+      <p>Police information missing
+      <span class="hods-status-message__extra"><br>Police hazards and reports for this record may be displayed on one or more of the Police records in the search results</span></p>
+      <ul class="hods-status-message__actions">
+        <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
+          <a class="govuk-button govuk-button--light" href="#">Back</a>
+        </li>
+      </ul>
+    </div>
+
+<hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.9. No search results</h3>
+
+    <h4 class="govuk-heading-s">A.9.1: Current design</h4>
+    <div class="govuk-error-summary govuk-!-margin-bottom-6" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="width:63%">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There are no results based on your search criteria
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+          <li>
+            Check your search and try again.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 class="govuk-heading-s">A.9.2: Proposed design</h4>
+    <div class="hods-alert">
+      <h2 class="hods-alert__heading govuk-!-margin-top-2">No vehicles found</h2>
+      <p class="govuk-!-margin-bottom-2">Your search has returned no results. Check your search and try again.</p>
+    </div>
+
+    <div class="govuk-body govuk-!-margin-top-4">
+        Eventually, this should be a new page with 0 search results (and the ability to create a new record)
+    </div>
+-->
+        <hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8">A.7. Content copied</h3>
+
+    <h4 class="govuk-heading-s">A.7.1: Current design</h4>
+    <div class="hods-alert hods-alert--success govuk-!-margin-top-1">
+      <h2 class="hods-alert__heading">
+        Vehicle record information exported to clipboard
+      </h2>
+    </div>
+
+
+</div>
+
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="errors">
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-0">B. Service errors (not user's fault)</h2>
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.1. Search page error</h3>
+
+  <h4 class="govuk-heading-s">B.1.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="width:63%">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      Sorry, there is a problem with the service
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          Try again later. If you report a fault, your Reference ID is:
+          22242871-73a7-46a6-a060-d1821ac51d6d
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.1.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">Sorry, there is a problem with the service</h2>
+    <p class="govuk-!-margin-bottom-2">Try again later. If you report a fault, your Reference ID is:
+        22242871-73a7-46a6-a060-d1821ac51d6d</p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.2. Individual page error</h3>
+
+  <h4 class="govuk-heading-s">B.2.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      Sorry, there's a problem with the service
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          Failed to retrieve data. Try again later.
+        </li>
+        <li style="display:inline">
+          If you report a fault, your Reference ID is:
+          <li oncopy="myFunction()" class="govuk-link" style="display:inline" >22242871-73a7-46a6-a060-d1821ac51d6d</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.2.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">Sorry, there is a problem with the service</h2>
+    <p class="govuk-!-margin-bottom-2">Failed to retrieve data. Try again later.</p>
+    <p class="govuk-!-margin-bottom-2">If you report a fault, your Reference ID is:
+    22242871-73a7-46a6-a060-d1821ac51d6d</p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.3. Failed to connect</h3>
+
+  <h4 class="govuk-heading-s">B.3.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a connection problem
+    </h2>
+    <div class="govuk-error-summary__body" style="color: red; font-weight: bold">
+      <ul class="govuk-list" style="color: red; font-weight: bold">
+        <li>
+          Failed to retrieve MOT information from DVSA
+        </li>
+        <li>
+          Failed to retrieve insurance information from MIB
+        </li>
+      </ul>
+      Try <a href="search-results" class="govuk-link" style="color: red; font-weight: bold">searching again</a> for this vehicle. If you report a fault, your Reference ID is:
+      22242871-73a7-46a6-a060-d1821ac51d6d
+    </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.3.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">There is a connection problem</h2>
+    <p class="govuk-!-margin-bottom-2">Failed to retrieve MOT information from DVSA</p>
+    <p class="govuk-!-margin-bottom-2">Failed to retrieve insurance information from MIB</p>
+    <p class="govuk-!-margin-bottom-2">Try <a href="search-results" class="govuk-link">searching again</a> for this vehicle. If you report a fault, your Reference ID is:
+    22242871-73a7-46a6-a060-d1821ac51d6d</p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.4. Time out error</h3>
+
+  <h4 class="govuk-heading-s">B.4.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      Session timed out
+    </h2>
+    <div class="govuk-error-summary__body" >
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          Your session automatically ends after 15 minutes
+        </li>
+      </ul>
+      <a href="#" style="color: red; font-weight: bold">Search again</a>
+    </div>
+  </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.4.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">Session timed out</h2>
+    <p class="govuk-!-margin-bottom-2">Your session automatically ends after 15 minutes</p>
+    <p class="govuk-!-margin-bottom-2"><a href="search-results" class="govuk-link">Search again</a></p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.5. Clipboard export error</h3>
+
+  <h4 class="govuk-heading-s">B.5.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      Sorry, there is a problem with the service
+    </h2>
+    <div class="govuk-error-summary__body" >
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          Content was not exported to clipboard. Try again later
+        </li>
+      </ul>
+      <p class="govuk-!-margin-bottom-2" style="color: red; font-weight: bold">If you report a fault, your Reference ID is:
+      22242871-73a7-46a6-a060-d1821ac51d6d</p>
+    </div>
+  </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.5.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">Sorry, there is a problem with the service</h2>
+    <p class="govuk-!-margin-bottom-2">Content was not exported to clipboard. Try again later</p>
+    <p class="govuk-!-margin-bottom-2">If you report a fault, your Reference ID is:
+    22242871-73a7-46a6-a060-d1821ac51d6d</p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.6. PDF export error</h3>
+
+  <h4 class="govuk-heading-s">B.6.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      Sorry, there is a problem with the service
+    </h2>
+    <div class="govuk-error-summary__body" >
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          Content was not exported to PDF. Try again later
+        </li>
+      </ul>
+      <p class="govuk-!-margin-bottom-2" style="color: red; font-weight: bold">If you report a fault, your Reference ID is:
+      22242871-73a7-46a6-a060-d1821ac51d6d</p>
+    </div>
+  </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.6.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">Sorry, there is a problem with the service</h2>
+    <p class="govuk-!-margin-bottom-2">Content was not exported to PDF. Try again later</p>
+    <p class="govuk-!-margin-bottom-2">If you report a fault, your Reference ID is:
+    22242871-73a7-46a6-a060-d1821ac51d6d</p>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">B.7. RBAC error (e.g. for insurance)</h3>
+
+  <h4 class="govuk-heading-s">B.7.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      You don't have permission to view this page.
+    </h2>
+    <div class="govuk-error-summary__body" >
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+           Please contact your LEDS supervisor.
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.7.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">You don't have permission to view this page.</h2>
+    <p class="govuk-!-margin-bottom-2">Please contact your LEDS supervisor.</p>
+  </div>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-8">B.8. RBAC error (for the whole service)</h3>
+
+  <h4 class="govuk-heading-s">B.8.1: Current design</h4>
+  <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      You don't have permission to access the LEDS Vehicles service.
+    </h2>
+    <div class="govuk-error-summary__body" >
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+           Please contact your LEDS supervisor.
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <h4 class="govuk-heading-s">B.8.2: Signed-off design</h4>
+  <div class="hods-alert hods-alert--error">
+    <h2 class="hods-alert__heading govuk-!-margin-top-2">You don't have permission to access the LEDS Vehicles service.</h2>
+    <p class="govuk-!-margin-bottom-2">Please contact your LEDS supervisor.</p>
+  </div>
+
+</div>
+
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="validation">
+
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-0">C. Validation error message examples</h2>
+  <p class="govuk-body-l">Note: this is not an exahustive list</p>
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">C.1. VRM validation</h3>
+
+  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="width:63%">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#VRM">VRM must only include letters A to Z, and numbers 0 to 9</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<hr>
+  <h3 class="govuk-heading-m govuk-!-margin-top-8">C.2. Date validation</h3>
+
+  {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+  {{ govukDateInput({
+    id: "passport-issued",
+    namePrefix: "passport-issued",
+    fieldset: {
+      legend: {
+        text: "Enter a date within the past 7 years",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "For example, 24 11 2019"
+    },
+    errorMessage: {
+      text: "The date for past insurance must be within the past 7 years"
+    },
+    items: [
+      {
+        classes: "govuk-input--width-2 govuk-input--error",
+        name: "day",
+        value: "6"
+      },
+      {
+        classes: "govuk-input--width-2 govuk-input--error",
+        name: "month",
+        value: "3"
+      },
+      {
+        classes: "govuk-input--width-4 govuk-input--error",
+        name: "year",
+        value: "2011"
+      }
+    ]
+  }) }}
+
+
+</div>
+</div>
+
+
+
+{% endblock %}

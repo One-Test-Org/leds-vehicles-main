@@ -1,0 +1,283 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"           import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"           import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"         import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"              import govukButton %}
+{% from "govuk/components/character-count/macro.njk"     import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"          import govukCheckboxes %}
+{% from "govuk/components/cookie-banner/macro.njk"       import govukCookieBanner %}
+{% from "govuk/components/date-input/macro.njk"          import govukDateInput %}
+{% from "govuk/components/details/macro.njk"             import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"       import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"       import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"            import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"         import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"               import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"          import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk"               import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"        import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"              import govukRadios %}
+{% from "govuk/components/select/macro.njk"              import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"           import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"        import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"               import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                 import govukTag %}
+{% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  {% include "includes/head.html" %}
+{% endblock %}
+
+
+{% block header %}
+<header>
+  <div class="wrapper-header">
+    <div class="header-logo">
+      {% include "includes/home-office-logo.html" %}
+    </div>
+    <div class="header-title">
+      <a href="/" class="header-name">Drivers</a>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% set bodyClasses = "ho-body" %}
+{% block pageTitle %}
+  Search
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="hods-alert">
+    <h2 class="hods-alert__heding">You've been redirected here from LEDS Vehicles to search for <strong>Susan Smith</strong></h2>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+<div class="govuk-!-margin-bottom-9">
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading ">
+            Search for a driver
+          </h1>
+        </legend>
+
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="Justification">
+            Justification
+          </label>
+          <div id="Justification-hint" class="govuk-hint">For example, incident reference, location, power used</div>
+          <textarea class="govuk-textarea govuk-!-width-three-quarters" id="Justification" name="Justification" rows="2" aria-describedby="Justification-hint" maxlength="250">{{ data['justification-4'] }}</textarea>
+        </div>
+        <!-- <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+          You can enter up to 250 characters
+        </div> -->
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="on_behalf">
+            On behalf of (optional)
+          </label>
+          <div id="Justification-hint" class="govuk-hint">For example, PC Jones 12345</div>
+          <input class="govuk-input govuk-!-width-three-quarters" id="on_behalf" name="on_behalf" type="text" autocomplete="off" value="{{ data['onbehalf-4-text'] }}">
+
+        </div>
+
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="sort">
+              Reason code
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="" disabled>Select reason code</option>
+              <option value="1" {% if data['reason-code-4'] == '1' %}selected{% endif %} >1 Vehicle / Person Stopped</option>
+              <option value="2" {% if data['reason-code-4'] == '2' %}selected{% endif %} >2 Moving Vehicle</option>
+              <option value="3" {% if data['reason-code-4'] == '3' %}selected{% endif %} >3 Abandoned / Parked / Unattended Vehicle</option>
+              <option value="4" {% if data['reason-code-4'] == '4' %}selected{% endif %} >4 Vehicle involved in Road Traffic Collision</option>
+              <option value="5" {% if data['reason-code-4'] == '5' %}selected{% endif %} >5 Subject / Process / Investigation</option>
+              <option value="6" {% if data['reason-code-4'] == '6' %}selected{% endif %} >6 Administration / Non Operational</option>
+              <option value="7" {% if data['reason-code-4'] == '7' %}selected{% endif %} >7 Family Protection Issues</option>
+              <option value="8" {% if data['reason-code-4'] == '8' %}selected{% endif %} >8 On behalf of authorised agency</option>
+              <option value="9" {% if data['reason-code-4'] == '9' %}selected{% endif %} >9 Update / Confirm / Broadcast</option>
+              <option value="0" {% if data['reason-code-4'] == '0' %}selected{% endif %} >0 Audit</option>
+            </select>
+          </div>
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-top-9">
+      <h1 class="govuk-fieldset__heading">
+        Search by
+      </h1>
+    </legend>
+
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="driverDetails" name="searchBy" type="radio" value="driverDetails" checked>
+        <label class="govuk-label govuk-radios__label" for="driverDetails">
+          Driver details
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="driverNumber" name="searchBy" type="radio" value="driverNumber">
+        <label class="govuk-label govuk-radios__label" for="driverNumber">
+          Driver number
+          <div id="Justification-hint" class="govuk-hint">16 digits, e.g. SMITH657054SM9JJ</div>
+        </label>
+
+      </div>
+    </div>
+    <div class="govuk-inset-text">
+          <div class="hods-alert govuk-!-width-one-quarter">
+              <p>Enter at least <strong>3 fields</strong></p>
+          </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="Justification">
+          Last name
+        </label>
+
+        <input class="govuk-input govuk-input--width-20" id="Justification" name="Justification" type="text" autocomplete="off" maxlength="43" value="Smith">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="Justification">
+          First name(s)
+        </label>
+
+        <input class="govuk-input govuk-input--width-20" id="Justification" name="Justification" type="text" autocomplete="off" maxlength="38" value="Susan">
+      </div>
+      <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend">
+      <h1 class="govuk-fieldset__heading govuk-label--s">
+        Date of birth
+      </h1>
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 13 6 1977
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2" value="10"></div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2" value="06"></div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="4" value="1968"></div>
+      </div>
+    </div>
+
+  </fieldset>
+  </div>
+  <div class="govuk-form-group govuk-radios--inline">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">
+      <h1 class="govuk-fieldset__heading govuk-label--s">
+        Sex
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="male" name="sex" type="radio" value="male">
+        <label class="govuk-label govuk-radios__label" for="male">
+          Male
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Female" name="sex" type="radio" value="female">
+        <label class="govuk-label govuk-radios__label" for="Female">
+          Female
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="Justification">
+    Postcode
+  </label>
+  <div id="Justification-hint" class="govuk-hint">For example,  WA15 9HP</div>
+  <input class="govuk-input govuk-input--width-5" id="Justification" name="Justification" type="text" autocomplete="aJustification">
+</div>
+
+</div>
+<button class="govuk-button" data-module="govuk-button" href="#">
+<span></span><span>Search</span>
+</button>
+    </fieldset>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+  <footer>
+    <div class="wrapper-footer">
+      <div class="footer-message">
+        <p>A Home Office Digital, Data and Technology service</p>
+      </div>
+
+    </div>
+  </footer>
+  <script>
+    function mobileNav() {
+  var x = document.getElementById("mobileNav");
+  var z = document.getElementsByClassName("chevron")[0];
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    z.element.classList.add("up");
+    z.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+}
+function closeNav() {
+var y = document.getElementById("mobileNav");
+y.style.display = "none";
+}
+  </script>
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

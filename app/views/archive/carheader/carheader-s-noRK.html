@@ -1,0 +1,115 @@
+<div class="govuk-grid-row govuk-!-padding-top-3" style="background-color: white">
+  <div class="govuk-grid-column-one-quarter ">
+    <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+    <h1 class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">CF60 DPK</h1>
+  </div>
+
+</div>
+
+<div class="govuk-grid-row" style="background-color: white">
+  <div class="govuk-grid-column-one-quarter" >
+    <p class="govuk-body govuk-!-margin-bottom-0">VIN</p>
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5YJSA1DG9DFP14705</p>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter" >
+    <p class="govuk-body govuk-!-margin-bottom-0">Make/Model</p>
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Mercedes Benz, C-Class</p>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-grid-row" style="background-color: white">
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Black</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-margin-bottom-0">Body type</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5 door saloon</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-margin-bottom-0">Fuel type<br>
+          <span class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Electric</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-column-four-quarters govuk-!-padding-left-3" style="border-style: solid; border-bottom-width: 4px; border-left-width: 0px; border-top-width: 0px; border-right-width: 0px; border-color: #1d70b8">
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "View all vehicle details",
+  html: '<dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Previous vehicle Registration Mark (VRM)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              CF60 KLM
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Engine number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              52WVC10338
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Engine capacity
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2000cc
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Vehicle registration date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              20/12/2010
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Autonomous vehicle
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Transponder tag number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Record owner
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Record creator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -
+            </dd>
+          </div>
+        </dl>'
+}) }}
+</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m">

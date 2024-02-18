@@ -1,0 +1,1217 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  LEDS – Vehicles prototype
+{% endblock %}
+
+{% block content %}
+
+      <h1 class="govuk-heading-xl">
+        LEDS Vehicles Prototype
+      </h1>
+<!--
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+-->
+      <p class="govuk-body-l">
+        These prototype pages are created to arrive to design decisions, following user feedback and team discussions.
+      </p>
+
+      <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+          Contents
+        </h2>
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#live">
+              Live
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#signed-off">
+              Signed off
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#future">
+              Future (WIP)
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#demos">
+              Demos & Research
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-tabs__panel" id="live">
+
+          <p class="govuk-body-l">
+            These pages represent (in reasonable fidelity) the functionality that is currently live.
+          </p>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Theme</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-three-quarters">Details</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="/live/search" class="govuk-link">Search</a></th>
+                <td class="govuk-table__cell">Form to search by a full VRM</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="/live/overview" class="govuk-link">Overview (stolen vehicle)</a></th>
+                <td class="govuk-table__cell">
+                  A stolen vehicle with one hazard. Resize to mobile width to see tags on the top of the page. Includes these pages:
+                      <a href="live/reports-action" class="govuk-link">Action report</a>,
+                      <a href="live/insurance" class="govuk-link">Insurance</a>,
+                      <a href="live/past-insurance/insurance-past-check" class="govuk-link">Past insurance</a>,
+                      <a href="live/MOT" class="govuk-link">MOT</a>,
+                      <a href="live/markers" class="govuk-link">DVLA markers</a>, and
+                      <a href="live/previous-keeper" class="govuk-link">Previous keeper</a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Past insurance<br>
+                </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/past-insurance/insurance-past-check" class="govuk-link">Check for past insurance</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Past insurance page with date form
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/past-insurance/pi-result" class="govuk-link">One past insurance result</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        One past result returned (no excluded listed drivers, with extra drivers)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/past-insurance/pi-results" class="govuk-link">Two past insurance results</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying a warning message about multiple policies found for the past date (listed excluded drivers, no extra drivers)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/past-insurance/pi-no-results" class="govuk-link">No past insurance found</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying no insurance policies for a past date
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/past-insurance/insurance-past-7-years.html" class="govuk-link">Error: date not within 7 years</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When user entered today's date, a date in the future, or a date more than 7 years old
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Overview variations</th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-safe" class="govuk-link">Safe vehicle</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A legitimate vehicle record, without any adverse information on it
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-critical" class="govuk-link">Critical vehicle</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A vehicle record with <strong>a lot of</strong> adverse information on it
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-found" class="govuk-link">Found vehicle</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A stolen vehicle that has been marked as found
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-found-2" class="govuk-link">Repossesed, stolen and found vehicle</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A vehicle with 2 Found reports (one due to repossession, and one due to being found after being stolen from a police compound)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-stolen-PR" class="govuk-link">Police record</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A vehicle record created by the Police (without any DVLA data)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-police-eyes" class="govuk-link">Police eyes only</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A record of a vehicle that is marked for Police eyes only
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-PNC-blocked" class="govuk-link">PNC blocked</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A record of a vehicle that is marked as blocked on PNC
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-both-blocked" class="govuk-link">PNC and DVLA blocked</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        A record of a vehicle that is marked as blocked on PNC, and is blocked by DVLA
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/variations/overview-multi-banners" class="govuk-link">3 banners</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Record combining all 3 potential banners: multiple records for VRM, blocked on PNC, and Police eyes only
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-mobile" class="govuk-link">Mobile view</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview page without a table component to display police reports on narrow screens
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-trade" class="govuk-link">Keeper in trade</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview when vehicle is in ownership of a trader
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/overview-void" class="govuk-link">Void record</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview without any vehicle details as record is void
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/variations/all-boxes" class="govuk-link">All status boxes</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview page without a table component to display police reports on narrow screens
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Other variations</th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/insurance-2" class="govuk-link">Insurance page with warning</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Insurance page with warning message when 2 (or more) policies found (but only 1 displayed)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/insurance-expired" class="govuk-link">Expired insurance page</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Insurance page with Expired tag (for insurance policies that expired earlier on the day)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/variations/previous-keeper-trade" class="govuk-link">Previous keeper in trade</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When the previous keeper was a trader
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Disposal documents
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <a href="/live/variations/disposal-doc/scenario-1" class="govuk-link">Scenario 1</a> - The Handover<br>
+                        <a href="/live/variations/disposal-doc/scenario-2a" class="govuk-link">Scenario 2a</a> - Given into trade (Overview)<br>
+                        <a href="/live/variations/disposal-doc/scenario-2b" class="govuk-link">Scenario 2b</a> - Given into trade (DVLA markers)<br>
+                        <a href="/live/variations/disposal-doc/scenario-2c" class="govuk-link">Scenario 2c</a> - Given into trade (Previous Keeper)<br>
+                        <a href="/live/variations/disposal-doc/scenario-3" class="govuk-link">Scenario 3</a> - Bought from Trade<br>
+                        <a href="/live/variations/disposal-doc/scenario-4" class="govuk-link">Scenario 4</a> - Unknown Keeper<br>
+                        <a href="/live/variations/disposal-doc/scenario-5" class="govuk-link">Scenario 5</a> - The Gap
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/variations/MOT-v2" class="govuk-link">MOT: no mileage reason</a><br>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          Values "Unreadable" and "No odometer" next to "Unknown" Mileage (see examples in Failed results)
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="govuk-table__header">MOD / GEO vehicles<br>
+                </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/mod-geo/search-result-MOD" class="govuk-link">MOD single result</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When an MOD or GEO vehicle is <strong>not</strong> of police interest
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/mod-geo/overview-MOD" class="govuk-link">MOD police record</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When an MOD or GEO vehicle is of police interest
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/mod-geo/search-results-MOD" class="govuk-link">Search results with MOD</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When an MOD (or GEO) vehicle has been cloned and users get search results
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="govuk-table__header">Keeper has changed<br>
+                </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/keeper-changed/overview" class="govuk-link">Overview</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Marker on the overview page
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/keeper-changed/reports-action" class="govuk-link">Report page</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Marker on a report page
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">404 Error state examples</th>
+                <td class="govuk-table__cell">
+                  <ul class="govuk-list">
+                    <li><a href="live/errors/not-found" class="govuk-link">No results found (on DVLA and PNC)</a></li>
+                    <li><a href="live/errors/MOD" class="govuk-link">MOD vehicle (without PNC record)</a></li>
+                    <li><a href="live/errors/GEO" class="govuk-link">GEO vehicle (without PNC record)</a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Other error state examples</th>
+                <td class="govuk-table__cell">
+                  <ul class="govuk-list">
+                    <li><a href="live/errors/VRM-wrong" class="govuk-link">Validation error</a></li>
+                    <li><a href="live/errors/error" class="govuk-link">Server error (on Search button)</a></li>
+                    <li><a href="live/errors/error-multiple-PNC" class="govuk-link">Multiple PNC recrods match the DVLA record</a></li>
+                    <li><a href="live/errors/overview-error" class="govuk-link">Calls to MIB and DVSA have failed</a></li>
+                    <li><a href="live/errors/previous-keeper-error" class="govuk-link">Server error (on menu link)</a></li>
+                    <li><a href="live/errors/timeout" class="govuk-link">Timeout message</a></li>
+                    <li><a href="live/errors/all-alerts" class="govuk-link">All alerts and errors</a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">No information examples</th>
+                <td class="govuk-table__cell">
+                  <ul class="govuk-list">
+                    <li><a href="live/nodata/no-insurance" class="govuk-link">No insurance information</a></li>
+                    <li><a href="live/nodata/no-MOT" class="govuk-link">No MOT information</a></li>
+                    <li><a href="live/nodata/no-markers" class="govuk-link">No DVLA markers</a></li>
+                    <li><a href="live/nodata/no-tax" class="govuk-link">No tax information</a></li>
+                    <li><a href="live/nodata/no-previous-keeper" class="govuk-link">No previous keeper information</a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="govuk-table__header">Search results</th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/cloned" class="govuk-link">Cloned</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When a vehicle has been cloned (twice)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/ct-results-complex" class="govuk-link">Double shuffle & cloned</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When a vehicle with personalised plate has been cloned, with 2 vehicles having had that plate in the past
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/ct-results-double" class="govuk-link">Double shuffle</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When a personalised plate was on 2 other vehicles in the past
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/ct-results-void" class="govuk-link">Cherished Transfer - Void</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When a VRM is no longer in use (replaced by a personalised plate)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/ct-results-retained" class="govuk-link">VRM retained</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        When a personalised plate is retained for fututer use
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/overview-multi-1" class="govuk-link">Overview after results</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview page with banner when arriving via search results
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/ct/ct-marker" class="govuk-link">DVLA marker</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        VRM dates for current and previous vehicle in the DVLA marker description
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Unable to match PNC data sets to the DVLA record<br>
+                  </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/multi-pnc/search-results-duplicates" class="govuk-link">Duplicate records</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Search results with two PNC identical records matching the DVLA record
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/multi-pnc/search-results-no-match" class="govuk-link">PNC data not matching DVLA</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Search results with a PNC data set which doesn't match the VIN of the DVLA record
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/multi-pnc/search-results-no-PNC" class="govuk-link">No PNC data</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Search results (due to cherished transfer) when there's no PNC data sets for the DVLA record
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/multi-pnc/overview-duplicates" class="govuk-link">DVLA record overview (duplicates)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview of the DVLA record with missing police information (and duplicate PNC data sets).
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="live/multi-pnc/overview-no-match" class="govuk-link">DVLA record overview (no match)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview of the DVLA record with missing police information (when no PNC data exists, or any that exists doesn't match the DVLA record). Link 'back to search results' appears only if users accessed the record via a search results page (e.g. due to cherished transfers or multiple PNC records)
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="govuk-table__header">Multi-VRM<br>
+                </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-page" class="govuk-link">Search page</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      Multi-VRM search page with radio-button inputs
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-results" class="govuk-link">Search results</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying multi-VRM search results
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-results-500" class="govuk-link">Search results (with 500)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying multi-VRM search results when we failed to connect for one of the VRMs
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-results-duplicates" class="govuk-link">Search results (duplicates)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying multi-VRM search results, when one of the results has duplicate PNC data sets matching the VIN of the DVLA record
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-results-no-match" class="govuk-link">Search results (no match)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying multi-VRM search results, when one of the results has a PNC data set that doesn't match the VIN of the DVLA record
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/multi-vrm/search-results-no-PNC" class="govuk-link">Search results (no PNC)</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Displaying multi-VRM search results, when one of the results has no PNC data sets matching the VRM of the DVLA record
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Export data<br>
+                  </th>
+                <td class="govuk-table__cell">
+                  <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="https://ukhomeoffice.sharepoint.com/:t:/r/sites/prog1423/Products/Vehicles/Vehicles%20Beta%202022/UCD/03.%20CT,%20Export,%20Copy,%20Link%20to%20Drivers/Export%20to%20Clipboard(s)/Clipboard%20link.txt?csf=1&web=1&e=8Cg0cj" class="govuk-link">Clipboard link</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Example of Overview page content copied and pasted via Clipboard link
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="https://ukhomeoffice.sharepoint.com/:t:/r/sites/prog1423/Products/Vehicles/Vehicles%20Beta%202022/UCD/03.%20CT,%20Export,%20Copy,%20Link%20to%20Drivers/Export%20to%20Clipboard(s)/Export%20to%20Clipboard%20button.txt?csf=1&web=1&e=cYo8hh" class="govuk-link">Export to Clipboard button</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Example of Export page content copied and pasted via Export to Clipboard button
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/export-form" class="govuk-link">Export page</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Page for users to select what to export (to clipboard or PDF)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="/live/export-confirm" class="govuk-link">Confirmation for copy</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Overview page with confirmation alert following the action 'Export to clipboard' on the Export page
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        <a href="https://ukhomeoffice.sharepoint.com/:b:/r/sites/prog1423/Products/Vehicles/Vehicles%20Beta%202022/UCD/05.%20PDF/Vehicles%20PDF.pdf?csf=1&web=1&e=wy5VE1" class="govuk-link">PDF document</a>
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                         PDF document with content selected on the Export page (see also <a href="/live/pdf-print" class="govuk-link">prototype page</a> which generates the PDF <strong>by selecting 'Print' on the browser)</strong> </p>
+                      </dd>
+                    </div>
+                  </dl>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="signed-off">
+        <p class="govuk-body-l">
+          These pages demonstrate the functionality that is being prepared for our next release(s).
+        </p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Theme</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-three-quarters">Details</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr>
+              <th scope="row" class="govuk-table__header">Update functionality<br>
+              </th>
+              <td class="govuk-table__cell">
+                See <strong><a href="/wip/update-v4/" class="govuk-link">list of Update screens</a></strong>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="govuk-table__header">Search results</th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="signed-off/ct/ct-results-no-results" class="govuk-link">No (current) results</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      When there are no records with the VRM searched but there're past vehicles
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="signed-off/ct/ct-results-double-new-message" class="govuk-link">Past vehicles message</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      New message to explain limitation of past vehicles table
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="signed-off/ct/clickable-past" class="govuk-link">Past results clickable</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Past records only visible after clicking on button, and all VRMs clickable
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="signed-off/ct/clickable-past-2" class="govuk-link">Past results clickable (with error)</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Example where past records are loaded with an error
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="govuk-table__header">Updated error messages<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/errors/overview-error" class="govuk-link">Calls to MIB and DVSA have failed</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Displaying the reference ID and grey links not italics
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/errors/previous-keeper-error" class="govuk-link">Server error (on menu link)</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Displaying the reference ID
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="govuk-table__header">Blocked vehicles<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/overview-PNC-blocked" class="govuk-link">PNC-blocked record</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      A record that has been blocked on PNC
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/overview-police-eyes" class="govuk-link">Police-eyes only record</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      A record that has been marked "In confidence - police eyes only"
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="govuk-table__header">Multiple insurance policies<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/insurance-2policies" class="govuk-link">Insurance page with 2 policies</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Both policies are active on the day
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            {# Force contact details #}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <a href="/signed-off/overview-modal" class="govuk-link">Force contact details</a><br>
+              </th>
+              <td class="govuk-table__cell">
+                Enable users to find contact details for Force/Station codes (e.g. report owners) - see 20FA owner on INF report
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Police & Foreign markers
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="signed-off/overview-vrm-foreign-2" class="govuk-link">VRM, Foreign marker, and record actions</a>
+                      {#<ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-padding-top-2">
+                        <li><a href="signed-off/overview-vrm-foreign-2-user-1" class="govuk-link">Example 1: Neha Gutmann</a></li>
+                        <li><a href="signed-off/overview-vrm-foreign-2-user-2" class="govuk-link">Example 2: Finley Harrison</a></li>
+                        <li><a href="signed-off/overview-vrm-foreign-2-user-3" class="govuk-link">Example 3: Amy Rose</a></li>
+                      </ul>#}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>VRM (H1) repositioned outside "Police record" panel and VRM label hidden (as per Person)</li>
+                        <li>Police and Foreign tags to appear next VRM</li>
+                        <li>Contextual toolbar (Edit, Clipboard and Export) repositioned and seated above "Police record" panel</li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <a href="/signed-off/overview-void-previous-vehicle" class="govuk-link">Previous vehicle info</a><br>
+              </th>
+              <td class="govuk-table__cell">
+                Introduce a new previous vehicle page for all records (with a respective <a href="/signed-off/no-previous-vehicle" class="govuk-link">'no information'</a> message when appropriate)
+              </td>
+            </tr>
+
+            {# Export search results #}
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Export search results<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/export-journey-search-page" class="govuk-link">Search page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Search criteria page
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/export-journey-search-results" class="govuk-link"><strong>Search results page</strong></a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Returned search results page
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/export-journey-export-results?pastvehicles=no" class="govuk-link"><strong>Export results</strong></a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Export the returned search results
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/signed-off/export-journey-export-results?pastvehicles=yes" class="govuk-link"><strong>Export past vehicles</strong></a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Export past vehicles as returned with the search results
+                    </dd>
+                  </div>
+
+                </dl>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="future">
+        <p class="govuk-body-l">
+          These pages include work in progress on future functionality.
+        </p>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Theme</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-three-quarters">Details</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="/wip/insurance-last-past" class="govuk-link">Last insurance</a><br>
+              </th>
+              <td class="govuk-table__cell">
+                Enable users to find when the last insurance policy expired
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="/wip/insurance-with-tags" class="govuk-link">Insurance with tags</a><br>
+              </th>
+              <td class="govuk-table__cell">
+                Displaying the type of insurance in a tag
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Other search functionality<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/search-tabs" class="govuk-link">Search with tabs</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Use of tabs to select between searching by VRM, VIN or post code
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/search-radios" class="govuk-link">Search with radios</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Use of radios to select between searching by VRM, VIN or post code
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/advanced-search" class="govuk-link">Advanced search</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {#<strong class="govuk-tag govuk-tag--red">Design blocked</strong><br>#}
+                      Intended replacement of VODS
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/advanced-search-tabs" class="govuk-link">Advanced search (tabs)</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {#<strong class="govuk-tag govuk-tag--red">Design blocked</strong><br>#}
+                      Intended replacement of VODS, makes use of Tab component
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/advanced-search-side-nav" class="govuk-link">Advanced search (side-nav)</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {#<strong class="govuk-tag govuk-tag--red">Design blocked</strong><br>#}
+                      Intended replacement of VODS, makes use of side navigation
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/advanced-search-results" class="govuk-link">Advanced search results</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Results returned after advanced search
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/search/search-previous-vehicles" class="govuk-link">Search results with past vehicle history</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Results returned with past vehicle history
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/wip/clickable-past" class="govuk-link">Search results with history (cherished transfers)</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Results returned with past vehicle history (due to cherished transfers)
+                    </dd>
+                  </div>
+
+                </dl>
+              </td>
+            </tr>
+
+            {# Service start page, news and updates #}
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Service news and updates<br>
+              </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Vehicles service start page with a notification
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <a href="/wip/service-vehicles-start-page" class="govuk-link">Notification at the top</a><br>
+                      <a href="/wip/service-vehicles-start-page-link" class="govuk-link">Dismissable notification at the top, with a link</a><br>
+                      <a href="/wip/service-vehicles-start-page-side" class="govuk-link">Service update on the side</a><br>
+                      <a href="/wip/service-vehicles-start-page-side-2" class="govuk-link">Did you know on the side</a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Service news and updates page
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <a href="/wip/service-news-and-updates?fullwidth=no" class="govuk-link">Service updates</a><br>
+                      <a href="/wip/service-news-and-faq" class="govuk-link">Service updates and FAQ</a><br>
+                      <a href="/wip/service-news-and-faq-light" class="govuk-link">Service updates and FAQ (light)</a>
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="demos">
+        <p class="govuk-body-l">
+          These pages provide journeys used for demos and/or User Research.
+        </p>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Theme</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-three-quarters">Details</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Link to Drivers demo<br>
+                <strong class="govuk-tag">October 2023</strong>
+                </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/live/variations/index" class="govuk-link">LEDS homepage</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Start of journey, going on to Vehciles
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="/live/variations/search-l2d" class="govuk-link">Search page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Vehicles search page (enter "1234 Smith", "Link to Drivers demo" and reason code "1"). <a href="/live/variations/insurance-l2d" class="govuk-link">Insurance</a> and <a href="/live/variations/pi-check-l2d" class="govuk-link">past insurance</a> pages are also active
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="https://leds-drivers.prototype.homeoffice.gov.uk/v2d/search" class="govuk-link">Drivers search</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Drivers search page for Registered keeper / policy holder
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">DVLA demo<br>
+                <strong class="govuk-tag">April 2023</strong>
+                </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="demo/search" class="govuk-link">Search page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Single VRM <strong class="govuk-tag govuk-tag--white">CF60POP</strong> for Stolen orverview<br>
+                      Single VRM <strong class="govuk-tag govuk-tag--white">BIILLY</strong> for cloned and CT results<br>
+                      Multiple VRMs radio button for multi-VRM search results
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Also includes functionality for <a href="demo/search-drivers" class="govuk-link">link to divers</a> and <a href="demo/export" class="govuk-link">export</a>
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Multiple VRM search<br>
+                <strong class="govuk-tag">March 2023</strong>
+                </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="UR-MARCH/ur-march-index" class="govuk-link">Start scenario page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Start page for this round of user research
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="UR-MARCH/search-radio" class="govuk-link">Search page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Search page with radio input (signed-off design)
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="UR-MARCH/results-2" class="govuk-link">Search results page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Search results page (signed-off design)
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Copy/Export links and link to Drivers<br>
+                <strong class="govuk-tag">January 2023</strong>
+                </th>
+              <td class="govuk-table__cell">
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      <a href="ur-index" class="govuk-link">Start scenario page</a>
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Start page for this round of user research
+                    </dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Previously live designs
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Overview page
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Overview page (for <a href="/archive/overview" class="govuk-link">critical</a> and <a href="/archive/overview-s" class="govuk-link">safe</a> vehicles) without the status boxes or the borders on the info boxes
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a href="/archive/insurance-before-box" class="govuk-link">Insurance page</a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Drivers displayed in the same list as insurance details (and not on the box on the right)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a href="/archive/tax" class="govuk-link">Tax page</a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            We had a tax page before the status boxes were introduced
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a href="/archive/cloned/search-results" class="govuk-link">Search results (cloned vehicles)</a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            We had all results on a single table
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a href="/archive/cherished-transfer/search-results-ct" class="govuk-link">Search results (cherished transfer)</a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            We had all results on a single table
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <a href="/archive/search-results-mobile" class="govuk-link">Search results (mobile view)</a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            We had all results on a single table
+          </dd>
+        </div>
+
+
+      </dl>
+    </div>
+  </details>
+
+<!--
+      {{ govukTable({
+        caption: "Search scenarios",
+        captionClasses: "govuk-table__caption--l",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "VRM",
+            classes: 'govuk-!-width-one-quarter'
+
+          },
+          {
+            text: "Scenario"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "CF60 DPK"
+            },
+            {
+              text: "A record of a legitimate vehicle, without adverse information on it"
+            }
+          ],
+          [
+            {
+              text: "CF60 POP"
+            },
+            {
+              text: "A record of an illegal vehicle with loads of adverse information on it (e.g. markers)"
+            }
+          ],
+          [
+            {
+              text: "CF60 ABC"
+            },
+            {
+              text: "Multiple records returned due to presence of cloned vehicles"
+            }
+          ],
+          [
+            {
+              text: "BIII LLY"
+            },
+            {
+              text: "Multiple records returned due to 'cherrished transfer' "
+            }
+          ]
+        ]
+      }) }}
+      <p class="govuk-body govuk-inset-text">Please note VRMs need to be entered in capitals and include the space as shown above</p>
+
+      <a href="/search" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Search
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+        </svg></a>
+
+-->
+
+{% endblock %}

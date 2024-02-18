@@ -1,0 +1,135 @@
+overview{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Insurance – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/insurance">Insurance</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Past insurance
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-top-3 govuk-!-text-align-right">
+    <a class="govuk-link govuk-link--no-visited-state" href="/search">New search</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="insurance.html" class="menu_list_item_link">
+                Insurance (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers2.html" class="menu_list_item_link">
+                DVLA markers (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="tax.html" class="menu_list_item_link">
+                Tax
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Past insurance details</h2>
+
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+    {{ govukDateInput({
+      id: "passport-issued",
+      namePrefix: "passport-issued",
+      fieldset: {
+        legend: {
+          text: "Enter a date within the past 7 years",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "For example, 24 11 2019"
+      },
+      errorMessage: {
+        text: "The date for historic insurance must be within the past 7 years"
+      },
+      items: [
+        {
+          classes: "govuk-input--width-2 govuk-input--error",
+          name: "day",
+          value: "6"
+        },
+        {
+          classes: "govuk-input--width-2 govuk-input--error",
+          name: "month",
+          value: "3"
+        },
+        {
+          classes: "govuk-input--width-4 govuk-input--error",
+          name: "year",
+          value: "2011"
+        }
+      ]
+    }) }}
+
+
+{{ govukButton({
+  text: "Apply",
+  href: "/insurance-past"
+}) }}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        </div>
+      </div>
+
+{% endblock %}

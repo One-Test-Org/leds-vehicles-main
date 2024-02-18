@@ -1,0 +1,156 @@
+re{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-button-group govuk-!-padding-top-2" style="float:right">
+    <a href="/wip/overview-DVLA-blocked" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Unblock vehicle</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="hods-alert hods-alert--error">
+  <h2 class="hods-alert__heading">
+    This record is blocked by DVLA
+  </h2>
+</div>
+
+{% block carheader %}
+{% include "includes/carheader-police-blocked.html" %}
+{% endblock %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="overview.html" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item" style="color:#505a5f ">
+              <i>Insurance</i>
+          </li>
+          <li class="menu_list_item" >
+            <a href="previous-keeper.html" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="markers.html" class="menu_list_item_link">
+              DVLA markers (2)
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2" style="">
+      <h2 class="govuk-heading-s">Hazards</h2>
+      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Occupants potentially dangerous
+      </strong></p>
+      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        chemical
+      </strong></p>
+      <p><strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Weapons
+      </strong></p>
+      <p><strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-2" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Explosives
+      </strong></p>
+
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h2 class="govuk-heading-s">Police reports</h2>
+      <p>
+        <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Lost/Stolen
+        </strong>
+      </p>
+      <p>
+        <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Action
+        </strong>
+      </p>
+      <p>
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Information (2)
+        </strong>
+      </p>
+      <p>
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Reaction
+        </strong>
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-2">&nbsp</p>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h2 class="govuk-heading-s">DVLA markers</h2>
+      <p>
+        <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          In confidence - police eyes only
+        </strong>
+      </p>
+      <p class="govuk-!-margin-bottom-2">
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Colour changed
+        </strong>
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-7">&nbsp</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">&nbsp</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-5">
+
+</div>
+</div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+{% block reports %}
+{% include "includes/reports-critical.html" %}
+{% endblock %}
+
+{% endblock %}

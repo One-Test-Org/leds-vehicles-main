@@ -1,0 +1,14 @@
+.leds-alert {
+  background-color: #f5f9fd;
+  border-color: #1d70b8;
+}
+
+.leds-alert__success {
+  background-color: #f3fffa;
+  border-color: #00703c;
+}
+
+.leds-alert__error {
+  background-color: #fef7f5;
+  border-color: #d4351c;
+}

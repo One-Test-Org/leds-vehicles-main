@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 DPK - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-s-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+<!-- <div class="govuk-grid-row">
+<a href="/wip/add-new-report" class="govuk-link govuk-!-padding-bottom-2" style="float:right">Add report and marker</a>
+</div> -->
+<!--
+<div class="govuk-grid-row">
+<a href="/wip/add-new-report" class="govuk-button" data-module="govuk-button"  style="float:right">Add report/marker</a>
+</div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="overview-s.html" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              Insurance (1)
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="markers1.html" class="menu_list_item_link">
+              DVLA markers (1)
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="tax1.html" class="menu_list_item_link">
+              Tax
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="#.html" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2" style="">
+      <h3 class="govuk-heading-s">Hazards</h3>
+      <p class="govuk-body govuk-!-margin-bottom-7"><strong class="govuk-tag govuk-tag--grey">None</strong></p>
+
+
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h3 class="govuk-heading-s">Police reports and markers</h3>
+      <p class="govuk-body  govuk-!-margin-bottom-7"><strong class="govuk-tag govuk-tag--grey">None</strong></p>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h3 class="govuk-heading-s">DVLA markers</h3>
+      <p class="govuk-!-margin-bottom-2">
+        <strong class="govuk-tag govuk-!-margin-bottom-6 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Direct export
+        </strong>
+      </p>
+
+    </div>
+  </div>
+  <details class="govuk-details govuk-grid-column-three-quarters govuk-!-padding-top-2" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Add police reports or markers?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <div class="govuk-button-group govuk-!-padding-top-2" >
+        <a href="/wip/add-new-report" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add Police report</a>
+        <a href="/wip/add-new-markers" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add Police markers</a>
+      </div>
+    </div>
+  </details>
+</div>
+<!--
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-one-half-from-desktop">
+    <h2 class="govuk-heading-l">Police reports</h2>
+    <p class="govuk-body  govuk-!-margin-bottom-7"><strong class="govuk-tag govuk-tag--white">No police reports</strong></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter-from-desktop">
+    <a href="/wip/add-new-report" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:right">Add report</a>
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-one-half-from-desktop">
+    <h2 class="govuk-heading-l">Police markers</h2>
+      <p class="govuk-body  govuk-!-margin-bottom-7"><strong class="govuk-tag govuk-tag--white">No police markers</strong></p>
+  </div>
+  <div class="govuk-grid-column-one-quarter-from-desktop">
+    <a href="/wip/add-new-report" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:right">Add markers</a>
+  </div>
+</div>
+-->
+{% endblock %}

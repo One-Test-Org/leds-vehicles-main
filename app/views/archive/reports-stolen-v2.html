@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF04 DPK - Lost/Stolen report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search-2">Search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-v2">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Lost/Stolen report (E34Y9340TY3293)
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Lost/Stolen report</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Reference number"
+            },
+            value: {
+              text: "E34Y9340TY3293"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (from)"
+            },
+            value: {
+              text: "14 March 2019"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (to)"
+            },
+            value: {
+              text: "14 March 2019"
+            }
+          },
+          {
+            key: {
+              text: "Details"
+            },
+            value: {
+              text: "Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing"
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              text: "Confirmed"
+            }
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Report source</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Owner"
+            },
+            value: {
+              text: "Dorset Police (FS10)"
+            }
+          },
+          {
+            key: {
+              text: "Created by"
+            },
+            value: {
+              html: 'PC Smith, PO123345<br>Essex Police'
+            }
+          },
+          {
+            key: {
+              text: "Created on"
+            },
+            value: {
+              text: "14 March 2019, 14:47"
+            }
+          },
+          {
+            key: {
+              text: "Last updated by"
+            },
+            value: {
+              text: "PC Singh (FC14)"
+            }
+          },
+          {
+            key: {
+              text: "Last updated on"
+            },
+            value: {
+              text: "19 March 2018"
+            }
+          },
+            {
+              key: {
+                text: "Weed date"
+              },
+              value: {
+                text: "12 January 2023"
+              }
+          }
+        ]
+      }) }}
+
+
+
+{% endblock %}

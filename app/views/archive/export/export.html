@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+      <h1 class="govuk-fieldset__heading">
+        Export a PDF of this record
+        </h1>
+        <div class="govuk-inset-text">
+          The PDF file will download to your device.
+          </div>
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="Justficiation">
+                Justification
+                </label>
+                <div id="Justification-hint" class="govuk-hint">For example reason for exporting</div>
+                <textarea class="govuk-textarea govuk-!-width-three-quarters" id="Justficiation" name="Justification" rows="2" aria-describedby="Justification-hint" maxlength="250">
+                  </textarea>
+                  </div>
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--s" for="on_behalf">
+                      On behalf of (optional)
+                      </label>
+                      <div id="on_behalf-hint" class="govuk-hint">For example, PC Jones 12345</div>
+                      <input class="govuk-input govuk-!-width-three-quarters" id="on_behalf" name="on_behalf" type="text" autocomplete="off">
+                        </input>
+                        </div>
+
+
+
+  </div>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  All boxes – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+
+{% block content %}
+
+  <h1 class="govuk-heading-m">
+    Insurance
+  </h1>
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <a href="/insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insurance held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 11/12/2023</p>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-quarter red-status-box">
+        <a href="/insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">&#x2718 &nbsp No insurance held</p>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-quarter grey-status-box">
+            <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">Insurance unavailable</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter yellow-status-box">
+        <a href="/insurance" class="govuk-link govuk-link--no-underline">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #00000">&#33; &nbsp Not insured for on road use</p>
+        </a>
+      </div>
+  </div>
+  <br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter green-status-box">
+      <a href="/insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insurance held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">(Multiple insurnace policies)</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#x2718 &nbsp No insurance held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expired today</p>
+      </a>
+    </div>
+  </div>
+
+  <h1 class="govuk-heading-m govuk-!-margin-top-6">
+    MOT
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter green-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp MOT held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 10/11/2023</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">&#x2718 &nbsp MOT failed</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#x2718 &nbsp MOT expired</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Date expired: 10/11/2022</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter grey-status-box">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">MOT unavailable</p>
+    </div>
+  </div>
+  <br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter green-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp MOT held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">First MOT due: 10/11/2025</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#x2718 &nbsp MOT not held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">First MOT was due: 10/11/2022</p>
+      </a>
+    </div>
+  </div>
+
+  <h1 class="govuk-heading-m govuk-!-margin-top-6">
+    Tax
+  </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter green-status-box">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Tax held</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 11/12/2023</p>
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">&#x2718 &nbsp Untaxed</p>
+    </div>
+    <div class="govuk-grid-column-one-quarter grey-status-box">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">Tax unavailable</p>
+    </div>
+    <!-- <div class="govuk-grid-column-one-quarter" style="background-color: #942514; border-style: solid; border-left-width: 4px; border-right-width: 4px; border-color: #F3F3F3">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">&#x2718 &nbsp Not taxed<br>for road use</p>
+      </a>
+    </div> -->
+    <div class="govuk-grid-column-one-quarter yellow-status-box">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #00000">&#33; &nbsp Not taxed for on road use</p>
+    </div>
+  </div>
+  <br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      &nbsp;
+    </div>
+    <div class="govuk-grid-column-one-quarter red-status-box">
+      <a href="/MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#x2718 &nbsp Untaxed</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Date expired: 10/11/2022</p>
+      </a>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      &nbsp;
+    </div>
+    <div class="govuk-grid-column-one-quarter yellow-status-box">
+        <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #00000">&#33; &nbsp SORN<br>
+        <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #00000">Statutory Off Road Notification</p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"           import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"           import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"         import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"              import govukButton %}
+{% from "govuk/components/character-count/macro.njk"     import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"          import govukCheckboxes %}
+{% from "govuk/components/cookie-banner/macro.njk"       import govukCookieBanner %}
+{% from "govuk/components/date-input/macro.njk"          import govukDateInput %}
+{% from "govuk/components/details/macro.njk"             import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"       import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"       import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"            import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"         import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"               import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"          import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk"               import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"        import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"              import govukRadios %}
+{% from "govuk/components/select/macro.njk"              import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"           import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"        import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"               import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                 import govukTag %}
+{% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+{% from "components/global-navigation.njk"               import ldsGlobalNav %}
+
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% set bodyClasses = "ho-body" %}
+
+{% set bodyClasses = bodyClasses | default("hods-page") %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% set bodyClasses = "ho-body" %}
+
+{% block header %}
+<header>
+  <style>
+      .example-header-wrapper {
+          width: 100%;
+          float: left;
+          margin: 0;
+      }
+
+      .header-wrapper {
+          background-color:#FFF;
+          width: 100%;
+      }
+
+      .header-wrapper:after {
+          content: "";
+          clear: both;
+          display: table;
+      }
+
+      @media (max-width: 40.0625em) {
+          .example-header-wrapper {
+              width: auto;
+          }
+
+          .header-title.example-header-title {
+              display: inline-block;
+              padding-left: 20px;
+          }
+
+          .header-logo.example-header-logo,
+          .mrp-header-user.example-header-user {
+              display: none;
+          }
+      }
+  </style>
+
+  <div class="wrapper-header">
+    <div class="header-logo">
+      {% include "includes/home-office-logo.html" %}
+    </div>
+    <div class="header-title"><a href="./search" class="header-name">LEDS Vehicles</a></div>
+
+
+    <!-- <div class="mrp-header-user">PC Jones</div> -->
+    <!-- <div class="mobile-menu">
+      <a href="#" onclick="mobileNav()" id="mobileNavLink"><span class="chevron"></span>Menu</a>
+    </div> -->
+    {{ ldsGlobalNav({
+    navigation: [
+        { id: "LEDS_HOME", text: "LEDS Home", href: "https://leds.prototype.homeoffice.gov.uk/" },
+        { id: "DRIVERS", text: "Drivers", href: "https://leds-drivers.prototype.homeoffice.gov.uk/" },
+        { id: "PERSON", text: "Person", href: "https://leds-person.prototype.homeoffice.gov.uk/" },
+        { id: "PROPERTY", text: "Property", href: "https://leds-property.prototype.homeoffice.gov.uk/" },
+        { id: "VEHICLES", text: "Vehicles", href: "./search", active: true },
+        { id: "INTEREST_SEARCH", text: "Interest search", href: "#" },
+        { id: "LEDS_ACTIVITIES", text: "Your LEDS activities", href: "#" }
+    ],
+    subnavigation: []
+    }) }}
+  </div>
+
+</header>
+<div class="govuk-phase-banner govuk-width-container-original">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag govuk-!-margin-right-3">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="https://www.homeofficesurveys.homeoffice.gov.uk/s/preview/7WAC28/20088FFBFB23C5B12F32C463459516">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+  <footer class="govuk-footer" style="background-color:#fff;" role="contentinfo">
+      <div class="govuk-width-container-original">
+          <div class="govuk-footer__meta">
+              <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-body-s">
+                          <span class="govuk-footer__licence-description">
+                              The Home Office Law Enforcement Data Service
+                          </span>
+                      </p>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                    <!--
+                      <h2 class="govuk-visually-hidden">Support links</h2>
+                      <ul class="govuk-footer__inline-list">
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#1">
+                                  Cookies
+                              </a>
+                          </li>
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#2">
+                                  Terms and conditions
+                              </a>
+                          </li>
+                          <li class="govuk-footer__inline-list-item">
+                              <a class="govuk-footer__link govuk-body-s" href="#3">
+                                  Accessibility
+                              </a>
+                          </li>
+                      </ul>
+                      -->
+                  </div>
+              </div>
+          </div>
+          <hr class="govuk-footer__section-break">
+          <div class="govuk-footer__meta">
+              <div class="govuk-footer__meta-item govuk-!-text-align-centre">
+                  <p class="govuk-body-s">Data retrieved at
+                      <script>document.write(new Date().toLocaleDateString());</script>
+                      <script>document.write(new Date().toLocaleTimeString());</script>
+                  </p>
+                  <p class="govuk-body-s">Reference ID: 22242871-73a7-46a6-a060-d1821ac51d6d &nbsp;&nbsp<a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" alt="Copy icon"></a></p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+
+<script>
+  function mobileNav() {
+var x = document.getElementById("mobileNav");
+var z = document.getElementsByClassName("chevron")[0];
+if (x.style.display === "none") {
+x.style.display = "block";
+z.element.classList.add("up");
+z.style.display = "none";
+} else {
+x.style.display = "none";
+}
+}
+function closeNav() {
+var y = document.getElementById("mobileNav");
+y.style.display = "none";
+}
+</script>
+
+<script src="/public/javascripts/leds-global-navigation.js"></script>
+
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

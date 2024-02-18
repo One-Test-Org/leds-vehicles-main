@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Not valid VRM for prototype
+      </h1>
+
+      <p class="govuk-body-l">This prototype only works with any of the following VRMs:  </p>
+      <ul class="govuk-body-l">
+        <li>CF60 DPK</li>
+        <li>CF60 POP</li>
+        <li>CF60 ABC</li>
+        <li>BIII LLY</li>
+      </ul>
+
+      <p class="govuk-body-l">Go back to <a href="javascript:window.history.back()">search page</a> and try with one of these.</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

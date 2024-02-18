@@ -1,0 +1,74 @@
+{% macro ldsGlobalNav(props) %}
+
+<div class="leds-global-navigation">
+  <div class="leds-global-navigation-wrapper">
+    <button aria-controls="leds-global-navigation__navigation-menu"
+            aria-expanded="false"
+            aria-label="Show navigation menu"
+            class="leds-global-navigation__toggle-button"
+            id="leds-global-navigation__toggle-button"
+            type="button">
+      <span class="leds-global-navigation__toggle-button-inner">Menu</span>
+    </button>
+  </div>
+  <nav class="leds-global-navigation__navigation-menu" id="leds-global-navigation__navigation-menu">
+    <ul class="leds-global-navigation__navigation-list">
+        <li class="leds-global-navigation__navigation-list-item leds-global-navigation__navigation-list-item--username">
+            <div class="leds-global-navigation__username">
+              <div class="leds-global-navigation__username-text">{{ props.username }}</div>
+            </div>
+        </li>
+        <div class="leds-global-navigation__container">
+            {% for item in props.navigation %}
+                <li class="leds-global-navigation__navigation-list-item {% if item.active %}leds-global-navigation__navigation-list-item--active{% endif %}">
+                    {% if item.active %}
+                        <div class="active-button-desktop">
+                        <a aria-current="page" class="leds-global-navigation__button" id="leds-global-navigation__button--{{ item.id }}" href="{{ item.href }}">
+                            <span class="leds-global-navigation__button-wrapper">{{ item.text }}</span>
+                        </a>
+                        </div>
+                        <div class="active-button-mobile">
+                        <a class="leds-global-navigation__button leds-global-navigation__button--active"
+                            id="leds-global-navigation__button--{{ item.id }}" href="{{ item.href }}">
+                            <span class="leds-global-navigation__button-wrapper">{{ item.text }}</span>
+                        </a>
+                        {% if props.subnavigation | length %}
+                            <ul class="leds-global-navigation__navigation-sublist leds-global-navigation__navigation-sublist--mobile" id="leds-global-navigation__navigation-sublist--{{ item.id }}">
+                            {% for subitem in props.subnavigation %}
+                                <li class="leds-global-navigation__navigation-sublist-item">
+                                <a href="{{ subitem.href }}" class="leds-global-navigation__button">
+                                    <span class="leds-global-navigation__button-wrapper">{{ subitem.text }}</span>
+                                </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        </div>
+                    {% else %}
+                        <a class="leds-global-navigation__button" id="leds-global-navigation__button--{{ item.id }}" href="{{item.href}}">
+                            <span class="leds-global-navigation__button-wrapper">{{ item.text }}</span>
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </div>
+    </ul>
+  </nav>
+  {% if props.subnavigation | length %}
+    <nav class="leds-global-navigation__navigation-sublist--desktop" id="leds-global-navigation__sub-navigation-menu">
+        <ul class="leds-global-navigation__navigation-sublist">
+            <div class="leds-global-navigation__container">
+                {% for subitem in props.subnavigation %}
+                    <li class="leds-global-navigation__navigation-sublist-item">
+                        <a href="{{ subitem.href }}" class="leds-global-navigation__button">
+                            <span class="leds-global-navigation__button-wrapper">{{ subitem.text }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </div>
+        </ul>
+    </nav>
+  {% endif %}
+</div>
+
+{% endmacro %}

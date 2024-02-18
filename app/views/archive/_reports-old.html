@@ -1,0 +1,175 @@
+{# Comment to be remove #}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Police reports
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <ul class="govuk-list govuk-list--spaced">
+      <li>
+        <a class="govuk-link" href="/overview">Overview</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/hazards">Hazards (1)</a>
+      </li>
+      <li>
+        Police reports (4)
+      </li>
+      <li>
+        <a class="govuk-link" href="/markers">Markers (2)</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/insurance">Insurance</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/MOT">MOT and Tax</a>
+      </li>
+    </ul>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<!--      <h2 class="govuk-heading-m">Police reports</h2> -->
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+  {{ govukTable({
+    caption: "Police reports",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Report type"
+      },
+      {
+        text: "Valid from"
+      },
+      {
+        text: "Valid to"
+      },
+      {
+        text: "Source"
+      },
+      {
+        text: "Updated by"
+      },
+      {
+        text: "Updated on"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<a href="#" class="govuk-link">Lost/Stolen<br>(E34Y9340TY3293)</a>'
+        },
+        {
+          text: "1 Jan 2019"
+        },
+        {
+          text: "1 Jan 2020"
+        },
+        {
+          text: "National"
+        },
+        {
+          text: "FS10"
+        },
+        {
+          text: "14 Mar 2019"
+        }
+      ],
+        [
+          {
+            html: '<a href="/reports-action" class="govuk-link">Action - active<br>(E94F9390DE3893)</a>'
+          },
+          {
+            text: "1 Jan 2019"
+          },
+          {
+            text: "1 Jan 2020"
+          },
+          {
+            text: "National"
+          },
+          {
+            text: "FS10"
+          },
+          {
+            text: "14 Mar 2019"
+          }
+        ],
+          [
+            {
+              html: '<a href="#" class="govuk-link">Information<br>(B42G9179RW3911)</a>'
+            },
+            {
+              text: "1 Jan 2019"
+            },
+            {
+              text: "1 Jan 2020"
+            },
+            {
+              text: "National"
+            },
+            {
+              text: "FS10"
+            },
+            {
+              text: "14 Mar 2019"
+            }
+          ],
+            [
+              {
+                html: '<a href="#" class="govuk-link">Seen<br>(O31Q9415HI1321)</a>'
+              },
+              {
+                text: "1 Jan 2019"
+              },
+              {
+                text: "1 Jan 2020"
+              },
+              {
+                text: "National"
+              },
+              {
+                text: "FS10"
+              },
+              {
+                text: "14 Mar 2019"
+              }
+            ]
+    ]
+  }) }}
+
+        </div>
+      </div>
+
+{% endblock %}

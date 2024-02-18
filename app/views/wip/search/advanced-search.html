@@ -1,0 +1,1234 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+<h1>Advanced search for a vehicle</h1>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-label--s">
+      Who is this search for?
+    </legend>
+  <div class="govuk-radios" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="OBO" name="OBO" type="radio" value="email">
+      <label class="govuk-label govuk-radios__label" for="contact">
+        For myself
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="OBO-2" name="OBO" type="radio" value="phone" data-aria-controls="conditional-OBO-2">
+      <label class="govuk-label govuk-radios__label" for="OBO-2">
+        For someone else
+      </label>
+    </div>
+    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="contact-by-phone">
+          On behalf of
+        </label>
+        <div id="onbehalf-hint" class="govuk-hint">
+          For example, PC Smith (12345)
+        </div>
+        <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+        <div class="govuk-warning-text govuk-!-margin-top-3">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text govuk-!-width-two-thirds">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Remember, you're still personally responsible for the information you provide even if you're performing this search on behalf of someone else
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  </fieldset>
+</div>
+
+  {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+  {{ govukCharacterCount({
+    name: "justification",
+    id: "justification",
+    maxlength: 250,
+    threshold: 0,
+    rows: 2,
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, incident reference, location, power used"
+    },
+    label: {
+      classes: "govuk-label--s",
+      text: "Justification"
+    }
+  }) }}
+
+
+  {{ govukSelect({
+    id: "reason-code",
+    name: "reason-code",
+    label: {
+      classes: "govuk-label--s",
+      text: "Reason code"
+    },
+    items: [
+    {
+      value: "Select",
+      text: "Select a reason code",
+      selected: true
+    },
+    {
+      value: "0",
+      text: "0 - Transaction log and audit checks"
+    },
+    {
+        value: "1",
+        text: "1 - Vehicle and/or person stopped"
+    },
+      {
+        value: "2",
+        text: "2 - Moving vehicle"
+      },
+      {
+        value: "3",
+        text: "3 - Abandoned or parked and unattended vehicle"
+      },
+      {
+        value: "4",
+        text: "4 - Vehicles involved in a road traffic collision"
+      },
+      {
+        value: "5",
+        text: "5 - Subject of process or investigation"
+      },
+      {
+        value: "6",
+        text: "6 - Administration"
+      },
+      {
+        value: "7",
+        text: "7 - Enquiries relating to family protection issues"
+      },
+      {
+        value: "8",
+        text: "8 - On behalf of other authorised agency"
+      },
+      {
+        value: "9",
+        text: "9 - Update, Confirm, Broadcast"
+      }
+    ]
+  }) }}
+
+<div class="govuk-details govuk-inset-text govuk-!-margin-top-7">
+  <p class="govuk-label govuk-label--s govuk-!-margin-bottom-2">All fields below are optional</p>
+  <p class="govuk-body">For partial values, enter $ to represent any combination of letters and # for any combination of numbers</p>
+</div>
+
+<br>
+
+
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Identifiers
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <fieldset style="background-color: #F8F8F8;border: 0;">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="VRM">
+              VRM
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="VRM" name="VRM" type="text">
+          </div>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Entering multiple VRMs?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--s" for="more-detail">
+                  Enter multiple VRMs, one on each line
+                </label>
+                <textarea class="govuk-textarea govuk-input--width-10" id="more-detail" name="more-detail" rows="5"></textarea>
+              </div>
+            </div>
+          </details>
+        </fieldset>
+        <br>
+        <fieldset style="background-color: #F8F8F8;border: 0;">
+          <div class="govuk-form-group govuk-!-margin-top-4">
+            <label class="govuk-label govuk-label--s" for="VIN">
+              VIN
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="VIN" name="VIN" type="text">
+          </div>
+        </fieldset>
+        <br>
+        <fieldset style="background-color: #F8F8F8;border: 0;">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="engine-no">
+              Engine number
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="engine-no" name="engine-no" type="text">
+          </div>
+        </fieldset>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+            Description
+          </span>
+    </h2>
+  </div>
+  <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+    <fieldset id="makemodel-div" style="background-color: #F8F8F8;border: 0;">
+          <div class="govuk-grid-row">
+            <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+              <label class="govuk-label govuk-label--s" for="make">
+                Make
+              </label>
+              <select class="govuk-select" id="code" name="code">
+                {% block make %}
+                {% include "includes/make.html" %}
+                {% endblock %}
+              </select>
+            </div>
+            <div class="govuk-form-group" style="float:left; margin-left:20px">
+              <label class="govuk-label govuk-label--s" for="make">
+                Model
+              </label>
+              <select class="govuk-select" id="model" name="model">
+                {% block model %}
+                {% include "includes/models.html" %}
+                {% endblock %}
+              </select>
+            </div>
+          </fieldset>
+
+          <div id="add-another-button-wrapper" style="background-color: #F8F8F8;">
+            <button id="add-another-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+              Add another
+            </button>
+          </div>
+
+          <br>
+
+          <fieldset id="colour-div" style="background-color: #F8F8F8;border: 0;">
+            <div class="govuk-grid-row">
+              <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+                <label class="govuk-label govuk-label--s" for="make">
+                  Primary colour
+                </label>
+                <select class="govuk-select" id="make" name="make">
+                  <option value="" selected></option>
+                  <option value="Any">Any</option>
+                  <option value="Black">Black</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Bronze">Bronze</option>
+                  <option value="Brown">Brown</option>
+                  <option value="Cream">Cream</option>
+                  <option value="Gold">Gold</option>
+                  <option value="Green">Green</option>
+                  <option value="Grey">Grey</option>
+                  <option value="Maroon">Maroon</option>
+                  <option value="Multi coloured">Multi coloured</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Pink">Pink</option>
+                  <option value="Purple">Purple</option>
+                  <option value="Red">Red</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Turquoise">Turquoise</option>
+                  <option value="White">White</option>
+                  <option value="Yellow">Yellow</option>
+                </select>
+              </div>
+              <div class="govuk-form-group" style="margin-left:20px; float:left">
+                <label class="govuk-label govuk-label--s" for="make">
+                  Secondary colour
+                </label>
+                <select class="govuk-select" id="make" name="make">
+                  <option value="" selected></option>
+                  <option value="Any">Any</option>
+                  <option value="Black">Black</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Bronze">Bronze</option>
+                  <option value="Brown">Brown</option>
+                  <option value="Cream">Cream</option>
+                  <option value="Gold">Gold</option>
+                  <option value="Green">Green</option>
+                  <option value="Grey">Grey</option>
+                  <option value="Maroon">Maroon</option>
+                  <option value="Multi coloured">Multi coloured</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Pink">Pink</option>
+                  <option value="Purple">Purple</option>
+                  <option value="Red">Red</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Turquoise">Turquoise</option>
+                  <option value="White">White</option>
+                  <option value="Yellow">Yellow</option>
+                </select>
+              </div>
+              </div>
+            </fieldset>
+
+            <div id="add-another-colour-button-wrapper" style="background-color: #F8F8F8;">
+              <button id="add-another-colour-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+                Add another
+              </button>
+            </div>
+
+
+            <fieldset style="background-color: #F8F8F8;border: 0;">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Exclude colours?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="exclude" name="exclude" type="checkbox" value="exclude">
+                      <label class="govuk-label govuk-checkboxes__label" for="exclude">
+                        Yes, search by excluding the colours selected
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </fieldset>
+
+            <br>
+
+            <fieldset id="bodytype-div" style="background-color: #F8F8F8;border: 0;">
+              <div class="govuk-grid-row">
+                <div class="govuk-form-group govuk-!-margin-left-4" style="float:left">
+                  <label class="govuk-label govuk-label--s" for="make">
+                    Body type
+                  </label>
+                  <select class="govuk-select" id="body" name="body" style="width:270px; text-transform:uppercase">
+                    {% block bodytype %}
+                    {% include "includes/body-type.html" %}
+                    {% endblock %}
+                  </select>
+                </div>
+              </fieldset>
+
+
+              <div id="add-another-bodytype-button-wrapper" style="background-color: #F8F8F8;">
+                <button id="add-another-bodytype-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+                  Add another
+                </button>
+              </div>
+            </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          Registered address
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+        <fieldset style="background-color: #F8F8F8;border: 0;">
+                  <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="postcode">
+              Post code
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+          </div>
+          <div id="add-another-bodytype-button-wrapper" style="background-color: #F8F8F8;">
+            <button id="add-another-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+              Add another
+            </button>
+          </div>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Enter full address?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <div class="info-box" style="padding-bottom:20px">
+                <label class="govuk-label govuk-label--s" for="address">
+                  <strong>Enter address</strong>
+                </label>
+                <div class="autocomplete-wrapper" style="width:450px">
+                  <select name="address" id="address">
+                    <option selected="selected"></option>
+                    <option value="eg1">10 Kings Road, G44 5AL</option>
+                    <option value="eg2">Kings Road, G44 5AL</option>
+                    <option value="eg3">G44 5AL</option>
+                    <option value="eg4">G44 5BL</option>
+                    <option value="eg5">G44 5CL</option>
+                    <option value="eg6">G44 5DL</option>
+                    <option value="eg7">10 Smith Street, PA2 9KM</option>
+                    <option value="eg8">Smith Street, PA2 9KM</option>
+                    <option value="eg9">PA2 9KM</option>
+                    <option value="eg10">6 Main Street, E11 9CC</option>
+                    <option value="eg11">Main Street, E11 9CC</option>
+                    <option value="eg12">E11 9CC</option>
+                    <option value="eg13">Courthill Avenue, R12 4YU</option>
+                    <option value="eg14">Courthill Street, L77 2BN</option>
+                    <option value="eg15">Courthill Drive, D11 7JH</option>
+                    <option value="eg16">Courthill Crescent, A91 4BB</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </details>
+          <hr class="govuk-section-break govuk-section-break">
+        </fieldset>
+      </div>
+  </div>
+
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                    Police report type
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <label class="govuk-label govuk-label--s" for="owner">
+                    <strong>Report type</strong>
+                  </label>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Lost/Stolen
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Found
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Action
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Reaction
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Information
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Seen
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Removed
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Restricted
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Correction
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Destroyed
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                    Police report details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-5">
+                <fieldset id="reportowner-div" style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-grid-row govuk-!-margin-left-1">
+                    <div class="govuk-form-group" style="float:left">
+                      <label class="govuk-label govuk-label--s" for="owner">
+                        Report owner
+                      </label>
+                      <select class="govuk-select" id="country" name="country">
+                        {% block codesCreator %}
+                        {% include "includes/codes.html" %}
+                        {% endblock %}
+                      </select>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div id="add-another-reportowner-button-wrapper" style="background-color: #F8F8F8;">
+                  <button id="add-another-reportowner-button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+                    Add another
+                  </button>
+                </div>
+
+
+                <br>
+
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-form-group" style="float:left">
+                    <label class="govuk-label govuk-label--s" for="created">
+                      <strong>Report creation date</strong>
+                    </label>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              From
+                            </legend>
+                            <div class="govuk-date-input" id="from-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-value-day" name="from-date-value-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-value-month" name="from-date-value-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-value-year" name="from-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              To
+                            </legend>
+                            <div class="govuk-date-input" id="to-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-value-day" name="to-date-value-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-value-month" name="to-date-value-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-value-year" name="to-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <br>
+
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-form-group" style="float:left">
+                    <label class="govuk-label govuk-label--s" for="owner">
+                      <strong>Report incident date</strong>
+                    </label>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              From
+                            </legend>
+                            <div class="govuk-date-input" id="from-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-value-day" name="from-date-value-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-value-month" name="from-date-value-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-value-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-value-year" name="from-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              To
+                            </legend>
+                            <div class="govuk-date-input" id="to-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-value-day" name="to-date-value-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-value-month" name="to-date-value-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-value-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-value-year" name="to-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                  <h2 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-6">
+                      DVLA markers
+                    </span>
+                  </h2>
+                </div>
+                <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-6">
+                <fieldset style="background-color: #F8F8F8;border: 0;">
+                  <label class="govuk-label govuk-label--s" for="markers">
+                    <strong>Marker type</strong>
+                  </label>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Address outside UK mainland
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            As notified by police/local authority
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Blocked
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Cherished transfer
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Current address not known
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Diplomatic privilege
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Direct export
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-3" name="case" type="checkbox" value="ce" onclick="selectCE()">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-3">
+                            Disposal notified/keeper query
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            In confidence - police eyes only
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            In trade
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Permanently exported
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Personal export
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Record query
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Refer V5
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Retention VRM
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            Scrapped
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            SORN
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            V23 submitted
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            VEL expired
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="case-2" name="case" type="checkbox" value="as">
+                          <label class="govuk-label govuk-checkboxes__label" for="case-2">
+                            VEL void
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-quarter" id="field-1">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="ac-type" name="ac-type" type="checkbox" value="ac" onclick="selectAC()">
+                          <label class="govuk-label govuk-checkboxes__label" for="ac-type">
+                            Void record
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                    Other details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-7">
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-form-group" style="float:left">
+                    <label class="govuk-label govuk-label--s" for="registration">
+                      <strong>Year of registration</strong>
+                    </label>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              From
+                            </legend>
+                            <div class="govuk-date-input" id="from-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-value-year" name="from-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              To
+                            </legend>
+                            <div class="govuk-date-input" id="to-date-value">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-value-year" name="to-date-value-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <br>
+
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-form-group" style="float:left">
+                    <label class="govuk-label govuk-label--s" for="capacity">
+                      <strong>Engine capacity</strong>
+                    </label>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              From
+                            </legend>
+                            <input class="govuk-input govuk-input--width-4" style="float:left" id="capacity-from" name="capacity-from" type="text">
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-one-half">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group">
+                            <legend class="govuk-fieldset__legend govuk-label">
+                              To
+                            </legend>
+                            <input class="govuk-input govuk-input--width-4" style="float:left" id="capacity-to" name="capacity-to" type="text">
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <br>
+
+                <fieldset style="background-color: #F8F8F8; border: 0;">
+                  <div class="govuk-form-group" style="float:left">
+                    <label class="govuk-label govuk-label--s" for="capacity">
+                      <strong>Articulated vehicles</strong>
+                    </label>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="exclude" name="exclude" type="checkbox" value="exclude">
+                        <label class="govuk-label govuk-checkboxes__label" for="exclude">
+                          Yes, search for articulated vehicles only
+                        </label>
+                      </div>
+                    </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+
+          <br>
+
+          <div class="govuk-button-group">
+            <a href="./advanced-search-results" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Search</a>
+            <a class="govuk-link" href="#">Clear search</a>
+          </div>
+
+
+
+
+
+
+        {% block pageScripts %}
+        <script>
+
+          var newNameId = 2;
+          var addAnotherButton = document.getElementById('add-another-button');
+          var makemodel = document.getElementById("makemodel-div");
+
+          var stringToHTML = function (str) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(str, 'text/html');
+            return doc.body.firstChild;
+          };
+
+          let count=0;
+
+          addAnotherButton.onclick = function () {
+            count+=1;
+            var s = stringToHTML(`
+            <fieldset id="makemodel-div-${count}" style="background-color: #F8F8F8;border: 0;">
+              <div id="wholemm" class="govuk-grid-row">
+                <div class="govuk-form-group" style="float:left">
+                  <label class="govuk-label govuk-label--s" for="make">
+                    Make
+                  </label>
+                  <select class="govuk-select" id="act-code" name="actCode">
+                    {% block make2 %}
+                    {% include "includes/make.html" %}
+                    {% endblock %}
+                  </select>
+                </div>
+                <div class="govuk-form-group" style="float:left; margin-left:20px">
+                  <label class="govuk-label govuk-label--s" for="make">
+                    Model
+                  </label>
+                  <select class="govuk-select" id="rea-code" name="reaCode">
+                    {% block model2 %}
+                    {% include "includes/models.html" %}
+                    {% endblock %}
+                  </select>
+                </div>
+                <div class="govuk-!-margin-top-7" style="float:left; margin-left:20px">
+                  <a class="govuk-link" onclick=$('#makemodel-div-${count}').remove()>Remove</a>
+                </div>
+              </div>
+              </<fieldset>
+                `);
+
+                makemodel.appendChild(s);
+                document.getElementById("name-"+newNameId).focus();
+                newNameId++;
+              };
+
+                var newNameId = 2;
+                var addAnotherBodyTypeButton = document.getElementById('add-another-bodytype-button');
+                var bodytype = document.getElementById("bodytype-div");
+
+                var stringToHTML = function (str) {
+                  var parser = new DOMParser();
+                  var doc = parser.parseFromString(str, 'text/html');
+                  return doc.body.firstChild;
+                };
+
+                addAnotherBodyTypeButton.onclick = function () {
+                  var s = stringToHTML(`
+                  <fieldset id="bodytype-div-${count}" style="background-color: #F8F8F8;border: 0;">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-form-group" style="float:left">
+                        <label class="govuk-label govuk-label--s" for="make">
+                          Body type
+                        </label>
+                        <select class="govuk-select" id="make" name="make">
+                          <option value="" selected></option>
+                          <option value="ford" >Saloon</option>
+                          <option value="toyota">SUV or other type</option>
+                        </select>
+                      </div>
+                      <div class="govuk-!-margin-top-7" style="float:left; margin-left:20px">
+                        <a class="govuk-link" onclick=$('#bodytype-div-${count}').remove()>Remove</a>
+                      </div>
+                    </fieldset>
+                    `);
+
+                    bodytype.appendChild(s);
+                    document.getElementById("name-"+newNameId).focus();
+                    newNameId++;
+                  };
+
+
+                  var newNameId = 2;
+                  var addAnotherReportOwnerButton = document.getElementById('add-another-reportowner-button');
+                  var reportowner = document.getElementById("reportowner-div");
+
+                  var stringToHTML = function (str) {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(str, 'text/html');
+                    return doc.body.firstChild;
+                  };
+
+                  addAnotherReportOwnerButton.onclick = function () {
+                    var s = stringToHTML(`
+                    <fieldset id="reportowner-div-${count}" style="background-color: #F8F8F8; border: 0;">
+                      <div class="govuk-grid-row">
+                        <div class="govuk-form-group" style="float:left">
+                          <label class="govuk-label govuk-label--s" for="owner">
+                            Report owner
+                          </label>
+                          <select class="govuk-select" id="act-code" name="actCode">
+                            {% block codesOwner %}
+                            {% include "includes/codes.html" %}
+                            {% endblock %}
+                          </select>
+                        </div>
+                        <div class="govuk-!-margin-top-7" style="float:left; margin-left:20px">
+                          <a class="govuk-link" onclick=$('#reportowner-div-${count}').remove()>Remove</a>
+                        </div>
+                      </fieldset>
+                      `);
+
+                      reportowner.appendChild(s);
+                      document.getElementById("name-"+newNameId).focus();
+                      newNameId++;
+                    };
+
+                    const { accordionWithSummarySections } = document.forms;
+                    accordionWithSummarySections.reset();
+
+                  </script>
+
+                  <link rel="stylesheet" href="/public/css/accessible-autocomplete.min.css">
+                  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+                  <script type="text/javascript">
+                    var selectEl = document.querySelector('#address')
+                    accessibleAutocomplete.enhanceSelectElement({
+                      autoselect: true,
+                      confirmOnBlur: true,
+                      defaultValue: "",
+                      minLength: 2,
+                      selectElement: selectEl
+                    })
+                    var queryStringParameters = window.location.search
+                    var previouslySubmitted = queryStringParameters.length > 0
+                    if (previouslySubmitted) {
+                      var submittedEl = document.querySelector('.submitted')
+                      submittedEl.classList.remove('submitted--hidden')
+                      var params = new URLSearchParams(document.location.search.split('?')[1])
+                      document.querySelector('.submitted__last-location').innerHTML = params.get('address')
+                    }
+                  </script>
+
+                  <script>
+                    function clearForm() {
+                      var $f = $(".form");
+                      var $f = $f.find(':input').not(':button, :submit, :reset, :hidden');
+                      $f.val('').attr('value','').removeAttr('checked').removeAttr('selected');
+                    }
+                  </script>
+                  <script src="/public/javascripts/leds-global-navigation.js"></script>
+
+                  {% endblock %}
+
+
+                  {% endblock %}

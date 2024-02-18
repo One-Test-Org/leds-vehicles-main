@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Lost/Stolen report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/reports">Police reports</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Lost/Stolen report (E34Y9340TY3293)
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-top-3 govuk-!-text-align-right">
+    <a class="govuk-link govuk-link--no-visited-state" href="/search">New search</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item ">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers.html" class="menu_list_item_link">
+                DVLA markers (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="insurance.html" class="menu_list_item_link">
+                Insurance (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="tax.html" class="menu_list_item_link">
+                Tax
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Lost/Stolen report</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Reference number"
+            },
+            value: {
+              text: "E34Y9340TY3293"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (from)"
+            },
+            value: {
+              text: "15 March 2022"
+            }
+          },
+          {
+            key: {
+              text: "Incident date (to)"
+            },
+            value: {
+              text: "15 March 2022"
+            }
+          },
+          {
+            key: {
+              text: "Notes"
+            },
+            value: {
+              text: "Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing"
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              text: "Confirmed"
+            }
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Report source</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Owner"
+            },
+            value: {
+              text: "Dorset Police (FS10)"
+            }
+          },
+          {
+            key: {
+              text: "Created by"
+            },
+            value: {
+              html: 'PC Smith, PO123345<br>Essex Police'
+            }
+          },
+          {
+            key: {
+              text: "Created on"
+            },
+            value: {
+              text: "15 March 2022, 14:47"
+            }
+          },
+          {
+            key: {
+              text: "Last updated by"
+            },
+            value: {
+              text: "PC Singh (FC14)"
+            }
+          },
+          {
+            key: {
+              text: "Last updated on"
+            },
+            value: {
+              text: "19 March 2018"
+            }
+          },
+            {
+              key: {
+                text: "Weed date"
+              },
+              value: {
+                text: "12 January 2023"
+              }
+          }
+        ]
+      }) }}
+
+        </div>
+      </div>
+
+{% endblock %}

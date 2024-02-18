@@ -1,0 +1,310 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-grid-row">
+<div class="govuk-grid-column-full govuk-!-margin-top-2" style="text-align:right">
+  <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a>
+    <a href="#" role="button" draggable="false" class="govuk-button  govuk-button--warning" data-module="govuk-button">Delete record</a>
+  </div>
+  </div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/index#future">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview-stolen">Vehicle record</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  {#<div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right">
+  <!-- <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a> -->
+    <a href="./edit-record-2" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>#}
+</div>
+
+{% endblock %}
+{% block content %}
+
+{#<div class="govuk-grid-row">#}
+
+
+  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-one-half" style="border-bottom: 0">
+        <span class="govuk-visually-hidden">VRM </span>
+        <span style="position: relative; bottom: -0.3em;"><h1 class="govuk-heading-l govuk-!-margin-bottom-0" style="display: inline-block">SG 19705</h1></span>
+        <strong class="govuk-tag govuk-!-margin-left-2">Police record</strong>
+        <strong class="govuk-tag govuk-!-margin-left-2">Foreign</strong>
+      </dt>
+      <dd class="govuk-summary-list__value govuk-!-width-one-half govuk-!-padding-right-0 govuk-!-text-align-right" style="border-bottom: 0">
+        <a href="./edit-record-2" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+      </dd>
+    </div>
+  </dl>
+  
+  <div class="govuk-grid-row govuk-!-padding-left-5 govuk-!-padding-right-5 govuk-!-padding-bottom-5 govuk-!-padding-top-3" style="background-color: white; border-bottom: 4px solid #d4351c" >
+
+    {# Where is this DIV being rendered? #}
+    {#<div class="mobile-tags govuk-!-margin-bottom-3">
+      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Hazards
+      </strong>
+      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Lost/Stolen
+      </strong>
+    </div>#}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full-from-desktop">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row" style="border-bottom-style: hidden; padding-bottom: 0;">
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" colspan="2" style="padding: 0 15px 0 0">Make/model</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 15px; border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey; width: 12%">Colour</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 15px">Registered keeper</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 0 0 15px; width: 12%">Keeper since</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row" style="border-bottom-style: hidden;">
+              <td class="govuk-table__cell govuk-!-font-weight-bold" colspan="2" style="padding: 0 15px 20px 0">VOLKSWAGEN, GOLF GTD TDI S-A</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 15px 20px 15px; border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">Blue</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 15px 20px 15px">Bob Salmon</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 0 20px 15px">-</td>
+            </tr>
+          </tbody>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row" style="border-bottom-style: hidden; padding-bottom: 0;">
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 15px 0 0; width: 20%">VIN</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 15px">Body type</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 15px; border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">Fuel type</th>
+              <th scope="col" class="govuk-table__header govuk-!-font-weight-regular" style="padding: 0 0 0 15px" colspan="2">Registered keeper address</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row" style="border-bottom-style: hidden;">
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="padding: 0 15px 0 0">WP0ZZZ99ZTS392124</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 15px">5 DOOR HATCHBACK</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 15px; border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">Diesel</td>
+              <td class="govuk-table__cell govuk-!-font-weight-bold" style="text-transform: uppercase; padding: 0 0 0 15px" colspan="2">-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View more vehicle information
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Engine number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  -
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Engine capacity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  -
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of first registration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  -
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of first DVLA registration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  -
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Registration nationality
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Saint Vincent and the Grenadines
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Tax class
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  -
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+  <hr class="govuk-section-break govuk-section-break--m">
+
+  
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item">
+            <a href="./overview-modal-1" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="MOT.html" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="markers.html" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="previous-keeper.html" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+          <li class="menu_list_item menu_list_item-active">
+            <a href="previous-vehicle.html" class="menu_list_item_link">
+              Previous vehicle
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+        <div class="govuk-grid-column-three-quarters">
+          <h2 class="govuk-heading-l">Previous vehicle</h2>
+
+            <div class="govuk-body-l">No previous vehicle information held by DVLA for SG 19705</div>
+
+{#
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    VIN
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    1GMDX03E8VD266902
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Make/Model
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    FORD, ECOSPORT
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Colour
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    ORANGE
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Body type
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    5 DOOR SALOON
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Engine number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    52WVC10338
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Engine capacity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    2000cc
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of first registration
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    20/12/2010
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of first DVLA registration
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    20/12/2010
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Tax class
+                  </dt>
+                  <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+                    Electric
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            #}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <form class="form" action="./check-answers" method="post">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Create new police record</div>
+<h1 class="govuk-heading-l">Lost/Stolen report details</h1>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="los-code" name="losCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator (Optional)
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Leave Force/Station code empty if creator and owner are the same
+      </div>
+      <select class="govuk-select" id="los-creator" name="losCreator">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <div id="passport-issued-hint" class="govuk-hint">
+          A reference number is required for Confirming the report
+        </div>
+        <input class="govuk-input govuk-!-width-one-half" id="los-ref" name="losRef" type="text">
+      </div>
+
+    {% block insurancecontent %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <legend class="govuk-fieldset__legend govuk-label--s" for="label-as-page-heading">
+      Report text
+    </legend>
+
+    <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="label-as-page-heading">
+          Line 1
+        </label>
+        <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+      </div>
+      <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+    <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="label-as-page-heading">
+          Line 2
+        </label>
+        <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+      </div>
+      <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+    <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="label-as-page-heading">
+          Line 3
+        </label>
+        <input class="govuk-input govuk-js-character-count" id="los-notes" name="losNotes" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info">
+      </div>
+      <div id="los-notes-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+    <br>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+            Are there any associated hazards?
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-yes" name="hazards" type="radio" value="yes" data-aria-controls="conditional-hazards" style="background:white">
+            <label class="govuk-label govuk-radios__label" for="hazards-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-hazards">
+              <div class="govuk-form-group">
+                  <legend class="govuk-fieldset__legend">
+                    Select all hazards that apply
+                  </legend>
+                  <div class="govuk-checkboxes " data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Chemical
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Explosives
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Occupants potentially dangerous
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Radiation
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Weapons
+                      </label>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-no" name="hazards" type="radio" value="no" data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-radios__label" for="hazards-no">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group" id="confirm">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to Confirm this report?
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          This will also extend the expiry date from 6 weeks to 6 years
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm" name="confirm" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="confirm">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm-2" name="confirm" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="confirm-2">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+  </div>
+</form>
+
+<div class="govuk-grid-column-one-quarter">
+  {% block side %}
+  {% include "includes/record-overview-side.html" %}
+  {% endblock %}
+</div>
+</div>
+
+
+
+{% endblock %}

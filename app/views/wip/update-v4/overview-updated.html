@@ -1,0 +1,183 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-grid-row">
+<div class="govuk-grid-column-full govuk-!-margin-top-2" style="text-align:right">
+  <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a>
+    <a href="#" role="button" draggable="false" class="govuk-button  govuk-button--warning" data-module="govuk-button">Delete record</a>
+  </div>
+  </div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+      <a href="./search-2" class="govuk-back-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-3" style="text-align:right">
+  <!-- <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">Update record</a> -->
+    <a href="./edit-record" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/edit-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Edit icon">Edit record</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/copy-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Copy icon">Clipboard</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="./export-copy" class="govuk-link govuk-link--no-visited-state"><img src="/public/images/export-icon.png" style="vertical-align:middle; margin-right: 10px" alt="Export icon">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="hods-alert hods-alert--success govuk-!-margin-top-1">
+  <h2 class="hods-alert__heading">
+    'thing' updated on LEDS and PNC
+  </h2>
+</div>
+
+{% block carheader %}
+{% include "includes/carheader-red-update-2.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="./overview-stolen" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="./insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="MOT.html" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter info-box">
+    <div class="govuk-grid-row red-margin-top">
+      <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Hazards</h2>
+    </div>
+    <div class="govuk-grid-row red-margin-bottom">
+      <p class="govuk-!-margin-left-2"><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+        Weapons
+      </strong>
+    </p>
+    <p class="govuk-body govuk-!-margin-bottom-5">&nbsp</p>
+  </div>
+</div>
+<div class="govuk-grid-column-one-quarter info-box">
+  <div class="govuk-grid-row red-margin-top">
+    <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Police information</h2>
+  </div>
+  <div class="govuk-grid-row red-margin-bottom">
+    <p class="govuk-!-margin-left-2"><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+      Lost/Stolen
+    </strong>
+  </p>
+  <p class="govuk-!-margin-left-2">
+    <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+      Foreign
+    </strong>
+  </p>
+</div>
+</div>
+<div class="govuk-grid-column-one-quarter info-box">
+  <div class="govuk-grid-row grey-margin-top">
+    <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">DVLA markers</h2>
+  </div>
+  <div class="govuk-grid-row grey-margin-bottom">
+    <p class="govuk-!-margin-left-2 govuk-!-margin-right-6"><strong class="govuk-tag govuk-tag--grey">
+      None
+    </strong></p>
+    <p class="govuk-body govuk-!-margin-bottom-5">&nbsp</p>
+  </div>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-one-quarter">
+    <p>&nbsp</p>
+  </div>
+  <div class="govuk-grid-column-one-quarter red-status-box">
+    <a href="./no-insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+      <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">&#x2718 &nbsp No insurance held</p>
+    </a>
+  </div>
+  <div class="govuk-grid-column-one-quarter grey-status-box">
+      <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">MOT unavailable</p>
+  </div>
+  <div class="govuk-grid-column-one-quarter grey-status-box">
+      <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align: center; color: #ffffff">Tax unavailable</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p>&nbsp</p>
+  </div>
+  <div class="govuk-grid-column-three-quarters">
+
+    <hr class="govuk-section-break govuk-section-break--m"><a id="Reports"></a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Police reports</h2>
+  </div>
+  <div class="govuk-grid-column-one-third" style="text-align:right">
+    <a class="govuk-button" data-module="govuk-button" href="./select-report">Add new report</a>
+  </div>
+</div>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="white-space:pre">Report type</th>
+          <th scope="col" class="govuk-table__header">Report text</th>
+          <th scope="col" class="govuk-table__header">Owner</th>
+          <th scope="col" class="govuk-table__header">Created</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body" style="text-transform: uppercase">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="./stolen-report" class="govuk-link">Lost/Stolen</a><br><span style="font-weight:normal">({{ data['losRef'] }})</span></th>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+              Weapons
+            </strong>
+            <br>
+            {{ data['losNotes'] }}
+          </td>
+          <td class="govuk-table__cell">{{ data['losCode'].slice(0,4) }}</td>
+          <td class="govuk-table__cell">{{ data['losTime'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

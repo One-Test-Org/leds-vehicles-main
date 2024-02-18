@@ -1,0 +1,175 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Error: Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {% if data['block-vehicle-record-error'] == 'yes' %}
+              <li>
+                <a href="#block">Select if you need to block this record</a>
+              </li>
+            {% endif %}
+            {% if data['force-station-code-error'] == 'yes' %}
+              <li>
+                <a href="#block-code">Enter the Force/Station responsible</a>
+              </li>
+            {% endif %}
+             {% if data['blocked-reference-error'] == 'yes' %}
+              <li>
+                <a href="#block-ref">Enter a blocked reference number</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  {% if data['block-vehicle-record-error'] == 'yes' %}
+    <div class="govuk-form-group govuk-form-group--error">
+  {% else %}
+    <div class="govuk-form-group">
+  {% endif %}
+
+      <div class="govuk-caption-l">
+        Edit record
+      </div>
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Do you need to Block this vehicle record?
+        </h1>
+      </legend>
+
+    {% if data['block-vehicle-record-error'] == 'yes' %}
+      <p id="do-you-need-to-block-this-record-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Select if you need to block this record
+      </p>
+    {% endif %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+
+            {% if data['force-station-code-error'] == 'yes' or data['blocked-reference-error'] == 'yes' %}
+              <input class="govuk-radios__input" id="block" name="block" type="radio" value="yes" data-aria-controls="conditional-block-Yes" checked>
+            {% else %}
+              <input class="govuk-radios__input" id="block" name="block" type="radio" value="yes" data-aria-controls="conditional-block-Yes">
+            {% endif %}
+
+              <label class="govuk-label govuk-radios__label" for="block">
+                Yes
+              </label>
+            </div>
+      
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-block-Yes">
+
+            {% if data['force-station-code-error'] == 'yes' or data['blocked-reference-error'] == 'yes' %}
+              <div class="govuk-form-group govuk-form-group--error"> {# govuk-!-width-two-thirds #}
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
+
+                <label class="govuk-label govuk-label--s" for="code">
+                  Force/Station code responsible
+                </label>
+
+              {% if data['force-station-code-error'] == 'yes' %}
+                <p id="select-force-station-responsible-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Enter the Force/Station responsible
+                </p>
+              {% endif %}
+
+                <select class="govuk-select" id="block-code" name="blockCode">
+                {% block codesBlock %}
+                  {% include "includes/codes.html" %}
+                  {% endblock %}
+                </select>
+
+                <label class="govuk-label govuk-label--s govuk-!-padding-top-6" for="reference">
+                  Blocked reference
+                </label>
+
+                <div id="changed-name-hint" class="govuk-hint">
+                  Enter Force/Station code or unit name
+                </div>
+
+              {% if data['blocked-reference-error'] == 'yes' %}
+                <p id="select-force-station-responsible-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Enter a blocked reference number
+                </p>
+              {% endif %}
+
+              {% if data['blocked-reference-error'] == 'yes' %}
+                <input class="govuk-input govuk-!-width-one-half govuk-input--error" id="block-ref" name="blockRef">
+              {% else %}
+                <input class="govuk-input govuk-!-width-one-half" id="block-ref" name="blockRef">
+              {% endif %}
+
+              </div>
+
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input " id="block-2" name="block" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="block-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset> 
+      </div>
+
+
+  {% if data['block-vehicle-record-error'] == 'yes' %}
+    </div>
+  {% else %}
+    </div>
+  {% endif %}
+
+<!-- -->
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <form class="form" action="./overview-updated-blocked" method="post">
+      <input class="govuk-input" id="block-time" name="blockTime" style="display:none">
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" style="float:left">Block record</button>
+        <div>
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+        </div>
+      </div>
+    </form>
+
+
+</div>
+
+<div class="govuk-grid-column-one-quarter">
+  {% block side %}
+  {% include "includes/record-overview-side.html" %}
+  {% endblock %}
+</div>
+
+<script>
+  const dt = new Date();
+  document.getElementById("block-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+</script>
+
+{% endblock %}

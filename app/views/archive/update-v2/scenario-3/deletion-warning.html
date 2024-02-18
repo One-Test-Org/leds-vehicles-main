@@ -1,0 +1,57 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+        <h1 class="govuk-heading-l">Police record deletion</h1>
+        <p class="govuk-body-l">
+          Police records must have at least one report.
+        </p>
+        <div class="govuk-warning-text govuk-!-margin-top-3" id="warning" >
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text govuk-!-width-three-quarters">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            The Police record for SG19705 will be deleted, as you're deleting the only remaining report on it.
+          </strong>
+        </div>
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            <a class="govuk-button" data-module="govuk-button" href="./search-deleted">Delete police record</a>
+          <a class="govuk-link" href="./overview-blocked">Cancel</a>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <section class="app-summary-card">
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Record overview</h2>
+          </header>
+          <div class="app-summary-card__body">
+              <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+              <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">SG 19705</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+              <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+              <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+
+
+{% endblock %}

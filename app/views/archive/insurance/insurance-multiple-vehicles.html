@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Insurance – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/overview">Vehicle record</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Insurance
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Multiple vehicle records
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      3 vehicle records found for CF60 ABC.
+    </p>
+    <a href="/search-results" class="govuk-link">Back to search results</a>
+  </div>
+</div>
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item">
+              <a href="overview.html" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item menu_list_item-active">
+              <a href="insurance.html" class="menu_list_item_link">
+                Insurance (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="MOT.html" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="markers.html" class="menu_list_item_link">
+                DVLA markers (2)
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="tax.html" class="menu_list_item_link">
+                Tax
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="previous-keeper.html" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h2 class="govuk-heading-l">Insurance details</h2>
+
+      <!-- REINTRODUCE WHEN Past insurance FUNCTIONALITY IS AVAILABLE
+
+      <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Check details for a different date
+    </span>
+  </summary>
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend">
+      Enter a date in the past 7 years to see the insurance details held on that day.
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 24 11 2019
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+{{ govukButton({
+  text: "Apply",
+  href: "/insurance-past-multiple-vehicles"
+}) }}
+</details>
+-->
+
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+{% set insurance1%}
+  {% include "includes/insurance1.html"%}
+{% endset %}
+
+{% set insurance2%}
+  {% include "includes/insurance2.html"%}
+{% endset %}
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This policy may not apply to this vehicle. It may apply to another vehicle with the same VRM. <br>
+  </strong>
+</div>
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    There are 2 active insurance policies for vehicles with this VRM but only the latest is displayed below.
+  </strong>
+</div>
+
+<!-- REMOVE WHEN WE REINTRODUCE ACCORDIONS-->
+<h3 class="govuk-heading-m">Insurance policy: 1213-56345-3242</h3>
+<!-- REINTRODUCE WHEN WE GET THE DATA
+ <strong class="govuk-tag govuk-tag">Private</strong>
+-->
+ {% block insurancecontent %}
+ {% include "includes/insurance1.html" %}
+ {% endblock %}
+
+<!--REINTRODUCE ACCORDIONS WHEN WE CAN DISPLAY MULTIPLE POLICIES
+  REMOVE WARNING MESSAGE ON TOP OF PAGE AS ACCORDIONS INCLUDE THE WARNING
+
+{{ govukAccordion({
+  id: "accordion-with-summary-sections",
+  items: [
+  {
+                  heading: {
+                    text: "Insurance policy: 1213-56345-3242"
+                  },
+                  summary: {
+                    html: '
+                    <strong class="govuk-tag govuk-tag">Private</strong>
+                    <div class="govuk-warning-text govuk-!-margin-bottom-0">
+                      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                      <strong class="govuk-warning-text__text govuk-!-margin-bottom-0">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        This policy may not only apply to this vehicle. It may apply to another vehicle with the same VRM.
+                      </strong>
+                    </div>
+                    '
+                  },
+                  content: {
+                    html: insurance1
+                  }
+                },
+                {
+          heading: {
+            text: "Insurance policy: 9876-56345-1234"
+          },
+          summary: {
+            html: '
+            <strong class="govuk-tag govuk-tag">Commercial</strong>
+            <div class="govuk-warning-text govuk-!-margin-bottom-0">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text govuk-!-margin-bottom-0">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                This policy may not only apply to this vehicle. It may apply to another vehicle with the same VRM.
+              </strong>
+            </div>
+            '          },
+          content: {
+            html: insurance2
+          }
+        }
+        ]
+      }) }}
+
+  -->
+
+        </div>
+      </div>
+
+{% endblock %}

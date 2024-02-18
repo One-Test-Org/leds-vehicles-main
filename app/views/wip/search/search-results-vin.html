@@ -1,0 +1,176 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="search_header">
+    <p class="search_details">
+      VIN: WP0ZZZ99ZTS392124
+    </p>
+      </div>
+    </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">1 result</p>
+  </div>
+</div>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a class="govuk-link" href="/overview-multi-1">CF60ABC</a>'
+          },
+          {
+            text: "WP0ZZZ99ZTS392124",
+            format: "text"
+          },
+          {
+            text: "Porche, 911",
+            format: "text"
+          },
+          {
+            text: "Coupe",
+            format: "text"
+          },
+          {
+            text: "Yellow",
+            format: "text"
+          }
+        ]
+      ]
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+    <details id="extendDetails" class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Can't find the vehicle you're looking for?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      You can try extending your search, which will return results that partially match your search criteria <br><br>
+      <button id="extend" type="button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button">Extend search</button>
+    </div>
+    </details>
+
+    <hr id="endResults" class="govuk-section-break govuk-section-break--l">
+
+
+   <h2 id="partialTitle" class="govuk-heading-l" style="display:none">Partial matches</h2>
+
+    <table id="partialTable" class="govuk-table" style="display:none">
+      <div id="partialHint" class="govuk-hint" style="display:none">
+        These results include similar values to your search criteria
+      </div>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">VRM</th>
+        <th scope="col" class="govuk-table__header">VIN</th>
+        <th scope="col" class="govuk-table__header">Make & Model</th>
+        <th scope="col" class="govuk-table__header">Body type</th>
+        <th scope="col" class="govuk-table__header">Colours</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a class="govuk-link" href="#"><strong>LI92ZIN</strong></a></th>
+        <td class="govuk-table__cell">Unknown</td>
+        <td class="govuk-table__cell">Citroen, Picasso</td>
+        <td class="govuk-table__cell">Saloon</td>
+        <td class="govuk-table__cell">Red & Black</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a class="govuk-link" href="#"><strong>LL01PIP</strong></a></th>
+        <td class="govuk-table__cell">5KOLD9G92OP264581</td>
+        <td class="govuk-table__cell">Honda, Civic</td>
+        <td class="govuk-table__cell">Saloon</td>
+        <td class="govuk-table__cell">Maroon</td>
+      </tr>
+      </table>
+
+
+
+
+  <!--
+      <div class="govuk-body" style="float:left">1</div>
+      <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">2</a></div>
+      <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">3</a></div>
+      <div class="govuk-body" style="float:left"><a href="#" class="govuk-link govuk-!-margin-left-4">Next</a></div>
+  -->
+
+  {% block pageScripts %}
+  <script>
+
+    var extendSearch = document.getElementById('extend');
+    var endResults = document.getElementById("endResults");
+    var extendDetails = document.getElementById("extendDetails");
+    var partialTitle = document.getElementById("partialTitle");
+    var partialTable = document.getElementById("partialTable");
+    var partialHint = document.getElementById("partialHint");
+
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    extendSearch.onclick = function () {
+      extendDetails.style.display = "none";
+      partialTitle.style.display = "block";
+      partialTable.style.display = "table";
+      partialHint.style.display = "block";
+    };
+
+    </script>
+  {% endblock %}
+
+{% endblock %}

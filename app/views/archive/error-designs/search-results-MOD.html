@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+
+  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="width:63%">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      This is an MOD vehicle
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          Please contact MOD directly.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="search_header">
+    <p class="search_details">
+      VRM: MM90 JOL &nbsp <a href="/search" class="govuk-link">Edit search</a>
+    </p>
+      </div>
+    </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <p class="govuk-body">2 results</p>
+  </div>
+</div>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VRM"
+        },
+        {
+          text: "VIN"
+        },
+        {
+          text: "Hazards, Reports and Markers"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a class="govuk-link" href="/overview-multi-1">MM90JOL</a>'
+          },
+          {
+            text: "Unknown",
+            format: "text"
+          },
+          {
+            html:
+            '
+            <div class="govuk-!-margin-bottom-1"><strong class="govuk-tag">Police record</strong></div>
+            <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+            <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+            <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+            '
+          },
+          {
+            text: "BMW, X5",
+            format: "text"
+          },
+          {
+            text: "SUV",
+            format: "text"
+          },
+          {
+            text: "Blue",
+            format: "text"
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link" href="/overview-multi-2">MM90JOL</a>'
+          },
+          {
+            text: "Unknown",
+            format: "text"
+          },
+          {
+            html:
+            '
+            <div class="govuk-!-margin-bottom-1"><strong class="govuk-tag">Police record</strong></div>
+            <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+            <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+            '
+          },
+          {
+            text: "BMW, X5",
+            format: "text"
+          },
+          {
+            text: "SUV",
+            format: "text"
+          },
+          {
+            text: "Blue",
+            format: "text"
+          }
+        ]
+      ]
+    }) }}
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout-menu-leds-footer-updates.html" %}
+
+{% set containerClasses = "govuk-width-container-1200px" %}
+{% set serviceName = 'LEDS Law Enforcement Data Service' %}
+
+{% block pageTitle %}
+	Latest service news, release notes, planned functionality, and known issues - {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+	{#<a href="./search-news" class="govuk-back-link govuk-link--no-visited-state">Back</a>#}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+		<div class="govuk-grid-column-three-quarters">
+
+		<h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+			Vehicles news and feedback
+		</h1>
+
+		<h2 class="govuk-heading-m">
+			News and FAQ
+		</h2>
+
+		<p class="govuk-body-l">
+			LEDS is using <a href="#" class="govuk-link govuk-link--no-visited-state">Knowledge Hub</a> to keep users up to date.
+			You might find the following <strong>Vehicles support links</strong> useful:
+		</p>
+		<ul class="govuk-list govuk-list--bullet govuk-body-l">
+			<li><a href="#" class="govuk-link govuk-link--no-visited-state">Release notes</a> (including screenshots of recently released functionality)</li>
+			<li><a href="#" class="govuk-link govuk-link--no-visited-state">Upcoming planned functionality</a> (for the next few months)</li>
+			<li><a href="#" class="govuk-link govuk-link--no-visited-state">Known issues</a> (especialy those that might take a bit longer to resolve) </li>
+			<li><a href="#"class="govuk-link govuk-link--no-visited-state">FAQ</a></li>
+		</ul>
+
+		<h2 class="govuk-heading-m">
+			Contact us
+		</h2>
+
+		<p class="govuk-body-l">If you have feedback or queries about Vehicles, please contact us on <a href="#">ledsvehiclesfeedback@homeoffice.gov.uk</a> or fill in this <a href="#">feedback survey</a>.</p>
+
+		<h2 class="govuk-heading-m">
+			Raising faults
+		</h2>
+
+		<p class="govuk-body-l">If you've got an error message on the service, please contact your IT service desk to raise a fault.</p>
+
+	</div>
+</div>
+
+{% endblock %}

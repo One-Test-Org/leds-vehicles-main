@@ -1,0 +1,107 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Create new police record</div>
+<h1 class="govuk-heading-l">Select report to add</h1>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-1" name="report-type" type="radio" value="action">
+              <label class="govuk-label govuk-radios__label" for="report-type-1">
+                Action
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-4" name="report-type" type="radio" value="found">
+              <label class="govuk-label govuk-radios__label" for="report-type-4">
+                Found
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-5" name="report-type" type="radio" value="information">
+              <label class="govuk-label govuk-radios__label" for="report-type-5">
+                Information
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-6" name="report-type" type="radio" value="lost">
+              <label class="govuk-label govuk-radios__label" for="report-type-6">
+                Lost/Stolen
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-8" name="report-type" type="radio" value="removed">
+              <label class="govuk-label govuk-radios__label" for="report-type-8">
+                Removed
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-9" name="report-type" type="radio" value="restricted">
+              <label class="govuk-label govuk-radios__label" for="report-type-9">
+                Restricted
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="report-type-10" name="report-type" type="radio" value="seen">
+              <label class="govuk-label govuk-radios__label" for="report-type-10">
+                Seen
+              </label>
+            </div>
+          </div>
+        </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group">
+      <a href="./add-stolen" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Continue</a>
+      <a class="govuk-link" href="#">Cancel</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <section class="app-summary-card">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Record overview</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+          <p class="govuk-heading-l">SG 19705</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BOB SALMON</p>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-top-5">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Your justification</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+{% endblock %}

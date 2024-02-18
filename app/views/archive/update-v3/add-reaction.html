@@ -1,0 +1,219 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Add new report</div>
+<h1 class="govuk-heading-l">Reaction report details</h1>
+
+<form class="form" action="./check-answers-reaction" method="post">
+
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Enter Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="rea-code" name="reaCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Report creator (Optional)
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Leave Force/Station code empty if creator and owner are the same
+      </div>
+      <select class="govuk-select" id="code" name="code">
+        {% block codesCreator %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="rea-ref" name="reaRef" type="text">
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-0">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Incident date (Optional)
+        </legend>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group">
+              <legend class="govuk-fieldset__legend">
+                From
+              </legend>
+              <div class="govuk-date-input" id="passport-issued">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="rea-incident-from" name="reaIncidentFrom" type="date">
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group">
+              <legend class="govuk-fieldset__legend">
+                To
+              </legend>
+              <div class="govuk-date-input" id="passport-issued">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="rea-incident-to" name="reaIncidentTo" type="date">
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+    <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+      Report text
+    </label>
+    <div class="govuk-character-count govuk-!-margin-bottom-6" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <textarea class="govuk-textarea govuk-js-character-count" id="rea-notes-1" name="reaNotes1" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+      <div id="rea-notes-1-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+    <div class="govuk-character-count govuk-!-margin-bottom-6" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <textarea class="govuk-textarea govuk-js-character-count" id="rea-notes-2" name="reaNotes2" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+      <div id="rea-notes-2-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="66">
+      <div class="govuk-form-group">
+        <textarea class="govuk-textarea govuk-js-character-count" id="rea-notes-3" name="reaNotes3" rows="1" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+      <div id="rea-notes-3-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 66 characters
+      </div>
+    </div>
+
+    <br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="hazards-hint">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Select the Action report(s) to join to this Reaction report
+        </legend>
+          <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend">
+                Select all reports that apply
+              </legend>
+              <div class="govuk-checkboxes " data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item govuk-!-margin-bottom-4">
+                  <input class="govuk-checkboxes__input" type="checkbox" onclick="handleChange()">
+                  <label class="govuk-label govuk-checkboxes__label">
+                    <strong><a href="./action-report" target="_blank" class="govuk-link govuk-link--no-visited-state">Action</a></strong> ({{ data['actRef'] }}), by {{ data['actCode'].slice(0,4) }}
+                  </label>
+                  <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint" style="text-transform: uppercase">
+                      {{ data['autoTextHidden'] }} {{ data['actNotes1'] }} {{ data['actNotes2'].slice(0,40) }}...
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" type="checkbox" data-aria-controls="conditional-pair-2" onclick="handleChange()">
+                  <label class="govuk-label govuk-checkboxes__label">
+                    <strong><a href="./action-report-2" target="_blank" class="govuk-link govuk-link--no-visited-state">Action</a></strong> (A15P3782OP0925), by 02L1
+                  </label>
+                  <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint" style="text-transform: uppercase">
+                    LOW ASSESS DRUGS Two white males, wearing hoodies seen dealing drugs by local residents. If you see vehicle, stop and check for PWITS
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </fieldset>
+
+        </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button" style="float:left">Continue</button>
+        <a class="govuk-link" href="#">Cancel</a>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <section class="app-summary-card">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Record overview</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+          <a href="./overview-2" target="_blank" class="govuk-heading-l govuk-link govuk-link--no-visited-state govuk-link--no-underline">SG 19705</a>
+
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+<!--
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Hazards</p>
+          <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Weapons
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Occupants potentially dangerous
+          </strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Reports</p>
+          <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Lost/Stolen
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Action (2)
+          </strong>
+          </p>
+-->
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+
+function handleChange() {
+  document.getElementById('warning').style.display = "block";
+}
+
+//  var trigger = document.getElementById('pair-yes');
+
+
+//  trigger.onchange = function () {
+//    showWarning.style.display = "block";
+//  };
+
+  </script>
+{% endblock %}

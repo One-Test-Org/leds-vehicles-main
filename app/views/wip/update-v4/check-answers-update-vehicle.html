@@ -1,0 +1,171 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-width-container govuk-!-margin-top-6">
+  <div class="govuk-caption-l">Edit police record</div>
+  <h1 class="govuk-heading-l ">Check before updating vehicle details</h1>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Vehicle details</h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> Vehicle details</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    VRM
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    SG19705
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Make
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    BMW(CARS)
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Model
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    X5 SPORT
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Colour
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    RED
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Body type
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    VIN
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Engine number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Engine capacity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Registration date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Transponder tag number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    -
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+              </dl>
+            </div>
+        </div>
+
+        <form action="./overview-updated" method="post" novalidate>
+          <input class="govuk-input" id="los-time" name="losTime" style="display:none">
+          <input type="hidden" name="answers-checked" value="true">
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button" style="float:left">Update vehicle details</button>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+        </div>
+
+        </form>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <section class="app-summary-card">
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Your search justification</h2>
+          </header>
+          <div class="app-summary-card__body">
+              <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const dt = new Date();
+document.getElementById("los-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+
+{% endblock %}

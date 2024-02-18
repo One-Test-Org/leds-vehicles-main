@@ -1,0 +1,174 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search-results">Search results</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-margin-top-7 govuk-!-margin-bottom-6">3 search results</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-body">
+      <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">CF60 ABC</strong>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="text-align:right">
+    <a href="./search" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  firstCellIsHeader: true,
+  classes: "app-table__rows--uppercase",
+  head: [
+    {
+      text: "VRM"
+    },
+    {
+      text: "Colour",
+      format: "link"
+    },
+    {
+      text: "Make/Model",
+      format: "text"
+    },
+    {
+      html: '<div style="white-space: pre">Body type</div>',
+      format: "date"
+    },
+    {
+      text: "Hazards, Reports and Markers"
+    },
+    {
+      text: "VIN"
+    },
+    {
+      html: '<div style="white-space: pre">Created by</div>'
+    }
+  ],
+  rows: [
+  [
+    {
+      html: '
+      <a class="govuk-link govuk-link--no-visited-state" href="./overview-critical" style="white-space:pre">CF60 ABC</a>'
+    },
+    {
+      html: 'Blue',
+      format: "text"
+    },
+    {
+      html: 'BMW, X5',
+      format: "text"
+    },
+    {
+      html: 'SUV',
+      format: "text"
+    },
+    {
+      html:
+      '
+      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+      <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      '
+    },
+    {
+      html: '-',
+      format: "text"
+    },
+    {
+      html: '<strong class="govuk-tag">Police</strong>'
+    }
+  ],
+  [
+    {
+      html: '
+      <a class="govuk-link govuk-link--no-visited-state" href="./overview-critical" style="white-space:pre">CF60 ABC</a>'
+    },
+    {
+      html: 'Blue',
+      format: "text"
+    },
+    {
+      html: 'BMW, X5',
+      format: "text"
+    },
+    {
+      html: 'SUV',
+      format: "text"
+    },
+    {
+      html:
+      '
+      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+      <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      '
+    },
+    {
+      html: '-',
+      format: "text"
+    },
+    {
+      html: '<strong class="govuk-tag">Police</strong>'
+    }
+  ],
+  [
+    {
+      html: '
+      <a class="govuk-link govuk-link--no-visited-state" href="./overview-critical" style="white-space:pre">CF60 ABC</a>'
+    },
+    {
+      html: 'Blue & White',
+      format: "text"
+    },
+    {
+      html: 'BMW, X5',
+      format: "text"
+    },
+    {
+      html: 'SUV',
+      format: "text"
+    },
+    {
+      html:
+      '
+      <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Scrapped</strong>
+      '
+    },
+    {
+      html: '9KOPQ3SE3LWE70893',
+      format: "text"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">DVLA</strong>'
+    }
+  ]
+  ]
+}) }}
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+      <a href="./search-2" class="govuk-back-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="hods-alert hods-alert--error govuk-!-margin-top-1">
+  <h2 class="hods-alert__heading">
+    Cannot create record
+  </h2>
+  <p class="govuk-!-margin-bottom-2">User <i>'smith, james swp1234'</i> started creating a record for SG 19705 on 13/11/2023 at 11:34.</p>
+  <p class="govuk-!-margin-bottom-2">Try again later.</p>
+</div>
+
+<h1 class="govuk-heading-xl govuk-!-margin-top-7 govuk-!-margin-bottom-6">No results</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-body">
+      <strong>VRM: </strong><strong class="govuk-tag govuk-tag--white">SG 19705</strong>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-body">
+  There are no results for your search.
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-3 govuk-!-margin-bottom-9">
+    <li>Check the spelling of your keyword is correct.</li>
+    <li>If your spelling is correct, there may not be a DVLA or PNC vehicle record with this VRM.</li>
+  </ul>
+</div>
+
+<div class="govuk-button-group">
+  <a class="govuk-button" data-module="govuk-button" href="./create-record" >Create new police record</a>
+  <span class="govuk-!-margin-left-1 govuk-!-margin-right-3">or</span> <a class="govuk-link" href="#">Edit search</a>
+</div>
+
+
+{% endblock %}

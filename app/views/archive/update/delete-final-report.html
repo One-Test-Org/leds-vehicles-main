@@ -1,0 +1,148 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">Delete Action report and Police record &nbsp;<a href="./delete-report" class="govuk-link govuk-link--no-underline">&nbsp;&nbsp&nbsp;&nbsp</a></h1></h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+    <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Report type
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Action (A15P3782OP0925)
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Owner
+      </dt>
+      <dd class="govuk-summary-list__value">
+        01LX
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Created on
+      </dt>
+      <dd class="govuk-summary-list__value">
+        17/05/2023, 09:17
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+  </dl>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Who is this deletion for?
+      </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO" name="OBO" type="radio" value="email">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          For myself
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO-2" name="OBO" type="radio" value="phone" data-aria-controls="conditional-OBO-2">
+        <label class="govuk-label govuk-radios__label" for="OBO-2">
+          For someone else
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+            Name of force or person
+          </label>
+          <div id="onbehalf-hint" class="govuk-hint">
+            For example, PC Smith (12345)
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+          <div class="govuk-warning-text govuk-!-margin-top-3">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Remember, you're still personally responsible for the information you provide even if you're performing this deletion on behalf of someone else
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    </fieldset>
+  </div>
+
+    {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+    {{ govukTextarea({
+      name: "justification",
+      id: "justification",
+      rows: 2,
+      classes: "govuk-!-width-full-width",
+      hint: {
+      text: "For example, your reason for deleting this report"
+      },
+      label: {
+        classes: "govuk-label--s",
+        text: "Justification"
+      }
+    }) }}
+
+
+  <div class="govuk-warning-text govuk-grid-column-full govuk-!-padding-bottom-5 govuk-!-padding-top-3">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+        This action will permanently delete this report from LEDS and PNC.
+    </strong>
+  </div>
+
+  <div class="govuk-warning-text govuk-grid-column-full govuk-!-padding-bottom-8 govuk-!-padding-top-3">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+        The vehicle Police record will also be deleted, as you're deleting the only remaining report on it.
+    </strong>
+  </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+    <a href="./delete-final-success" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Delete Police record</a>
+    <a href="./update-action" role="button" draggable="false"  style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button" style="float:left">Cancel</a>
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #d4351c; border-left: 2px solid #d4351c; border-right: 2px solid #d4351c; border-bottom: 2px solid #d4351c">
+      <div class="govuk-grid-column-full govuk-!-padding-left-6">
+        <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+        <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold"><a href="#" class="govuk-link govuk-link--no-visited-state">SG 19705</a></p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

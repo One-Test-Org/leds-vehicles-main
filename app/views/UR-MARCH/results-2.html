@@ -1,0 +1,531 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search-radio">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./results-2">Search results</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <a href="./search-radio" class="govuk-back-link">Back to search page</a>
+  </div>
+</div> -->
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 govuk-!-padding-top-2">17 search results</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        View search criteria entered
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div class="govuk-summary-list__row govuk-!-width-full" style="padding-left: 5px;">
+          <dt class="govuk-summary-list__key" style="float: left; width: 50px">VRM:</dt>
+          <dd class="govuk-summary-list__value govuk-!-width-three-quarters" style="float: left">
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">FX12LPA</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">AB92ORG</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">BIILLY</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">SW15AGB</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">L22REN</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">AB19XRV</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">SL67SWA</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">TL20AAZ</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">ROB3RT</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">BR18JSG</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">MD19LPR</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">GB22SBW</strong>
+            <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">AP14PKN</strong>
+          </dd>
+        </div>
+        </div>
+    </details>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">Edit search</a>
+  </div>
+</div>
+
+<div class="hods-alert">
+  <h2 class="hods-alert__heading govuk-!-margin-top-2">Results include</h2>
+  <p class="govuk-!-margin-bottom-2">
+    <strong>No trace for: </strong>
+    <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">SW15AGB</strong>
+    <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">BR18JSG</strong>
+  </p>
+  <p class="govuk-!-margin-bottom-2">
+    <strong>Police records for: </strong>
+    <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">BIILLY</strong>
+  </p>
+  <p class="govuk-!-margin-bottom-2">
+    <strong>Potentially duplicate records for: </strong>
+    <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">LL02KYR</strong>
+  </p>
+  <p class="govuk-!-margin-bottom-2">
+    <strong>MOD vehicles for: </strong>
+    <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white">AB92ORG</strong>
+  </p>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">VRM</th>
+      <th scope="col" class="govuk-table__header">Colour</th>
+      <th scope="col" class="govuk-table__header">Make/Model</th>
+      <th scope="col" class="govuk-table__header">Body type</th>
+      <th scope="col" class="govuk-table__header" style="white-space:pre">Hazards, Reports and Markers</th>
+      <th scope="col" class="govuk-table__header">VIN</th>
+      <th scope="col" class="govuk-table__header">Created by</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./FX12LPA" style="white-space:pre">FX12LPA</a>
+      </th>
+      <td class="govuk-table__cell">RED</td>
+      <td class="govuk-table__cell">FORD, ECOSPORT</td>
+      <td class="govuk-table__cell">5 DOOR SUV</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">1GMDX03E8VD266902</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <strong style="white-space:pre">AB92ORG</strong>
+      </th>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0">MOD vehicle</strong></td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell">-</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./BIILLY-PR" style="white-space:pre">BIILLY</a>
+      </th>
+      <td class="govuk-table__cell">SILVER</td>
+      <td class="govuk-table__cell">JAGUAR, XF</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Occupants potentially dangerous</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong>
+      </td>
+      <td class="govuk-table__cell">-</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag">Police</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./BIILLY" style="white-space:pre">BIILLY</a><br>
+        <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">BIILLY from:</span><br> 12/12/2021</div>
+      </th>
+      <td class="govuk-table__cell">WHITE</td>
+      <td class="govuk-table__cell">JAGUAR, XF</td>
+      <td class="govuk-table__cell">4 DOOR SALOON</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong></td>
+      <td class="govuk-table__cell">5YJSA1DG9DFP14705</td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <strong style="white-space:pre">SW15AGB</strong>
+      </th>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./L22REN" style="white-space:pre">L22REN</a>
+          <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">L22REN from:</span><br> 20/07/2022</div>
+      </th>
+      <td class="govuk-table__cell">BLUE</td>
+      <td class="govuk-table__cell">SKODA, OCTAVIA</td>
+      <td class="govuk-table__cell">HATCHBACK</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">POLICE EYES ONLY</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong>
+      </td>
+      <td class="govuk-table__cell">JTMBD33V995221974</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./AB19XRV" style="white-space:pre">AB19XRV</a><br>
+      </th>
+      <td class="govuk-table__cell">RED</td>
+      <td class="govuk-table__cell">MAZDA, TRIBUTE</td>
+      <td class="govuk-table__cell">5 DOOR SUV</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">4F2YU09152KM31556</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./SL67SWA" style="white-space:pre">SL67SWA</a>
+      </th>
+      <td class="govuk-table__cell">BLACK</td>
+      <td class="govuk-table__cell">AUDI, A3</td>
+      <td class="govuk-table__cell">SPORTBACK</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1">Blocked record</strong><br>
+      </td>
+      <td class="govuk-table__cell">WAUFFCFL2BA095442</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="TL20AAZ" style="white-space:pre">TL20AAZ</a>
+      </th>
+      <td class="govuk-table__cell">BLACK</td>
+      <td class="govuk-table__cell">LAND ROVER, DISCOVERY SPORT</td>
+      <td class="govuk-table__cell">SUV</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Weapons</strong>
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">LOST/STOLEN</strong>
+      </td>
+      <td class="govuk-table__cell">SALPV144XVA360843</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="ROB3RT" style="white-space:pre">ROB3RT</a>
+          <div class="govuk-tag govuk-!-margin-top-0 govuk-tag--modified"><span style="white-space:pre">ROB3RT from:</span><br> 9/9/2022</div>
+      </th>
+      <td class="govuk-table__cell">RED</td>
+      <td class="govuk-table__cell">VOLKSWAGEN, TIGUAN</td>
+      <td class="govuk-table__cell">5 DOOR SUV</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Cherished TRANSFER</strong></td>
+      <td class="govuk-table__cell">3VWDA81H8VM135911</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <strong style="white-space:pre">BR18JSG</strong>
+      </th>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">No trace</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="MD19LPR" style="white-space:pre">MD19LPR</a>
+      </th>
+      <td class="govuk-table__cell">SILVER</td>
+      <td class="govuk-table__cell">SKODA, OCTAVIA</td>
+      <td class="govuk-table__cell">HATCHBACK</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">YS3FB7CF0A1607744</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./GB22SBW" style="white-space:pre">GB22SBW</a>
+      </th>
+      <td class="govuk-table__cell">GREY</td>
+      <td class="govuk-table__cell">VOLVO, XC40</td>
+      <td class="govuk-table__cell">SUV</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow govuk-!-margin-bottom-1" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+        LOST/STOLEN + FOUND
+        </strong>
+      </td>
+      <td class="govuk-table__cell">YV1952AS5B1856535</td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">LL02KYR</a>
+      </th>
+      <td class="govuk-table__cell">ORANGE</td>
+      <td class="govuk-table__cell">HONDA, CIVIC</td>
+      <td class="govuk-table__cell">3 DOOR HATCHBACK</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong></td>
+      <td class="govuk-table__cell">6O4WB90G5OP736158</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag">Police</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">LL02KYR</a>
+      </th>
+      <td class="govuk-table__cell">ORANGE</td>
+      <td class="govuk-table__cell">HONDA, CIVIC</td>
+      <td class="govuk-table__cell">3 DOOR HATCHBACK</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong></td>
+      <td class="govuk-table__cell">6O4WB90G5OP736158</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">Police</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="#" style="white-space:pre">LL02KYR</a>
+      </th>
+      <td class="govuk-table__cell">ORANGE</td>
+      <td class="govuk-table__cell">HONDA, CIVIC</td>
+      <td class="govuk-table__cell">3 DOOR HATCHBACK</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-!-margin-top-0 govuk-!-margin-bottom-1 govuk-tag--white" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 7px; border-bottom-width: 0px; border-color: black">Hazards/Reports not displayed</strong><br>
+      </td>
+      <td class="govuk-table__cell">6O4WB90G5OP736158</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link govuk-link--no-visited-state" href="./AP14PKN" style="white-space:pre">AP14PKN</a>
+      </th>
+      <td class="govuk-table__cell">GREEN</td>
+      <td class="govuk-table__cell">NISSAN, MICRA</td>
+      <td class="govuk-table__cell">5 DOOR HATCHBACK</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-!-margin-top-0 govuk-tag--white" style="white-space:pre">None</strong></td>
+      <td class="govuk-table__cell">1N4EB31F4RC762348</td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">DVLA</strong></td>
+    </tr>
+
+
+  </tbody>
+</table>
+</div>
+</div>
+<div class="govuk-body-l govuk-!-margin-top-9">
+  Some of the VRMs above have previously been on other vehicles (due to cherished transfers)
+</div>
+
+<button id="past-button" type="button" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary" data-module="govuk-button">View past vehicles</button>
+
+
+<h2 id="past-heading" class="govuk-heading-l govuk-!-margin-top-9" style="display:none">7 past vehicles</h2>
+
+
+<!-- <span style="float:right; margin-right:10px" class="govuk-body">3 results</span> -->
+
+<div id="past-inset" class="govuk-inset-text" style="display:none">
+  DVLA markers are not displayed below
+</div>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="past-accordion" style="display:none">
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          BII LLY past vehicles (4)
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">VRM</th>
+            <th scope="col" class="govuk-table__header">Colour</th>
+            <th scope="col" class="govuk-table__header">Make/Model</th>
+            <th scope="col" class="govuk-table__header">Body type</th>
+            <th scope="col" class="govuk-table__header">Hazards, Reports and Markers</th>
+            <th scope="col" class="govuk-table__header">VIN</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>CF60 POP</strong></div>
+              <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">BII LLY dates:</span><br> 10/10/2020 - 12/12/2021</div>
+            </th>
+            <td class="govuk-table__cell">BLACK</td>
+            <td class="govuk-table__cell">MERCEDES, CLK</td>
+            <td class="govuk-table__cell">COUPE</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+            <td class="govuk-table__cell">1KLMY1DO9PPP89463</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>CF90 ABC</strong></div>
+              <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+            </th>
+            <td class="govuk-table__cell">YELLOW</td>
+            <td class="govuk-table__cell">PORSCHE, 911</td>
+            <td class="govuk-table__cell">COUPE</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong></td>
+            <td class="govuk-table__cell">3UJEQ6YR3UAN73184</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>VR15 LSF</strong></div>
+              <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+            </th>
+            <td class="govuk-table__cell">BLACK</td>
+            <td class="govuk-table__cell">FIAT, 500</td>
+            <td class="govuk-table__cell">HATCHBACK</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+            <td class="govuk-table__cell">ZFFJA54T990164851</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>SH66 UMT</strong></div>
+              <div class="govuk-tag govuk-tag--modified">BII LLY in the past</div>
+            </th>
+            <td class="govuk-table__cell">BLUE</td>
+            <td class="govuk-table__cell">VAUXHALL, CORSA</td>
+            <td class="govuk-table__cell">HATCHBACK</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+            <td class="govuk-table__cell">1GCEK14W02Z100862</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          L22 REN past vehicles (1)
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">VRM</th>
+            <th scope="col" class="govuk-table__header">Colour</th>
+            <th scope="col" class="govuk-table__header">Make/Model</th>
+            <th scope="col" class="govuk-table__header">Body type</th>
+            <th scope="col" class="govuk-table__header">Hazards, Reports and Markers</th>
+            <th scope="col" class="govuk-table__header">VIN</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+            <div class="govuk-body govuk-!-margin-bottom-1"><strong>LI92 ZIN</strong></div>
+              <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">L22 REN dates:</span><br><span style="white-space:pre">02/08/2018 - 20/07/2022</span></div>
+            </th>
+            <td class="govuk-table__cell">MAROON</td>
+            <td class="govuk-table__cell">CITROEN, PICASSO</td>
+            <td class="govuk-table__cell">5 DOOR HATCHBACK</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">Information</strong></td>
+            <td class="govuk-table__cell">5KOLD9G92OP264581</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+          ROB 3RT past vehicles (2)
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">VRM</th>
+            <th scope="col" class="govuk-table__header">Colour</th>
+            <th scope="col" class="govuk-table__header">Make/Model</th>
+            <th scope="col" class="govuk-table__header">Body type</th>
+            <th scope="col" class="govuk-table__header">Hazards, Reports and Markers</th>
+            <th scope="col" class="govuk-table__header">VIN</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>RT12 FDX</strong></div>
+              <div class="govuk-tag govuk-tag--modified"><span style="white-space:pre">ROB 3RT dates:</span><br><span style="white-space:pre">02/08/2018 - 09/09/2022</span></div>
+            </th>
+            <td class="govuk-table__cell">BLUE</td>
+            <td class="govuk-table__cell">VOLVO, XC40</td>
+            <td class="govuk-table__cell">SUV</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Lost/Stolen</strong>
+              <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Action</strong><br>
+              <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Weapons</strong>
+              <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">Chemicals</strong>
+          </td>
+            <td class="govuk-table__cell">JS1RF16C442100152</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-body govuk-!-margin-bottom-1"><strong>VR15 LSF</strong></div>
+              <div class="govuk-tag govuk-tag--modified">ROB 3RT in the past</div>
+            </th>
+            <td class="govuk-table__cell">BLACK</td>
+            <td class="govuk-table__cell">FIAT, 500</td>
+            <td class="govuk-table__cell">HATCHBACK</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--white">None</strong></td>
+            <td class="govuk-table__cell">KLATA52671B611178</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  var showPast = document.getElementById('past-button');
+  var pastHeading = document.getElementById('past-heading');
+  var pastInset = document.getElementById('past-inset');
+  var pastAccordion = document.getElementById('past-accordion');
+
+  var stringToHTML = function (str) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(str, 'text/html');
+    return doc.body.firstChild;
+  };
+
+  showPast.onclick = function () {
+    showPast.style.display = "none";
+    pastHeading.style.display = "block";
+    pastInset.style.display = "block";
+    pastAccordion.style.display = "block";
+  };
+
+  </script>
+{% endblock %}

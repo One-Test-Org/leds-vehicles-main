@@ -1,0 +1,256 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-caption-l">Edit vehicle record</div>
+<h1 class="govuk-heading-l">Action report details&nbsp;<a href="./add-action-signals" class="govuk-link govuk-link--no-underline">&nbsp;&nbsp&nbsp;&nbsp</a></h1>
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="event-name">
+        Report owner
+      </label>
+      <div id="changed-name-hint" class="govuk-hint">
+        Type or select Force/Station code or unit name
+      </div>
+      <select class="govuk-select" id="act-code" name="actCode">
+        {% block codesOwner %}
+        {% include "includes/codes.html" %}
+        {% endblock %}
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="creator" name="creator" type="checkbox" value="yes" data-aria-controls="conditional-creator" style="accent-color:white">
+        <label class="govuk-label govuk-checkboxes__label" for="creator">
+          Creator is different to owner
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-creator">
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-label--s">
+            Report creator
+          </legend>
+          <div id="changed-name-hint" class="govuk-hint">
+            Type or select Force/Station code or unit name
+          </div>
+          <select class="govuk-select" id="country" name="country">
+            {% block codesCreator %}
+            {% include "includes/codes.html" %}
+            {% endblock %}
+          </select>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="event-name">
+          Reference number (Optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+      </div>
+
+    {% block insurancecontent %}
+    {% include "includes/incident-date-2.html" %}
+    {% endblock %}
+
+    <br>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="end date">
+        Action report classification
+      </label>
+    <div class="govuk-form-group" style="float:left">
+      <label class="govuk-label" for="sort">
+        Priority
+      </label>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="" selected></option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
+    <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+      <label class="govuk-label" for="sort">
+        Action
+      </label>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="" selected></option>
+        <option value="stop">Stop</option>
+        <option value="monitor">Monitor</option>
+        <option value="assess">Assess</option>
+      </select>
+    </div>
+    <div class="govuk-form-group govuk-!-margin-left-3" style="float:left">
+      <label class="govuk-label" for="sort">
+        Reason
+      </label>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="" selected></option>
+        <option value="crime">Crime</option>
+        <option value="details">Details</option>
+        <option value="disqualified">Disqualified</option>
+        <option value="drugs">Drugs</option>
+        <option value="misper">Misper</option>
+        <option value="visor">Visor</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="198">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+          Notes
+        </label>
+        <textarea class="govuk-textarea govuk-js-character-count" id="label-as-page-heading" name="label-as-page-heading" rows="5" style="text-transform: uppercase" aria-describedby="label-as-page-heading-info"></textarea>
+      </div>
+
+      <div id="label-as-page-heading-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 198 characters
+      </div>
+    </div>
+
+    <br>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+            Are there any associated hazards?
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-yes" name="hazards" type="radio" value="yes" data-aria-controls="conditional-hazards">
+            <label class="govuk-label govuk-radios__label" for="hazards-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-hazards">
+              <div class="govuk-form-group">
+                  <legend class="govuk-fieldset__legend">
+                    Select all hazards that apply
+                  </legend>
+                  <div class="govuk-checkboxes " data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Chemical
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Explosives
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Occupants potentially dangerous
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Radiation
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" type="checkbox">
+                      <label class="govuk-label govuk-checkboxes__label">
+                        Weapons
+                      </label>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hazards-no" name="hazards" type="radio" value="no" data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-radios__label" for="hazards-no">
+              No
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Do you need to change the expiry date for this report?
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+          Also known as weed date
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm" name="confirm" type="radio" value="yes" data-aria-controls="conditional-expiry">
+            <label class="govuk-label govuk-radios__label" for="confirm">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-expiry">
+            <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-label--s">
+                Set expiry date
+              </legend>
+              <div id="passport-issued-hint" class="govuk-hint">
+                Date can be between 26/05/2023 days and 14/04/2024
+              </div>
+              <div class="govuk-date-input" id="passport-issued">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date" value="2023-05-22">
+              </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="confirm-2" name="confirm" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="confirm-2">
+              No, keep expiry date to 26/06/2023
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <a href="./overview-updated-act" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Add report</a>
+    <div>
+      <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #d4351c; border-left: 2px solid #d4351c; border-right: 2px solid #d4351c; border-bottom: 2px solid #d4351c">
+      <div class="govuk-grid-column-full govuk-!-padding-left-6">
+        <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+        <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold"><a href="./" class="govuk-link govuk-link--no-visited-state">SG 19705</a></p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+      </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

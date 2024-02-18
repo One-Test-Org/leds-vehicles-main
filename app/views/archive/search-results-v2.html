@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Search results
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <span class="govuk-body-s">Loaded on </span><span id="datetime"></span>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search results</h1>
+  <p class="<p class="govuk-body">
+    VRM: CB01 ABC &nbsp <a href="/search" class="govuk-link">Edit search</a>
+  </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      caption: "2 results found",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "VIN"
+        },
+        {
+          text: "Make/Model",
+          format: "text"
+        },
+        {
+          text: "Body type",
+          format: "date"
+        },
+        {
+          text: "Colour",
+          format: "link"
+        }
+      ],
+      rows: [
+        [
+          {
+            html:
+            '
+            <a href="/overview-v2-multi-1">2FJGX3TY1OPP32091</a> &nbsp; &nbsp; &nbsp; &nbsp;
+               <strong class="govuk-tag govuk-tag--purple">
+                 Police record
+               </strong>
+             <br>
+              <div class="govuk-details__text">
+                <strong class="govuk-tag govuk-tag--red">Occupants potentially dangerous</strong>
+                <strong class="govuk-tag govuk-tag--red">Action</strong>
+                <strong class="govuk-tag govuk-tag--yellow">Information</strong>
+              </div>
+            ',
+            format: "text"
+          },
+          {
+            text: "BMW, X5",
+            format: "text"
+          },
+          {
+            text: "SUV",
+            format: "text"
+          },
+          {
+            text: "Blue",
+            format: "text"
+          }
+        ],
+        [
+        {
+          html: '<a href="/overview-v2-multi-2">9KOPQ3SE3LWE70893</a><br>
+            <div class="govuk-details__text">
+              <strong class="govuk-tag govuk-tag--yellow">Scrapped</strong>
+            </div>
+          ',
+          format: "text"
+        },
+        {
+          text: "BMW, X5"
+        },
+        {
+          text: "SUV",
+          format: "text"
+        },
+        {
+          text: "Blue",
+          format: "text"
+        }
+        ]
+      ]
+    }) }}
+
+{% endblock %}

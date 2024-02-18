@@ -1,0 +1,178 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Edit police record</div>
+<h1 class="govuk-heading-l">Update registered keeper details</h1>
+
+<div class="hods-alert govuk-!-margin-top-6 govuk-!-width-one-half">
+  <p class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+    All fields on this page are <strong>optional</strong>
+  </p>
+</div>
+
+    <div class="govuk-radios">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="RK-name">
+          Full name
+        </label>
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, Robert Smith
+        </div>
+        <input class="govuk-input govuk-!-width-one-half" style="text-transform: uppercase" id="rk-name" name="rkName" value="Bob Salmon" >
+      </div>
+
+      </div>
+
+      <legend class="govuk-fieldset__legend govuk-label--s" for="label-as-page-heading" id="signals">
+        Address
+      </legend>
+      <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="33">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="label-as-page-heading">
+            Line 1
+          </label>
+          <input class="govuk-input govuk-!-width-one-half govuk-js-character-count" id="act-notes-2" name="actNotes2" rows="1" style="text-transform: uppercase" aria-describedby="act-notes-2">
+        </div>
+        <div id="act-notes-2-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 33 characters
+        </div>
+      </div>
+      <div class="govuk-character-count govuk-!-margin-bottom-5" data-module="govuk-character-count" data-maxlength="33">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="label-as-page-heading">
+            Line 2
+          </label>
+          <input class="govuk-input govuk-!-width-one-half govuk-js-character-count" id="act-notes-2" name="actNotes2" rows="1" style="text-transform: uppercase" aria-describedby="act-notes-2">
+        </div>
+        <div id="act-notes-2-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 33 characters
+        </div>
+      </div>
+      <div id="names-div">
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="33">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="label-as-page-heading">
+              Line 3
+            </label>
+            <input class="govuk-input govuk-!-width-one-half govuk-js-character-count" id="name-3" name="names[3]" rows="1" style="text-transform: uppercase" aria-describedby="name-3">
+          </div>
+          <div id="name-3-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 33 characters
+          </div>
+        </div>
+      </div>
+
+      <div id="add-another-button">
+        <button type="button" type="button" class="govuk-button govuk-button--secondary" style="background-color: #CBCBCB" data-module="govuk-button">
+          Add another line
+        </button>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="RK-postcode">
+          Postcode
+        </label>
+        <input class="govuk-input govuk-!-width-one-quarter" id="RK-postcode" name="RK-postcode"></input>
+      </div>
+
+      <!--
+      <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-label--s">
+          Keeper since
+        </legend>
+        <div class="govuk-date-input" id="passport-issued">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date">
+        </div>
+      </div>
+      -->
+
+
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group">
+      <a href="./check-answers-update-keeper" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Continue</a>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <section class="app-summary-card">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Record overview</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+          <p class="govuk-heading-l">SG 19705</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">-</p>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-top-5">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Your search justification</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script>
+    var newNameId = 3;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById("names-div");
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+      var s = stringToHTML(`
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="33">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for='name-${newNameId+1}'>
+            Line ${newNameId+1}
+          </label>
+          <textarea class="govuk-textarea govuk-!-width-one-half govuk-js-character-count" id='name-${newNameId+1}' name='names[${newNameId+1}]' rows="1" style="text-transform: uppercase" aria-describedby='name-${newNameId+1}'></textarea>
+        </div>
+        <div id='name-${newNameId+1}-info' class="govuk-hint govuk-character-count__message">
+          You can enter up to 33 characters
+        </div>
+      </div>
+      `);
+
+      names.appendChild(s);
+      document.getElementById("name-"+newNameId).focus();
+      newNameId++;
+    };
+  </script>
+{% endblock %}

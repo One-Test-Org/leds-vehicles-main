@@ -1,0 +1,175 @@
+{% extends "layout-menu-leds.html" %}
+
+{% set containerClasses = "govuk-width-container-1200px" %}
+{% set serviceName = 'LEDS Law Enforcement Data Service' %}
+
+{% block pageTitle %}
+{{serviceName}}
+{% endblock %}
+
+{% block content %}
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('selected');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Welcome to LEDS
+            <span class="govuk-caption-xl">
+                Law Enforcement Data Service<!-- {{releaseVersion}} -->
+            </span>
+        </h1>{{releaseVersion | log }}
+        <p class="govuk-body">
+            LEDS is a modern data service, single point of access to joined up national records.
+        </p>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
+            Services
+        </h2>{{releaseVersion | log }}
+
+        <ul class="homepage-services-and-info__list">
+
+            <li class="chevron-card">
+                <div class="chevron-card__wrapper">
+                    <h3 class="gem-c-heading govuk-heading-s"><a class="govuk-link chevron-card__link" href="https://leds-drivers.prototype.homeoffice.gov.uk">Drivers</a></h3>
+                    <!-- <p class="govuk-body chevron-card__description">View information about a person's driving license status, entitlement to drive, restrictions and endorsements</p> -->
+                </div>
+            </li>
+
+            <li class="chevron-card">
+                <div class="chevron-card__wrapper">
+                    <h3 class="gem-c-heading govuk-heading-s"><a class="govuk-link chevron-card__link" href="https://leds-person.prototype.homeoffice.gov.uk">Person</a></h3>
+                    <!-- <p class="govuk-body chevron-card__description">View information for individuals who are known or have been made known to Police, Law Enforcement and supporting Agencies</p> -->
+                </div>
+            </li>
+
+            <li class="chevron-card">
+                <div class="chevron-card__wrapper">
+                    <h3 class="gem-c-heading govuk-heading-s"><a class="govuk-link chevron-card__link" href="https://leds-property.prototype.homeoffice.gov.uk">Property</a></h3>
+                    <!-- <p class="govuk-body chevron-card__description">Access to nationaly circulated stolen and found property to solve crime and return property to its rightful owner</p> -->
+                </div>
+            </li>
+
+            <li class="chevron-card">
+                <div class="chevron-card__wrapper">
+                    <h3 class="gem-c-heading govuk-heading-s"><a class="govuk-link chevron-card__link" href="https://leds-vehicles.prototype.homeoffice.gov.uk/live/variations/search-l2d">Vehicles</a></h3>
+                    <!-- <p class="govuk-body chevron-card__description">View information for a vehicle relating to tax status, insurance, MOT history and police reports</p> -->
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- SEARCH -->
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-3 govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 id="your-tariff-changes" class="govuk-heading-l">
+            Search for a person
+        </h2>
+        <form class="form" action="./search/1-person-basic-details.html" method="post">
+            <fieldset class="govuk-fieldset">
+                <div class="govuk-form-group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s"><h1 class="govuk-fieldset__heading">Justification</h1></legend>
+                    <div id="sort-code-hint" class="govuk-hint">For example crime reference number.</div>
+                    <input error-text= "Enter your justification" class="govuk-input govuk-input--width-30" id="justification" name="justification" type="text" spellcheck="false" value="">
+                </div>
+            </fieldset>
+
+            <fieldset class="govuk-fieldset">
+                <div class="govuk-form-group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s"><h1 class="govuk-fieldset__heading">On behalf of</h1></legend>
+                    <div id="sort-code-hint" class="govuk-hint">Leave blank if not applicable.</div>
+                    <input class="govuk-input govuk-input--width-20" id="" name="" type="text" spellcheck="false" value="">
+                </div>
+            </fieldset>
+
+            {% if errors.reasonCode is string %}
+            {{ govukSelect({
+                id: "reasonCode",
+                name: "search-reasonCode",
+                classes: "govuk-!-width-full",
+                label: {
+                    text: "Reason code",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                formGroup: {
+                    classes: "govuk-!-width-two-third"
+                },
+                errorMessage: {
+                    text: errors.reasonCode
+                },
+                value: data['search-reasonCode'],
+                items: [
+                    { value: '', text: 'Select', selected: true, selected: data['search-reasonCode'] === '' },
+                    { value: '0 - Transaction log and other audit checks', text: '0 - Transaction log and other audit checks', selected: data['search-reasonCode'] === '0 - Transaction log and other audit checks' },
+                    { value: '1 - Vehicle and/or person stopped', text: '1 - Vehicle and/or person stopped. This code would also be used for property checks where the person stopped has property with them or in their vehicle.', selected: data['search-reasonCode'] === '1 - Vehicle and/or person stopped' },
+                    { value: '2 - Moving vehicle', text: '2 - Moving vehicle. Used where the vehicle has just been seen but the time of the check has not been stopped.', selected: data['search-reasonCode'] === '2 - Moving vehicle' },
+                    { value: '3 - Abandoned or parked and unattended vehicle', text: '3 - Abandoned or parked and unattended vehicle. Would also be used where property has been found other than in the possession of a person.', selected: data['search-reasonCode'] === '3 - Abandoned or parked and unattended vehicle' },
+                    { value: '4 - Vehicles involved in a road traffic collision', text: '4 - Vehicles involved in a road traffic collision. The Originator field would be used to record the location and/or the report reference if appropriate.', selected: data['search-reasonCode'] === '4 - Vehicles involved in a road traffic collision' },
+                    { value: '5 - Subject of process or investigation', text: '5 - Subject of process or investigation. The source document would be a custody record, process report or crime report.', selected: data['search-reasonCode'] === '5 - Subject of process or investigation' },
+                    { value: '6 - Administration', text: '6 - Administration. This includes security vetting, complaints, CTO/DSU/ASU.', selected: data['search-reasonCode'] === '6 - Administration' },
+                    { value: '7 - Enquiries relating to family protection issues', text: '7 - Enquiries relating to family protection issues', selected: data['search-reasonCode'] === '7 - Enquiries relating to family protection issues' },
+                    { value: '8 - On behalf of another authorised agency', text: '8 - On behalf of another authorised agency', selected: data['search-reasonCode'] === '8 - On behalf of another authorised agency' },
+                    { value: '9 - Update/Confirm/Broadcast', text: '9 - Update/Confirm/Broadcast. Essentially all transactions that vary information held on the database', selected: data['search-reasonCode'] === '9 - Update/Confirm/Broadcast' }
+                ]
+            }) }}
+            {% else %}
+            {{ govukSelect({
+                id: "reasonCode",
+                name: "search-reasonCode",
+                classes: "govuk-!-width-full",
+                label: {
+                    text: "Reason code",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                formGroup: {
+                    classes: "govuk-!-width-two-third"
+                },
+                value: data['search-reasonCode'],
+                items: [
+                    { value: '', text: 'Select', selected: true, selected: data['search-reasonCode'] === '' },
+                    { value: '0 - Transaction log and other audit checks', text: '0 - Transaction log and other audit checks', selected: data['search-reasonCode'] === '0 - Transaction log and other audit checks' },
+                    { value: '1 - Vehicle and/or person stopped', text: '1 - Vehicle and/or person stopped. This code would also be used for property checks where the person stopped has property with them or in their vehicle.', selected: data['search-reasonCode'] === '1 - Vehicle and/or person stopped' },
+                    { value: '2 - Moving vehicle', text: '2 - Moving vehicle. Used where the vehicle has just been seen but the time of the check has not been stopped.', selected: data['search-reasonCode'] === '2 - Moving vehicle' },
+                    { value: '3 - Abandoned or parked and unattended vehicle', text: '3 - Abandoned or parked and unattended vehicle. Would also be used where property has been found other than in the possession of a person.', selected: data['search-reasonCode'] === '3 - Abandoned or parked and unattended vehicle' },
+                    { value: '4 - Vehicles involved in a road traffic collision', text: '4 - Vehicles involved in a road traffic collision. The Originator field would be used to record the location and/or the report reference if appropriate.', selected: data['search-reasonCode'] === '4 - Vehicles involved in a road traffic collision' },
+                    { value: '5 - Subject of process or investigation', text: '5 - Subject of process or investigation. The source document would be a custody record, process report or crime report.', selected: data['search-reasonCode'] === '5 - Subject of process or investigation' },
+                    { value: '6 - Administration', text: '6 - Administration. This includes security vetting, complaints, CTO/DSU/ASU.', selected: data['search-reasonCode'] === '6 - Administration' },
+                    { value: '7 - Enquiries relating to family protection issues', text: '7 - Enquiries relating to family protection issues', selected: data['search-reasonCode'] === '7 - Enquiries relating to family protection issues' },
+                    { value: '8 - On behalf of another authorised agency', text: '8 - On behalf of another authorised agency', selected: data['search-reasonCode'] === '8 - On behalf of another authorised agency' },
+                    { value: '9 - Update/Confirm/Broadcast', text: '9 - Update/Confirm/Broadcast. Essentially all transactions that vary information held on the database', selected: data['search-reasonCode'] === '9 - Update/Confirm/Broadcast' }
+                ]
+            }) }}
+            {% endif %}
+
+        </form>
+        <a href="./search/1-person-basic-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start" data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+        </a>
+
+    </div>
+</div> -->
+<!-- /SEARCH -->
+
+
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-5">&nbsp</div> -->
+
+
+{% endblock %}

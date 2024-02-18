@@ -1,0 +1,239 @@
+
+{% extends "layout-menu-new.html" %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/step-by-step-nav.js"></script>
+<script type="text/javascript">
+  var $element = $('#step-by-step-navigation')
+  var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+  stepByStepNavigation.start($element)
+</script>
+{% endblock %}
+
+{% block pageTitle %}
+Add new report
+{% endblock %}
+
+{% block beforeContent %}
+<div id="banner-top">
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row govuk-width-container govuk-!-margin-bottom-3 govuk-!-margin-top-6" id="whole-form">
+        <!-- FORM -->
+        <form class="form" id="form-submit" action="./overview-updated-reaction" method="post">
+
+          <div class="hods-alert hods-alert--error govuk-!-margin-bottom-7">
+            <h2 class="hods-alert__heading">
+              Sorry, there is a problem with the service
+            </h2>
+            <p class="govuk-!-margin-bottom-2">The report was not added due to a connection issue.
+              Try submitting the information again.
+            </p>
+            <p class="govuk-!-margin-bottom-2">
+              If the problem persists, report a fault with this Reference ID: 22242871-73a7-46a6-a060-d1821ac51d6d
+            </p>
+          </div>
+
+          <div class="govuk-caption-l">Add new report</div>
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Check details before adding report</h1>
+          <main class="govuk-main-wrapper " id="main-content" role="main">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-three-quarters-from-desktop">
+                <div class="govuk-summary-card">
+                    <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Report type</h2>
+                        <ul class="govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> Report type</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="govuk-summary-card__content">
+                      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Report type
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Reaction
+                          </dd>
+
+                        </div>
+                      </dl>
+                    </div>
+                </div>
+
+                <div class="govuk-summary-card">
+                    <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Report details</h2>
+                        <ul class="govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> Report details</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="govuk-summary-card__content">
+                      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Report owner
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            {{ data['reaCode'].slice(0,4) }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Report creator
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            {{ data['code'].slice(0,4) }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Reference number
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            {{ data['reaRef'] }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key" >
+                            Incident date (from)
+                          </dt>
+                          <dd class="govuk-summary-list__value" id="rea-incident-from">
+                            {{ data['reaIncidentFrom'] | formatDate }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Incident date (to)
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            {{ data['reaIncidentTo'] | formatDate }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Report text
+                          </dt>
+                          <dd class="govuk-summary-list__value" style="text-transform:uppercase">
+                            {{ data['reaNotes1'] }} {{ data['reaNotes2'] }} {{ data['reaNotes3'] }}
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Joined reports
+                          </dt>
+                          <dd class="govuk-summary-list__value" style="text-transform:uppercase">
+                            <a href="./action-report" target="_blank" class="govuk-link govuk-link--no-visited-state">Action</a> ({{ data['actRef'] }}), by {{ data['actCode'].slice(0,4) }}<br>
+                            <a href="./action-report-2" target="_blank" class="govuk-link govuk-link--no-visited-state">Action</a> (A15P3782OP0925), by 02L1
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                </div>
+                <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" style="float:left">Submit</button>
+                <div>
+                  <a class="govuk-link" href="#">Cancel</a>
+                </div>
+                </div>
+                <input class="govuk-input " id="rea-time" name="reaTime" style="display:none">
+              </div>
+              <div class="govuk-grid-column-one-quarter">
+                <section class="app-summary-card">
+                  <header class="app-summary-card__header">
+                    <h2 class="app-summary-card__title">Record overview</h2>
+                  </header>
+                  <div class="app-summary-card__body">
+                      <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+                      <a href="./overview-2" target="_blank" class="govuk-heading-l govuk-link govuk-link--no-visited-state govuk-link--no-underline">SG 19705</a>
+
+
+                      <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+                      <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+                      <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+                      <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+                      <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+                      <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+            <!--
+                      <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Hazards</p>
+                      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                        Weapons
+                      </strong>
+                      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                      Occupants potentially dangerous
+                      </strong>
+                      </p>
+                      <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Reports</p>
+                      <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                        Lost/Stolen
+                      </strong>
+                      <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+                      Action (2)
+                      </strong>
+                      </p>
+            -->
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </main>
+</form>
+
+</div>
+
+        <!-- /FORM -->
+
+<div id="pending-submit" class="hidden" style="margin: 50px auto; text-align: center;">
+    <h2 class="govuk-heading-l">Submitting Reaction report</h2>
+
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <br /><br /><br /><br />
+    <p style="">Please wait a few moments while we submit your request to PNC</p>
+
+    <br /><br /><br /><br />
+</div>
+
+<script>
+    setTimeout(() => {
+        const wholeForm = document.getElementById('whole-form');
+        const bannerTop = document.getElementById('banner-top');
+        const form = document.getElementById('form-submit');
+        const pending = document.getElementById('pending-submit');
+
+        form.addEventListener('submit', onClick);
+
+        function onClick(e) {
+            window.scrollTo(0,0);
+            e.preventDefault();
+
+            pending.classList.remove('hidden');
+            wholeForm.classList.add('hidden');
+            bannerTop.classList.add('hidden');
+
+            setTimeout(() => {
+                form.removeEventListener('submit', onClick);
+                form.submit();
+            }, 5000);
+        }
+    }, 1000);
+
+    const dt = new Date();
+    document.getElementById("rea-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+
+{% endblock %}

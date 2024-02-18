@@ -1,0 +1,40 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="hods-alert hods-alert--error govuk-!-margin-top-1">
+      <h2 class="hods-alert__heading">
+        Sorry, there is a problem with the service
+      </h2>
+      <p class="govuk-!-margin-bottom-2">The Lost/Stolen report was not confirmed due to a connection issue.<br>
+        If you <strong><a href="#">search for CF60POP</a></strong>, you can edit the report to try to confirm it again</p>
+    </div>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Police record created
+      </h1>
+      <div class="govuk-panel__body">
+        Police record for <strong>CF60POP</strong> created, and available on LEDS and PNC
+      </div>
+    </div>
+
+    <div class="govuk-body-l govuk-!-margin-top-5">The Lost/Stolen report has also been added to the record, but it has not been confirmed.
+      <br><br>
+    </div>
+
+    <a href="./search"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="background-color: #CBCBCB">Start new search</button></a>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

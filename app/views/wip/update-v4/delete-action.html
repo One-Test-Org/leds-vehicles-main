@@ -1,0 +1,187 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link" id="banner-top">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="" id="whole-form">
+
+
+<div class="govuk-grid-row govuk-!-margin-top-6" >
+  <form class="form" id="form-submit" action="./overview-deleted-action" method="post">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+    <h1 class="govuk-heading-l" >Delete Action report</h1>
+
+
+    <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Report type
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Action
+      </dd>
+      <dd class="govuk-summary-list__actions">
+
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reference number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        A15P3782OP0925
+      </dd>
+      <dd class="govuk-summary-list__actions">
+
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Owner
+      </dt>
+      <dd class="govuk-summary-list__value">
+        01LX
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Created on
+      </dt>
+      <dd class="govuk-summary-list__value">
+        06/06/2023, 09:17
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+  </dl>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Who is this deletion for?
+      </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO-delete" name="OBODelete" type="radio" value="email">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          For myself
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="OBO-delete-text" name="OBODeleteText" type="radio" value="phone" data-aria-controls="conditional-OBO-2">
+        <label class="govuk-label govuk-radios__label" for="OBO-2">
+          For someone else
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-OBO-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+            On behalf of
+          </label>
+          <div id="onbehalf-hint" class="govuk-hint">
+            For example, PC Smith (12345)
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+          <div class="govuk-warning-text govuk-!-margin-top-3">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Remember, you're still personally responsible for the information you provide even if you're performing this deletion on behalf of someone else
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    </fieldset>
+  </div>
+
+    {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+    {{ govukTextarea({
+      name: "justificationDelete",
+      id: "justificationDelete",
+      rows: 2,
+      classes: "govuk-!-width-full-width",
+      hint: {
+      text: "For example, your reason for deleting this report"
+      },
+      label: {
+        classes: "govuk-label--s",
+        text: "Justification"
+      }
+    }) }}
+
+  <div class="govuk-warning-text govuk-grid-column-full govuk-!-padding-bottom-8 govuk-!-padding-top-3">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+        This action will permanently delete this report from LEDS and PNC.
+    </strong>
+  </div>
+
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+    <div class="govuk-button-group">
+    <button class="govuk-button govuk-button--warning" data-module="govuk-button" style="float:left">Delete report</button>
+    <div>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    {% block side %}
+    {% include "includes/record-overview-side.html" %}
+    {% endblock %}
+  </div>
+</form>
+</div>
+</div>
+<div id="pending-submit" class="hidden" style="margin: 50px auto; text-align: center;">
+    <h2 class="govuk-heading-l">Deleting Action report</h2>
+
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <br /><br /><br /><br />
+    <p style="">Please wait a few moments while we submit your request to PNC</p>
+
+    <br /><br /><br /><br />
+</div>
+
+<script>
+    setTimeout(() => {
+        const wholeForm = document.getElementById('whole-form');
+        const bannerTop = document.getElementById('banner-top');
+        const form = document.getElementById('form-submit');
+        const pending = document.getElementById('pending-submit');
+
+        form.addEventListener('submit', onClick);
+
+        function onClick(e) {
+            window.scrollTo(0,0);
+            e.preventDefault();
+
+            pending.classList.remove('hidden');
+            wholeForm.classList.add('hidden');
+            bannerTop.classList.add('hidden');
+
+            setTimeout(() => {
+                form.removeEventListener('submit', onClick);
+                form.submit();
+            }, 5000);
+        }
+    }, 1000);
+
+    const dt = new Date();
+    document.getElementById("act-time").value = dt.toLocaleDateString([],{hour:'2-digit', minute:'2-digit'});
+
+</script>
+{% endblock %}

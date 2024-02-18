@@ -1,0 +1,123 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+<div class="govuk-caption-l">Edit record</div>
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Do you need to Block this vehicle record?
+    </h1>
+  </legend>
+
+<form class="form" action="./overview-unblocked" method="post">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="foreign" name="foreign" type="radio" value="yes" data-aria-controls="conditional-blocked-Yes" checked>
+            <label class="govuk-label govuk-radios__label" for="foreign">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-blocked-Yes">
+            <div class="govuk-form-group govuk-!-width-two-thirds">
+              <label class="govuk-label govuk-label--s" for="code">
+                Force/Station code
+              </label>
+              <select class="govuk-select" id="code" name="code">
+                {% block codesBlock %}
+                {% include "includes/codes.selected.html" %}
+                {% endblock %}
+              </select>
+            </div>
+            <div class="govuk-form-group govuk-!-width-two-thirds">
+              <label class="govuk-label govuk-label--s" for="reference">
+                Blocked reference
+              </label>
+              <input class="govuk-input " id="reference" name="reference" value="{{ data['blockRef'] }}">
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="foreign-2" name="foreign" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="foreign-2">
+              No, unblock vehicle
+            </label>
+          </div>
+        </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+
+    <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button" style="float:left">Update blocked record</button>
+    <div>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+    </div>
+  </div>
+  </form>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <section class="app-summary-card">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Record overview</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <div class="govuk-!-margin-bottom-3 govuk-!-padding-right-4"><strong class="govuk-tag govuk-!-width-full">Police record</strong></div>
+          <a href="./overview-2" target="_blank" class="govuk-heading-l govuk-link govuk-link--no-visited-state">SG 19705</a>
+
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+          <p class="govuk-body govuk-!-font-weight-bold">[BLOCKED]</p>
+    <!--
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Hazards</p>
+          <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Weapons
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Occupants potentially dangerous
+          </strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Reports</p>
+          <p><strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+            Lost/Stolen
+          </strong>
+          <strong class="govuk-tag govuk-tag--red" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #942514">
+          Action (2)
+          </strong>
+          </p>
+    -->
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-top-5">
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Your search justification</h2>
+      </header>
+      <div class="app-summary-card__body">
+          <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">12/08/2023-DSM12124/12a</p>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

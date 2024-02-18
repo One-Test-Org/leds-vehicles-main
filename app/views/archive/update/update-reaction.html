@@ -1,0 +1,175 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Update report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-caption-l">Edit report</div>
+      <h1 class="govuk-heading-l">Update Reaction report details</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Report type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Reaction (X73P1238GE6179)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="./delete-reaction" style="background-color: #CBCBCB; float:right" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" role="button" draggable="false" data-module="govuk-button">Delete report</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Owner
+        </dt>
+        <dd class="govuk-summary-list__value">
+          02L1
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Created on
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/05/2023, 15:12
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+<br>
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-label--s">
+        Incident start date
+      </legend>
+        <div class="govuk-date-input" id="from-date-value">
+            <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date" value="2023-05-20">
+        </div>
+  <br>
+  <legend class="govuk-fieldset__legend govuk-label--s">
+    Incident to date
+  </legend>
+    <div class="govuk-date-input" id="from-date-value">
+        <input class="govuk-input govuk-date-input__input govuk-input--width-10" id="passport-issued-day" name="passport-issued-day" type="date" value="2023-05-20">
+    </div>
+
+<br>
+
+<div class="govuk-character-count govuk-!-padding-right-9" data-module="govuk-character-count" data-maxlength="198">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="label-as-page-heading">
+      Notes
+    </label>
+    <textarea class="govuk-textarea govuk-js-character-count" id="notes" name="notes" rows="5" style="text-transform: uppercase" aria-describedby="notes-info">VEHICLE STOPPED AND SEARCHED. THREE MALES ARRESTED IN 01MP. ONE CHARGED WITH PWITS, ONE CHARGED WITH ASSUALT ON POLICE. CRIS REF 22/9874561X
+    </textarea>
+  </div>
+  <div id="notes-info" class="govuk-hint govuk-character-count__message">
+    You can enter up to 198 characters
+  </div>
+</div>
+
+<br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="hazards-hint">
+    <legend class="govuk-fieldset__legend govuk-label--s">
+      Select the Action report(s) this report relates to
+    </legend>
+      <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend">
+            Select all reports that apply
+          </legend>
+          <div class="govuk-checkboxes " data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" type="checkbox" data-aria-controls="conditional-pair-2" onclick="handleChange()" checked>
+              <label class="govuk-label govuk-checkboxes__label">
+                <strong><a href="./action-report-2" target="_blank" class="govuk-link govuk-link--no-visited-state">Action (A15P3782OP0925)</a></strong>, by 02L1
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                LOW ASSESS DRUGS TWO WHITE MALES, WEARING HOODIES SEEN DEALING...
+              </div>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" type="checkbox" onclick="handleChange()" checked>
+              <label class="govuk-label govuk-checkboxes__label">
+                <strong><a href="./action-report" target="_blank" class="govuk-link govuk-link--no-visited-state">Action (E94F9390DE3893)</a></strong>, by 01LX
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint" style="text-transform: uppercase">
+                HIGH STOP CRIME FI IC1 M 32YRS Vehicle believed to contain 01/126A...
+              </div>
+            </div>
+          </div>
+      </div>
+    </fieldset>
+
+    </div>
+
+<br>
+
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+<a href="./overview-updated-paired" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Update report</a>
+<div>
+  <button id="cancel-report" type="button" style="background-color: #CBCBCB;" class="govuk-button govuk-button--secondary govuk-!-margin-left-3" data-module="govuk-button">
+    Cancel
+  </button>
+</div>
+</div>
+
+
+<div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-row" style="background-color: white; border-top: 2px solid #d4351c; border-left: 2px solid #d4351c; border-right: 2px solid #d4351c; border-bottom: 2px solid #d4351c">
+      <div class="govuk-grid-column-full govuk-!-padding-left-6">
+        <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">VRM</p>
+        <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold"><a href="./" class="govuk-link govuk-link--no-visited-state">SG 19705</a></p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Make/model</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BMW(CARS), X5 SPORT</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Colour</p>
+        <p class="govuk-body govuk-!-font-weight-bold">BLUE</p>
+
+        <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold">Bob Salmon</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block pageScripts %}
+
+  <link rel="stylesheet" href="/public/css/accessible-autocomplete.min.css">
+  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+  <script type="text/javascript">
+    var selectEl = document.querySelector('#address')
+    accessibleAutocomplete.enhanceSelectElement({
+      autoselect: true,
+      confirmOnBlur: true,
+      defaultValue: "",
+      minLength: 2,
+      selectElement: selectEl
+    })
+    var queryStringParameters = window.location.search
+    var previouslySubmitted = queryStringParameters.length > 0
+    if (previouslySubmitted) {
+      var submittedEl = document.querySelector('.submitted')
+      submittedEl.classList.remove('submitted--hidden')
+      var params = new URLSearchParams(document.location.search.split('?')[1])
+      document.querySelector('.submitted__last-location').innerHTML = params.get('address')
+    }
+  </script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,327 @@
+{% extends "layout-menu-leds-footer-updates.html" %}
+
+{% set containerClasses = "govuk-width-container-1200px" %}
+{% set serviceName = 'LEDS Law Enforcement Data Service' %}
+
+{% block pageTitle %}
+	Latest service news, release notes, planned functionality, and known issues - {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+	<a href="service-vehicles-start-page" class="govuk-back-link govuk-link--no-visited-state">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	{% if data['fullwidth'] == 'yes' %}
+		<div class="govuk-grid-column-full">
+	{% else %}
+		<div class="govuk-grid-column-three-quarters">
+	{% endif %}
+
+		<h1 class="govuk-heading-l govuk-!-margin-bottom-8">
+			Vehicles news, upcoming changes and FAQ
+		</h1>
+
+		<p class="govuk-body-l govuk-!-margin-bottom-8">If you have feedback about anything not included below, please contact us on <a href="#">ledsvehiclesfeedback@homeoffice.gov.uk</a> or fill in this <a href="#">feedback survey</a></p>
+
+		<div class="govuk-tabs" data-module="govuk-tabs">
+ 			<h2 class="govuk-tabs__title">
+				Latest service news, release notes, planned functionality, and known issues
+			</h2>
+			<ul class="govuk-tabs__list">
+				<li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+					<a class="govuk-tabs__tab" href="#latest-news-and-release-notes">
+						Latest news{#Latest news and release notes#}
+					</a>
+				</li>
+				<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#planned-functionality">
+						Planned functionality
+					</a>
+				</li>
+				<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#known-issues">
+						Known issues
+					</a>
+				</li>
+				<li class="govuk-tabs__list-item">
+					<a class="govuk-tabs__tab" href="#faq">
+						FAQ
+					</a>
+				</li>
+			</ul>
+
+			{# Latest news and release notes #}
+			<div class="govuk-tabs__panel" id="latest-news-and-release-notes">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Latest news{#Latest news and release notes#}</h2></span>
+
+				{# Release 1.7.0 #}
+				<h3 class="govuk-heading-l">
+					05/10/2023
+				</h3>
+				<h4 class="govuk-heading-m">
+					Link to Drivers
+				</h4>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>For users with the Drivers entitlement, Registered keeper, insurance policy holder and named drivers appear as links</li>
+					<li>When clicked, these links open a new browser tab with the Drivers search page</li>
+					<li>That search page has prefilled Justification, Who the search is for, Reason code (from user's original Vehicles search) and the details of the person (from Vehicles record) </li>
+				</ul>
+				<h4 class="govuk-heading-m">
+					Other changes
+				</h4>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Service error messages now include a reference ID (which needs to be shared when raising a fault)</li>
+					<li>Update to Global Navigation code (back-end)</li>
+					<li>Back-end fix to justification field error in PDF</li>
+					<li>Backend code update for PDF generation</li>
+				</ul>
+				<p>
+					<a href="#" class="govuk-link">View release 1.7.0 notes</a> (in LEDS Knowledge Hub)
+				</p>
+
+				<hr class="govuk-section-break govuk-section-break--visible">
+
+				{# Release 1.6.2 #}
+				<h3 class="govuk-heading-l govuk-!-padding-top-6">
+					27/09/2023
+				</h3>
+				<h4 class="govuk-heading-m">
+					Onboarding BCH
+				</h4>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Bedfordshire, Cambridgeshire and Hertfordshire (BCH) are onboarded to LEDS Vehicles</li>
+				</ul>
+				<p>
+					<a href="#" class="govuk-link">View release 1.6.2 notes</a> (in LEDS Knowledge Hub)
+				</p>
+
+				{# Previous releases accordion #}
+				<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+						13/09/2023 (Release 1.6.0)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+					<p class="govuk-body">This is the content for Release 1.6.0.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+							30/08/2023 (Release 1.5.6)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+					<p class="govuk-body">This is the content for Release 1.5.6.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+						14/08/2023 (Release 1.5.1)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+					<p class="govuk-body">This is the content for Release 1.5.1.</p>
+					</div>
+				</div>
+				<div class="govuk-accordion__section">
+					<div class="govuk-accordion__section-header">
+					<h2 class="govuk-accordion__section-heading">
+						<span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+							06/08/2023 (Release 1.4.0)
+						</span>
+					</h2>
+					</div>
+					<div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+					<p class="govuk-body">This is the content for Release 1.4.0.</p>
+					</div>
+				</div>
+				</div>
+
+			</div>
+
+			{# Planned functionality #}
+			<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="planned-functionality">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Planned functionality</h2></span>
+				<p class="govuk-body">
+					The list below includes only significant pieces of upcoming functionality. Priorities can change due to user feedback and unforseen dependencies, so please check regularly for updates.
+					 <h4 class="govuk-heading-m">
+					 	Early 2024
+					 </h4>
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Historic insurance for today's date
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Enable users to enter today's date when searching for past insurance (as past insurance can be used for all policing purposes).
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Update functionality (1st release)
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Ability for users (with the appropriate entitlement) to create and update police records, and add and update police reports.
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Basic enquiry entitlement
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Offer an entitlement where users will have access to vehicle and keeper details, including status of insurance but without any further insurance details.
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Update functionality (2nd release)
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Extend Update functionality to deleting and pair/deleting reports, blocking and unblocking records, and adding Pol Exam marker.
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Previous vehicle details
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Introduce a new page on each record, where previous vehicle details are displayed for that VRM (if any exist). Particularly useful for VRMs that are not currently on a vehicle.
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Display motability marker
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Introduce a new DVLA marker to indicate a vehicle is part of the Motability scheme
+							</dd>
+						</div>
+					</dl>
+
+					<h4 class="govuk-heading-m">
+						Later in 2024
+					</h4>
+					The following functionality is also planned to be delivered within 2024:
+					<ul class="govuk-list govuk-list--bullet">
+						<li>Search by VIN</li>
+						<li>Search by Post code</li>
+						<li>Search by partial VRM</li>
+						<li>Advanced search (VODS replacement)</li>
+						<li>Present more DVLA data, such as history of VRMs and Keepers</li>
+				</div>
+
+			{# Known issues #}
+			<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="known-issues">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">Known issues</h2></span>
+				<h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+					When searching for police vehicles in LEDS, the registered keeper details are blank
+				</h3>
+				<p class="govuk-body">
+					DVLA are suppressing the fleet details from LEDS because of how they treat they have to treat restricted data in the new API.
+					We have stressed the importance of accessing this data in LEDS.
+				</p>
+				<p class="govuk-body">
+					DVLA may be able to provide us with a code which will indicate that the record is a police fleet vehicle. We are waiting to hear
+					if this is possible. We hope that this could be done fairly soon.
+				</p>
+				<p class="govuk-body">
+					In order to provide all the vehicle record data for fleet vehicles, they need to do more work. They are currently working on a
+					number of different priorities, including getting ready to deliver the capability for VODS, Partial VRM, Postcode and VIN searches
+					in LEDS. The aim is to get all of that work completed by June 2024, but we are yet to receive a plan. We expect that sometime in
+					late November.
+				</p>
+
+			</div>
+
+			{# FAQ #}
+			<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="faq">
+				<span class="govuk-visually-hidden"><h2 class="govuk-heading-l">FAQ</h2></span>
+				<p class="govuk-body">
+					We'll keep updating these Frequently Asked Questions based on your feedback.
+				</p>
+
+			{# Accordions with FAQ sections #}
+			<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+			<div class="govuk-accordion__section">
+				<div class="govuk-accordion__section-header">
+				<h2 class="govuk-accordion__section-heading">
+					<span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+					Entitlements
+					</span>
+				</h2>
+				</div>
+				<div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+				<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+				<p class="govuk-body">Answer ipsum lorem</p>
+				<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+				<p class="govuk-body">Answer ipsum lorem</p>
+				</div>
+			</div>
+			<div class="govuk-accordion__section">
+				<div class="govuk-accordion__section-header">
+				<h2 class="govuk-accordion__section-heading">
+					<span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+						Search
+					</span>
+				</h2>
+				</div>
+				<div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+				</div>
+			</div>
+			<div class="govuk-accordion__section">
+				<div class="govuk-accordion__section-header">
+				<h2 class="govuk-accordion__section-heading">
+					<span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+					Technical
+					</span>
+				</h2>
+				</div>
+				<div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+				</div>
+			</div>
+			<div class="govuk-accordion__section">
+				<div class="govuk-accordion__section-header">
+				<h2 class="govuk-accordion__section-heading">
+					<span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+						Update functionality
+					</span>
+				</h2>
+				</div>
+				<div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+					<p class="govuk-body govuk-!-margin-bottom-0"><strong>Question lorem ipsum</strong></p>
+					<p class="govuk-body">Answer ipsum lorem</p>
+				</div>
+			</div>
+			</div>
+
+		</div>
+
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+Error: Create new report – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-padding-right-9">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {% if data['error'] == 'add-pol-exam' %}
+              <li>
+                <a href="#polexam">Select if you need to add a Pol Exam marker</a>
+              </li>
+            {% endif %}
+            {% if data['error'] == 'no-force-station' %}
+              <li>
+                <a href="#code">Enter the Force/Station responsible</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+{% if data['error'] == 'add-pol-exam' %}
+  <div class="govuk-form-group govuk-form-group--error">
+{% endif %}
+
+<div class="govuk-caption-l">Edit record</div>
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Do you need to add a Pol Exam marker?
+    </h1>
+  </legend>
+
+  {% if data['error'] == 'add-pol-exam' %} 
+    <p id="do-you-need-to-add-a-pol-exam-marker-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Select if you need to add a Pol Exam marker
+    </p>
+  {% endif %}
+
+  <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            {% if data['error'] == 'no-force-station' %}
+              <input class="govuk-radios__input" id="polexam" name="polexam" type="radio" value="yes" data-aria-controls="conditional-polexam-Yes" checked>
+            {% else %}
+              <input class="govuk-radios__input" id="polexam" name="polexam" type="radio" value="yes" data-aria-controls="conditional-polexam-Yes">
+            {% endif %}
+            <label class="govuk-label govuk-radios__label" for="polexam">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-polexam-Yes">
+            <div class="govuk-form-group govuk-!-width-two-thirds">
+
+            {% if data['error'] == 'no-force-station' %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% endif %}
+
+                <label class="govuk-label govuk-label--s" for="country">
+                  Force/Station responsible
+                </label>
+                <div id="changed-name-hint" class="govuk-hint">
+                  Enter Force/Station code or unit name
+                </div>
+
+                {% if data['error'] == 'no-force-station' %} 
+                  <p id="select-force-station-responsible-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Enter the Force/Station responsible
+                  </p>
+                {% endif %}
+
+                <select class="govuk-select" id="code" name="code" >
+                  {% block codesPolExam %}
+                  {% include "includes/codes.html" %}
+                  {% endblock %}
+                </select>
+              </div>
+
+            {% if data['error'] == 'no-force-station' %}
+            </div>
+            {% endif %}
+
+            </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="polexam-2" name="polexam" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="polexam-2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+
+{% if data['error'] == 'add-pol-exam' %}
+  </div>
+{% endif %}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+    <div class="govuk-button-group">
+      <a href="./overview-updated" role="button" draggable="false" class="govuk-button" data-module="govuk-button" style="float:left">Add Pol Exam marker</a>
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel</a>
+    </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      {% block side %}
+      {% include "includes/record-overview-dvla-side.html" %}
+      {% endblock %}
+    </div>
+
+</div>
+
+
+{% endblock %}

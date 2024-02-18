@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Driver details
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs top_controls">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="search.html">Search</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="search_results.html">Search results</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Driver details
+      </li>
+    </ol>
+    <a href="search.html" class="new_search">New search</a>
+  </div>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row driver_summary warning">
+    <div class="govuk-grid-column-one-quarter ">
+      <a href="enlarge_image.html" title="Click to enlarge image"><img src="/public/images/driver.jpg" alt="driver photo" class="govuk-!-margin-3 govuk-!-display-inline-block"></a>
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-grid-row ">
+        <h2 class="header_data first_item"><span class="header_data_title">Name</span>HORROBIN, John Edward</h2>
+        <h2 class="header_data"><span class="header_data_title">Date of birth</span>02/01/1987</h2>
+      </div>
+      <div class="govuk-grid-row ">
+        <h2 class="header_data first_item"><span class="header_data_title">Licence type - status</span><strong class="govuk-tag govuk-tag--red">
+  Full - Revoked until test passed
+</strong></h2>
+        <h2 class="header_data"><span class="header_data_title">Total valid points</span>9 points</h2>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row govuk-!-margin-top-3">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item menu_list_item-active">
+              <a href="driver_details.html" class="menu_list_item_link">
+                Driver details
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="endorsements.html" class="menu_list_item_link">
+                Endorsements
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="entitlements.html" class="menu_list_item_link">
+                Entitlements
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="test_passes.html" class="menu_list_item_link">
+                Test passes
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    <div class="govuk-grid-column-three-quarters-from-desktop">
+<div class="govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-l" id="driverDetailsSection">
+        Driver details
+      </h2>
+      <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Place of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      United Kingdom
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Sex
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Male
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      72 Guild Street<br>London<br>SE23 6FH
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Markers
+    </dt>
+    <dd class="govuk-summary-list__value markers">
+      <strong class="govuk-tag govuk-tag govuk-tag--yellow govuk-!-margin-bottom-1">Transmission - Automatic only restrictions apply</strong>
+      <strong class="govuk-tag govuk-tag govuk-tag--yellow govuk-!-margin-bottom-1">Eyesight - Needs glasses/corrective lenses for higher standard only</strong>
+      <strong class="govuk-tag govuk-tag govuk-tag--yellow govuk-!-margin-bottom-1">Hearing impairment - Able to communicate</strong>
+    </dd>
+  </div>
+  </dl>
+  </div>
+  <div class="govuk-!-margin-bottom-9">
+  <h2 class="govuk-heading-m">Record details</h2>
+  <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Driver number
+  </dt>
+  <dd class="govuk-summary-list__value">
+  HORRO501108C99PC
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Licence issue number
+  </dt>
+  <dd class="govuk-summary-list__value">
+  33
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Revoked start date
+    </dt>
+    <dd class="govuk-summary-list__value">
+    15/02/2019
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Photocard valid from
+    </dt>
+    <dd class="govuk-summary-list__value">
+    23/05/2015
+    </dd>
+  </div><div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Photocard valid to
+    </dt>
+    <dd class="govuk-summary-list__value">
+    23/05/2025
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Photocard invitation letter sent
+    </dt>
+    <dd class="govuk-summary-list__value">
+    -
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Driving instructor
+    </dt>
+    <dd class="govuk-summary-list__value">
+    No
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Military
+    </dt>
+    <dd class="govuk-summary-list__value">
+    No
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Death notification date
+    </dt>
+    <dd class="govuk-summary-list__value">
+    -
+    </dd>
+  </div>
+  </dl>
+  </div>
+  <table class="govuk-table driverTable">
+    <caption class="govuk-table__caption govuk-table__caption--m govuk-heading-m">Previous driver records</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Driver number</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Date of birth</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header driverTableHeaderBreak">HORRO501108C99PC</th>
+        <td class="govuk-table__cell driverTableBreak"> HORROBIN, John Edward</td>
+        <td class="govuk-table__cell">02/01/1987</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header driverTableHeaderBreak">SMITH501108C99PC</th>
+        <td class="govuk-table__cell driverTableBreak">SMITH, John Edward</td>
+        <td class="govuk-table__cell">02/01/1987</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+{% endblock %}

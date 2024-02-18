@@ -1,0 +1,165 @@
+{% extends "layout-menu-3.html" %}
+
+{% block pageTitle %}
+  CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="./search">Vehicle search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="./overview-safe" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <a href="./export-confirm-2a" style="float:right" class="govuk-link govuk-!-margin-top-2">Export record</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="hods-alert hods-alert--success govuk-!-margin-top-1">
+        <h2 class="hods-alert__heading">
+          Vehicle record information downloaded as PDF
+        </h2>
+      </div>
+
+{% block carheader %}
+{% include "includes/carheader.html" %}
+{% endblock %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <aside class="" role="complementary">
+        <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+        <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+          <ul class="menu_list govuk-!-font-size-16">
+            <li class="menu_list_item menu_list_item-active">
+              <a href="./overview-safe" class="menu_list_item_link">
+                Overview
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./insurance" class="menu_list_item_link">
+                Insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./past-insurance" class="menu_list_item_link">
+                Past insurance
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./MOT" class="menu_list_item_link">
+                MOT history
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./markers" class="menu_list_item_link">
+                DVLA markers
+              </a>
+            </li>
+            <li class="menu_list_item">
+              <a href="./previous-keeper" class="menu_list_item_link">
+                Previous keeper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter info-box">
+      <div class="govuk-grid-row grey-margin-top">
+        <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Hazards</h2>
+      </div>
+      <div class="govuk-grid-row grey-margin-bottom">
+        <p class="govuk-!-margin-left-2 govuk-!-margin-right-6"><strong class="govuk-tag govuk-tag--grey">
+          None
+        </strong></p>
+        <p class="govuk-body govuk-!-margin-bottom-2">&nbsp</p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter info-box">
+      <div class="govuk-grid-row grey-margin-top">
+        <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2">Police information</h2>
+      </div>
+      <div class="govuk-grid-row grey-margin-bottom">
+        <p class="govuk-!-margin-left-2 govuk-!-margin-right-6"><strong class="govuk-tag govuk-tag--grey">
+          None
+        </strong></p>
+        <p class="govuk-body govuk-!-margin-bottom-2">&nbsp</p>
+    </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter info-box">
+      <div class="govuk-grid-row yellow-margin-top">
+        <h2 class="govuk-heading-s govuk-!-margin-left-3 govuk-!-margin-bottom-2" >DVLA markers</h2>
+      </div>
+      <div class="govuk-grid-row yellow-margin-bottom">
+        <p class="govuk-!-margin-left-2">
+          <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+            Colour changed
+          </strong>
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-2">&nbsp</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <p>&nbsp</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <a href="./insurance" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Insurance held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 11/12/2023</p>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+        <a href="./MOT" class="govuk-link govuk-link--no-underline govuk-link--inverse">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp MOT held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 06/04/2023</p>
+        </a>
+      </div>
+      <div class="govuk-grid-column-one-quarter green-status-box">
+          <p class="govuk-heading-s govuk-!-margin-left-0 govuk-!-margin-right-0 govuk-!-margin-top-3 govuk-!-margin-bottom-2" style="text-align: center; color: #ffffff">&#10003; &nbsp Tax held</p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3" style="text-align: center; color: #ffffff">Expiry date: 11/12/2023</p>
+      </div>
+<!--
+      <div class="govuk-grid-column-one-quarter">
+        <p>&nbsp</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter">
+        <details class="govuk-details govuk-!-padding-top-2 govuk-!-margin-bottom-0" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Types of insurance held
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+              Private<br>
+              Commercial
+          </div>
+        </details>
+      </div>
+      </div>
+-->
+
+                  </div>
+
+{% endblock %}

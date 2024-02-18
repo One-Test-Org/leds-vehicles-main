@@ -1,0 +1,474 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+CF60 POP - Overview – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/search">Vehicles search</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Vehicle record <span><a href="/overview-boxes" style="color: #F3F3F3">&nbsp SWAP</a></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block carheader %}
+
+
+<div class="govuk-grid-row govuk-!-padding-5" style="background-color: white; border-bottom: 4px solid #1d70b8">
+
+
+  <p>
+    <strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 7px; border-bottom-width: 0px; border-color: red">
+      Hazards
+    </strong>
+    <strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 7px; border-bottom-width: 0px; border-color: red">
+    Stolen
+  </strong>
+
+</p>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-row govuk-!-padding-bottom-3">
+
+        <div class="govuk-grid-column-one-third ">
+          <p class="govuk-body govuk-!-margin-bottom-0">VRM</p>
+          <p class="govuk-body govuk-!-font-size-27 govuk-!-font-weight-bold">CF60 POP</p>
+          <p class="govuk-body govuk-!-margin-bottom-0">VIN</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5YJSA1DG9DFP14705</p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body govuk-!-margin-bottom-0">Make/model</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2 ">Mercedes Benz, C-Class</p>
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-5">Body type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">5 door saloon</p>
+        </div>
+        <div class="govuk-grid-column-one-quarter" style="border-style: solid; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; border-right-width: 2px; border-color: grey">
+          <p class="govuk-body govuk-!-margin-bottom-0">Colour</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Turquoise &amp; Orange</p>
+          <p class="govuk-body govuk-!-margin-top-5 govuk-!-margin-bottom-0">Fuel type</p>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Electric</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="govuk-grid-column-one-third-from-desktop">
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Registered keeper</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Bob Salmon</p>
+      </div>
+      <div class="govuk-grid-column-one-half" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-bottom-0">Keeper since</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">1 Sep 2022</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="background-color: transparent">
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0">Registered keeper address</p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">72 Guild Street, London, SE23 6FH</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="govuk-grid-row govuk-!-padding-right-3">
+  <div class="govuk-grid-column-full">
+
+
+
+<!-- govuk-details__text govuk-!-padding-right-5 -->
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      View more vehicle information
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          52WVC10338
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engine capacity
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2000cc
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/12/2010
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of first DVLA registration
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20/12/2010
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tax class
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Electric
+        </dd>
+      </div>
+
+
+      <!-- <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+      Transponder tag number
+    </dt>
+    <dd class="govuk-summary-list__value">
+    -
+  </dd>
+</div>
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Record owner
+</dt>
+<dd class="govuk-summary-list__value">
+-
+</dd>
+</div>
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Record creator
+</dt>
+<dd class="govuk-summary-list__value">
+-
+</dd>
+</div> -->
+</dl>
+  </div>
+</details>
+
+</div>
+</div>
+</div>
+<br>
+<br>
+{% endblock %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <aside class="" role="complementary">
+      <h2 class="govuk-visually-hidden" id="app-subnav-heading">Pages in this section</h2>
+      <nav role="navigation" aria-labelledby="subsection-title" class="menu">
+        <ul class="menu_list govuk-!-font-size-16">
+          <li class="menu_list_item menu_list_item-active">
+            <a href="/next/overview" class="menu_list_item_link">
+              Overview
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-insurance" class="menu_list_item_link">
+              Insurance
+            </a>
+          </li>
+          <li class="menu_list_item ">
+            <a href="/next/insurance-past-check" class="menu_list_item_link">
+              Past insurance
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-MOT" class="menu_list_item_link">
+              MOT history
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-markers" class="menu_list_item_link">
+              DVLA markers
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-tax" class="menu_list_item_link">
+              Tax
+            </a>
+          </li>
+          <li class="menu_list_item">
+            <a href="/next/no-previous-keeper" class="menu_list_item_link">
+              Previous keeper
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2" style="">
+      <h2 class="govuk-heading-s">Hazards</h2>
+      <p><strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+        Occupants potentially dangerous
+      </strong></p>
+      <p><strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+        Chemical
+      </strong></p>
+      <p><strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+        Weapons
+      </strong></p>
+          <p class="govuk-body govuk-!-margin-bottom-2">&nbsp</p>
+
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h2 class="govuk-heading-s">Police information</h2>
+      <p>
+        <p><strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+          Lost/Stolen
+        </strong>
+      </p>
+      <p>
+        <p><strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+          Action
+        </strong>
+      </p>
+      <p>
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Information (2)
+        </strong>
+      </p>
+      <p>
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Reaction
+        </strong>
+      </p>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: white; border-style: solid; border-left-width: 5px; border-right-width: 5px; border-color: #f3f2f1">
+    <div class="govuk-!-padding-top-2">
+      <h2 class="govuk-heading-s">DVLA markers</h2>
+      <p>
+        <strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+          Unreliable record
+        </strong>
+      </p>
+      <p class="govuk-!-margin-bottom-2">
+        <strong class="govuk-tag govuk-tag--yellow" style="border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: #ffdd00">
+          Colour changed
+        </strong>
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-7">&nbsp</p>
+        <p class="govuk-body govuk-!-margin-bottom-3">&nbsp</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row govuk-!-padding-top-5">
+  <div class="govuk-grid-column-one-quarter">
+    <p>&nbsp</p>
+  </div>
+  <hr style="border-style: solid; border-color: #CBCBCB">
+  <br>
+  <div class="govuk-grid-column-one-quarter" style="background-color: #CCE2D8; border-style: solid; border-top-width: 7px; border-bottom-width: 7px; border-top-color:#00703C; border-bottom-color:#00703C; border-left-width: 7px; border-right-width: 7px; border-right-color: white; border-left-color: white">
+    <a href="/insurance" class="govuk-link govuk-link--no-underline" style="text-decoration-color:#00703C;">
+      <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #00703C">&#10003; &nbsp Insured</p>
+      <p class="class=govuk-body" style="text-align: center; color: #00703C">Expiry date: 11 Dec 2022</p>
+    </a>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: #CCE2D8; border-style: solid; border-top-width: 7px; border-bottom-width: 7px; border-top-color:#00703C; border-bottom-color:#00703C; border-left-width: 7px; border-right-width: 7px; border-right-color: white; border-left-color: white">
+    <a href="/MOT" class="govuk-link govuk-link--no-underline" style="text-decoration-color:#00703C;">
+      <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #00703C">&#10003; &nbsp MOT</p>
+      <p class="class=govuk-body" style="text-align: center; color: #00703C">Expiry date: 10 Nov 2022</p>
+    </a>
+  </div>
+  <div class="govuk-grid-column-one-quarter" style="background-color: #F6D7D2; border-style: solid; border-top-width: 7px; border-bottom-width: 7px; border-top-color:#942514; border-bottom-color:#942514; border-left-width: 7px; border-right-width: 7px; border-right-color: white; border-left-color: white">
+    <a href="/MOT" class="govuk-link govuk-link--no-underline" style="text-decoration-color:#942514;">
+      <p class="govuk-heading-m govuk-!-margin-2" style="text-align: center; color: #942514">&#x2718 &nbsp Not taxed</p>
+      <p class="class=govuk-body" style="text-align: center; color: #942514">Expired: 19 May 2022</p>
+    </a>
+  </div>
+  </div>
+
+
+<br><br>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">&nbsp</div>
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+caption: "Police information",
+captionClasses: "govuk-table__caption--l",
+firstCellIsHeader: true,
+head: [
+{
+text: "Report type"
+},
+{
+text: "Notes"
+},
+{
+text: "Owner"
+},
+{
+text: "Created"
+}
+],
+rows: [
+[
+{
+html: '<a href="#" class="govuk-link">Reaction<br>(X73P1238GE6179)</a>'
+},
+{
+html: 'Vehicle stopped and searched. Three males arrested in 01LX. One charged with PWITS, one charged with Assualt on Police. CRIS ref 22/9874561X.
+<!-- REINTRODUCE WHEN WE GET THE DATA
+<p class="govuk-inset-text govuk-!-margin-bottom-2 govuk-!-margin-top-2">Linked report: <a href="/reports-action" class="govuk-link">Action (E94F9390DE3893)</a></p>
+-->
+'
+},
+{
+text: "FS10"
+},
+{
+text: "20 Jul 2022"
+}
+],
+[
+{
+html: '<a href="#" class="govuk-link">Lost/Stolen<br>(E34Y9340TY3293)</a>'
+},
+{
+text: "Keystaken. Stolen from the car park, AZTEC Hotel, Almonsbury, Bristol between 2100-0730HRS. Guardian REF No 1663/18 Force Service centre dealing"
+},
+{
+text: "07A1"
+},
+{
+text: "15 Mar 2022"
+}
+],
+[
+{
+html: '<a href="/reports-action" class="govuk-link">Action<br>(E94F9390DE3893)</a><br>
+'
+},
+{
+html: '
+<strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+Occupants potentially dangerous
+</strong>
+<strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+Weapons
+</strong><br>
+HIGH STOP CRIME. Vehicle believed to contain 01/123456A wanted for murder, consider armed. Contact OIC if sighted, if stopped detain all occupants and seize vehicle for forensics, OIC DI DOE 02081237634
+<!-- REINTRODUCE WHEN WE GET THE DATA
+<p class="govuk-inset-text govuk-!-margin-bottom-2 govuk-!-margin-top-2">Linked report: <a href="#" class="govuk-link"><strong>Reaction (X73P1238GE6179)</strong></a></p>
+-->'
+},
+{
+html: 'FS10'
+},
+{
+html: '15 Mar 2022'
+}
+],
+[
+{
+html: '<a href="#" class="govuk-link">Information<br>(B42G9179RW3911)</a><br>
+'
+},
+{
+html: '
+<strong class="govuk-tag govuk-tag--red" style="color: red; border-style: solid; border-left-width: 7px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-color: red">
+Chemical
+</strong>
+<br>
+Boot of stolen vehicle contained farming pesticides and emergency flare in glove compartment.'
+},
+{
+text: "FS10"
+},
+{
+text: "11 Mar 2022"
+}
+],
+[
+{
+html: '<a href="#" class="govuk-link">Information<br>(O31Q9415HI1321)</a>'
+},
+{
+text: "Checked at 0825HRS in wooded area at rear of Banner Lane, Tunstall. Vehicle doors locked but boot insecure (no sign of forced entry). PC 73 Grant on 01273 480480 dealing. "
+},
+{
+text: "25UC"
+},
+{
+text: "22 Feb 2022"
+}
+]
+]
+}) }}
+
+<!-- REINTRODUCE WHEN WE GET THE DATA
+
+<div class="govuk-!-margin-bottom-9 govuk-!-margin-top-5">
+
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--l">Police markers</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Marker type</th>
+        <th scope="col" class="govuk-table__header">Details</th>
+        <th scope="col" class="govuk-table__header">Updated by</th>
+        <th scope="col" class="govuk-table__header">Updated on</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">POL EXAM</th>
+        <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell">Dorset Police</td>
+        <td class="govuk-table__cell">14 Mar 2022</td>
+      </tr>
+    </tbody>
+  </table>
+
+<hr class="govuk-section-break govuk-section-break--m"><a id=""></a>
+-->
+
+</div>
+</div>
+
+{% endblock %}

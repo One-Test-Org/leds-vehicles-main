@@ -1,0 +1,160 @@
+{% extends "layout-menu-new.html" %}
+
+{% block pageTitle %}
+  Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/search">Search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search for a vehicle</h1>
+
+  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="width:63%">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There are no results based on your search criteria
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list" style="color: red; font-weight: bold">
+        <li>
+          This is an GEO vehicle. Please contact GEO directly.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/after-search" method="post">
+
+  {{ govukInput({
+    label: {
+      classes: "govuk-label--s",
+      text: "Justification"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, crime reference, location or collar number"
+    },
+    value: "",
+    id: "justification",
+    name: "justification"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      classes: "govuk-label--s",
+      text: "On behalf of (Optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, PC Jones (12345)"
+    },
+    id: "on-behalf-of",
+    name: "on-behalf-of"
+  }) }}
+
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "reason-code",
+  name: "reason-code",
+  label: {
+    classes: "govuk-label--s",
+    text: "Reason code"
+  },
+  items: [
+  {
+    value: "Select",
+    text: "Select a reason code",
+    selected: true
+  },
+  {
+      value: "1",
+      text: "1 - Vehicle and/or person stopped (e.g. in a street check)"
+  },
+    {
+      value: "2",
+      text: "2 - Moving vehicle"
+    },
+    {
+      value: "3",
+      text: "3 - Abandoned or parked and unattended"
+    },
+    {
+      value: "4",
+      text: "4 - Vehicles involved in a road traffic collision"
+    },
+    {
+      value: "5",
+      text: "5 - Subject of process or investigation (e.g. in custody)"
+    },
+    {
+      value: "6",
+      text: "6 - Administration"
+    },
+    {
+      value: "7",
+      text: "7 - Enquiries relating to family protection issues"
+    },
+    {
+      value: "8",
+      text: "8 - On behalf of other authorised agency"
+    },
+    {
+      value: "9",
+      text: "9 - Update, Confirm, Broadcast"
+    },
+    {
+      value: "0",
+      text: "0 - Transaction log and audit checks"
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    classes: "govuk-label--s",
+    text: "Vehicle Registration Mark (VRM)"
+  },
+  classes: "govuk-input--width-10",
+  id: "VRM",
+  name: "VRM"
+}) }}
+
+<!--{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "You're personally responsible for the information you provide, even if you're performing this quert on behalf of someone else.",
+  classes: "govuk-!-width-two-thirds",
+  iconFallbackText: "Warning"
+}) }}
+-->
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text" style="width:63%">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    You're personally responsible for the information you provide, even if you're performing this query on behalf of someone else.
+  </strong>
+</div>
+
+  <button class="govuk-button" data-module="govuk-button">Search</button>
+
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}

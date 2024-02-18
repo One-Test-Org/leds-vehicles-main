@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">LEDS Home</a>
+  </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="search">Vehicles search</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Search for a vehicle</h1>
+
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  <form class="form" action="/signed-off/boxes/overview-safe" method="post">
+
+  {{ govukInput({
+    label: {
+      classes: "govuk-label--s",
+      text: "Justification"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, incident reference, location, power used"
+    },
+    id: "justification",
+    name: "justification"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      classes: "govuk-label--s",
+      text: "On behalf of (Optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    hint: {
+    text: "For example, PC Jones (12345)"
+    },
+    id: "on-behalf-of",
+    name: "on-behalf-of"
+  }) }}
+
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "reason-code",
+  name: "reason-code",
+  label: {
+    classes: "govuk-label--s",
+    text: "Reason code"
+  },
+  items: [
+  {
+    value: "Select",
+    text: "Select a reason code",
+    selected: true
+  },
+  {
+    value: "0",
+    text: "0 - Transaction log and audit checks"
+  },
+  {
+      value: "1",
+      text: "1 - Vehicle and/or person stopped"
+  },
+    {
+      value: "2",
+      text: "2 - Moving vehicle"
+    },
+    {
+      value: "3",
+      text: "3 - Abandoned or parked and unattended vehicle"
+    },
+    {
+      value: "4",
+      text: "4 - Vehicles involved in a road traffic collision"
+    },
+    {
+      value: "5",
+      text: "5 - Subject of process or investigation"
+    },
+    {
+      value: "6",
+      text: "6 - Administration"
+    },
+    {
+      value: "7",
+      text: "7 - Enquiries relating to family protection issues"
+    },
+    {
+      value: "8",
+      text: "8 - On behalf of other authorised agency"
+    },
+    {
+      value: "9",
+      text: "9 - Update, Confirm, Broadcast"
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    classes: "govuk-label--s",
+    text: "Vehicle Registration Mark (VRM)"
+  },
+  classes: "govuk-input--width-10",
+  id: "VRM",
+  name: "VRM"
+}) }}
+
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">Search</button>
+  <a class="govuk-link" href="#">Clear search</a>
+</div>
+
+</form>
+
+<!--
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search",
+  href: "/overview-alt"
+}) }}
+-->
+{% endblock %}
