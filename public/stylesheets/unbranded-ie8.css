@@ -10137,7 +10137,9 @@ footer {
   box-shadow: 0 50vh 0 50vh #FFF;
 }
 
-*, a, .govuk-breadcrumbs__link {
+*,
+a,
+.govuk-breadcrumbs__link {
   font-family: "Roboto", arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10189,7 +10191,8 @@ mark::after {
   content: " [highlight end] ";
 }
 
-.mobile-menu, .mobile-nav {
+.mobile-menu,
+.mobile-nav {
   display: none;
   text-decoration: none;
 }
@@ -10204,7 +10207,8 @@ mark::after {
   text-decoration: none;
 }
 
-.menu, .mobile-nav {
+.menu,
+.mobile-nav {
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10314,11 +10318,15 @@ mark::after {
     display: flex;
   }
 
-  .menu, .header-logo, .header-title {
+  .menu,
+.header-logo,
+.header-title {
     display: none;
   }
 
-  .mobile-menu, .header-title, .header-name {
+  .mobile-menu,
+.header-title,
+.header-name {
     display: inline;
   }
 }
@@ -10427,7 +10435,8 @@ mark::after {
     background-color: #0b0c0c;
   }
 
-  .govuk-notification-banner__title, .govuk-caption-l {
+  .govuk-notification-banner__title,
+.govuk-caption-l {
     color: #0b0c0c;
   }
 
@@ -10462,11 +10471,13 @@ mark::after {
     width: 100%;
   }
 
-  .driver_name, .classification {
+  .driver_name,
+.classification {
     float: left;
   }
 
-  .created, .page {
+  .created,
+.page {
     float: right;
   }
 
@@ -10475,7 +10486,8 @@ mark::after {
       display: none;
     }
   }
-  .mobile-menu, footer {
+  .mobile-menu,
+footer {
     display: none;
   }
 
@@ -10519,7 +10531,9 @@ mark::after {
     margin-top: 20pt;
   }
 
-  .expandbox_contents, .expandbox, .govuk-summary-list_print {
+  .expandbox_contents,
+.expandbox,
+.govuk-summary-list_print {
     page-break-inside: avoid;
   }
 
@@ -10589,7 +10603,9 @@ mark::after {
     font-weight: 700;
   }
 
-  .govuk-summary-list__key_print, .govuk-summary-list__value_print, .govuk-summary-list__actions_print {
+  .govuk-summary-list__key_print,
+.govuk-summary-list__value_print,
+.govuk-summary-list__actions_print {
     display: table-cell;
     padding-top: 5px;
     padding-right: 20px;
@@ -10625,7 +10641,8 @@ mark::after {
   position: relative;
 }
 
-.autocomplete__hint, .autocomplete__input {
+.autocomplete__hint,
+.autocomplete__input {
   -webkit-appearance: none;
   border: 2px solid #0b0c0c;
   border-radius: 0;
@@ -10729,7 +10746,8 @@ mark::after {
   background-color: #fafafa;
 }
 
-.autocomplete__option--focused, .autocomplete__option:hover {
+.autocomplete__option--focused,
+.autocomplete__option:hover {
   background-color: #1d70b8;
   border-color: #1d70b8;
   color: #fff;
@@ -10746,7 +10764,8 @@ mark::after {
     color: FieldText;
   }
 
-  .autocomplete__option--focused, .autocomplete__option:hover {
+  .autocomplete__option--focused,
+.autocomplete__option:hover {
     forced-color-adjust: none;
     background-color: SelectedItem;
     border-color: SelectedItem;
@@ -10760,18 +10779,106 @@ mark::after {
   cursor: not-allowed;
 }
 
-.autocomplete__hint, .autocomplete__input, .autocomplete__option {
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
   font-size: 16px;
   line-height: 1.25;
 }
 
-.autocomplete__hint, .autocomplete__option {
+.autocomplete__hint,
+.autocomplete__option {
   padding: 5px;
 }
 
 @media (min-width: 641px) {
-  .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+  .autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
     font-size: 19px;
     line-height: 1.31579;
   }
+}
+.date-picker-container {
+  position: relative;
+}
+.date-picker-container span {
+  font-weight: 400;
+  font-family: "Roboto";
+  display: inline-block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (min-width: 40.0625em) {
+  .date-picker-container span {
+    font-size: 1.1875rem;
+    font-size: 19px;
+    line-height: 1.3157894737;
+  }
+}
+.date-picker-container .date-spans {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.date-picker-container .date-spans .date-section {
+  padding: 0 2px;
+}
+.date-picker-container .date-spans .date-picker-announce {
+  position: absolute;
+  left: -9999px;
+}
+@media (min-width: 40.0625em) {
+  .date-picker-container .date-spans {
+    top: 8px;
+    left: 6px;
+  }
+}
+.date-picker-container .date-input {
+  font-weight: 400;
+  font-family: "Roboto";
+  caret-color: transparent;
+  cursor: default;
+  color: white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none !important;
+}
+.date-picker-container .date-input:focus {
+  outline: 3px solid #ddddff 0 !important;
+  box-shadow: inset 0 0 0 2px black !important;
+}
+.date-picker-container .date-input::selection {
+  background-color: transparent;
+}
+@media (min-width: 40.0625em) {
+  .date-picker-container .date-input {
+    font-size: 1.1875rem;
+    font-size: 19px;
+    line-height: 1.3157894737;
+    height: 40px;
+  }
+}
+.date-picker-container .calendar-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  cursor: pointer;
+}
+.date-picker-container .calendar-popover {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 999;
 }

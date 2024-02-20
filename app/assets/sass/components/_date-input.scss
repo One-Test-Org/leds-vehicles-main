@@ -1,0 +1,95 @@
+@use "src/styles";
+
+.date-picker-container {
+    position: relative;
+
+    span {
+        font-weight: 400;
+        font-family: "Roboto";
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        @media (min-width: 40.0625em) {
+            font-size: 1.1875rem;
+            font-size: 19px;
+            line-height: 1.3157894737;
+        }
+    }
+
+    .date-spans {
+        position: absolute;
+        top: 10px;
+        left: 6px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        .date-section {
+            padding: 0 2px;
+        }
+
+        .section-selected {
+            background-color: styles.$govuk-focus-colour;
+        }
+
+        .date-picker-announce {
+            position: absolute;
+            left: -9999px;
+        }
+
+        @media (min-width: 40.0625em) {
+            top: 8px;
+            left: 6px;
+        }
+    }
+
+    .date-input {
+        font-weight: 400;
+        font-family: "Roboto";
+        caret-color: transparent;
+        cursor: default;
+        color: white;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none !important;
+
+        &:focus {
+            outline: 3px solid #ddff 00 !important;
+            box-shadow: inset 0 0 0 2px black !important;
+        }
+
+        &::selection {
+            background-color: transparent;
+        }
+
+        @media (min-width: 40.0625em) {
+            font-size: 1.1875rem;
+            font-size: 19px;
+            line-height: 1.3157894737;
+            height: 40px;
+        }
+    }
+
+    .calendar-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .calendar-popover {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: 999;
+    }
+}

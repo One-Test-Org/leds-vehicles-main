@@ -1,0 +1,162 @@
+{% extends "layout-subnav.html" %}
+
+{% block pageTitle %}
+Search – {{ serviceName }} – Law Enforcement Data Service
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Date Picker Prototype test</h1>
+
+            <div class="govuk-form-group">
+                <label for="identifier" class="govuk-label govuk-label--l">Chose a date</label>
+                <div class="govuk-hint" id="identifier-hint">Select a date, for example 10/01/2020</div>
+
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+                <style>
+                    .date-input {
+                        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><polyline points="16 2 12 6 8 2"></polyline><line x1="12" y1="6" x2="12" y2="18"></line></svg>');
+                        background-repeat: no-repeat;
+                        background-position: right;
+                        padding-right: 30px;
+                        /* space for the icon */
+                    }
+                </style>
+                </head>
+
+                <body>
+                    <input id="datepicker" class="govuk-input govuk-input--width-10 date-input" type="text"
+                        placeholder="dd/mm/yyyy">
+                    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+                    <script>
+                        var picker = new Pikaday({
+                            field: document.getElementById('datepicker'),
+                            format: 'DD/MM/YYYY',
+                            onSelect: function () {
+                                console.log(this.getMoment().format('DD/MM/YYYY'));
+                            }
+                        });
+                    </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block additionalScripts %}
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const datePickerContainer = document.querySelector(".date-picker-container");
+        const input = document.querySelector(".date-input");
+        const calendarIcon = document.querySelector(".calendar-icon");
+        const calendarPopover = document.querySelector(".calendar-popover");
+        const calendar = document.getElementById("calendar");
+
+        let showCalendar = false;
+
+        // Function to toggle the calendar visibility
+        function toggleCalendar() {
+            if (!showCalendar) {
+                showCalendar = true;
+                calendarPopover.style.display = "block";
+            } else {
+                showCalendar = false;
+                calendarPopover.style.display = "none";
+            }
+        }
+
+        // Function to update the date input value
+        function updateDate(day, month, year) {
+            const newValue = `${day.toString().padStart(2, "0")}/${month
+                .toString()
+                .padStart(2, "0")}/${year}`;
+            input.value = newValue;
+        }
+
+        // Function to handle calendar date change
+        function handleCalendarDateChange(event) {
+            const selectedDate = new Date(event.target.dataset.date);
+            const day = selectedDate.getDate();
+            const month = selectedDate.getMonth() + 1; // January is 0
+            const year = selectedDate.getFullYear();
+            updateDate(day, month, year);
+            toggleCalendar();
+        }
+
+        // Add click event listener to calendar icon
+        calendarIcon.addEventListener("click", toggleCalendar);
+
+        // Initialize the date picker
+        input.addEventListener("focus", function () {
+            if (!showCalendar) {
+                showCalendar = true;
+                calendarPopover.style.display = "block";
+            }
+        });
+
+        // Initialize the calendar component
+        // Example simple HTML calendar
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+        calendar.innerHTML = generateCalendar(currentYear, currentMonth);
+
+        // Hide the calendar popover initially
+        calendarPopover.style.display = "none";
+
+        // Function to generate HTML for a given month
+        function generateCalendar(year, month) {
+            const firstDayOfMonth = new Date(year, month, 1);
+            const lastDayOfMonth = new Date(year, month + 1, 0);
+            const startDate = firstDayOfMonth.getDay(); // Day of the week (0-6) for the first day of the month
+            const endDate = lastDayOfMonth.getDate(); // Last day of the month
+
+            let html = `<table>`;
+            html += `<thead><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>`;
+            html += `<tbody><tr>`;
+
+            // Add empty cells before the start of the month
+            for (let i = 0; i < startDate; i++) {
+                html += `<td></td>`;
+            }
+
+            // Add days of the month
+            let day = 1;
+            while (day <= endDate) {
+                html += `<td><button class="calendar-day" data-date="${year}-${month + 1}-${day}">${day}</button></td>`;
+                if ((day + startDate) % 7 === 0) {
+                    html += `</tr><tr>`;
+                }
+                day++;
+            }
+
+            // Add empty cells after the end of the month
+            while ((day + startDate - 1) % 7 !== 0) {
+                html += `<td></td>`;
+                day++;
+            }
+
+            html += `</tr></tbody></table>`;
+            return html;
+        }
+
+        // Add event listener to calendar days
+        calendar.addEventListener("click", function (event) {
+            if (event.target.classList.contains("calendar-day")) {
+                handleCalendarDateChange(event);
+            }
+        });
+    });
+
+
+</script>
+
+{% endblock %}
